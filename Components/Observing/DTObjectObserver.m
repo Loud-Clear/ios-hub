@@ -15,9 +15,15 @@
 #import "KVOController.h"
 #import "DTMacroses.h"
 
-#ifdef __DTObjectObserver_DatabaseAddons__
-#import "DTObjectObserver+DatabaseAddons.h"
-#endif
+@protocol DTObjectObserverDatabaseSerialization <NSObject>
+
+- (BOOL)isSerializableKeyPath:(NSString *)key forInstance:(id)instance;
+
+- (NSString *)dataKeyFromObjectKey:(NSString *)key;
+
+- (NSDictionary *)deserializeValuesInChangeDictionary:(NSDictionary *)dictionary withObjectKey:(NSString *)objectKey instance:(id)instance;
+
+@end
 
 @interface DTObservationInfo : NSObject
 
@@ -225,22 +231,23 @@
         @weakify(self)
 
         NSString *keyToObserve = key;
-#ifdef __DTObjectObserver_DatabaseAddons__
-        BOOL isSerializableKey = [self isSerializableKeyPath:key forInstance:_objectToObserve];
-        if (isSerializableKey) {
-            keyToObserve = [self dataKeyFromObjectKey:key];
+        BOOL isSerializableKey = NO;
+        
+        if ([self hadDatabaseAdditionals]) {
+            isSerializableKey = [self.databaseAddon isSerializableKeyPath:key forInstance:_objectToObserve];
+            if (isSerializableKey) {
+                keyToObserve = [self.databaseAddon dataKeyFromObjectKey:key];
+            }
         }
-#endif
-
+    
         [_kvoController observe:_objectToObserve keyPath:keyToObserve options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
                               block:^(id observer, id object, NSDictionary<NSString *, id> *change) {
                                   @strongify(self)
-#ifdef __DTObjectObserver_DatabaseAddons__
                                   if (isSerializableKey) {
-                                      change = [self deserializeValuesInChangeDictionary:change
-                                                                           withObjectKey:key instance:self.objectToObserve];
+                                      change = [self.databaseAddon deserializeValuesInChangeDictionary:change
+                                                                                         withObjectKey:key
+                                                                                              instance:self.objectToObserve];
                                   }
-#endif
                                   [self didChangeObservedValueForKey:key change:change];
                               }];
     }
@@ -261,6 +268,20 @@
         if ([info.observedKeys containsObject:key]) {
             SafetyCall(block, info);
         }
+    }
+}
+
+- (BOOL)hadDatabaseAdditionals
+{
+    return [self respondsToSelector:@selector(isSerializableKeyPath:forInstance:)];
+}
+
+- (id<DTObjectObserverDatabaseSerialization>)databaseAddon
+{
+    if ([self hadDatabaseAdditionals]) {
+        return (id)self;
+    } else {
+        return nil;
     }
 }
 

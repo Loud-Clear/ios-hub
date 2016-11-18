@@ -10,9 +10,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import "DTObjectObserver+DatabaseAddons.h"
-
-#ifdef __DTObjectObserver__
-
 #import <Typhoon/TyphoonIntrospectionUtils.h>
 #import "TyphoonTypeDescriptor.h"
 #import "DTDatabaseDictionary.h"
@@ -88,5 +85,3 @@
 
 @end
 
-
-#endif

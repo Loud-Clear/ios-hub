@@ -8,7 +8,13 @@
 
 #import "ViewController.h"
 
+#import "DTMacroses.h"
+#import "DTObjectObserver+DatabaseAddons.h"
+#import "DTObjectObserver.h"
+
 @interface ViewController ()
+
+@property (nonatomic, strong) NSNumber *value;
 
 @end
 
@@ -17,6 +23,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    DTObjectObserver *observer = [[DTObjectObserver alloc] initWithObject:self observer:nil];
+    
+    [observer observeKeys:@[ @"value" ] withBlockChange:^(NSArray *keys, NSDictionary *changes) {
+        NSLog(@"Keys: %@, change: %@", keys, changes);
+    }];
+    
+    self.value = @1;
+    
+    SafetyCallAfter(1, ^{
+        self.value = @2;
+    });
+    
+    SafetyCallAfter(2, ^{
+        self.value = @3;
+    });
+
+    
 }
 
 

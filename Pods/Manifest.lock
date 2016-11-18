@@ -1,0 +1,27 @@
+PODS:
+  - KVOController (1.2.0)
+  - libextobjc/EXTScope (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4.1)
+  - Realm (2.0.4):
+    - Realm/Headers (= 2.0.4)
+  - Realm/Headers (2.0.4)
+  - Typhoon (3.5.1):
+    - Typhoon/no-arc (= 3.5.1)
+  - Typhoon/no-arc (3.5.1)
+
+DEPENDENCIES:
+  - KVOController
+  - libextobjc/EXTScope
+  - Realm
+  - Typhoon
+
+SPEC CHECKSUMS:
+  KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
+  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  Realm: 9da97f48365f8b99dd95c28d45ad8222d62e1775
+  Typhoon: c0950bb9f2e835eb8a7dc6983160109b6baf2dda
+
+PODFILE CHECKSUM: 9d3fb02ad82c904f5c93fb3933c051b056f51baa
+
+COCOAPODS: 1.1.1

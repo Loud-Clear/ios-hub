@@ -12,10 +12,6 @@
 #import <Foundation/Foundation.h>
 #import "DTObjectObserver.h"
 
-#ifdef __DTObjectObserver__
-
-#define __DTObjectObserver_DatabaseAddons__
-
 @interface DTObjectObserver (DatabaseAddons)
 
 - (BOOL)isSerializableKeyPath:(NSString *)key forInstance:(id)instance;
@@ -25,5 +21,3 @@
 - (NSDictionary *)deserializeValuesInChangeDictionary:(NSDictionary *)dictionary withObjectKey:(NSString *)objectKey
                                              instance:(id)instance;
 @end
-
-#endif
