@@ -13,6 +13,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import <UIKit/UIKit.h>
 
+#define __DTObjectObserver__
+
 @interface DTObjectObserver : NSObject
 
 - (instancetype)initWithObject:(id)objectToObserve observer:(id)observer;
