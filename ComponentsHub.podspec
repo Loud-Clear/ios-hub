@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   # s.authors            = { "Aleksey Garbarev" => "aleksey@appsquick.ly" }
   # s.social_media_url   = "http://twitter.com/Aleksey Garbarev"
 
-  s.platform     = :ios
+  s.platform     = :ios, "7.0"
   
   # s.platform     = :ios, "5.0"
 
