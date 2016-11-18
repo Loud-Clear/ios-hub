@@ -76,8 +76,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'Macroses' do |subspec|
       subspec.source_files   = 'Components/Macroses/**/*.{h,m}'
-      # subspec.compiler_flags = '-Wno-incomplete-implementation -Wno-missing-prototypes'
-      # subspec.dependency 'KVOController'
+      subspec.dependency 'libextobjc/EXTScope'
   end
 
 

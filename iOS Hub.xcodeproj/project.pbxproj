@@ -15,6 +15,7 @@
 		FA3486771DDF0B8600B02A01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3486751DDF0B8600B02A01 /* LaunchScreen.storyboard */; };
 		FA3486821DDF0B8600B02A01 /* iOS_HubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486811DDF0B8600B02A01 /* iOS_HubTests.m */; };
 		FA3486901DDF0BF000B02A01 /* DTObjectObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34868F1DDF0BF000B02A01 /* DTObjectObserver.m */; };
+		FA3486941DDF149F00B02A01 /* ComponentsHub.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FA3486931DDF149F00B02A01 /* ComponentsHub.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		FA3486831DDF0B8600B02A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA34868E1DDF0BF000B02A01 /* DTObjectObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTObjectObserver.h; sourceTree = "<group>"; };
 		FA34868F1DDF0BF000B02A01 /* DTObjectObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTObjectObserver.m; sourceTree = "<group>"; };
+		FA3486921DDF13A300B02A01 /* DTMacroses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTMacroses.h; sourceTree = "<group>"; };
+		FA3486931DDF149F00B02A01 /* ComponentsHub.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ComponentsHub.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +69,7 @@
 		FA34865B1DDF0B8600B02A01 = {
 			isa = PBXGroup;
 			children = (
+				FA3486931DDF149F00B02A01 /* ComponentsHub.podspec */,
 				FA34868C1DDF0BBE00B02A01 /* Components */,
 				FA3486661DDF0B8600B02A01 /* iOS Hub */,
 				FA3486801DDF0B8600B02A01 /* iOS HubTests */,
@@ -118,6 +122,7 @@
 		FA34868C1DDF0BBE00B02A01 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FA3486911DDF13A300B02A01 /* Macroses */,
 				FA34868D1DDF0BF000B02A01 /* Observing */,
 			);
 			path = Components;
@@ -130,6 +135,14 @@
 				FA34868F1DDF0BF000B02A01 /* DTObjectObserver.m */,
 			);
 			path = Observing;
+			sourceTree = "<group>";
+		};
+		FA3486911DDF13A300B02A01 /* Macroses */ = {
+			isa = PBXGroup;
+			children = (
+				FA3486921DDF13A300B02A01 /* DTMacroses.h */,
+			);
+			path = Macroses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,6 +231,7 @@
 			files = (
 				FA3486771DDF0B8600B02A01 /* LaunchScreen.storyboard in Resources */,
 				FA3486741DDF0B8600B02A01 /* Assets.xcassets in Resources */,
+				FA3486941DDF149F00B02A01 /* ComponentsHub.podspec in Resources */,
 				FA3486721DDF0B8600B02A01 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

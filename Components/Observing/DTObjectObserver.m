@@ -13,6 +13,7 @@
 #import <Typhoon/TyphoonTypeDescriptor.h>
 #import "DTObjectObserver.h"
 #import "KVOController.h"
+#import "DTMacroses.h"
 
 @interface DTObservationInfo : NSObject
 
@@ -78,6 +79,11 @@
     FBKVOController *_kvoController;
 }
 
+- (Class)realmObjectClass
+{
+    return NSClassFromString(@"RLMObject");
+}
+
 - (id)objectToObserve
 {
     return _objectToObserve;
@@ -104,7 +110,7 @@
 
         _kvoController = self.KVOControllerNonRetaining;
 
-        if ([_objectToObserve isKindOfClass:[RLMObject class]]) {
+        if ([_objectToObserve isKindOfClass:[self realmObjectClass]]) {
             @weakify(self)
             [self observeInvalidationWithBlock:^{
                 @strongify(self)
@@ -165,13 +171,13 @@
 
 - (void)observeInvalidationWithAction:(SEL)action
 {
-    NSAssert([_objectToObserve isKindOfClass:[RLMObject class]], @"object must be realm object");
+    NSAssert([_objectToObserve isKindOfClass:[self realmObjectClass]], @"object must be realm object");
     [self observeKeys:@[@"invalidated"] withAction:action];
 }
 
 - (void)observeInvalidationWithBlock:(void (^)())block
 {
-    NSAssert([_objectToObserve isKindOfClass:[RLMObject class]], @"object must be realm object");
+    NSAssert([_objectToObserve isKindOfClass:[self realmObjectClass]], @"object must be realm object");
     [self observeKeys:@[@"invalidated"] withBlock:block];
 }
 
