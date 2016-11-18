@@ -13,8 +13,6 @@
 #import <Typhoon/TyphoonTypeDescriptor.h>
 #import "DTObjectObserver.h"
 #import "KVOController.h"
-#import "DTPersistentModel.h"
-#import "DTDatabaseDictionary.h"
 
 @interface DTObservationInfo : NSObject
 
