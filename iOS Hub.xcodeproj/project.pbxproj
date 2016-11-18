@@ -16,6 +16,14 @@
 		FA3486821DDF0B8600B02A01 /* iOS_HubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486811DDF0B8600B02A01 /* iOS_HubTests.m */; };
 		FA3486901DDF0BF000B02A01 /* DTObjectObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34868F1DDF0BF000B02A01 /* DTObjectObserver.m */; };
 		FA3486941DDF149F00B02A01 /* ComponentsHub.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FA3486931DDF149F00B02A01 /* ComponentsHub.podspec */; };
+		FA3486A61DDF1E8A00B02A01 /* Realm+Arrays.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486981DDF1E8A00B02A01 /* Realm+Arrays.m */; };
+		FA3486A71DDF1E8A00B02A01 /* DTPersistentId.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34869A1DDF1E8A00B02A01 /* DTPersistentId.m */; };
+		FA3486A81DDF1E8A00B02A01 /* DTPersistentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34869C1DDF1E8A00B02A01 /* DTPersistentModel.m */; };
+		FA3486A91DDF1E8A00B02A01 /* DTSafeRLMObjectProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34869E1DDF1E8A00B02A01 /* DTSafeRLMObjectProxy.m */; };
+		FA3486AA1DDF1E8A00B02A01 /* DTObjectObserver+DatabaseAddons.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486A11DDF1E8A00B02A01 /* DTObjectObserver+DatabaseAddons.m */; };
+		FA3486AB1DDF1E8A00B02A01 /* RLMObject+ThreadSafety.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486A31DDF1E8A00B02A01 /* RLMObject+ThreadSafety.m */; };
+		FA3486AC1DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486A51DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m */; };
+		FA3486B01DDF1F6E00B02A01 /* DTDatabaseDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486AF1DDF1F6E00B02A01 /* DTDatabaseDictionary.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +54,23 @@
 		FA34868F1DDF0BF000B02A01 /* DTObjectObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTObjectObserver.m; sourceTree = "<group>"; };
 		FA3486921DDF13A300B02A01 /* DTMacroses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTMacroses.h; sourceTree = "<group>"; };
 		FA3486931DDF149F00B02A01 /* ComponentsHub.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ComponentsHub.podspec; sourceTree = "<group>"; };
+		FA3486971DDF1E8A00B02A01 /* Realm+Arrays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Realm+Arrays.h"; sourceTree = "<group>"; };
+		FA3486981DDF1E8A00B02A01 /* Realm+Arrays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Realm+Arrays.m"; sourceTree = "<group>"; };
+		FA3486991DDF1E8A00B02A01 /* DTPersistentId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTPersistentId.h; sourceTree = "<group>"; };
+		FA34869A1DDF1E8A00B02A01 /* DTPersistentId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTPersistentId.m; sourceTree = "<group>"; };
+		FA34869B1DDF1E8A00B02A01 /* DTPersistentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTPersistentModel.h; sourceTree = "<group>"; };
+		FA34869C1DDF1E8A00B02A01 /* DTPersistentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTPersistentModel.m; sourceTree = "<group>"; };
+		FA34869D1DDF1E8A00B02A01 /* DTSafeRLMObjectProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTSafeRLMObjectProxy.h; sourceTree = "<group>"; };
+		FA34869E1DDF1E8A00B02A01 /* DTSafeRLMObjectProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTSafeRLMObjectProxy.m; sourceTree = "<group>"; };
+		FA3486A01DDF1E8A00B02A01 /* DTObjectObserver+DatabaseAddons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DTObjectObserver+DatabaseAddons.h"; sourceTree = "<group>"; };
+		FA3486A11DDF1E8A00B02A01 /* DTObjectObserver+DatabaseAddons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DTObjectObserver+DatabaseAddons.m"; sourceTree = "<group>"; };
+		FA3486A21DDF1E8A00B02A01 /* RLMObject+ThreadSafety.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RLMObject+ThreadSafety.h"; sourceTree = "<group>"; };
+		FA3486A31DDF1E8A00B02A01 /* RLMObject+ThreadSafety.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RLMObject+ThreadSafety.m"; sourceTree = "<group>"; };
+		FA3486A41DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RLMRealm+NestedTransactions.h"; sourceTree = "<group>"; };
+		FA3486A51DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RLMRealm+NestedTransactions.m"; sourceTree = "<group>"; };
+		FA3486AE1DDF1F6E00B02A01 /* DTDatabaseDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDatabaseDictionary.h; sourceTree = "<group>"; };
+		FA3486AF1DDF1F6E00B02A01 /* DTDatabaseDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDatabaseDictionary.m; sourceTree = "<group>"; };
+		FA3486B11DDF1F9300B02A01 /* DTDatabaseJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDatabaseJSONSerialization.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +147,7 @@
 		FA34868C1DDF0BBE00B02A01 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FA3486951DDF1E8A00B02A01 /* RealmAddons */,
 				FA3486911DDF13A300B02A01 /* Macroses */,
 				FA34868D1DDF0BF000B02A01 /* Observing */,
 			);
@@ -143,6 +169,54 @@
 				FA3486921DDF13A300B02A01 /* DTMacroses.h */,
 			);
 			path = Macroses;
+			sourceTree = "<group>";
+		};
+		FA3486951DDF1E8A00B02A01 /* RealmAddons */ = {
+			isa = PBXGroup;
+			children = (
+				FA3486AD1DDF1F6E00B02A01 /* Serialization */,
+				FA3486961DDF1E8A00B02A01 /* Array */,
+				FA34869F1DDF1E8A00B02A01 /* Observation */,
+				FA3486991DDF1E8A00B02A01 /* DTPersistentId.h */,
+				FA34869A1DDF1E8A00B02A01 /* DTPersistentId.m */,
+				FA34869B1DDF1E8A00B02A01 /* DTPersistentModel.h */,
+				FA34869C1DDF1E8A00B02A01 /* DTPersistentModel.m */,
+				FA34869D1DDF1E8A00B02A01 /* DTSafeRLMObjectProxy.h */,
+				FA34869E1DDF1E8A00B02A01 /* DTSafeRLMObjectProxy.m */,
+				FA3486A21DDF1E8A00B02A01 /* RLMObject+ThreadSafety.h */,
+				FA3486A31DDF1E8A00B02A01 /* RLMObject+ThreadSafety.m */,
+				FA3486A41DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.h */,
+				FA3486A51DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m */,
+			);
+			path = RealmAddons;
+			sourceTree = "<group>";
+		};
+		FA3486961DDF1E8A00B02A01 /* Array */ = {
+			isa = PBXGroup;
+			children = (
+				FA3486971DDF1E8A00B02A01 /* Realm+Arrays.h */,
+				FA3486981DDF1E8A00B02A01 /* Realm+Arrays.m */,
+			);
+			path = Array;
+			sourceTree = "<group>";
+		};
+		FA34869F1DDF1E8A00B02A01 /* Observation */ = {
+			isa = PBXGroup;
+			children = (
+				FA3486A01DDF1E8A00B02A01 /* DTObjectObserver+DatabaseAddons.h */,
+				FA3486A11DDF1E8A00B02A01 /* DTObjectObserver+DatabaseAddons.m */,
+			);
+			path = Observation;
+			sourceTree = "<group>";
+		};
+		FA3486AD1DDF1F6E00B02A01 /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				FA3486B11DDF1F9300B02A01 /* DTDatabaseJSONSerialization.h */,
+				FA3486AE1DDF1F6E00B02A01 /* DTDatabaseDictionary.h */,
+				FA3486AF1DDF1F6E00B02A01 /* DTDatabaseDictionary.m */,
+			);
+			path = Serialization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,9 +325,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3486901DDF0BF000B02A01 /* DTObjectObserver.m in Sources */,
+				FA3486A71DDF1E8A00B02A01 /* DTPersistentId.m in Sources */,
 				FA34866F1DDF0B8600B02A01 /* ViewController.m in Sources */,
 				FA34866C1DDF0B8600B02A01 /* AppDelegate.m in Sources */,
+				FA3486AB1DDF1E8A00B02A01 /* RLMObject+ThreadSafety.m in Sources */,
+				FA3486A91DDF1E8A00B02A01 /* DTSafeRLMObjectProxy.m in Sources */,
 				FA3486691DDF0B8600B02A01 /* main.m in Sources */,
+				FA3486AA1DDF1E8A00B02A01 /* DTObjectObserver+DatabaseAddons.m in Sources */,
+				FA3486B01DDF1F6E00B02A01 /* DTDatabaseDictionary.m in Sources */,
+				FA3486A81DDF1E8A00B02A01 /* DTPersistentModel.m in Sources */,
+				FA3486AC1DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m in Sources */,
+				FA3486A61DDF1E8A00B02A01 /* Realm+Arrays.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
