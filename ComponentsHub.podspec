@@ -82,7 +82,7 @@ Pod::Spec.new do |s|
   s.subspec 'RealmAddons' do |subspec|
       subspec.source_files   = 'Components/RealmAddons/**/*.{h,m}'
       subspec.dependency 'Realm'
-      subspec.dependency 'Observation'
+      subspec.dependency 'ComponentsHub/Observation'
   end
 
 
