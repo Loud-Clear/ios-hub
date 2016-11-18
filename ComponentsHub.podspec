@@ -17,10 +17,9 @@ Pod::Spec.new do |s|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = <<-DESC
-                   DESC
+  s.description  = "Shared components for iOS projects"
 
-  s.homepage     = "http://EXAMPLE/ComponentsHub"
+  s.homepage     = "https://github.com/Loud-Clear/ios-hub.git"
 
 
 
@@ -49,7 +48,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/Loud-Clear/ios-hub.git", :tag => "#{s.version}" }
+  s.source       = { :git => "git@github.com:Loud-Clear/ios-hub.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -68,14 +67,14 @@ Pod::Spec.new do |s|
   # ――― Subspec ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 
 
-  spec.subspec 'Observation' do |subspec|
+  s.subspec 'Observation' do |subspec|
       subspec.source_files   = 'Components/Observing/**/*.{h,m}'
       subspec.dependency 'KVOController'
       subspec.dependency 'ComponentsHub/Macroses'
       subspec.dependency 'Typhoon'
   end
   
-  spec.subspec 'Macroses' do |subspec|
+  s.subspec 'Macroses' do |subspec|
       subspec.source_files   = 'Components/Macroses/**/*.{h,m}'
       # subspec.compiler_flags = '-Wno-incomplete-implementation -Wno-missing-prototypes'
       # subspec.dependency 'KVOController'
