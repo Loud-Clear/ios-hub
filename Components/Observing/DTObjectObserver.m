@@ -233,7 +233,7 @@
         NSString *keyToObserve = key;
         BOOL isSerializableKey = NO;
         
-        if ([self hadDatabaseAdditionals]) {
+        if ([self hasDatabaseAdditionals]) {
             isSerializableKey = [self.databaseAddon isSerializableKeyPath:key forInstance:_objectToObserve];
             if (isSerializableKey) {
                 keyToObserve = [self.databaseAddon dataKeyFromObjectKey:key];
@@ -271,14 +271,14 @@
     }
 }
 
-- (BOOL)hadDatabaseAdditionals
+- (BOOL)hasDatabaseAdditionals
 {
     return [self respondsToSelector:@selector(isSerializableKeyPath:forInstance:)];
 }
 
 - (id<DTObjectObserverDatabaseSerialization>)databaseAddon
 {
-    if ([self hadDatabaseAdditionals]) {
+    if ([self hasDatabaseAdditionals]) {
         return (id)self;
     } else {
         return nil;

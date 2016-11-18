@@ -10,13 +10,15 @@
 		8D966B34D57C5313A65AFAEF /* libPods-iOS HubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E49612B7121FB28899A6715E /* libPods-iOS HubTests.a */; };
 		F3D62DA1DEE065A7AC3A4765 /* libPods-iOS Hub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 900BB96B6BF13BEBEA951A07 /* libPods-iOS Hub.a */; };
 		FA0199C41DDF279000364871 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FA0199C31DDF279000364871 /* Podfile */; };
+		FA0199C51DDF307D00364871 /* DTObjectObserverTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1AA854B22D32382F824D /* DTObjectObserverTests.m */; };
+		FA0199FF1DDF5BBA00364871 /* DTKeychainStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0199FB1DDF5BBA00364871 /* DTKeychainStorage.m */; };
+		FA019A001DDF5BBA00364871 /* DTUserDefaultsStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0199FE1DDF5BBA00364871 /* DTUserDefaultsStorage.m */; };
 		FA3486691DDF0B8600B02A01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486681DDF0B8600B02A01 /* main.m */; };
 		FA34866C1DDF0B8600B02A01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34866B1DDF0B8600B02A01 /* AppDelegate.m */; };
 		FA34866F1DDF0B8600B02A01 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34866E1DDF0B8600B02A01 /* ViewController.m */; };
 		FA3486721DDF0B8600B02A01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3486701DDF0B8600B02A01 /* Main.storyboard */; };
 		FA3486741DDF0B8600B02A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA3486731DDF0B8600B02A01 /* Assets.xcassets */; };
 		FA3486771DDF0B8600B02A01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3486751DDF0B8600B02A01 /* LaunchScreen.storyboard */; };
-		FA3486821DDF0B8600B02A01 /* iOS_HubTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486811DDF0B8600B02A01 /* iOS_HubTests.m */; };
 		FA3486901DDF0BF000B02A01 /* DTObjectObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34868F1DDF0BF000B02A01 /* DTObjectObserver.m */; };
 		FA3486941DDF149F00B02A01 /* ComponentsHub.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FA3486931DDF149F00B02A01 /* ComponentsHub.podspec */; };
 		FA3486A61DDF1E8A00B02A01 /* Realm+Arrays.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486981DDF1E8A00B02A01 /* Realm+Arrays.m */; };
@@ -41,12 +43,18 @@
 
 /* Begin PBXFileReference section */
 		2C2E96FE3DB2ACE797D0A8A2 /* Pods-iOS Hub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Hub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Hub/Pods-iOS Hub.debug.xcconfig"; sourceTree = "<group>"; };
+		2DBA1AA854B22D32382F824D /* DTObjectObserverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTObjectObserverTests.m; sourceTree = "<group>"; };
 		446956A7F9FE359608775CB8 /* Pods-iOS HubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS HubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS HubTests/Pods-iOS HubTests.release.xcconfig"; sourceTree = "<group>"; };
 		900BB96B6BF13BEBEA951A07 /* libPods-iOS Hub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS Hub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4440DB54B4CED6BFEB20F98 /* Pods-iOS HubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS HubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS HubTests/Pods-iOS HubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E49612B7121FB28899A6715E /* libPods-iOS HubTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS HubTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B4A336D2713804D1CC632B /* Pods-iOS Hub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Hub.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Hub/Pods-iOS Hub.release.xcconfig"; sourceTree = "<group>"; };
 		FA0199C31DDF279000364871 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		FA0199F81DDF5BBA00364871 /* DTSingletoneStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTSingletoneStorage.h; sourceTree = "<group>"; };
+		FA0199FA1DDF5BBA00364871 /* DTKeychainStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTKeychainStorage.h; sourceTree = "<group>"; };
+		FA0199FB1DDF5BBA00364871 /* DTKeychainStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTKeychainStorage.m; sourceTree = "<group>"; };
+		FA0199FD1DDF5BBA00364871 /* DTUserDefaultsStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTUserDefaultsStorage.h; sourceTree = "<group>"; };
+		FA0199FE1DDF5BBA00364871 /* DTUserDefaultsStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTUserDefaultsStorage.m; sourceTree = "<group>"; };
 		FA3486641DDF0B8600B02A01 /* iOS Hub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Hub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3486681DDF0B8600B02A01 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FA34866A1DDF0B8600B02A01 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,7 +66,6 @@
 		FA3486761DDF0B8600B02A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA3486781DDF0B8600B02A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA34867D1DDF0B8600B02A01 /* iOS HubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS HubTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA3486811DDF0B8600B02A01 /* iOS_HubTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS_HubTests.m; sourceTree = "<group>"; };
 		FA3486831DDF0B8600B02A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA34868E1DDF0BF000B02A01 /* DTObjectObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTObjectObserver.h; sourceTree = "<group>"; };
 		FA34868F1DDF0BF000B02A01 /* DTObjectObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTObjectObserver.m; sourceTree = "<group>"; };
@@ -103,6 +110,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DBA1A8D148689C93749F6C3 /* Observing */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1AA854B22D32382F824D /* DTObjectObserverTests.m */,
+			);
+			path = Observing;
+			sourceTree = "<group>";
+		};
+		2DBA1CA4386B5B53A73F166F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1A8D148689C93749F6C3 /* Observing */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		50A5BD6415970ADE37A076C8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +144,34 @@
 				E49612B7121FB28899A6715E /* libPods-iOS HubTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA0199F71DDF5BBA00364871 /* SingletoneStorage */ = {
+			isa = PBXGroup;
+			children = (
+				FA0199F81DDF5BBA00364871 /* DTSingletoneStorage.h */,
+				FA0199F91DDF5BBA00364871 /* Keychain */,
+				FA0199FC1DDF5BBA00364871 /* UserDefaults */,
+			);
+			path = SingletoneStorage;
+			sourceTree = "<group>";
+		};
+		FA0199F91DDF5BBA00364871 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				FA0199FA1DDF5BBA00364871 /* DTKeychainStorage.h */,
+				FA0199FB1DDF5BBA00364871 /* DTKeychainStorage.m */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		FA0199FC1DDF5BBA00364871 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				FA0199FD1DDF5BBA00364871 /* DTUserDefaultsStorage.h */,
+				FA0199FE1DDF5BBA00364871 /* DTUserDefaultsStorage.m */,
+			);
+			path = UserDefaults;
 			sourceTree = "<group>";
 		};
 		FA34865B1DDF0B8600B02A01 = {
@@ -173,8 +224,8 @@
 		FA3486801DDF0B8600B02A01 /* iOS HubTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA3486811DDF0B8600B02A01 /* iOS_HubTests.m */,
 				FA3486831DDF0B8600B02A01 /* Info.plist */,
+				2DBA1CA4386B5B53A73F166F /* Components */,
 			);
 			path = "iOS HubTests";
 			sourceTree = "<group>";
@@ -182,6 +233,7 @@
 		FA34868C1DDF0BBE00B02A01 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FA0199F71DDF5BBA00364871 /* SingletoneStorage */,
 				FA3486951DDF1E8A00B02A01 /* RealmAddons */,
 				FA3486911DDF13A300B02A01 /* Macroses */,
 				FA34868D1DDF0BF000B02A01 /* Observing */,
@@ -465,9 +517,11 @@
 				FA34866C1DDF0B8600B02A01 /* AppDelegate.m in Sources */,
 				FA3486AB1DDF1E8A00B02A01 /* RLMObject+ThreadSafety.m in Sources */,
 				FA3486A91DDF1E8A00B02A01 /* DTSafeRLMObjectProxy.m in Sources */,
+				FA0199FF1DDF5BBA00364871 /* DTKeychainStorage.m in Sources */,
 				FA3486691DDF0B8600B02A01 /* main.m in Sources */,
 				FA3486AA1DDF1E8A00B02A01 /* DTObjectObserver+DatabaseAddons.m in Sources */,
 				FA3486B01DDF1F6E00B02A01 /* DTDatabaseDictionary.m in Sources */,
+				FA019A001DDF5BBA00364871 /* DTUserDefaultsStorage.m in Sources */,
 				FA3486A81DDF1E8A00B02A01 /* DTPersistentModel.m in Sources */,
 				FA3486AC1DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m in Sources */,
 				FA3486A61DDF1E8A00B02A01 /* Realm+Arrays.m in Sources */,
@@ -478,7 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA3486821DDF0B8600B02A01 /* iOS_HubTests.m in Sources */,
+				FA0199C51DDF307D00364871 /* DTObjectObserverTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

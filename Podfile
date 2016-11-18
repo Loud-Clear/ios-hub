@@ -11,9 +11,13 @@ target 'iOS Hub' do
   pod 'libextobjc/EXTScope'
   pod 'KVOController'
 
+  pod 'FastCoding'
+  pod 'SSKeychain'
+
   target 'iOS HubTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'OCMock'
   end
 
 end

@@ -1,27 +1,36 @@
 PODS:
+  - FastCoding (3.2.1)
   - KVOController (1.2.0)
   - libextobjc/EXTScope (0.4.1):
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
+  - OCMock (3.3.1)
   - Realm (2.0.4):
     - Realm/Headers (= 2.0.4)
   - Realm/Headers (2.0.4)
+  - SSKeychain (1.4.1)
   - Typhoon (3.5.1):
     - Typhoon/no-arc (= 3.5.1)
   - Typhoon/no-arc (3.5.1)
 
 DEPENDENCIES:
+  - FastCoding
   - KVOController
   - libextobjc/EXTScope
+  - OCMock
   - Realm
+  - SSKeychain
   - Typhoon
 
 SPEC CHECKSUMS:
+  FastCoding: ed46c83ba23d048aafa0251972a1e1fc1cfc58ed
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
   Realm: 9da97f48365f8b99dd95c28d45ad8222d62e1775
+  SSKeychain: 55cc80f66f5c73da827e3077f02e43528897db41
   Typhoon: c0950bb9f2e835eb8a7dc6983160109b6baf2dda
 
-PODFILE CHECKSUM: 9d3fb02ad82c904f5c93fb3933c051b056f51baa
+PODFILE CHECKSUM: 339f94bae75f2d591dacc008635f857c827d0f5b
 
 COCOAPODS: 1.1.1
