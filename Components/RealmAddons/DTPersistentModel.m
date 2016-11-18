@@ -15,7 +15,7 @@
 #import "TyphoonIntrospectionUtils.h"
 #import "TyphoonTypeDescriptor.h"
 #import "DTDatabaseDictionary.h"
-#import "AirshipLib.h"
+#import "DTMacroses.h"
 
 @implementation DTPersistentModel
 {
@@ -73,7 +73,8 @@
         [value enumerateKeysAndObjectsUsingBlock:^(id key, id<DTDatabaseJSONSerialization> obj, BOOL *stop) {
             if ([serializedProperties containsObject:key]) {
                 [mutableValue removeObjectForKey:key];
-                mutableValue[DTDataPropertyNameFromName(key)] = [NSJSONSerialization stringWithObject:[obj serializeToJSONObject]];
+                NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[obj serializeToJSONObject] options:0 error:nil];
+                mutableValue[DTDataPropertyNameFromName(key)] = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
             }
         }];
 

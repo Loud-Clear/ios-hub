@@ -11,6 +11,7 @@
 
 #import "RLMRealm+NestedTransactions.h"
 #import "RLMObject.h"
+#import "DTMacroses.h"
 
 @interface RealmTransaction : NSObject <DTRealmTransaction>
 @property (nonatomic, weak) RLMRealm *realm;
