@@ -13,6 +13,11 @@ target 'iOS Hub' do
 
   pod 'FastCoding'
   pod 'SAMKeychain'
+  
+  pod 'MTAnimation' # For DisplayManager animation
+  pod 'Aspects', :git => 'https://github.com/steipete/Aspects.git', :tag => '1.4.2'
+  pod 'CTObjectiveCRuntimeAdditions'
+
 
   target 'iOS HubTests' do
     inherit! :search_paths

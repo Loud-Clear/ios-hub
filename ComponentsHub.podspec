@@ -44,5 +44,20 @@ Pod::Spec.new do |s|
       subspec.dependency 'SAMKeychain'
       subspec.dependency 'ComponentsHub/Macroses'
   end
+  
+  s.subspec 'TopmostViewController' do |subspec|
+      subspec.source_files   = 'Components/TopmostViewController/**/*.{h,m}'
+  end
+  
+  s.subspec 'NotificationUtils' do |subspec|
+      subspec.source_files   = 'Components/NotificationUtils/**/*.{h,m}'
+  end
+
+  s.subspec 'MutableCollections' do |subspec|
+      subspec.source_files   = 'Components/MutableCollections/**/*.{h,m}'
+  end
+
+
+
 
 end

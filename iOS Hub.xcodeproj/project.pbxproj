@@ -15,6 +15,26 @@
 		FA019A001DDF5BBA00364871 /* DTUserDefaultsStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0199FE1DDF5BBA00364871 /* DTUserDefaultsStorage.m */; };
 		FA019A031DE011DA00364871 /* DTLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A021DE011DA00364871 /* DTLogger.m */; };
 		FA019A081DE01C1800364871 /* DTUserDefaultsStorageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A071DE01C1800364871 /* DTUserDefaultsStorageTests.m */; };
+		FA019A0D1DE05BEB00364871 /* UIApplication+TopmostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A0C1DE05BEB00364871 /* UIApplication+TopmostViewController.m */; };
+		FA019A111DE05C3C00364871 /* ССNotificationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A101DE05C3C00364871 /* ССNotificationUtils.m */; };
+		FA019A151DE05C7A00364871 /* CCMutableCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A141DE05C7A00364871 /* CCMutableCollections.m */; };
+		FA019A411DE05CED00364871 /* UIViewController+DTTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A1A1DE05CED00364871 /* UIViewController+DTTransition.m */; };
+		FA019A421DE05CED00364871 /* UIViewController+DTTransitionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A1C1DE05CED00364871 /* UIViewController+DTTransitionHandler.m */; };
+		FA019A431DE05CED00364871 /* UIViewController+DTWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A1E1DE05CED00364871 /* UIViewController+DTWorkflow.m */; };
+		FA019A441DE05CED00364871 /* DTModuleFactoryImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A231DE05CED00364871 /* DTModuleFactoryImplementation.m */; };
+		FA019A451DE05CED00364871 /* UIViewController+DTModule.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A251DE05CED00364871 /* UIViewController+DTModule.m */; };
+		FA019A461DE05CED00364871 /* DTModuleURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A281DE05CED00364871 /* DTModuleURLParser.m */; };
+		FA019A471DE05CED00364871 /* DTNavigatorContext.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A2C1DE05CED00364871 /* DTNavigatorContext.m */; };
+		FA019A481DE05CED00364871 /* DTNavigator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A2E1DE05CED00364871 /* DTNavigator.m */; };
+		FA019A4A1DE05CED00364871 /* DTNavigatorRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A331DE05CED00364871 /* DTNavigatorRoute.m */; };
+		FA019A4B1DE05CED00364871 /* DTNavigatorStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A361DE05CED00364871 /* DTNavigatorStack.m */; };
+		FA019A4C1DE05CED00364871 /* UIViewController+URL.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A391DE05CED00364871 /* UIViewController+URL.m */; };
+		FA019A4D1DE05CED00364871 /* DTTransitionPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A3D1DE05CED00364871 /* DTTransitionPromise.m */; };
+		FA019A4E1DE05CED00364871 /* DTURLPlaceholderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A401DE05CED00364871 /* DTURLPlaceholderViewController.m */; };
+		FA019A551DE05D8000364871 /* DTGeneralWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A511DE05D8000364871 /* DTGeneralWorkflow.m */; };
+		FA019A561DE05D8000364871 /* DTURLWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A531DE05D8000364871 /* DTURLWorkflow.m */; };
+		FA019A5A1DE060D700364871 /* CCMapCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A591DE060D700364871 /* CCMapCollections.m */; };
+		FA019A671DE0651A00364871 /* DTDisplayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A651DE0651A00364871 /* DTDisplayManager.m */; };
 		FA3486691DDF0B8600B02A01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486681DDF0B8600B02A01 /* main.m */; };
 		FA34866C1DDF0B8600B02A01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34866B1DDF0B8600B02A01 /* AppDelegate.m */; };
 		FA34866F1DDF0B8600B02A01 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34866E1DDF0B8600B02A01 /* ViewController.m */; };
@@ -61,6 +81,56 @@
 		FA019A021DE011DA00364871 /* DTLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTLogger.m; sourceTree = "<group>"; };
 		FA019A041DE017F000364871 /* iOSHub.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSHub.pch; sourceTree = "<group>"; };
 		FA019A071DE01C1800364871 /* DTUserDefaultsStorageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTUserDefaultsStorageTests.m; sourceTree = "<group>"; };
+		FA019A0B1DE05BEB00364871 /* UIApplication+TopmostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+TopmostViewController.h"; sourceTree = "<group>"; };
+		FA019A0C1DE05BEB00364871 /* UIApplication+TopmostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+TopmostViewController.m"; sourceTree = "<group>"; };
+		FA019A0F1DE05C3C00364871 /* ССNotificationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ССNotificationUtils.h"; sourceTree = "<group>"; };
+		FA019A101DE05C3C00364871 /* ССNotificationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ССNotificationUtils.m"; sourceTree = "<group>"; };
+		FA019A131DE05C7A00364871 /* CCMutableCollections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMutableCollections.h; sourceTree = "<group>"; };
+		FA019A141DE05C7A00364871 /* CCMutableCollections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMutableCollections.m; sourceTree = "<group>"; };
+		FA019A171DE05CED00364871 /* DTTransitionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTransitionHandler.h; sourceTree = "<group>"; };
+		FA019A191DE05CED00364871 /* UIViewController+DTTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DTTransition.h"; sourceTree = "<group>"; };
+		FA019A1A1DE05CED00364871 /* UIViewController+DTTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DTTransition.m"; sourceTree = "<group>"; };
+		FA019A1B1DE05CED00364871 /* UIViewController+DTTransitionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DTTransitionHandler.h"; sourceTree = "<group>"; };
+		FA019A1C1DE05CED00364871 /* UIViewController+DTTransitionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DTTransitionHandler.m"; sourceTree = "<group>"; };
+		FA019A1D1DE05CED00364871 /* UIViewController+DTWorkflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DTWorkflow.h"; sourceTree = "<group>"; };
+		FA019A1E1DE05CED00364871 /* UIViewController+DTWorkflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DTWorkflow.m"; sourceTree = "<group>"; };
+		FA019A201DE05CED00364871 /* DTModuleFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTModuleFactory.h; sourceTree = "<group>"; };
+		FA019A221DE05CED00364871 /* DTModuleFactoryImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTModuleFactoryImplementation.h; sourceTree = "<group>"; };
+		FA019A231DE05CED00364871 /* DTModuleFactoryImplementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTModuleFactoryImplementation.m; sourceTree = "<group>"; };
+		FA019A241DE05CED00364871 /* UIViewController+DTModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+DTModule.h"; sourceTree = "<group>"; };
+		FA019A251DE05CED00364871 /* UIViewController+DTModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+DTModule.m"; sourceTree = "<group>"; };
+		FA019A271DE05CED00364871 /* DTModuleURLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTModuleURLParser.h; sourceTree = "<group>"; };
+		FA019A281DE05CED00364871 /* DTModuleURLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTModuleURLParser.m; sourceTree = "<group>"; };
+		FA019A2B1DE05CED00364871 /* DTNavigatorContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNavigatorContext.h; sourceTree = "<group>"; };
+		FA019A2C1DE05CED00364871 /* DTNavigatorContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNavigatorContext.m; sourceTree = "<group>"; };
+		FA019A2D1DE05CED00364871 /* DTNavigator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNavigator.h; sourceTree = "<group>"; };
+		FA019A2E1DE05CED00364871 /* DTNavigator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNavigator.m; sourceTree = "<group>"; };
+		FA019A321DE05CED00364871 /* DTNavigatorRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNavigatorRoute.h; sourceTree = "<group>"; };
+		FA019A331DE05CED00364871 /* DTNavigatorRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNavigatorRoute.m; sourceTree = "<group>"; };
+		FA019A351DE05CED00364871 /* DTNavigatorStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTNavigatorStack.h; sourceTree = "<group>"; };
+		FA019A361DE05CED00364871 /* DTNavigatorStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTNavigatorStack.m; sourceTree = "<group>"; };
+		FA019A381DE05CED00364871 /* UIViewController+URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+URL.h"; sourceTree = "<group>"; };
+		FA019A391DE05CED00364871 /* UIViewController+URL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+URL.m"; sourceTree = "<group>"; };
+		FA019A3B1DE05CED00364871 /* DTModulePromise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTModulePromise.h; sourceTree = "<group>"; };
+		FA019A3C1DE05CED00364871 /* DTTransitionPromise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTTransitionPromise.h; sourceTree = "<group>"; };
+		FA019A3D1DE05CED00364871 /* DTTransitionPromise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTTransitionPromise.m; sourceTree = "<group>"; };
+		FA019A3F1DE05CED00364871 /* DTURLPlaceholderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTURLPlaceholderViewController.h; sourceTree = "<group>"; };
+		FA019A401DE05CED00364871 /* DTURLPlaceholderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTURLPlaceholderViewController.m; sourceTree = "<group>"; };
+		FA019A501DE05D8000364871 /* DTGeneralWorkflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTGeneralWorkflow.h; sourceTree = "<group>"; };
+		FA019A511DE05D8000364871 /* DTGeneralWorkflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTGeneralWorkflow.m; sourceTree = "<group>"; };
+		FA019A521DE05D8000364871 /* DTURLWorkflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTURLWorkflow.h; sourceTree = "<group>"; };
+		FA019A531DE05D8000364871 /* DTURLWorkflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTURLWorkflow.m; sourceTree = "<group>"; };
+		FA019A541DE05D8000364871 /* DTWorkflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTWorkflow.h; sourceTree = "<group>"; };
+		FA019A581DE060D700364871 /* CCMapCollections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMapCollections.h; sourceTree = "<group>"; };
+		FA019A591DE060D700364871 /* CCMapCollections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMapCollections.m; sourceTree = "<group>"; };
+		FA019A5D1DE064BC00364871 /* DTGeneralModuleInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTGeneralModuleInput.h; sourceTree = "<group>"; };
+		FA019A5E1DE064BC00364871 /* DTGeneralModuleOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTGeneralModuleOutput.h; sourceTree = "<group>"; };
+		FA019A5F1DE064BC00364871 /* DTModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTModule.h; sourceTree = "<group>"; };
+		FA019A611DE064BC00364871 /* DTGeneralViewInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTGeneralViewInput.h; sourceTree = "<group>"; };
+		FA019A621DE064BC00364871 /* DTGeneralViewOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTGeneralViewOutput.h; sourceTree = "<group>"; };
+		FA019A641DE0651A00364871 /* DTDisplayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDisplayManager.h; sourceTree = "<group>"; };
+		FA019A651DE0651A00364871 /* DTDisplayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDisplayManager.m; sourceTree = "<group>"; };
+		FA019A661DE0651A00364871 /* DTDisplayManagerAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDisplayManagerAnimation.h; sourceTree = "<group>"; };
 		FA3486641DDF0B8600B02A01 /* iOS Hub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Hub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3486681DDF0B8600B02A01 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FA34866A1DDF0B8600B02A01 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -197,6 +267,227 @@
 			path = UserDefaults;
 			sourceTree = "<group>";
 		};
+		FA019A091DE05B5300364871 /* VIPER */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A631DE0651A00364871 /* DisplayManager */,
+				FA019A5B1DE064BC00364871 /* Protocols */,
+				FA019A4F1DE05D8000364871 /* Workflow */,
+				FA019A161DE05CED00364871 /* TransitionHandler */,
+			);
+			path = VIPER;
+			sourceTree = "<group>";
+		};
+		FA019A0A1DE05BEB00364871 /* TopmostViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A0B1DE05BEB00364871 /* UIApplication+TopmostViewController.h */,
+				FA019A0C1DE05BEB00364871 /* UIApplication+TopmostViewController.m */,
+			);
+			path = TopmostViewController;
+			sourceTree = "<group>";
+		};
+		FA019A0E1DE05C3C00364871 /* NotificationUtils */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A0F1DE05C3C00364871 /* ССNotificationUtils.h */,
+				FA019A101DE05C3C00364871 /* ССNotificationUtils.m */,
+			);
+			path = NotificationUtils;
+			sourceTree = "<group>";
+		};
+		FA019A121DE05C7A00364871 /* MutableCollections */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A131DE05C7A00364871 /* CCMutableCollections.h */,
+				FA019A141DE05C7A00364871 /* CCMutableCollections.m */,
+			);
+			path = MutableCollections;
+			sourceTree = "<group>";
+		};
+		FA019A161DE05CED00364871 /* TransitionHandler */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A171DE05CED00364871 /* DTTransitionHandler.h */,
+				FA019A181DE05CED00364871 /* DTTransitionHandlerImplementation */,
+				FA019A1F1DE05CED00364871 /* Factory */,
+				FA019A291DE05CED00364871 /* Navigator */,
+				FA019A3A1DE05CED00364871 /* Promise */,
+				FA019A3E1DE05CED00364871 /* StoryboardPlaceholders */,
+			);
+			path = TransitionHandler;
+			sourceTree = "<group>";
+		};
+		FA019A181DE05CED00364871 /* DTTransitionHandlerImplementation */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A191DE05CED00364871 /* UIViewController+DTTransition.h */,
+				FA019A1A1DE05CED00364871 /* UIViewController+DTTransition.m */,
+				FA019A1B1DE05CED00364871 /* UIViewController+DTTransitionHandler.h */,
+				FA019A1C1DE05CED00364871 /* UIViewController+DTTransitionHandler.m */,
+				FA019A1D1DE05CED00364871 /* UIViewController+DTWorkflow.h */,
+				FA019A1E1DE05CED00364871 /* UIViewController+DTWorkflow.m */,
+			);
+			path = DTTransitionHandlerImplementation;
+			sourceTree = "<group>";
+		};
+		FA019A1F1DE05CED00364871 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A201DE05CED00364871 /* DTModuleFactory.h */,
+				FA019A211DE05CED00364871 /* Implementations */,
+				FA019A261DE05CED00364871 /* URLParser */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		FA019A211DE05CED00364871 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A221DE05CED00364871 /* DTModuleFactoryImplementation.h */,
+				FA019A231DE05CED00364871 /* DTModuleFactoryImplementation.m */,
+				FA019A241DE05CED00364871 /* UIViewController+DTModule.h */,
+				FA019A251DE05CED00364871 /* UIViewController+DTModule.m */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		FA019A261DE05CED00364871 /* URLParser */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A271DE05CED00364871 /* DTModuleURLParser.h */,
+				FA019A281DE05CED00364871 /* DTModuleURLParser.m */,
+			);
+			path = URLParser;
+			sourceTree = "<group>";
+		};
+		FA019A291DE05CED00364871 /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A2A1DE05CED00364871 /* Context */,
+				FA019A2D1DE05CED00364871 /* DTNavigator.h */,
+				FA019A2E1DE05CED00364871 /* DTNavigator.m */,
+				FA019A311DE05CED00364871 /* Route */,
+				FA019A341DE05CED00364871 /* Stack */,
+				FA019A371DE05CED00364871 /* UIViewController+URL */,
+			);
+			path = Navigator;
+			sourceTree = "<group>";
+		};
+		FA019A2A1DE05CED00364871 /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A2B1DE05CED00364871 /* DTNavigatorContext.h */,
+				FA019A2C1DE05CED00364871 /* DTNavigatorContext.m */,
+			);
+			path = Context;
+			sourceTree = "<group>";
+		};
+		FA019A311DE05CED00364871 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A321DE05CED00364871 /* DTNavigatorRoute.h */,
+				FA019A331DE05CED00364871 /* DTNavigatorRoute.m */,
+			);
+			path = Route;
+			sourceTree = "<group>";
+		};
+		FA019A341DE05CED00364871 /* Stack */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A351DE05CED00364871 /* DTNavigatorStack.h */,
+				FA019A361DE05CED00364871 /* DTNavigatorStack.m */,
+			);
+			path = Stack;
+			sourceTree = "<group>";
+		};
+		FA019A371DE05CED00364871 /* UIViewController+URL */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A381DE05CED00364871 /* UIViewController+URL.h */,
+				FA019A391DE05CED00364871 /* UIViewController+URL.m */,
+			);
+			path = "UIViewController+URL";
+			sourceTree = "<group>";
+		};
+		FA019A3A1DE05CED00364871 /* Promise */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A3B1DE05CED00364871 /* DTModulePromise.h */,
+				FA019A3C1DE05CED00364871 /* DTTransitionPromise.h */,
+				FA019A3D1DE05CED00364871 /* DTTransitionPromise.m */,
+			);
+			path = Promise;
+			sourceTree = "<group>";
+		};
+		FA019A3E1DE05CED00364871 /* StoryboardPlaceholders */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A3F1DE05CED00364871 /* DTURLPlaceholderViewController.h */,
+				FA019A401DE05CED00364871 /* DTURLPlaceholderViewController.m */,
+			);
+			path = StoryboardPlaceholders;
+			sourceTree = "<group>";
+		};
+		FA019A4F1DE05D8000364871 /* Workflow */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A501DE05D8000364871 /* DTGeneralWorkflow.h */,
+				FA019A511DE05D8000364871 /* DTGeneralWorkflow.m */,
+				FA019A521DE05D8000364871 /* DTURLWorkflow.h */,
+				FA019A531DE05D8000364871 /* DTURLWorkflow.m */,
+				FA019A541DE05D8000364871 /* DTWorkflow.h */,
+			);
+			path = Workflow;
+			sourceTree = "<group>";
+		};
+		FA019A571DE060D700364871 /* MapCollections */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A581DE060D700364871 /* CCMapCollections.h */,
+				FA019A591DE060D700364871 /* CCMapCollections.m */,
+			);
+			path = MapCollections;
+			sourceTree = "<group>";
+		};
+		FA019A5B1DE064BC00364871 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A5C1DE064BC00364871 /* Module */,
+				FA019A601DE064BC00364871 /* View */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		FA019A5C1DE064BC00364871 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A5D1DE064BC00364871 /* DTGeneralModuleInput.h */,
+				FA019A5E1DE064BC00364871 /* DTGeneralModuleOutput.h */,
+				FA019A5F1DE064BC00364871 /* DTModule.h */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		FA019A601DE064BC00364871 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A611DE064BC00364871 /* DTGeneralViewInput.h */,
+				FA019A621DE064BC00364871 /* DTGeneralViewOutput.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA019A631DE0651A00364871 /* DisplayManager */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A641DE0651A00364871 /* DTDisplayManager.h */,
+				FA019A651DE0651A00364871 /* DTDisplayManager.m */,
+				FA019A661DE0651A00364871 /* DTDisplayManagerAnimation.h */,
+			);
+			path = DisplayManager;
+			sourceTree = "<group>";
+		};
 		FA34865B1DDF0B8600B02A01 = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +548,11 @@
 		FA34868C1DDF0BBE00B02A01 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FA019A571DE060D700364871 /* MapCollections */,
+				FA019A121DE05C7A00364871 /* MutableCollections */,
+				FA019A0E1DE05C3C00364871 /* NotificationUtils */,
+				FA019A0A1DE05BEB00364871 /* TopmostViewController */,
+				FA019A091DE05B5300364871 /* VIPER */,
 				FA0199F71DDF5BBA00364871 /* SingletoneStorage */,
 				FA3486951DDF1E8A00B02A01 /* RealmAddons */,
 				FA3486911DDF13A300B02A01 /* Macroses */,
@@ -538,19 +834,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3486901DDF0BF000B02A01 /* DTObjectObserver.m in Sources */,
+				FA019A481DE05CED00364871 /* DTNavigator.m in Sources */,
 				FA3486A71DDF1E8A00B02A01 /* DTPersistentId.m in Sources */,
+				FA019A4A1DE05CED00364871 /* DTNavigatorRoute.m in Sources */,
+				FA019A0D1DE05BEB00364871 /* UIApplication+TopmostViewController.m in Sources */,
 				FA34866F1DDF0B8600B02A01 /* ViewController.m in Sources */,
+				FA019A561DE05D8000364871 /* DTURLWorkflow.m in Sources */,
 				FA34866C1DDF0B8600B02A01 /* AppDelegate.m in Sources */,
+				FA019A551DE05D8000364871 /* DTGeneralWorkflow.m in Sources */,
 				FA3486AB1DDF1E8A00B02A01 /* RLMObject+ThreadSafety.m in Sources */,
+				FA019A471DE05CED00364871 /* DTNavigatorContext.m in Sources */,
+				FA019A431DE05CED00364871 /* UIViewController+DTWorkflow.m in Sources */,
 				FA3486A91DDF1E8A00B02A01 /* DTSafeRLMObjectProxy.m in Sources */,
+				FA019A5A1DE060D700364871 /* CCMapCollections.m in Sources */,
+				FA019A111DE05C3C00364871 /* ССNotificationUtils.m in Sources */,
 				FA0199FF1DDF5BBA00364871 /* DTKeychainStorage.m in Sources */,
+				FA019A4C1DE05CED00364871 /* UIViewController+URL.m in Sources */,
+				FA019A671DE0651A00364871 /* DTDisplayManager.m in Sources */,
 				FA3486691DDF0B8600B02A01 /* main.m in Sources */,
+				FA019A4E1DE05CED00364871 /* DTURLPlaceholderViewController.m in Sources */,
+				FA019A4D1DE05CED00364871 /* DTTransitionPromise.m in Sources */,
 				FA3486AA1DDF1E8A00B02A01 /* DTObjectObserver+DatabaseAddons.m in Sources */,
 				FA3486B01DDF1F6E00B02A01 /* DTDatabaseDictionary.m in Sources */,
+				FA019A411DE05CED00364871 /* UIViewController+DTTransition.m in Sources */,
 				FA019A001DDF5BBA00364871 /* DTUserDefaultsStorage.m in Sources */,
+				FA019A4B1DE05CED00364871 /* DTNavigatorStack.m in Sources */,
 				FA3486A81DDF1E8A00B02A01 /* DTPersistentModel.m in Sources */,
 				FA019A031DE011DA00364871 /* DTLogger.m in Sources */,
 				FA3486AC1DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m in Sources */,
+				FA019A151DE05C7A00364871 /* CCMutableCollections.m in Sources */,
+				FA019A451DE05CED00364871 /* UIViewController+DTModule.m in Sources */,
+				FA019A461DE05CED00364871 /* DTModuleURLParser.m in Sources */,
+				FA019A421DE05CED00364871 /* UIViewController+DTTransitionHandler.m in Sources */,
+				FA019A441DE05CED00364871 /* DTModuleFactoryImplementation.m in Sources */,
 				FA3486A61DDF1E8A00B02A01 /* Realm+Arrays.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
