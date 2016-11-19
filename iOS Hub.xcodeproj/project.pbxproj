@@ -35,6 +35,7 @@
 		FA019A561DE05D8000364871 /* DTURLWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A531DE05D8000364871 /* DTURLWorkflow.m */; };
 		FA019A5A1DE060D700364871 /* CCMapCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A591DE060D700364871 /* CCMapCollections.m */; };
 		FA019A671DE0651A00364871 /* DTDisplayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A651DE0651A00364871 /* DTDisplayManager.m */; };
+		FA019A6B1DE07DD000364871 /* DTModuleURLParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A6A1DE07DD000364871 /* DTModuleURLParserTests.m */; };
 		FA3486691DDF0B8600B02A01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486681DDF0B8600B02A01 /* main.m */; };
 		FA34866C1DDF0B8600B02A01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34866B1DDF0B8600B02A01 /* AppDelegate.m */; };
 		FA34866F1DDF0B8600B02A01 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34866E1DDF0B8600B02A01 /* ViewController.m */; };
@@ -131,6 +132,7 @@
 		FA019A641DE0651A00364871 /* DTDisplayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDisplayManager.h; sourceTree = "<group>"; };
 		FA019A651DE0651A00364871 /* DTDisplayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDisplayManager.m; sourceTree = "<group>"; };
 		FA019A661DE0651A00364871 /* DTDisplayManagerAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDisplayManagerAnimation.h; sourceTree = "<group>"; };
+		FA019A6A1DE07DD000364871 /* DTModuleURLParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTModuleURLParserTests.m; sourceTree = "<group>"; };
 		FA3486641DDF0B8600B02A01 /* iOS Hub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Hub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3486681DDF0B8600B02A01 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FA34866A1DDF0B8600B02A01 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		2DBA1CA4386B5B53A73F166F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FA019A681DE07DD000364871 /* VIPER */,
 				FA019A051DE01C1800364871 /* SingletoneStorage */,
 				2DBA1A8D148689C93749F6C3 /* Observing */,
 			);
@@ -486,6 +489,22 @@
 				FA019A661DE0651A00364871 /* DTDisplayManagerAnimation.h */,
 			);
 			path = DisplayManager;
+			sourceTree = "<group>";
+		};
+		FA019A681DE07DD000364871 /* VIPER */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A691DE07DD000364871 /* TransitionHandler */,
+			);
+			path = VIPER;
+			sourceTree = "<group>";
+		};
+		FA019A691DE07DD000364871 /* TransitionHandler */ = {
+			isa = PBXGroup;
+			children = (
+				FA019A6A1DE07DD000364871 /* DTModuleURLParserTests.m */,
+			);
+			path = TransitionHandler;
 			sourceTree = "<group>";
 		};
 		FA34865B1DDF0B8600B02A01 = {
@@ -877,6 +896,7 @@
 			files = (
 				FA019A081DE01C1800364871 /* DTUserDefaultsStorageTests.m in Sources */,
 				FA0199C51DDF307D00364871 /* DTObjectObserverTests.m in Sources */,
+				FA019A6B1DE07DD000364871 /* DTModuleURLParserTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
