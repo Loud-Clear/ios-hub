@@ -14,12 +14,9 @@
 #import "UIViewController+DTTransitionHandler.h"
 #import "DTWorkflow.h"
 #import "MTTimingFunctions.h"
-#import "ССNotificationUtils.h"
 #import <UIView+MTAnimation.h>
-#import <Aspects/Aspects.h>
 #import "DTMacroses.h"
 
-#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
 @implementation DTDisplayManager
 
@@ -34,19 +31,8 @@
     _window = window;
     _factory = factory;
 
-    [self registerForNotification:UIDeviceOrientationDidChangeNotification selector:@selector(deviceOrientationDidChangeNotification)];
-
-    if (self.shouldEmulateIPhoneOnIPad && IS_IPAD) {
-        [self setupIphoneEmulationOnIpad];
-    }
-
     _window.rootViewController = [self.initialWorkflow initialViewController];
     [_window makeKeyAndVisible];
-}
-
-- (void)dealloc
-{
-    [self unregisterForNotifications];
 }
 
 //-------------------------------------------------------------------------------------------
@@ -55,11 +41,11 @@
 
 - (void)replaceRootViewControllerWith:(UIViewController *)viewController animation:(DTDisplayManagerTransitionAnimation)animation
 {
-    [DTDisplayManager animateChange:^{
-                _window.rootViewController = viewController;
-            }
-                           onWindow:self.window
-                       withAnimtion:animation];
+    void(^change)() = ^{
+        _window.rootViewController = viewController;
+    };
+    
+    [DTDisplayManager animateChange:change onWindow:self.window withAnimtion:animation];
 }
 
 - (id <DTModulePromise>)openModuleWithURL:(NSURL *)url transition:(DTTransitionStyle)style
@@ -146,12 +132,7 @@
 
 - (CGSize)screenSize
 {
-    if (self.shouldEmulateIPhoneOnIPad && IS_IPAD) {
-        // Emulate iPhone 6+ size.
-        return CGSizeMake(414, 736);
-    } else {
-        return [UIScreen mainScreen].bounds.size;
-    }
+    return [UIScreen mainScreen].bounds.size;
 }
 
 - (CGRect)screenBounds
@@ -162,63 +143,7 @@
 
 - (CGRect)windowFrame
 {
-    if (self.shouldEmulateIPhoneOnIPad && IS_IPAD) {
-        CGSize desiredScreenSize = [self screenSize];
-        CGSize realScreenSize = [UIScreen mainScreen].bounds.size;
-        CGRect windowFrame = CGRectMake(
-                (realScreenSize.height - desiredScreenSize.height) / 2,
-                (realScreenSize.width - desiredScreenSize.width) / 2,
-                desiredScreenSize.height,
-                desiredScreenSize.width);
-        return windowFrame;
-    } else {
-        return [UIScreen mainScreen].bounds;
-    }
-}
-
-//-------------------------------------------------------------------------------------------
-#pragma mark - UIDeviceOrientation notifications
-//-------------------------------------------------------------------------------------------
-
-- (void)deviceOrientationDidChangeNotification
-{
-    if (self.shouldEmulateIPhoneOnIPad && IS_IPAD) {
-        [self adjustWindowAndRootControllerLayoutForIphoneEmulation];
-    }
-}
-
-//-------------------------------------------------------------------------------------------
-#pragma mark - Private Methods
-//-------------------------------------------------------------------------------------------
-
-- (CGRect)realScreenBoundsFixed
-{
-    BOOL isLandscape = UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation);
-    CGRect screenBounds = [UIScreen mainScreen].bounds;
-    if ((isLandscape && (screenBounds.size.width < screenBounds.size.height)))
-    {
-        screenBounds = CGRectMake(screenBounds.origin.y, screenBounds.origin.x, screenBounds.size.height, screenBounds.size.width);
-    }
-
-    return screenBounds;
-}
-
-- (void)setupIphoneEmulationOnIpad
-{
-    [_window aspect_hookSelector:@selector(layoutSubviews) withOptions:AspectPositionAfter usingBlock:^{
-        [self adjustWindowAndRootControllerLayoutForIphoneEmulation];
-    } error:nil];
-
-    _window.clipsToBounds = YES;
-}
-
-- (void)adjustWindowAndRootControllerLayoutForIphoneEmulation
-{
-    CGRect realScreenBounds = [self realScreenBoundsFixed];
-    _window.bounds = [self screenBounds];
-    _window.center = CGPointMake(realScreenBounds.size.width/2, realScreenBounds.size.height/2);
-    _window.rootViewController.view.frame = [self screenBounds];
-    _window.rootViewController.view.clipsToBounds = YES;
+    return [UIScreen mainScreen].bounds;
 }
 
 @end

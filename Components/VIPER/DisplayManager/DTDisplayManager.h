@@ -27,8 +27,6 @@
 @property (nonatomic, readonly, strong) TyphoonComponentFactory *factory;
 @property (nonatomic, strong) id<DTWorkflow> initialWorkflow;
 
-@property (nonatomic) BOOL shouldEmulateIPhoneOnIPad; //Default: NO
-
 - (void)setupWindow:(UIWindow *)window factory:(TyphoonComponentFactory *)factory;
 
 - (void)replaceRootViewControllerWith:(UIViewController *)viewController animation:(DTDisplayManagerTransitionAnimation)animation;

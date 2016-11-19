@@ -66,7 +66,6 @@ Pod::Spec.new do |s|
       subspec.dependency 'Typhoon'
       subspec.dependency 'MTAnimation'
       subspec.dependency 'CTObjectiveCRuntimeAdditions'
-      subspec.dependency 'Aspects', :git => 'https://github.com/steipete/Aspects.git', :tag => '1.4.2'
       subspec.dependency 'ComponentsHub/Macroses'
       subspec.dependency 'ComponentsHub/NotificationUtils'
       subspec.dependency 'ComponentsHub/MutableCollections'
