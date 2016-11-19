@@ -149,11 +149,14 @@ DTNavigatorStack *StackForController(UIViewController *viewController)
         DTNavigatorStack *stack = StackForController(controller);
         result = [stack controllerForURL:url];
         if (result.navigationController == controller.navigationController) {
-			UIViewController* toViewController = result;
+			UIViewController *toViewController = result;
 			while(toViewController && ![result.navigationController.viewControllers containsObject:toViewController])
 			{
 				toViewController = result.parentViewController;
 			}
+            if (!toViewController) {
+                toViewController = result;
+            }
             [result.navigationController popToViewController:toViewController animated:NO];
         }
     }

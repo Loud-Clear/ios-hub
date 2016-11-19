@@ -57,7 +57,7 @@ BOOL DTSameUrls(NSURL *urlA, NSURL *urlB)
 
 - (NSArray<NSURL *> *)allUrls
 {
-    return [[self allViewControllers] arrayUsingMap:^id(UIViewController *object) {
+    return (NSArray<NSURL *> *)[[self allViewControllers] arrayUsingMap:^id(UIViewController *object) {
         return [object dt_url];
     }];
 }
