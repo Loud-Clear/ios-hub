@@ -11,7 +11,6 @@
 
 #import "DTSingletoneStorage.h"
 
-
 @interface DTUserDefaultsStorage : NSObject <DTSingletoneStorage>
 
 @property (nonatomic, strong) NSUserDefaults *userDefaults; //Pass nil to use standardUserDefaults

@@ -51,7 +51,7 @@
 		A4440DB54B4CED6BFEB20F98 /* Pods-iOS HubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS HubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS HubTests/Pods-iOS HubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E49612B7121FB28899A6715E /* libPods-iOS HubTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS HubTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2B4A336D2713804D1CC632B /* Pods-iOS Hub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Hub.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Hub/Pods-iOS Hub.release.xcconfig"; sourceTree = "<group>"; };
-		FA0199C31DDF279000364871 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		FA0199C31DDF279000364871 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FA0199F81DDF5BBA00364871 /* DTSingletoneStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTSingletoneStorage.h; sourceTree = "<group>"; };
 		FA0199FA1DDF5BBA00364871 /* DTKeychainStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTKeychainStorage.h; sourceTree = "<group>"; };
 		FA0199FB1DDF5BBA00364871 /* DTKeychainStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTKeychainStorage.m; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		FA34868E1DDF0BF000B02A01 /* DTObjectObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTObjectObserver.h; sourceTree = "<group>"; };
 		FA34868F1DDF0BF000B02A01 /* DTObjectObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTObjectObserver.m; sourceTree = "<group>"; };
 		FA3486921DDF13A300B02A01 /* DTMacroses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTMacroses.h; sourceTree = "<group>"; };
-		FA3486931DDF149F00B02A01 /* ComponentsHub.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ComponentsHub.podspec; sourceTree = "<group>"; };
+		FA3486931DDF149F00B02A01 /* ComponentsHub.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ComponentsHub.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FA3486971DDF1E8A00B02A01 /* Realm+Arrays.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Realm+Arrays.h"; sourceTree = "<group>"; };
 		FA3486981DDF1E8A00B02A01 /* Realm+Arrays.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Realm+Arrays.m"; sourceTree = "<group>"; };
 		FA3486991DDF1E8A00B02A01 /* DTPersistentId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTPersistentId.h; sourceTree = "<group>"; };

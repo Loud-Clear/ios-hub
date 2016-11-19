@@ -38,4 +38,11 @@ Pod::Spec.new do |s|
       subspec.dependency 'ComponentsHub/Observation'
   end
 
+  s.subspec 'SingletoneStorage' do |subspec|
+      subspec.source_files   = 'Components/SingletoneStorage/**/*.{h,m}'
+      subspec.dependency 'FastCoding'
+      subspec.dependency 'SAMKeychain'
+      subspec.dependency 'ComponentsHub/Macroses'
+  end
+
 end
