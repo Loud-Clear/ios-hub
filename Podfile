@@ -12,7 +12,7 @@ target 'iOS Hub' do
   pod 'KVOController'
 
   pod 'FastCoding'
-  pod 'SSKeychain'
+  pod 'SAMKeychain'
 
   target 'iOS HubTests' do
     inherit! :search_paths

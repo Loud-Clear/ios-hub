@@ -9,11 +9,8 @@
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
 #import "DTUserDefaultsStorage.h"
-//#import "DTProfile.h"
-//#import "DTProfileKeys.h"
 
 static NSString *kProfileKey = @"profile";
-
 
 NSString *kDTProfileKeyFirstName = @"firstName";
 

@@ -8,7 +8,7 @@ PODS:
   - Realm (2.1.0):
     - Realm/Headers (= 2.1.0)
   - Realm/Headers (2.1.0)
-  - SSKeychain (1.4.1)
+  - SAMKeychain (1.5.2)
   - Typhoon (3.5.1):
     - Typhoon/no-arc (= 3.5.1)
   - Typhoon/no-arc (3.5.1)
@@ -19,7 +19,7 @@ DEPENDENCIES:
   - libextobjc/EXTScope
   - OCMock
   - Realm
-  - SSKeychain
+  - SAMKeychain
   - Typhoon
 
 SPEC CHECKSUMS:
@@ -28,9 +28,9 @@ SPEC CHECKSUMS:
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
   Realm: bc829ad0ef3d4eea70c34cfcc3b1704d18d50df1
-  SSKeychain: 55cc80f66f5c73da827e3077f02e43528897db41
+  SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   Typhoon: c0950bb9f2e835eb8a7dc6983160109b6baf2dda
 
-PODFILE CHECKSUM: 339f94bae75f2d591dacc008635f857c827d0f5b
+PODFILE CHECKSUM: b0aa649e0e7fe9583065b28ae307c4bbedc858aa
 
 COCOAPODS: 1.1.1

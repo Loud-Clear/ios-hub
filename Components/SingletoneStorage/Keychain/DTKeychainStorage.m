@@ -9,7 +9,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <SSKeychain/SSKeychain.h>
+#import <SAMKeychain/SAMKeychain.h>
 #import <FastCoding/FastCoder.h>
 #import "DTKeychainStorage.h"
 #import "DTMacroses.h"
@@ -87,12 +87,12 @@
 
 - (BOOL)hasKeychainAccount
 {
-    return [[SSKeychain accountsForService:_service] count] != 0;
+    return [[SAMKeychain accountsForService:_service] count] != 0;
 }
 
 - (void)deleteInstanceFromKeychain
 {
-    SSKeychainQuery *keyChainQuery = [self instanceKeychainQuery];
+    SAMKeychainQuery *keyChainQuery = [self instanceKeychainQuery];
 
     NSError *error = nil;
     if (![keyChainQuery deleteItem:&error]) {
@@ -106,7 +106,7 @@
 {
     NSData *instanceData = [FastCoder dataWithRootObject:instance];
 
-    SSKeychainQuery *keyChainQuery = [self instanceKeychainQuery];
+    SAMKeychainQuery *keyChainQuery = [self instanceKeychainQuery];
     keyChainQuery.passwordObject = instanceData;
 
     NSError *error = nil;
@@ -119,7 +119,7 @@
 
 - (id)loadInstanceFromKeychain
 {
-    SSKeychainQuery *keyChainQuery = [self instanceKeychainQuery];
+    SAMKeychainQuery *keyChainQuery = [self instanceKeychainQuery];
     NSError *error = nil;
 
     if (![keyChainQuery fetch:&error]) {
@@ -143,9 +143,9 @@
 #pragma mark - Private
 //-------------------------------------------------------------------------------------------
 
-- (SSKeychainQuery *)instanceKeychainQuery
+- (SAMKeychainQuery *)instanceKeychainQuery
 {
-    SSKeychainQuery *keyChainQuery = [SSKeychainQuery new];
+    SAMKeychainQuery *keyChainQuery = [SAMKeychainQuery new];
     keyChainQuery.service = _service;
     keyChainQuery.account = _account;
     return keyChainQuery;

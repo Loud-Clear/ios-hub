@@ -309,7 +309,7 @@ Prohibited Jurisdiction, or otherwise in violation of any such restrictions or
 regulations.
 
 
-## SSKeychain
+## SAMKeychain
 
 Copyright (c) 2010-2016 Sam Soffes, http://soff.es
 
