@@ -12,11 +12,7 @@
 #import <SSKeychain/SSKeychain.h>
 #import <FastCoding/FastCoder.h>
 #import "DTKeychainStorage.h"
-
-#define DDLogInfo NSLog
-#define DDLogDebug NSLog
-#define DDLogError NSLog
-#define DDLogWarn NSLog
+#import "DTMacroses.h"
 
 @implementation DTKeychainStorage
 {

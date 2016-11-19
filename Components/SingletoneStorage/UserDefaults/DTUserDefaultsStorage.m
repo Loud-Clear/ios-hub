@@ -11,6 +11,7 @@
 
 #import <FastCoding/FastCoder.h>
 #import "DTUserDefaultsStorage.h"
+#import "DTMacroses.h"
 
 @implementation DTUserDefaultsStorage
 {
