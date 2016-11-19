@@ -56,8 +56,22 @@ Pod::Spec.new do |s|
   s.subspec 'MutableCollections' do |subspec|
       subspec.source_files   = 'Components/MutableCollections/**/*.{h,m}'
   end
+  
+  s.subspec 'MapCollections' do |subspec|
+      subspec.source_files   = 'Components/MapCollections/**/*.{h,m}'
+  end
 
-
+  s.subspec 'VIPER' do |subspec|
+      subspec.source_files   = 'Components/VIPER/**/*.{h,m}'
+      subspec.dependency 'Typhoon'
+      subspec.dependency 'MTAnimation'
+      subspec.dependency 'CTObjectiveCRuntimeAdditions'
+      subspec.dependency 'Aspects', :git => 'https://github.com/steipete/Aspects.git', :tag => '1.4.2'
+      subspec.dependency 'ComponentsHub/Macroses'
+      subspec.dependency 'ComponentsHub/NotificationUtils'
+      subspec.dependency 'ComponentsHub/MutableCollections'
+      subspec.dependency 'ComponentsHub/MapCollections'
+  end
 
 
 end
