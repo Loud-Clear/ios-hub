@@ -10,8 +10,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-@interface UIViewController (URL)
-
-- (NSURL *)cc_url;
+@protocol CCGeneralModuleOutput <NSObject>
 
 @end

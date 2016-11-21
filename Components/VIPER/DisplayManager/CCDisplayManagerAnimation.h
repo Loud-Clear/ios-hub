@@ -10,8 +10,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-@interface UIViewController (URL)
-
-- (NSURL *)cc_url;
-
-@end
+typedef NS_ENUM(NSInteger, ССDisplayManagerTransitionAnimation) {
+    ССDisplayManagerTransitionAnimationNone,
+    ССDisplayManagerTransitionAnimationSlideUp,
+    ССDisplayManagerTransitionAnimationSlideDown,
+    ССDisplayManagerTransitionAnimationPush
+};

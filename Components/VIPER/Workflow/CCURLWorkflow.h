@@ -9,9 +9,16 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#import "CCWorkflow.h"
+#import "CCGeneralWorkflow.h"
 
-@interface UIViewController (URL)
 
-- (NSURL *)cc_url;
+@interface CCURLWorkflow : CCGeneralWorkflow <CCWorkflow>
+
+@property (nonatomic, strong, readonly) NSURL* url;
+
+- (instancetype)initWithURL:(NSURL *)url;
+
+- (void)setInitialConfigureBlock:(void(^)(id moduleInput))block;
 
 @end

@@ -9,9 +9,18 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#import <UIKit/UIKit.h>
 
-@interface UIViewController (URL)
+@class CCNavigatorContext;
+@class CCNavigatorRoute;
 
-- (NSURL *)cc_url;
+
+@interface CCNavigator : NSObject
+
+@property (nonatomic, strong) NSArray<CCNavigatorRoute *> *routes;
+
+- (void)navigateToURL:(NSURL *)url fromController:(UIViewController *)controller context:(CCNavigatorContext *)context;
+
+- (BOOL)canNavigateToURL:(NSURL *)url fromController:(UIViewController *)controller;
 
 @end

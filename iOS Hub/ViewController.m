@@ -8,9 +8,9 @@
 
 #import "ViewController.h"
 
-#import "DTMacroses.h"
-#import "DTObjectObserver+DatabaseAddons.h"
-#import "DTObjectObserver.h"
+#import "CCMacroses.h"
+#import "CCObjectObserver+DatabaseAddons.h"
+#import "CCObjectObserver.h"
 
 @interface ViewController ()
 
@@ -24,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    DTObjectObserver *observer = [[DTObjectObserver alloc] initWithObject:self observer:nil];
+    CCObjectObserver *observer = [[CCObjectObserver alloc] initWithObject:self observer:nil];
     
     [observer observeKeys:@[ @"value" ] withBlockChange:^(NSArray *keys, NSDictionary *changes) {
         NSLog(@"Keys: %@, change: %@", keys, changes);

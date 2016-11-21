@@ -10,7 +10,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import "RLMObject+ThreadSafety.h"
-#import "DTSafeRLMObjectProxy.h"
+#import "CCSafeRLMObjectProxy.h"
 #import <Realm/Realm.h>
 #import <Realm/RLMRealm_Dynamic.h>
 
@@ -32,7 +32,7 @@
 
 - (instancetype)threadedSafeCopy
 {
-    return (id)[[DTSafeRLMObjectProxy alloc] initWithRLMObject:self];
+    return (id)[[CCSafeRLMObjectProxy alloc] initWithRLMObject:self];
 }
 
 - (instancetype)threadedSafeDeepCopy

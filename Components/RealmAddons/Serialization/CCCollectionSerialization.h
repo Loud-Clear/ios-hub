@@ -9,9 +9,14 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#import <Foundation/Foundation.h>
+#import "CCDatabaseJSONSerialization.h"
 
-@interface UIViewController (URL)
-
-- (NSURL *)cc_url;
+@interface NSDictionary (CCCollectionSerialization) <CCDatabaseJSONSerialization>
 
 @end
+
+@interface NSArray (CCCollectionSerialization) <CCDatabaseJSONSerialization>
+
+@end
+

@@ -9,9 +9,19 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#import "CCSingletoneStorage.h"
 
-@interface UIViewController (URL)
 
-- (NSURL *)cc_url;
+@interface CCKeychainStorage : NSObject <CCSingletoneStorage>
+
+- (instancetype)initWithClass:(Class)objectClass accountName:(NSString *)account serviceName:(NSString *)service;
+
+- (BOOL)hasKeychainAccount;
+
+- (void)deleteInstanceFromKeychain;
+
+- (void)saveToKeychainInstance:(id)instance;
+
+- (id)loadInstanceFromKeychain;
 
 @end

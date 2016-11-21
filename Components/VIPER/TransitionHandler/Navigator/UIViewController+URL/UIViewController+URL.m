@@ -12,9 +12,9 @@
 #import <objc/runtime.h>
 #import <Typhoon/TyphoonStoryboard.h>
 #import "UIViewController+URL.h"
-#import "DTModuleURLParser.h"
-#import "DTTransitionHandler.h"
-#import "DTMacroses.h"
+#import "CCModuleURLParser.h"
+#import "CCTransitionHandler.h"
+#import "CCMacroses.h"
 
 @interface UIStoryboard (name)
 
@@ -69,13 +69,13 @@
 
 
 
-- (NSURL *)dt_url
+- (NSURL *)cc_url
 {
     if (self.storyboard) {
         NSString *storyboardId = GetAssociatedObject("storyboardId");
         return [NSURL URLWithString:[NSString stringWithFormat:@"app:///%@/%@", self.storyboard.dt_name, storyboardId]];
     } else {
-        NSString *moduleName = [DTModuleURLParser moduleNameFromViewControllerClassName:NSStringFromClass([self class])];
+        NSString *moduleName = [CCModuleURLParser moduleNameFromViewControllerClassName:NSStringFromClass([self class])];
         if (moduleName) {
             return [NSURL URLWithString:[NSString stringWithFormat:@"app:///%@.module", moduleName]];
         } else {

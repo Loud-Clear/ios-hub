@@ -12,7 +12,7 @@
 #import "RLMRealm.h"
 #import "RLMObject.h"
 
-@protocol DTRealmTransaction;
+@protocol ССRealmTransaction;
 
 @interface RLMObject (Transactions)
 
@@ -24,11 +24,11 @@
 
 - (void)transactionIfNeeded:(void(^)())block;
 
-- (id<DTRealmTransaction>)beginWriteTransactionIfNeeded;
+- (id<ССRealmTransaction>)beginWriteTransactionIfNeeded;
 
 @end
 
-@protocol DTRealmTransaction <NSObject>
+@protocol ССRealmTransaction <NSObject>
 
 - (void)commit;
 - (void)cancel;

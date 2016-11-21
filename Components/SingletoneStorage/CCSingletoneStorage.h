@@ -10,8 +10,13 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-@interface UIViewController (URL)
+@protocol CCSingletoneStorage <NSObject>
 
-- (NSURL *)cc_url;
+- (id)getObject;
+
+- (void)saveObject:(id)object;
+
+/** Returns YES, if object was changed */
+- (BOOL)saveCurrentObject;
 
 @end

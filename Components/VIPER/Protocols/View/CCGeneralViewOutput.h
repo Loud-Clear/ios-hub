@@ -10,8 +10,11 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-@interface UIViewController (URL)
+@protocol CCGeneralViewOutput<NSObject>
 
-- (NSURL *)cc_url;
+/**
+ * Tells presenter that view is loaded and ready.
+ */
+- (void)didTriggerViewReadyEvent;
 
 @end

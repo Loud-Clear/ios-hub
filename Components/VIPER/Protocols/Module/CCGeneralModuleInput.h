@@ -9,9 +9,17 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#import "CCGeneralModuleOutput.h"
 
-@interface UIViewController (URL)
+@protocol CCGeneralModuleInput <NSObject>
 
-- (NSURL *)cc_url;
+
+@optional
+/**
+ * Called when module opened from NSURL with params (for example by clicking label link)
+ * */
+- (void)setInputParameters:(NSDictionary<NSString *, NSString *> *)params;
+
+- (void)setModuleOutput:(id<CCGeneralModuleOutput>)moduleOutput;
 
 @end

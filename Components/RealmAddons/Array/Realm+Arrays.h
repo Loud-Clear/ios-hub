@@ -11,7 +11,7 @@
 
 #import <Realm/Realm.h>
 
-NSMutableSet *DTPrimaryKeysFromCollection(id<NSFastEnumeration> collection, NSString *primaryKey);
+NSMutableSet *ССPrimaryKeysFromCollection(id<NSFastEnumeration> collection, NSString *primaryKey);
 
 @interface RLMResults (Array)
 

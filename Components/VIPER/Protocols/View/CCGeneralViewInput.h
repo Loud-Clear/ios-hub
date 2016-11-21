@@ -10,8 +10,14 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-@interface UIViewController (URL)
+@protocol CCGeneralViewInput<NSObject>
 
-- (NSURL *)cc_url;
+- (void)setupInitialState;
+
+- (void)showError:(NSString *)message;
+- (void)showSuccess:(NSString *)message;
+
+- (void)showLoader;
+- (void)hideLoader;
 
 @end

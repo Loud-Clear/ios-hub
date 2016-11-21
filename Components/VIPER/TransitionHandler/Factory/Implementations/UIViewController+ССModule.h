@@ -9,9 +9,13 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#import "CCModule.h"
 
-@interface UIViewController (URL)
+@interface UIViewController (ССModule)
 
-- (NSURL *)cc_url;
+- (UIViewController *)asViewController;
+
+- (UIView *)asView;
 
 @end
+

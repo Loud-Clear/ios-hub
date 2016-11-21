@@ -10,8 +10,13 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-@interface UIViewController (URL)
+@class CCPersistentModel;
 
-- (NSURL *)cc_url;
+
+@interface CCSafeRLMObjectProxy : NSProxy
+
+- (instancetype)initWithRLMObject:(RLMObject *)object;
+
+- (BOOL)isThreadSafe;
 
 @end

@@ -2,26 +2,79 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6e90c09-3b43-44b0-bef9-a91f9ec04252" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/iOS HubTests/iOS_HubTests.m" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/Observing/DTObjectObserver.m" afterPath="$PROJECT_DIR$/Components/Observing/DTObjectObserver.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ComponentsHub.podspec" afterPath="$PROJECT_DIR$/ComponentsHub.podspec" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Podfile" afterPath="$PROJECT_DIR$/Podfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Podfile.lock" afterPath="$PROJECT_DIR$/Podfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Manifest.lock" afterPath="$PROJECT_DIR$/Pods/Manifest.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/Pods/Pods.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/KVOController/KVOController.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/KVOController/KVOController.xcconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-iOS Hub/Pods-iOS Hub.debug.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-iOS Hub/Pods-iOS Hub.debug.xcconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-iOS Hub/Pods-iOS Hub.release.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-iOS Hub/Pods-iOS Hub.release.xcconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-iOS HubTests/Pods-iOS HubTests-acknowledgements.markdown" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-iOS HubTests/Pods-iOS HubTests-acknowledgements.markdown" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-iOS HubTests/Pods-iOS HubTests-acknowledgements.plist" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-iOS HubTests/Pods-iOS HubTests-acknowledgements.plist" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-iOS HubTests/Pods-iOS HubTests.debug.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-iOS HubTests/Pods-iOS HubTests.debug.xcconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Pods-iOS HubTests/Pods-iOS HubTests.release.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Pods-iOS HubTests/Pods-iOS HubTests.release.xcconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Realm/Realm.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Realm/Realm.xcconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/Typhoon/Typhoon.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/Typhoon/Typhoon.xcconfig" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pods/Target Support Files/libextobjc/libextobjc.xcconfig" afterPath="$PROJECT_DIR$/Pods/Target Support Files/libextobjc/libextobjc.xcconfig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/iOS_Hub.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Components/RealmAddons/Serialization/CCCollectionSerialization.h" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Components/RealmAddons/Serialization/DTDatabaseDictionary.h" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/Macroses/DTLogger.h" afterPath="$PROJECT_DIR$/Components/Macroses/CCLogger.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/Macroses/DTLogger.m" afterPath="$PROJECT_DIR$/Components/Macroses/CCLogger.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/Macroses/DTMacroses.h" afterPath="$PROJECT_DIR$/Components/Macroses/CCMacroses.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/Observing/DTObjectObserver.h" afterPath="$PROJECT_DIR$/Components/Observing/CCObjectObserver.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/Observing/DTObjectObserver.m" afterPath="$PROJECT_DIR$/Components/Observing/CCObjectObserver.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/DTPersistentId.h" afterPath="$PROJECT_DIR$/Components/RealmAddons/CCPersistentId.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/DTPersistentId.m" afterPath="$PROJECT_DIR$/Components/RealmAddons/CCPersistentId.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/DTPersistentModel.h" afterPath="$PROJECT_DIR$/Components/RealmAddons/CCPersistentModel.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/DTPersistentModel.m" afterPath="$PROJECT_DIR$/Components/RealmAddons/CCPersistentModel.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/DTSafeRLMObjectProxy.h" afterPath="$PROJECT_DIR$/Components/RealmAddons/CCSafeRLMObjectProxy.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/DTSafeRLMObjectProxy.m" afterPath="$PROJECT_DIR$/Components/RealmAddons/CCSafeRLMObjectProxy.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/Observation/DTObjectObserver+DatabaseAddons.h" afterPath="$PROJECT_DIR$/Components/RealmAddons/Observation/CCObjectObserver+DatabaseAddons.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/Observation/DTObjectObserver+DatabaseAddons.m" afterPath="$PROJECT_DIR$/Components/RealmAddons/Observation/CCObjectObserver+DatabaseAddons.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/Serialization/DTDatabaseDictionary.m" afterPath="$PROJECT_DIR$/Components/RealmAddons/Serialization/CCCollectionSerialization.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/Serialization/DTDatabaseJSONSerialization.h" afterPath="$PROJECT_DIR$/Components/RealmAddons/Serialization/CCDatabaseJSONSerialization.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/SingletoneStorage/DTSingletoneStorage.h" afterPath="$PROJECT_DIR$/Components/SingletoneStorage/CCSingletoneStorage.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/SingletoneStorage/Keychain/DTKeychainStorage.h" afterPath="$PROJECT_DIR$/Components/SingletoneStorage/Keychain/CCKeychainStorage.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/SingletoneStorage/Keychain/DTKeychainStorage.m" afterPath="$PROJECT_DIR$/Components/SingletoneStorage/Keychain/CCKeychainStorage.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/SingletoneStorage/UserDefaults/DTUserDefaultsStorage.h" afterPath="$PROJECT_DIR$/Components/SingletoneStorage/UserDefaults/CCUserDefaultsStorage.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/SingletoneStorage/UserDefaults/DTUserDefaultsStorage.m" afterPath="$PROJECT_DIR$/Components/SingletoneStorage/UserDefaults/CCUserDefaultsStorage.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/DisplayManager/DTDisplayManager.h" afterPath="$PROJECT_DIR$/Components/VIPER/DisplayManager/CCDisplayManager.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/DisplayManager/DTDisplayManager.m" afterPath="$PROJECT_DIR$/Components/VIPER/DisplayManager/CCDisplayManager.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Protocols/Module/DTGeneralModuleInput.h" afterPath="$PROJECT_DIR$/Components/VIPER/Protocols/Module/CCGeneralModuleInput.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Protocols/Module/DTGeneralModuleOutput.h" afterPath="$PROJECT_DIR$/Components/VIPER/Protocols/Module/CCGeneralModuleOutput.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Protocols/Module/DTModule.h" afterPath="$PROJECT_DIR$/Components/VIPER/Protocols/Module/CCModule.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Protocols/View/DTGeneralViewInput.h" afterPath="$PROJECT_DIR$/Components/VIPER/Protocols/View/CCGeneralViewInput.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Protocols/View/DTGeneralViewOutput.h" afterPath="$PROJECT_DIR$/Components/VIPER/Protocols/View/CCGeneralViewOutput.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandler.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/CCTransitionHandler.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/DTModuleFactory.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/CCModuleFactory.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/DTModuleFactoryImplementation.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/CCModuleFactoryImplementation.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/DTModuleFactoryImplementation.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/CCModuleFactoryImplementation.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/DTModuleURLParser.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/CCModuleURLParser.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/DTModuleURLParser.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/CCModuleURLParser.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Context/DTNavigatorContext.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Context/CCNavigatorContext.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Context/DTNavigatorContext.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Context/CCNavigatorContext.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/DTNavigator.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/CCNavigator.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/DTNavigator.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/CCNavigator.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Route/DTNavigatorRoute.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Route/CCNavigatorRoute.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Route/DTNavigatorRoute.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Route/CCNavigatorRoute.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Stack/DTNavigatorStack.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Stack/CCNavigatorStack.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Stack/DTNavigatorStack.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Stack/CCNavigatorStack.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/DTModulePromise.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/CCModulePromise.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/DTTransitionPromise.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/CCTransitionPromise.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/DTTransitionPromise.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/CCTransitionPromise.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/StoryboardPlaceholders/DTURLPlaceholderViewController.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/StoryboardPlaceholders/CCURLPlaceholderViewController.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/StoryboardPlaceholders/DTURLPlaceholderViewController.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/StoryboardPlaceholders/CCURLPlaceholderViewController.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Workflow/DTGeneralWorkflow.h" afterPath="$PROJECT_DIR$/Components/VIPER/Workflow/CCGeneralWorkflow.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Workflow/DTGeneralWorkflow.m" afterPath="$PROJECT_DIR$/Components/VIPER/Workflow/CCGeneralWorkflow.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Workflow/DTURLWorkflow.h" afterPath="$PROJECT_DIR$/Components/VIPER/Workflow/CCURLWorkflow.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Workflow/DTURLWorkflow.m" afterPath="$PROJECT_DIR$/Components/VIPER/Workflow/CCURLWorkflow.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Workflow/DTWorkflow.h" afterPath="$PROJECT_DIR$/Components/VIPER/Workflow/CCWorkflow.h" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/iOS HubTests/Components/Observing/DTObjectObserverTests.m" afterPath="$PROJECT_DIR$/iOS HubTests/Components/Observing/CCObjectObserverTests.m" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/iOS HubTests/Components/VIPER/TransitionHandler/DTModuleURLParserTests.m" afterPath="$PROJECT_DIR$/iOS HubTests/Components/VIPER/TransitionHandler/CCModuleURLParserTests.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/RealmAddons/RLMObject+ThreadSafety.m" afterPath="$PROJECT_DIR$/Components/RealmAddons/RLMObject+ThreadSafety.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/RealmAddons/RLMRealm+NestedTransactions.m" afterPath="$PROJECT_DIR$/Components/RealmAddons/RLMRealm+NestedTransactions.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/DisplayManager/DTDisplayManagerAnimation.h" afterPath="$PROJECT_DIR$/Components/VIPER/DisplayManager/DTDisplayManagerAnimation.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransition.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransition.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransition.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransition.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransitionHandler.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransitionHandler.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransitionHandler.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransitionHandler.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTWorkflow.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTWorkflow.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTWorkflow.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTWorkflow.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/UIViewController+DTModule.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/UIViewController+DTModule.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/UIViewController+URL/UIViewController+URL.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/UIViewController+URL/UIViewController+URL.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/UIViewController+URL/UIViewController+URL.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/UIViewController+URL/UIViewController+URL.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iOS Hub.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/iOS Hub.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iOS Hub/ViewController.m" afterPath="$PROJECT_DIR$/iOS Hub/ViewController.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iOS HubTests/Components/Observing/DTObjectObserver_Testable.h" afterPath="$PROJECT_DIR$/iOS HubTests/Components/Observing/DTObjectObserver_Testable.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iOS HubTests/Components/SingletoneStorage/UserDefaults/DTUserDefaultsStorageTests.m" afterPath="$PROJECT_DIR$/iOS HubTests/Components/SingletoneStorage/UserDefaults/DTUserDefaultsStorageTests.m" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -33,11 +86,61 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_6a1acb66a37063c7d8313b0831f4646052d9f30b" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulatoriPhone_6_10.1_x86_64_1" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="DTObjectObserver_Testable.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/iOS HubTests/Components/Observing/DTObjectObserver_Testable.h">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="CCURLPlaceholderViewController.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/StoryboardPlaceholders/CCURLPlaceholderViewController.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CCTransitionHandler.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/CCTransitionHandler.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-261">
+              <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CCGeneralWorkflow.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Components/VIPER/Workflow/CCGeneralWorkflow.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CCURLWorkflow.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Components/VIPER/Workflow/CCURLWorkflow.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CCWorkflow.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Components/VIPER/Workflow/CCWorkflow.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="945">
+              <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DTDisplayManagerAnimation.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Components/VIPER/DisplayManager/DTDisplayManagerAnimation.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -46,17 +149,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DTObjectObserverTests.m" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/iOS HubTests/Components/Observing/DTObjectObserverTests.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>DT([A-Z].*?)\s</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>CC$1</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -64,7 +165,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/iOS HubTests/Components/Observing/DTObjectObserverTests.m" />
+        <option value="$PROJECT_DIR$/Components/SingletoneStorage/Keychain/DTKeychainStorage.h" />
+        <option value="$PROJECT_DIR$/Components/SingletoneStorage/Keychain/CCKeychainStorage.h" />
+        <option value="$PROJECT_DIR$/Components/SingletoneStorage/DTSingletoneStorage.h" />
+        <option value="$PROJECT_DIR$/Components/SingletoneStorage/CCSingletoneStorage.h" />
+        <option value="$PROJECT_DIR$/Components/SingletoneStorage/UserDefaults/DTUserDefaultsStorage.h" />
+        <option value="$PROJECT_DIR$/Components/SingletoneStorage/UserDefaults/CCUserDefaultsStorage.h" />
+        <option value="$PROJECT_DIR$/Components/Macroses/DTLogger.h" />
+        <option value="$PROJECT_DIR$/Components/Macroses/CCLogger.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/DisplayManager/DTDisplayManager.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/DisplayManager/CCDisplayManager.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Protocols/Module/DTGeneralModuleInput.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Protocols/Module/CCGeneralModuleInput.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Protocols/Module/DTGeneralModuleOutput.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Protocols/Module/CCGeneralModuleOutput.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Protocols/Module/DTModule.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Protocols/Module/CCModule.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Protocols/View/DTGeneralViewInput.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Protocols/View/CCGeneralViewInput.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Protocols/View/DTGeneralViewOutput.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Protocols/View/CCGeneralViewOutput.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/DTModuleFactoryImplementation.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/CCModuleFactoryImplementation.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/UIViewController+DTModule.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/DTModuleFactory.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/CCModuleFactory.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/DTModuleURLParser.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/CCModuleURLParser.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Context/DTNavigatorContext.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Context/CCNavigatorContext.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Route/DTNavigatorRoute.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Route/CCNavigatorRoute.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Stack/DTNavigatorStack.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Stack/CCNavigatorStack.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/UIViewController+URL/UIViewController+URL.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/DTNavigator.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/CCNavigator.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/DTModulePromise.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/CCModulePromise.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/DTTransitionPromise.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/CCTransitionPromise.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/StoryboardPlaceholders/DTURLPlaceholderViewController.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/StoryboardPlaceholders/CCURLPlaceholderViewController.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandler.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/CCTransitionHandler.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Workflow/DTGeneralWorkflow.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Workflow/CCGeneralWorkflow.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Workflow/DTURLWorkflow.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Workflow/CCURLWorkflow.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Workflow/DTWorkflow.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Workflow/CCWorkflow.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/DisplayManager/DTDisplayManagerAnimation.h" />
       </list>
     </option>
   </component>
@@ -75,7 +226,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="190" />
+    <option name="x" value="189" />
     <option name="y" value="104" />
     <option name="width" value="1915" />
     <option name="height" value="1179" />
@@ -95,7 +246,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Cidr.FilesView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -140,6 +290,58 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TransitionHandler" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS HubTests" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SingletoneStorage" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDefaults" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS HubTests" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Observing" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
@@ -157,9 +359,656 @@
               <option name="myItemId" value="Components" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Workflow" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TransitionHandler" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TransitionHandler" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StoryboardPlaceholders" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TransitionHandler" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Promise" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TransitionHandler" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Navigator" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TransitionHandler" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Navigator" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UIViewController+URL" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TransitionHandler" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Navigator" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Stack" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TransitionHandler" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Navigator" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Route" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TransitionHandler" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Navigator" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Context" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TransitionHandler" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Factory" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TransitionHandler" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Factory" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="URLParser" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TransitionHandler" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Factory" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Implementations" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TransitionHandler" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DTTransitionHandlerImplementation" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Protocols" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Protocols" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Module" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VIPER" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DisplayManager" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TopmostViewController" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SingletoneStorage" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SingletoneStorage" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UserDefaults" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SingletoneStorage" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Keychain" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealmAddons" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealmAddons" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Serialization" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="RealmAddons" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Observation" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Observing" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NotificationUtils" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MutableCollections" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MapCollections" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iOS Hub" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Components" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Macroses" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Cidr.FilesView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -194,6 +1043,12 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.npm" factoryName="npm">
@@ -201,13 +1056,6 @@
       <scripts />
       <node-interpreter value="project" />
       <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="iOS Hub" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS_2="true" PROJECT_NAME="iOS Hub" TARGET_NAME="iOS Hub" CONFIG_NAME="Debug" SCHEME_NAME="iOS Hub" RUN_TARGET_PROJECT_NAME="iOS Hub" RUN_TARGET_NAME="iOS Hub" MAKE_ACTIVE="TRUE">
-      <envs />
-      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-      </EXTENSION>
       <method />
     </configuration>
     <list size="1">
@@ -225,33 +1073,34 @@
       <option name="presentableId" value="Default" />
       <updated>1479473255029</updated>
       <workItem from="1479473256764" duration="735000" />
+      <workItem from="1479705920272" duration="1540000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="735000" />
+    <option name="totallyTimeSpent" value="2275000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="190" y="104" width="1915" height="1179" extended-state="0" />
+    <frame x="189" y="104" width="1915" height="1179" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973601" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934684" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934684" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934684" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -275,10 +1124,388 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/iOS HubTests/Components/Observing/DTObjectObserverTests.m">
+    <entry file="file://$PROJECT_DIR$/iOS HubTests/Components/Observing/CCObjectObserverTests.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iOS HubTests/Components/Observing/DTObjectObserver_Testable.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/iOS HubTests/Components/Observing/CCObjectObserverTests.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="25" lean-forward="false" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/Macroses/CCLogger.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/RealmAddons/Array/Realm+Arrays.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/RealmAddons/Array/Realm+Arrays.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/RealmAddons/Serialization/CCDatabaseJSONSerialization.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/RealmAddons/Serialization/CCCollectionSerialization.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/RealmAddons/CCPersistentId.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="41" column="13" lean-forward="false" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/RealmAddons/CCPersistentId.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-514">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/RealmAddons/Serialization/CCCollectionSerialization.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="11" lean-forward="false" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/RealmAddons/CCPersistentModel.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/RealmAddons/CCPersistentModel.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="160" column="14" lean-forward="false" selection-start-line="160" selection-start-column="14" selection-end-line="160" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/RealmAddons/CCSafeRLMObjectProxy.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/RealmAddons/CCSafeRLMObjectProxy.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/RealmAddons/RLMObject+ThreadSafety.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="20" lean-forward="true" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/RealmAddons/RLMRealm+NestedTransactions.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/RealmAddons/RLMRealm+NestedTransactions.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/SingletoneStorage/Keychain/CCKeychainStorage.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/SingletoneStorage/CCSingletoneStorage.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/SingletoneStorage/UserDefaults/CCUserDefaultsStorage.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/Workflow/CCGeneralWorkflow.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#378#421#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/CCNavigator.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="168" column="12" lean-forward="false" selection-start-line="168" selection-start-column="12" selection-end-line="168" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/Macroses/CCLogger.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="17" lean-forward="false" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/DisplayManager/CCDisplayManager.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/Protocols/Module/CCGeneralModuleInput.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/Protocols/Module/CCGeneralModuleOutput.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/Protocols/View/CCGeneralViewInput.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/Protocols/View/CCGeneralViewOutput.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/CCModuleFactoryImplementation.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/CCModuleFactoryImplementation.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/CCModuleURLParser.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/CCModuleFactory.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="49" column="7" lean-forward="true" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/Protocols/Module/CCModule.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="10" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/UIViewController+DTModule.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Context/CCNavigatorContext.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="69" lean-forward="false" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Route/CCNavigatorRoute.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Stack/CCNavigatorStack.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/UIViewController+URL/UIViewController+URL.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/CCNavigator.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/CCModulePromise.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/CCTransitionPromise.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/StoryboardPlaceholders/CCURLPlaceholderViewController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/CCTransitionHandler.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-261">
+          <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/Workflow/CCGeneralWorkflow.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/Workflow/CCURLWorkflow.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/Workflow/CCWorkflow.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/DisplayManager/DTDisplayManagerAnimation.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

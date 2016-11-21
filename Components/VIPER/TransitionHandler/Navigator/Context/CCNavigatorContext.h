@@ -10,8 +10,16 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-@interface UIViewController (URL)
 
-- (NSURL *)cc_url;
+@interface CCNavigatorContext : NSObject
+
++ (instancetype)contextWithObjects:(NSArray *)objects;
++ (instancetype)contextWithObjectsDictionary:(NSDictionary *)objects;
+
+- (void)addObject:(id)object;
+- (void)setObject:(id)object forKey:(NSString *)key;
+
+- (id)objectForKey:(NSString *)key;
+- (id)objectForType:(id)classOrProtocol;
 
 @end

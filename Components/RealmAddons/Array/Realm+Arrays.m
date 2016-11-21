@@ -12,7 +12,7 @@
 #import <Realm/Realm.h>
 #import "Realm+Arrays.h"
 
-NSMutableSet *DTPrimaryKeysFromCollection(id<NSFastEnumeration> collection, NSString *primaryKey)
+NSMutableSet *ССPrimaryKeysFromCollection(id<NSFastEnumeration> collection, NSString *primaryKey)
 {
     NSUInteger count = 0;
     if ([(NSObject *)collection respondsToSelector:@selector(count)]) {
@@ -46,7 +46,7 @@ NSMutableSet *DTPrimaryKeysFromCollection(id<NSFastEnumeration> collection, NSSt
     Class itemClass = NSClassFromString(self.objectClassName);
     NSString *idKey = [itemClass primaryKey];
 
-    return DTPrimaryKeysFromCollection(self, idKey);
+    return ССPrimaryKeysFromCollection(self, idKey);
 }
 
 @end
@@ -69,7 +69,7 @@ NSMutableSet *DTPrimaryKeysFromCollection(id<NSFastEnumeration> collection, NSSt
     Class itemClass = NSClassFromString(self.objectClassName);
     NSString *idKey = [itemClass primaryKey];
 
-    return DTPrimaryKeysFromCollection(self, idKey);
+    return ССPrimaryKeysFromCollection(self, idKey);
 }
 
 + (id)arrayWithArray:(NSArray *)array objectsClass:(Class)clazz

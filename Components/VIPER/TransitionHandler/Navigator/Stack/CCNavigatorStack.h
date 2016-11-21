@@ -9,9 +9,18 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#import <UIKit/UIKit.h>
 
-@interface UIViewController (URL)
+BOOL CCSameUrls(NSURL *urlA, NSURL *urlB);
 
-- (NSURL *)cc_url;
+@interface CCNavigatorStack : NSObject
+
+- (void)addViewController:(UIViewController *)viewController;
+
+- (NSArray<NSURL *> *)allUrls;
+
+- (NSArray<UIViewController *> *)allViewControllers;
+
+- (UIViewController *)controllerForURL:(NSURL *)url;
 
 @end

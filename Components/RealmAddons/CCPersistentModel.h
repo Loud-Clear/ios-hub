@@ -9,9 +9,16 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#import <Realm/Realm.h>
+#import "RLMObject+ThreadSafety.h"
 
-@interface UIViewController (URL)
+@class CCPersistentId;
 
-- (NSURL *)cc_url;
+@interface CCPersistentModel : RLMObject
+
++ (NSArray *)serializedProperties;
 
 @end
+
+
+NSString *CCDataPropertyNameFromName(NSString *propertyName);

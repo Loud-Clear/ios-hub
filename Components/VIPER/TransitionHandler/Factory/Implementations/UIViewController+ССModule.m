@@ -9,9 +9,19 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#import "UIViewController+ССModule.h"
 
-@interface UIViewController (URL)
+@implementation UIViewController (ССModule)
 
-- (NSURL *)cc_url;
+- (UIViewController *)asViewController
+{
+    return self;
+}
+
+- (UIView *)asView
+{
+    return self.view;
+}
+
 
 @end

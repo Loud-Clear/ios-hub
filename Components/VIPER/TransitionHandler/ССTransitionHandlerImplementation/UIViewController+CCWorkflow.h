@@ -9,9 +9,12 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#import <UIKit/UIKit.h>
 
-@interface UIViewController (URL)
+@protocol CCWorkflow;
 
-- (NSURL *)cc_url;
+@interface UIViewController (ССWorkflow)
+
+@property (nonatomic, strong) id<CCWorkflow> workflow;
 
 @end

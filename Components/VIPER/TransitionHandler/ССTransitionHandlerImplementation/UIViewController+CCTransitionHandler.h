@@ -9,9 +9,8 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#import "CCTransitionHandler.h"
 
-@interface UIViewController (URL)
-
-- (NSURL *)cc_url;
+@interface UIViewController (ССTransitionHandler) <CCTransitionHandler>
 
 @end

@@ -9,9 +9,13 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#import "CCWorkflow.h"
+#import "CCModuleFactory.h"
 
-@interface UIViewController (URL)
+@interface CCGeneralWorkflow : NSObject <CCWorkflow>
 
-- (NSURL *)cc_url;
+@property (nonatomic, strong, readonly) id<CCModuleFactory> moduleFactory;
+
+- (UIViewController *)newInitialViewController;
 
 @end

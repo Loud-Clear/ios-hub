@@ -11,9 +11,9 @@
 
 #import "RLMRealm+NestedTransactions.h"
 #import "RLMObject.h"
-#import "DTMacroses.h"
+#import "CCMacroses.h"
 
-@interface RealmTransaction : NSObject <DTRealmTransaction>
+@interface RealmTransaction : NSObject <ССRealmTransaction>
 @property (nonatomic, weak) RLMRealm *realm;
 @end
 
@@ -58,7 +58,7 @@
     }
 }
 
-- (id<DTRealmTransaction>)beginWriteTransactionIfNeeded
+- (id<ССRealmTransaction>)beginWriteTransactionIfNeeded
 {
     RealmTransaction *transaction = [RealmTransaction new];
 
