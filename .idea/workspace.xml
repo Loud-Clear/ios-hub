@@ -2,79 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6e90c09-3b43-44b0-bef9-a91f9ec04252" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/iOS_Hub.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Components/RealmAddons/Serialization/CCCollectionSerialization.h" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Components/RealmAddons/Serialization/DTDatabaseDictionary.h" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/Macroses/DTLogger.h" afterPath="$PROJECT_DIR$/Components/Macroses/CCLogger.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/Macroses/DTLogger.m" afterPath="$PROJECT_DIR$/Components/Macroses/CCLogger.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/Macroses/DTMacroses.h" afterPath="$PROJECT_DIR$/Components/Macroses/CCMacroses.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/Observing/DTObjectObserver.h" afterPath="$PROJECT_DIR$/Components/Observing/CCObjectObserver.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/Observing/DTObjectObserver.m" afterPath="$PROJECT_DIR$/Components/Observing/CCObjectObserver.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/DTPersistentId.h" afterPath="$PROJECT_DIR$/Components/RealmAddons/CCPersistentId.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/DTPersistentId.m" afterPath="$PROJECT_DIR$/Components/RealmAddons/CCPersistentId.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/DTPersistentModel.h" afterPath="$PROJECT_DIR$/Components/RealmAddons/CCPersistentModel.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/DTPersistentModel.m" afterPath="$PROJECT_DIR$/Components/RealmAddons/CCPersistentModel.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/DTSafeRLMObjectProxy.h" afterPath="$PROJECT_DIR$/Components/RealmAddons/CCSafeRLMObjectProxy.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/DTSafeRLMObjectProxy.m" afterPath="$PROJECT_DIR$/Components/RealmAddons/CCSafeRLMObjectProxy.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/Observation/DTObjectObserver+DatabaseAddons.h" afterPath="$PROJECT_DIR$/Components/RealmAddons/Observation/CCObjectObserver+DatabaseAddons.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/Observation/DTObjectObserver+DatabaseAddons.m" afterPath="$PROJECT_DIR$/Components/RealmAddons/Observation/CCObjectObserver+DatabaseAddons.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/Serialization/DTDatabaseDictionary.m" afterPath="$PROJECT_DIR$/Components/RealmAddons/Serialization/CCCollectionSerialization.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/RealmAddons/Serialization/DTDatabaseJSONSerialization.h" afterPath="$PROJECT_DIR$/Components/RealmAddons/Serialization/CCDatabaseJSONSerialization.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/SingletoneStorage/DTSingletoneStorage.h" afterPath="$PROJECT_DIR$/Components/SingletoneStorage/CCSingletoneStorage.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/SingletoneStorage/Keychain/DTKeychainStorage.h" afterPath="$PROJECT_DIR$/Components/SingletoneStorage/Keychain/CCKeychainStorage.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/SingletoneStorage/Keychain/DTKeychainStorage.m" afterPath="$PROJECT_DIR$/Components/SingletoneStorage/Keychain/CCKeychainStorage.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/SingletoneStorage/UserDefaults/DTUserDefaultsStorage.h" afterPath="$PROJECT_DIR$/Components/SingletoneStorage/UserDefaults/CCUserDefaultsStorage.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/SingletoneStorage/UserDefaults/DTUserDefaultsStorage.m" afterPath="$PROJECT_DIR$/Components/SingletoneStorage/UserDefaults/CCUserDefaultsStorage.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/DisplayManager/DTDisplayManager.h" afterPath="$PROJECT_DIR$/Components/VIPER/DisplayManager/CCDisplayManager.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/DisplayManager/DTDisplayManager.m" afterPath="$PROJECT_DIR$/Components/VIPER/DisplayManager/CCDisplayManager.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Protocols/Module/DTGeneralModuleInput.h" afterPath="$PROJECT_DIR$/Components/VIPER/Protocols/Module/CCGeneralModuleInput.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Protocols/Module/DTGeneralModuleOutput.h" afterPath="$PROJECT_DIR$/Components/VIPER/Protocols/Module/CCGeneralModuleOutput.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Protocols/Module/DTModule.h" afterPath="$PROJECT_DIR$/Components/VIPER/Protocols/Module/CCModule.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Protocols/View/DTGeneralViewInput.h" afterPath="$PROJECT_DIR$/Components/VIPER/Protocols/View/CCGeneralViewInput.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Protocols/View/DTGeneralViewOutput.h" afterPath="$PROJECT_DIR$/Components/VIPER/Protocols/View/CCGeneralViewOutput.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandler.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/CCTransitionHandler.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/DTModuleFactory.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/CCModuleFactory.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/DTModuleFactoryImplementation.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/CCModuleFactoryImplementation.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/DTModuleFactoryImplementation.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/CCModuleFactoryImplementation.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/DTModuleURLParser.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/CCModuleURLParser.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/DTModuleURLParser.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/CCModuleURLParser.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Context/DTNavigatorContext.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Context/CCNavigatorContext.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Context/DTNavigatorContext.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Context/CCNavigatorContext.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/DTNavigator.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/CCNavigator.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/DTNavigator.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/CCNavigator.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Route/DTNavigatorRoute.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Route/CCNavigatorRoute.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Route/DTNavigatorRoute.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Route/CCNavigatorRoute.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Stack/DTNavigatorStack.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Stack/CCNavigatorStack.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Stack/DTNavigatorStack.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/Stack/CCNavigatorStack.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/DTModulePromise.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/CCModulePromise.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/DTTransitionPromise.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/CCTransitionPromise.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/DTTransitionPromise.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Promise/CCTransitionPromise.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/StoryboardPlaceholders/DTURLPlaceholderViewController.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/StoryboardPlaceholders/CCURLPlaceholderViewController.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/StoryboardPlaceholders/DTURLPlaceholderViewController.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/StoryboardPlaceholders/CCURLPlaceholderViewController.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Workflow/DTGeneralWorkflow.h" afterPath="$PROJECT_DIR$/Components/VIPER/Workflow/CCGeneralWorkflow.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Workflow/DTGeneralWorkflow.m" afterPath="$PROJECT_DIR$/Components/VIPER/Workflow/CCGeneralWorkflow.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Workflow/DTURLWorkflow.h" afterPath="$PROJECT_DIR$/Components/VIPER/Workflow/CCURLWorkflow.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Workflow/DTURLWorkflow.m" afterPath="$PROJECT_DIR$/Components/VIPER/Workflow/CCURLWorkflow.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Components/VIPER/Workflow/DTWorkflow.h" afterPath="$PROJECT_DIR$/Components/VIPER/Workflow/CCWorkflow.h" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/iOS HubTests/Components/Observing/DTObjectObserverTests.m" afterPath="$PROJECT_DIR$/iOS HubTests/Components/Observing/CCObjectObserverTests.m" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/iOS HubTests/Components/VIPER/TransitionHandler/DTModuleURLParserTests.m" afterPath="$PROJECT_DIR$/iOS HubTests/Components/VIPER/TransitionHandler/CCModuleURLParserTests.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/RealmAddons/RLMObject+ThreadSafety.m" afterPath="$PROJECT_DIR$/Components/RealmAddons/RLMObject+ThreadSafety.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/RealmAddons/RLMRealm+NestedTransactions.m" afterPath="$PROJECT_DIR$/Components/RealmAddons/RLMRealm+NestedTransactions.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/DisplayManager/DTDisplayManagerAnimation.h" afterPath="$PROJECT_DIR$/Components/VIPER/DisplayManager/DTDisplayManagerAnimation.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransition.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransition.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransition.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransition.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransitionHandler.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransitionHandler.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransitionHandler.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTTransitionHandler.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTWorkflow.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTWorkflow.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTWorkflow.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/DTTransitionHandlerImplementation/UIViewController+DTWorkflow.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/UIViewController+DTModule.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/Implementations/UIViewController+DTModule.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/UIViewController+URL/UIViewController+URL.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/UIViewController+URL/UIViewController+URL.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/UIViewController+URL/UIViewController+URL.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Navigator/UIViewController+URL/UIViewController+URL.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iOS Hub.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/iOS Hub.xcodeproj/project.pbxproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iOS Hub/ViewController.m" afterPath="$PROJECT_DIR$/iOS Hub/ViewController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iOS HubTests/Components/Observing/DTObjectObserver_Testable.h" afterPath="$PROJECT_DIR$/iOS HubTests/Components/Observing/DTObjectObserver_Testable.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/iOS HubTests/Components/SingletoneStorage/UserDefaults/DTUserDefaultsStorageTests.m" afterPath="$PROJECT_DIR$/iOS HubTests/Components/SingletoneStorage/UserDefaults/DTUserDefaultsStorageTests.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/CCModuleURLParser.h" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/CCModuleURLParser.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/CCModuleURLParser.m" afterPath="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/CCModuleURLParser.m" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -94,7 +23,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
               <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding />
+              <folding>
+                <marker date="1479707368000" expanded="true" signature="241:243" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -104,7 +35,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-261">
               <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-              <folding />
+              <folding>
+                <marker date="1479709298000" expanded="true" signature="3569:3628" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,16 +67,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="945">
               <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
-              <folding />
+              <folding>
+                <marker date="1479707929000" expanded="true" signature="2214:2797" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DTDisplayManagerAnimation.h" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Components/VIPER/DisplayManager/DTDisplayManagerAnimation.h">
+      <file leaf-file-name="CCModuleURLParser.m" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/CCModuleURLParser.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="503">
+              <caret line="84" column="54" lean-forward="false" selection-start-line="84" selection-start-column="38" selection-end-line="84" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -165,7 +100,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Components/SingletoneStorage/Keychain/DTKeychainStorage.h" />
         <option value="$PROJECT_DIR$/Components/SingletoneStorage/Keychain/CCKeychainStorage.h" />
         <option value="$PROJECT_DIR$/Components/SingletoneStorage/DTSingletoneStorage.h" />
         <option value="$PROJECT_DIR$/Components/SingletoneStorage/CCSingletoneStorage.h" />
@@ -214,8 +148,9 @@
         <option value="$PROJECT_DIR$/Components/VIPER/Workflow/DTURLWorkflow.h" />
         <option value="$PROJECT_DIR$/Components/VIPER/Workflow/CCURLWorkflow.h" />
         <option value="$PROJECT_DIR$/Components/VIPER/Workflow/DTWorkflow.h" />
-        <option value="$PROJECT_DIR$/Components/VIPER/Workflow/CCWorkflow.h" />
         <option value="$PROJECT_DIR$/Components/VIPER/DisplayManager/DTDisplayManagerAnimation.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/Workflow/CCWorkflow.h" />
+        <option value="$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/CCModuleURLParser.m" />
       </list>
     </option>
   </component>
@@ -692,32 +627,6 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="TransitionHandler" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DTTransitionHandlerImplementation" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iOS Hub" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Components" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VIPER" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Protocols" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
@@ -1073,12 +982,12 @@
       <option name="presentableId" value="Default" />
       <updated>1479473255029</updated>
       <workItem from="1479473256764" duration="735000" />
-      <workItem from="1479705920272" duration="1540000" />
+      <workItem from="1479705920272" duration="2474000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2275000" />
+    <option name="totallyTimeSpent" value="3209000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="189" y="104" width="1915" height="1179" extended-state="0" />
@@ -1297,7 +1206,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#378#421#0" expanded="true" />
+            <element signature="e#378#421#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1466,7 +1375,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
+          <folding>
+            <marker date="1479707368000" expanded="true" signature="241:243" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1474,7 +1385,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-261">
           <caret line="32" column="12" lean-forward="false" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-          <folding />
+          <folding>
+            <marker date="1479709298000" expanded="true" signature="3569:3628" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1494,18 +1407,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Components/VIPER/Workflow/CCWorkflow.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Components/VIPER/DisplayManager/DTDisplayManagerAnimation.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/Workflow/CCWorkflow.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
+          <folding>
+            <marker date="1479707929000" expanded="true" signature="2214:2797" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Components/VIPER/TransitionHandler/Factory/URLParser/CCModuleURLParser.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="84" column="54" lean-forward="false" selection-start-line="84" selection-start-column="38" selection-end-line="84" selection-end-column="54" />
           <folding />
         </state>
       </provider>

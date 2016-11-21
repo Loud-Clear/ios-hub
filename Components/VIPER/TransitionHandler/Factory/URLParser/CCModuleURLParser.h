@@ -21,7 +21,7 @@ typedef NS_ENUM(NSInteger, ССModuleURLParserErrorCode) {
 };
 
 
-@interface CCModuleURLParserResult : NSObject
+@interface CCModuleURLParserResult : NSObject<NSCopying>
 
 @property (nonatomic, strong) NSString *storyboardName;
 @property (nonatomic, strong) NSString *controllerName;
@@ -29,9 +29,19 @@ typedef NS_ENUM(NSInteger, ССModuleURLParserErrorCode) {
 
 @property (nonatomic, strong) NSDictionary *parameters;
 
+- (id)copyWithZone:(NSZone *)zone;
+
+- (void)appendParameters:(NSDictionary *)parameters;
+
 @end
 
 @interface CCModuleURLParser : NSObject
+
++ (void)setViewControllerPrefix:(NSString *)viewControllerPrefix;
+
++ (void)setViewControllerSuffix:(NSString *)viewControllerSuffix;
+
++ (void)setWebBrowserControllerURL:(NSURL *)url;
 
 + (CCModuleURLParserResult *)parseURL:(NSURL *)url error:(NSError **)error;
 

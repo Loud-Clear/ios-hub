@@ -15,6 +15,15 @@
 
 @implementation CCModuleURLParserTests
 
+- (void)setUp
+{
+    [super setUp];
+    
+    [CCModuleURLParser setWebBrowserControllerURL:[NSURL URLWithString:@"app:///WebBrowser.storyboard"]];
+    [CCModuleURLParser setViewControllerPrefix:@"CC"];
+    [CCModuleURLParser setViewControllerSuffix:@"ViewController"];
+}
+
 - (void)test_with_incorrect_scheme
 {
     NSURL *url = [NSURL URLWithString:@"ftp://123123"];

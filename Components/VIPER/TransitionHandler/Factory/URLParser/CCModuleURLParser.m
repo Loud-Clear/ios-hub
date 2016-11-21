@@ -32,26 +32,67 @@
 @end
 
 @implementation CCModuleURLParserResult
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    CCModuleURLParserResult *copy = [[[self class] allocWithZone:zone] init];
+
+    if (copy != nil) {
+        copy.storyboardName = self.storyboardName;
+        copy.controllerName = self.controllerName;
+        copy.definitionKey = self.definitionKey;
+        copy.parameters = self.parameters;
+    }
+
+    return copy;
+}
+
+- (void)appendParameters:(NSDictionary *)parameters
+{
+    NSMutableDictionary *dictionary = [self.parameters mutableCopy];
+    [dictionary addEntriesFromDictionary:parameters];
+    self.parameters = dictionary;
+}
+
+
 @end
 
 @implementation CCModuleURLParser
+
+static NSString *kCCViewControllerPrefix = @"CC";
+static NSString *kCCViewControllerSuffix = @"ViewController";
+static NSURL *kCCWebBrowserURL;
+
++ (void)setViewControllerPrefix:(NSString *)viewControllerPrefix
+{
+    kCCViewControllerPrefix = viewControllerPrefix;
+}
+
++ (void)setViewControllerSuffix:(NSString *)viewControllerSuffix
+{
+    kCCViewControllerSuffix = viewControllerSuffix;
+}
+
++ (void)setWebBrowserControllerURL:(NSURL *)url
+{
+    kCCWebBrowserURL = url;
+}
 
 + (CCModuleURLParserResult *)parseURL:(NSURL *)url error:(NSError **)error
 {
     if ([self isInAppURL:url]) {
         return [self parseInAppURL:url error:error];
-    } else if ([self isWebURL:url]) {
-        CCModuleURLParserResult *result = [CCModuleURLParserResult new];
-        result.storyboardName = @"WebBrowser";
-        result.parameters = @{
+    } else if ([self isWebURL:url] && kCCWebBrowserURL) {
+        CCModuleURLParserResult *result = [self parseURL:kCCWebBrowserURL error:error];
+        [result appendParameters:@{
                 @"url": [url absoluteString]
-        };
+        }];
         return result;
     } else {
         if (error) {
             *error = [NSError errorWithDomain:ССModuleURLParserErrorDomain code:ССModuleURLParserErrorCodeBadScheme
                                      userInfo:@{
-                                             NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Can't parse URL with protocol %@",
+                                             NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Can't parse URL with protocol '%@'",
                                                                                                     [url scheme]]
                                      }];
         }
@@ -61,8 +102,8 @@
 
 + (NSString *)moduleNameFromViewControllerClassName:(NSString *)className
 {
-    NSString *prefix = @"CC";
-    NSString *suffix = @"ViewController";
+    NSString *prefix = kCCViewControllerPrefix;
+    NSString *suffix = kCCViewControllerSuffix;
     if ([className hasPrefix:prefix] && [className hasSuffix:suffix]) {
         NSRange prefixRange = NSMakeRange(0, [prefix length]);
         className = [className stringByReplacingCharactersInRange:prefixRange withString:@""];
@@ -75,7 +116,7 @@
 
 + (NSString *)viewControllerClassNameFromModuleName:(NSString *)moduleName
 {
-    return [NSString stringWithFormat:@"CC%@ViewController", moduleName];
+    return [NSString stringWithFormat:@"%@%@%@", kCCViewControllerPrefix, moduleName, kCCViewControllerSuffix];
 }
 
 
