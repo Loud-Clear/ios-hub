@@ -29,12 +29,12 @@
 
 - (void)setupWindow:(UIWindow *)window factory:(TyphoonComponentFactory *)factory;
 
-- (void)replaceRootViewControllerWith:(UIViewController *)viewController animation:(ССDisplayManagerTransitionAnimation)animation;
+- (void)replaceRootViewControllerWith:(UIViewController *)viewController animation:(CCDisplayManagerTransitionAnimation)animation;
 
 - (id<CCModulePromise>)openModuleWithURL:(NSURL *)url transition:(ССTransitionStyle)style;
 
 + (void)animateChange:(void (^)())change onWindow:(UIWindow *)window
-         withAnimtion:(ССDisplayManagerTransitionAnimation)animation;
+         withAnimtion:(CCDisplayManagerTransitionAnimation)animation;
 
 - (CGSize)screenSize;
 - (CGRect)screenBounds;

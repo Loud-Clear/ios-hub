@@ -39,7 +39,7 @@
 #pragma mark - Interface Methods
 //-------------------------------------------------------------------------------------------
 
-- (void)replaceRootViewControllerWith:(UIViewController *)viewController animation:(ССDisplayManagerTransitionAnimation)animation
+- (void)replaceRootViewControllerWith:(UIViewController *)viewController animation:(CCDisplayManagerTransitionAnimation)animation
 {
     void(^change)() = ^{
         _window.rootViewController = viewController;
@@ -53,11 +53,11 @@
     return [_window.rootViewController openModuleUsingURL:url transition:style];
 }
 
-+ (void)animateChange:(void (^)())change onWindow:(UIWindow *)window withAnimtion:(ССDisplayManagerTransitionAnimation)animation
++ (void)animateChange:(void (^)())change onWindow:(UIWindow *)window withAnimtion:(CCDisplayManagerTransitionAnimation)animation
 {
-    if (animation == ССDisplayManagerTransitionAnimationNone) {
+    if (animation == CCDisplayManagerTransitionAnimationNone) {
         SafetyCall(change);
-    } else if (animation == ССDisplayManagerTransitionAnimationPush) {
+    } else if (animation == CCDisplayManagerTransitionAnimationPush) {
         CGFloat duration = 0.55;
         UIView *snapShot = [window snapshotViewAfterScreenUpdates:YES];
 
@@ -106,11 +106,11 @@
         transition.duration = 0.3f;
         switch (animation) {
         default:
-        case ССDisplayManagerTransitionAnimationSlideUp:
+        case CCDisplayManagerTransitionAnimationSlideUp:
             transition.type = kCATransitionMoveIn;
             transition.subtype = kCATransitionFromTop;
             break;
-        case ССDisplayManagerTransitionAnimationSlideDown:
+        case CCDisplayManagerTransitionAnimationSlideDown:
             transition.type = kCATransitionReveal;
             transition.subtype = kCATransitionFromBottom;;
             break;

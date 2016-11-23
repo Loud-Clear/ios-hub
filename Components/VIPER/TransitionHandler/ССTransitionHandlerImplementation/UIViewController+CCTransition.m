@@ -104,7 +104,7 @@ static BOOL kAnimationsEnabled = YES;
         }
         case ССTransitionStyleReplaceRoot: {
             block = ^(UIViewController *src, UIViewController *dst) {
-                [displayManager replaceRootViewControllerWith:dst animation:ССDisplayManagerTransitionAnimationNone];
+                [displayManager replaceRootViewControllerWith:dst animation:CCDisplayManagerTransitionAnimationNone];
             };
             break;
         }

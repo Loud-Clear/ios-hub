@@ -109,7 +109,7 @@ static void ССViperPrepareForSegueSender(id self, SEL selector, UIStoryboardSe
     [self.workflow completeWithLastViewController:self context:object];
 }
 
-- (void)navigateToURL:(NSURL *)url context:(CCNavigatorContext *)context  withAnimation:(ССDisplayManagerTransitionAnimation)animation
+- (void)navigateToURL:(NSURL *)url context:(CCNavigatorContext *)context  withAnimation:(CCDisplayManagerTransitionAnimation)animation
 {
     CCNavigator *navigator = [[TyphoonComponentFactory factoryForResolvingUI] componentForType:[CCNavigator class]];
 

@@ -10,9 +10,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-typedef NS_ENUM(NSInteger, ССDisplayManagerTransitionAnimation) {
-    ССDisplayManagerTransitionAnimationNone,
-    ССDisplayManagerTransitionAnimationSlideUp,
-    ССDisplayManagerTransitionAnimationSlideDown,
-    ССDisplayManagerTransitionAnimationPush
+typedef NS_ENUM(NSInteger, CCDisplayManagerTransitionAnimation) {
+    CCDisplayManagerTransitionAnimationNone,
+    CCDisplayManagerTransitionAnimationSlideUp,
+    CCDisplayManagerTransitionAnimationSlideDown,
+    CCDisplayManagerTransitionAnimationPush
 };

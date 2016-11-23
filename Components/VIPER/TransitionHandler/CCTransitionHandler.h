@@ -83,7 +83,7 @@ typedef NS_ENUM(NSInteger, ССTransitionStyle)
 ///
 ///
 ///
-- (void)navigateToURL:(NSURL *)url context:(CCNavigatorContext *)context withAnimation:(ССDisplayManagerTransitionAnimation)animation;
+- (void)navigateToURL:(NSURL *)url context:(CCNavigatorContext *)context withAnimation:(CCDisplayManagerTransitionAnimation)animation;
 
 // Returns YES, if found route from current ViewController
 - (BOOL)canNavigateToURL:(NSURL *)url;
