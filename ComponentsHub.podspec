@@ -84,5 +84,10 @@ Pod::Spec.new do |s|
       subspec.dependency 'ComponentsHub/Table'
   end
 
+  # Categories
+
+  s.subspec 'UIColor+Hex' do |subspec|
+      subspec.source_files = 'Components/Categories/UIColor+Hex.{h,m}'
+  end
 
 end

@@ -15,6 +15,7 @@
 		2DBA1AAC2B93320ECC40AE24 /* CCActionBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1ADFBA543D8D9E1ACF43 /* CCActionBar.m */; };
 		2DBA1D5BDFE05702E067CF21 /* NSBundle+CCTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D93E0513620DF602C84 /* NSBundle+CCTableViewManager.m */; };
 		2DBA1EDF3A27D4288D1F4A26 /* CCTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1221C2F7AA7F1BAA5FEB /* CCTableViewManager.m */; };
+		31821FA63240C60C64AD0DD5 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821684BA6B0564A134BC6E /* UIColor+Hex.m */; };
 		8D966B34D57C5313A65AFAEF /* libPods-iOS HubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E49612B7121FB28899A6715E /* libPods-iOS HubTests.a */; };
 		F3D62DA1DEE065A7AC3A4765 /* libPods-iOS Hub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 900BB96B6BF13BEBEA951A07 /* libPods-iOS Hub.a */; };
 		FA0199C41DDF279000364871 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FA0199C31DDF279000364871 /* Podfile */; };
@@ -97,7 +98,9 @@
 		2DBA1ADFBA543D8D9E1ACF43 /* CCActionBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCActionBar.m; sourceTree = "<group>"; };
 		2DBA1C41006DC5F942FAB1BC /* CCActionBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCActionBar.h; sourceTree = "<group>"; };
 		2DBA1D93E0513620DF602C84 /* NSBundle+CCTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+CCTableViewManager.m"; sourceTree = "<group>"; };
+		31821684BA6B0564A134BC6E /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		31821A231FAFE37B2CDE194F /* CCTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTypedefs.h; sourceTree = "<group>"; };
+		31821E9A5C9CE5A8D340E988 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		446956A7F9FE359608775CB8 /* Pods-iOS HubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS HubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS HubTests/Pods-iOS HubTests.release.xcconfig"; sourceTree = "<group>"; };
 		900BB96B6BF13BEBEA951A07 /* libPods-iOS Hub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS Hub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4440DB54B4CED6BFEB20F98 /* Pods-iOS HubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS HubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS HubTests/Pods-iOS HubTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -283,6 +286,15 @@
 				2DBA1A8D148689C93749F6C3 /* Observing */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		318215BFEBBBA39F69C8FBBF /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				31821684BA6B0564A134BC6E /* UIColor+Hex.m */,
+				31821E9A5C9CE5A8D340E988 /* UIColor+Hex.h */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		50A5BD6415970ADE37A076C8 /* Pods */ = {
@@ -644,6 +656,7 @@
 				FA34868D1DDF0BF000B02A01 /* Observing */,
 				2DBA1952040853CFFD6D9DDF /* Table */,
 				2DBA1B0E0CDF3DC5E092DC78 /* Forms */,
+				318215BFEBBBA39F69C8FBBF /* Categories */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -996,6 +1009,7 @@
 				FAF38E571DF0400C00F44BC0 /* CCTableFormCell.m in Sources */,
 				2DBA1A94FFA9489047EB821D /* CCTableViewSection.m in Sources */,
 				2DBA1D5BDFE05702E067CF21 /* NSBundle+CCTableViewManager.m in Sources */,
+				31821FA63240C60C64AD0DD5 /* UIColor+Hex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
