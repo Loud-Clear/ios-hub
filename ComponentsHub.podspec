@@ -51,6 +51,7 @@ Pod::Spec.new do |s|
   
   s.subspec 'NotificationUtils' do |subspec|
       subspec.source_files   = 'Components/NotificationUtils/**/*.{h,m}'
+      subspec.dependency 'Typhoon/DeallocNotifier'
   end
 
   s.subspec 'MutableCollections' do |subspec|

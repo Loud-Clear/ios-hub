@@ -12,9 +12,14 @@ PODS:
     - Realm/Headers (= 2.1.0)
   - Realm/Headers (2.1.0)
   - SAMKeychain (1.5.2)
-  - Typhoon (3.5.1):
-    - Typhoon/no-arc (= 3.5.1)
-  - Typhoon/no-arc (3.5.1)
+  - Typhoon (3.6.0):
+    - Typhoon/DeallocNotifier (= 3.6.0)
+    - Typhoon/IntrospectionUtils (= 3.6.0)
+    - Typhoon/no-arc (= 3.6.0)
+  - Typhoon/DeallocNotifier (3.6.0)
+  - Typhoon/IntrospectionUtils (3.6.0)
+  - Typhoon/no-arc (3.6.0):
+    - Typhoon/IntrospectionUtils
 
 DEPENDENCIES:
   - Aspects (from `https://github.com/steipete/Aspects.git`, tag `1.4.2`)
@@ -48,7 +53,7 @@ SPEC CHECKSUMS:
   OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
   Realm: bc829ad0ef3d4eea70c34cfcc3b1704d18d50df1
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
-  Typhoon: c0950bb9f2e835eb8a7dc6983160109b6baf2dda
+  Typhoon: 551cc8fae881d0f4b20ddafc6d276da3e867f61f
 
 PODFILE CHECKSUM: dec6467bb9e252c83ebd97726ee576d4fe4e4a88
 

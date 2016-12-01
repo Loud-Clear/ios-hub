@@ -1,10 +1,17 @@
 #import "ССNotificationUtils.h"
+#import <NSObject+DeallocNotification.h>
+
 
 @implementation NSObject (NotificationAdditions)
 
 - (void)registerForNotification:(NSString *)notificaton selector:(SEL)selector
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:selector name:notificaton object:nil];
+
+    __weak __typeof(self) weakSelf = self;
+    [self setDeallocNotificationWithKey:"ССNotificationUtils" andBlock:^{
+        [weakSelf unregisterForNotifications];
+    }];
 }
 
 - (void)unregisterForNotification:(NSString *)notification
