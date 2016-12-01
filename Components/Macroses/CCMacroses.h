@@ -29,6 +29,7 @@
 #define SetAssociatedObjectToObject(object, key, value) objc_setAssociatedObject(object, key, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 #define GetAssociatedObjectFromObject(object, key) objc_getAssociatedObject(object, key)
 
+/// @deprecated Use SUPPRESS_WARNING_PERFORM_SELECTOR_LEAKS instead of this.
 #define SuppressPerformSelectorLeakWarning(Stuff) \
     do { \
         _Pragma("clang diagnostic push") \
@@ -37,9 +38,17 @@
         _Pragma("clang diagnostic pop") \
     } while (0)
 
+#define SUPPRESS_WARNING_PERFORM_SELECTOR_LEAKS \
+    _Pragma("clang diagnostic push") \
+    _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"")
+
 #define SUPPRESS_WARNING_INCOMPATIBLE_PROPERTY_TYPE \
     _Pragma("clang diagnostic push") \
     _Pragma("clang diagnostic ignored \"-Wincompatible-property-type\"")
+
+#define SUPPRESS_WARNING_DEPRECATED_DECLARATIONS \
+    _Pragma("clang diagnostic push") \
+    _Pragma("clang diagnostic ignored \"-Wdeprecated-declarations\"")
 
 #define SUPPRESS_WARNING_END \
     _Pragma("clang diagnostic pop")
