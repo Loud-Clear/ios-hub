@@ -20,10 +20,6 @@ Pod::Spec.new do |s|
   s.source_files  = "Components", "Components/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
 
-  s.subspec 'Categories/UIColor+Hex' do |subspec|
-      subspec.source_files   = 'Components/Categories/UIColor+Hex.{h,m}'
-  end
-
   s.subspec 'Observation' do |subspec|
       subspec.source_files   = 'Components/Observing/**/*.{h,m}'
       subspec.dependency 'KVOController'
@@ -76,5 +72,10 @@ Pod::Spec.new do |s|
       subspec.dependency 'ComponentsHub/MapCollections'
   end
 
+  # Categories
+
+  s.subspec 'UIColor+Hex' do |subspec|
+      subspec.source_files = 'Components/Categories/UIColor+Hex.{h,m}'
+  end
 
 end
