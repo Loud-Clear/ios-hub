@@ -7,16 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2DBA10C061AD5C205CDC2A88 /* UIButtonBarArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA157F6015790E79F0EA96 /* UIButtonBarArrowLeft.png */; };
 		2DBA110602B26C1D6E0D315C /* CCTableViewCellStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1744188395C568EB9F02 /* CCTableViewCellStyle.m */; };
 		2DBA14A5AF44ACAFAB0DC56A /* CCPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */; };
 		2DBA150A27435C502199776A /* CCTableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A0BF4F3E60B3D6DBF90 /* CCTableViewItem.m */; };
-		2DBA15677E85D0E7E2A7DB6E /* UIButtonBarArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA170CA8A2E820897C59C5 /* UIButtonBarArrowRight.png */; };
-		2DBA15D7E6BB552677256E15 /* UIButtonBarArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA17CE08F3537019ECE73D /* UIButtonBarArrowLeft@2x.png */; };
 		2DBA15EFE90B20AF3823885A /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA10CE13525A2D6ABA0D3E /* CCTableViewCell.m */; };
 		2DBA1A94FFA9489047EB821D /* CCTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19FDB389A342F9CEA0C7 /* CCTableViewSection.m */; };
 		2DBA1AAC2B93320ECC40AE24 /* CCActionBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1ADFBA543D8D9E1ACF43 /* CCActionBar.m */; };
-		2DBA1CDEF281C7DA4026295B /* UIButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DBA1A0444C853627EDAF4A2 /* UIButtonBarArrowRight@2x.png */; };
+		2DBA1D5BDFE05702E067CF21 /* NSBundle+CCTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D93E0513620DF602C84 /* NSBundle+CCTableViewManager.m */; };
 		2DBA1EDF3A27D4288D1F4A26 /* CCTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1221C2F7AA7F1BAA5FEB /* CCTableViewManager.m */; };
 		8D966B34D57C5313A65AFAEF /* libPods-iOS HubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E49612B7121FB28899A6715E /* libPods-iOS HubTests.a */; };
 		F3D62DA1DEE065A7AC3A4765 /* libPods-iOS Hub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 900BB96B6BF13BEBEA951A07 /* libPods-iOS Hub.a */; };
@@ -63,8 +60,13 @@
 		FA8C58601DE2CCAC00AEBCB1 /* UIViewController+CCWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C585D1DE2CCAC00AEBCB1 /* UIViewController+CCWorkflow.m */; };
 		FA8C58651DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C58621DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.m */; };
 		FA8C58661DE2CCDF00AEBCB1 /* UIViewController+ССModule.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C58641DE2CCDF00AEBCB1 /* UIViewController+ССModule.m */; };
-		FACFEECC1DF0353B00496C45 /* NSBundle+CCTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FACFEEC91DF0353B00496C45 /* NSBundle+CCTableViewManager.m */; };
 		FACFEECD1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FACFEECB1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.m */; };
+		FAF38E541DF03FFB00F44BC0 /* CCTableFormItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF38E531DF03FFB00F44BC0 /* CCTableFormItem.m */; };
+		FAF38E571DF0400C00F44BC0 /* CCTableFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF38E561DF0400C00F44BC0 /* CCTableFormCell.m */; };
+		FAF38E5D1DF0461000F44BC0 /* UIButtonBarArrowLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF38E591DF0461000F44BC0 /* UIButtonBarArrowLeft.png */; };
+		FAF38E5E1DF0461000F44BC0 /* UIButtonBarArrowLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF38E5A1DF0461000F44BC0 /* UIButtonBarArrowLeft@2x.png */; };
+		FAF38E5F1DF0461000F44BC0 /* UIButtonBarArrowRight.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF38E5B1DF0461000F44BC0 /* UIButtonBarArrowRight.png */; };
+		FAF38E601DF0461000F44BC0 /* UIButtonBarArrowRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAF38E5C1DF0461000F44BC0 /* UIButtonBarArrowRight@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,21 +84,19 @@
 		2DBA10CE13525A2D6ABA0D3E /* CCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCell.m; sourceTree = "<group>"; };
 		2DBA11BBC34D8545A219EAC2 /* CCTableViewCellStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCellStyle.h; sourceTree = "<group>"; };
 		2DBA1221C2F7AA7F1BAA5FEB /* CCTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewManager.m; sourceTree = "<group>"; };
+		2DBA12AF504A133122C7CFCE /* NSBundle+CCTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+CCTableViewManager.h"; sourceTree = "<group>"; };
 		2DBA14E2ECC6208AA27CC903 /* CCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCell.h; sourceTree = "<group>"; };
 		2DBA151B65B698B19EAC1734 /* CCTableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewSection.h; sourceTree = "<group>"; };
-		2DBA157F6015790E79F0EA96 /* UIButtonBarArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarArrowLeft.png; sourceTree = "<group>"; };
 		2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPlaceholderTextView.m; sourceTree = "<group>"; };
-		2DBA170CA8A2E820897C59C5 /* UIButtonBarArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarArrowRight.png; sourceTree = "<group>"; };
 		2DBA1744188395C568EB9F02 /* CCTableViewCellStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCellStyle.m; sourceTree = "<group>"; };
-		2DBA17CE08F3537019ECE73D /* UIButtonBarArrowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarArrowLeft@2x.png"; sourceTree = "<group>"; };
 		2DBA19536DC9041B2099840A /* CCTableViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewItem.h; sourceTree = "<group>"; };
 		2DBA199E31E45E4E4235DD9D /* CCTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewManager.h; sourceTree = "<group>"; };
 		2DBA19FDB389A342F9CEA0C7 /* CCTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewSection.m; sourceTree = "<group>"; };
-		2DBA1A0444C853627EDAF4A2 /* UIButtonBarArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarArrowRight@2x.png"; sourceTree = "<group>"; };
 		2DBA1A0BF4F3E60B3D6DBF90 /* CCTableViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewItem.m; sourceTree = "<group>"; };
 		2DBA1AA854B22D32382F824D /* CCObjectObserverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CCObjectObserverTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2DBA1ADFBA543D8D9E1ACF43 /* CCActionBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCActionBar.m; sourceTree = "<group>"; };
 		2DBA1C41006DC5F942FAB1BC /* CCActionBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCActionBar.h; sourceTree = "<group>"; };
+		2DBA1D93E0513620DF602C84 /* NSBundle+CCTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+CCTableViewManager.m"; sourceTree = "<group>"; };
 		31821A231FAFE37B2CDE194F /* CCTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTypedefs.h; sourceTree = "<group>"; };
 		446956A7F9FE359608775CB8 /* Pods-iOS HubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS HubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOS HubTests/Pods-iOS HubTests.release.xcconfig"; sourceTree = "<group>"; };
 		900BB96B6BF13BEBEA951A07 /* libPods-iOS Hub.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iOS Hub.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,11 +197,17 @@
 		FA8C58621DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCModuleFactoryImplementation.m; sourceTree = "<group>"; };
 		FA8C58631DE2CCDF00AEBCB1 /* UIViewController+ССModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ССModule.h"; sourceTree = "<group>"; };
 		FA8C58641DE2CCDF00AEBCB1 /* UIViewController+ССModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ССModule.m"; sourceTree = "<group>"; };
-		FACFEEC81DF0353B00496C45 /* NSBundle+CCTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+CCTableViewManager.h"; sourceTree = "<group>"; };
-		FACFEEC91DF0353B00496C45 /* NSBundle+CCTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+CCTableViewManager.m"; sourceTree = "<group>"; };
 		FACFEECA1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CCTableViewManagerAdditions.h"; sourceTree = "<group>"; };
 		FACFEECB1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CCTableViewManagerAdditions.m"; sourceTree = "<group>"; };
 		FACFEECE1DF0377D00496C45 /* CCPlaceholderTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCPlaceholderTextView.h; sourceTree = "<group>"; };
+		FAF38E521DF03FFB00F44BC0 /* CCTableFormItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableFormItem.h; sourceTree = "<group>"; };
+		FAF38E531DF03FFB00F44BC0 /* CCTableFormItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableFormItem.m; sourceTree = "<group>"; };
+		FAF38E551DF0400C00F44BC0 /* CCTableFormCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableFormCell.h; sourceTree = "<group>"; };
+		FAF38E561DF0400C00F44BC0 /* CCTableFormCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableFormCell.m; sourceTree = "<group>"; };
+		FAF38E591DF0461000F44BC0 /* UIButtonBarArrowLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarArrowLeft.png; sourceTree = "<group>"; };
+		FAF38E5A1DF0461000F44BC0 /* UIButtonBarArrowLeft@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarArrowLeft@2x.png"; sourceTree = "<group>"; };
+		FAF38E5B1DF0461000F44BC0 /* UIButtonBarArrowRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIButtonBarArrowRight.png; sourceTree = "<group>"; };
+		FAF38E5C1DF0461000F44BC0 /* UIButtonBarArrowRight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "UIButtonBarArrowRight@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,17 +230,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2DBA17C2C0A21BA8F429EB15 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				2DBA157F6015790E79F0EA96 /* UIButtonBarArrowLeft.png */,
-				2DBA170CA8A2E820897C59C5 /* UIButtonBarArrowRight.png */,
-				2DBA17CE08F3537019ECE73D /* UIButtonBarArrowLeft@2x.png */,
-				2DBA1A0444C853627EDAF4A2 /* UIButtonBarArrowRight@2x.png */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		2DBA1952040853CFFD6D9DDF /* Table */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,15 +243,12 @@
 				2DBA10CE13525A2D6ABA0D3E /* CCTableViewCell.m */,
 				2DBA11BBC34D8545A219EAC2 /* CCTableViewCellStyle.h */,
 				2DBA1744188395C568EB9F02 /* CCTableViewCellStyle.m */,
-				FACFEEC81DF0353B00496C45 /* NSBundle+CCTableViewManager.h */,
-				FACFEEC91DF0353B00496C45 /* NSBundle+CCTableViewManager.m */,
 				FACFEECA1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.h */,
 				FACFEECB1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.m */,
 				FACFEECE1DF0377D00496C45 /* CCPlaceholderTextView.h */,
 				2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */,
 				2DBA151B65B698B19EAC1734 /* CCTableViewSection.h */,
 				2DBA19FDB389A342F9CEA0C7 /* CCTableViewSection.m */,
-				2DBA17C2C0A21BA8F429EB15 /* Resources */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -272,6 +264,13 @@
 		2DBA1B0E0CDF3DC5E092DC78 /* Forms */ = {
 			isa = PBXGroup;
 			children = (
+				FAF38E581DF0461000F44BC0 /* Resources */,
+				FAF38E521DF03FFB00F44BC0 /* CCTableFormItem.h */,
+				FAF38E531DF03FFB00F44BC0 /* CCTableFormItem.m */,
+				FAF38E551DF0400C00F44BC0 /* CCTableFormCell.h */,
+				FAF38E561DF0400C00F44BC0 /* CCTableFormCell.m */,
+				2DBA12AF504A133122C7CFCE /* NSBundle+CCTableViewManager.h */,
+				2DBA1D93E0513620DF602C84 /* NSBundle+CCTableViewManager.m */,
 			);
 			path = Forms;
 			sourceTree = "<group>";
@@ -731,6 +730,17 @@
 			path = "Components/VIPER/TransitionHandler/ССTransitionHandlerImplementation";
 			sourceTree = SOURCE_ROOT;
 		};
+		FAF38E581DF0461000F44BC0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FAF38E591DF0461000F44BC0 /* UIButtonBarArrowLeft.png */,
+				FAF38E5A1DF0461000F44BC0 /* UIButtonBarArrowLeft@2x.png */,
+				FAF38E5B1DF0461000F44BC0 /* UIButtonBarArrowRight.png */,
+				FAF38E5C1DF0461000F44BC0 /* UIButtonBarArrowRight@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -821,15 +831,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF38E5D1DF0461000F44BC0 /* UIButtonBarArrowLeft.png in Resources */,
 				FA0199C41DDF279000364871 /* Podfile in Resources */,
 				FA3486771DDF0B8600B02A01 /* LaunchScreen.storyboard in Resources */,
 				FA3486741DDF0B8600B02A01 /* Assets.xcassets in Resources */,
+				FAF38E5F1DF0461000F44BC0 /* UIButtonBarArrowRight.png in Resources */,
 				FA3486941DDF149F00B02A01 /* ComponentsHub.podspec in Resources */,
 				FA3486721DDF0B8600B02A01 /* Main.storyboard in Resources */,
-				2DBA10C061AD5C205CDC2A88 /* UIButtonBarArrowLeft.png in Resources */,
-				2DBA15677E85D0E7E2A7DB6E /* UIButtonBarArrowRight.png in Resources */,
-				2DBA15D7E6BB552677256E15 /* UIButtonBarArrowLeft@2x.png in Resources */,
-				2DBA1CDEF281C7DA4026295B /* UIButtonBarArrowRight@2x.png in Resources */,
+				FAF38E5E1DF0461000F44BC0 /* UIButtonBarArrowLeft@2x.png in Resources */,
+				FAF38E601DF0461000F44BC0 /* UIButtonBarArrowRight@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -973,9 +983,9 @@
 				FA019A031DE011DA00364871 /* CCLogger.m in Sources */,
 				FA3486AC1DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m in Sources */,
 				FA019A151DE05C7A00364871 /* CCMutableCollections.m in Sources */,
-				FACFEECC1DF0353B00496C45 /* NSBundle+CCTableViewManager.m in Sources */,
 				FA8C585E1DE2CCAC00AEBCB1 /* UIViewController+CCTransition.m in Sources */,
 				FA019A461DE05CED00364871 /* CCModuleURLParser.m in Sources */,
+				FAF38E541DF03FFB00F44BC0 /* CCTableFormItem.m in Sources */,
 				FA3486A61DDF1E8A00B02A01 /* Realm+Arrays.m in Sources */,
 				2DBA1AAC2B93320ECC40AE24 /* CCActionBar.m in Sources */,
 				2DBA150A27435C502199776A /* CCTableViewItem.m in Sources */,
@@ -983,7 +993,9 @@
 				2DBA1EDF3A27D4288D1F4A26 /* CCTableViewManager.m in Sources */,
 				2DBA15EFE90B20AF3823885A /* CCTableViewCell.m in Sources */,
 				2DBA14A5AF44ACAFAB0DC56A /* CCPlaceholderTextView.m in Sources */,
+				FAF38E571DF0400C00F44BC0 /* CCTableFormCell.m in Sources */,
 				2DBA1A94FFA9489047EB821D /* CCTableViewSection.m in Sources */,
+				2DBA1D5BDFE05702E067CF21 /* NSBundle+CCTableViewManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

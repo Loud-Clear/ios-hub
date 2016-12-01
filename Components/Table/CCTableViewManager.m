@@ -1011,22 +1011,4 @@
     [self.mutableSections sortUsingSelector:comparator];
 }
 
-#pragma mark -
-#pragma mark Checking for errors
-
-- (NSArray *)errors
-{
-    NSMutableArray *errors;
-    for (CCTableViewSection *section in self.mutableSections) {
-        NSArray *sectionErrors = section.errors;
-        if (sectionErrors) {
-            if (!errors) {
-                errors = [[NSMutableArray alloc] init];
-            }
-            [errors addObjectsFromArray:sectionErrors];
-        }
-    }
-    return errors;
-}
-
 @end

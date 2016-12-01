@@ -298,25 +298,4 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
     [self.tableViewManager.tableView reloadSections:[NSIndexSet indexSetWithIndex:self.index] withRowAnimation:animation];
 }
 
-#pragma mark -
-#pragma mark Checking for errors
-
-- (NSArray *)errors
-{
-    NSMutableArray *errors;
-    for (CCTableViewItem *item in self.mutableItems) {
-        if ([item respondsToSelector:@selector(errors)]) {
-            NSArray *itemErrors = item.errors;
-            if (itemErrors) {
-                if (!errors) {
-                    errors = [[NSMutableArray alloc] init];
-                }
-                if (itemErrors.count > 0)
-                    [errors addObject:itemErrors[0]];
-            }
-        }
-    }
-    return errors;
-}
-
 @end

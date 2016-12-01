@@ -37,9 +37,9 @@
 
 @implementation CCTableViewCell
 
-+ (BOOL)canFocusWithItem:(CCTableViewItem *)item
+- (CCTableViewItem *)asItem
 {
-    return NO;
+    return self.item;
 }
 
 + (CGFloat)heightWithItem:(CCTableViewItem *)item tableViewManager:(CCTableViewManager *)tableViewManager
@@ -80,7 +80,6 @@
 - (void)cellDidLoad
 {
     self.loaded = YES;
-    self.actionBar = [[CCActionBar alloc] initWithDelegate:self];
     self.selectionStyle = self.tableViewManager.style.defaultCellSelectionStyle;
     
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
@@ -94,22 +93,22 @@
 
 - (void)cellWillAppear
 {
-    [self updateActionBarNavigationControl];
     self.selectionStyle = self.section.style.defaultCellSelectionStyle;
     
     if ([self.item isKindOfClass:[NSString class]]) {
         self.textLabel.text = (NSString *)self.item;
         self.textLabel.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-    } else {
+    } else if ([self.item isKindOfClass:[CCTableViewItem class]]) {
         CCTableViewItem *item = (CCTableViewItem *)self.item;
         self.textLabel.text = item.title;
         self.textLabel.backgroundColor = [UIColor clearColor];
         self.accessoryType = item.accessoryType;
         self.accessoryView = item.accessoryView;
         self.textLabel.textAlignment = item.textAlignment;
-        if (self.selectionStyle != UITableViewCellSelectionStyleNone)
+        if (self.selectionStyle != UITableViewCellSelectionStyleNone) {
             self.selectionStyle = item.selectionStyle;
+        }
         self.imageView.image = item.image;
         self.imageView.highlightedImage = item.highlightedImage;
     }
@@ -180,7 +179,7 @@
     UIFont *font = self.textLabel.font;
     
     CGRect frame = CGRectMake(0, self.textLabel.frame.origin.y, 0, self.textLabel.frame.size.height);
-    if (self.item.title.length > 0) {
+    if (self.asItem.title.length > 0) {
         frame.origin.x = [self.section maximumTitleWidthWithFont:font] + cellOffset + fieldOffset;
     } else {
         frame.origin.x = cellOffset;
@@ -210,93 +209,6 @@
         return CCTableViewCellTypeLast;
     
     return CCTableViewCellTypeAny;
-}
-
-- (void)updateActionBarNavigationControl
-{
-    [self.actionBar.navigationControl setEnabled:[self indexPathForPreviousResponder] != nil forSegmentAtIndex:0];
-    [self.actionBar.navigationControl setEnabled:[self indexPathForNextResponder] != nil forSegmentAtIndex:1];
-}
-
-- (UIResponder *)responder
-{
-    return nil;
-}
-
-- (NSIndexPath *)indexPathForPreviousResponderInSectionIndex:(NSUInteger)sectionIndex
-{
-    CCTableViewSection *section = self.tableViewManager.sections[sectionIndex];
-    NSUInteger indexInSection =  [section isEqual:self.section] ? [section.items indexOfObject:self.item] : section.items.count;
-    for (NSInteger i = indexInSection - 1; i >= 0; i--) {
-        CCTableViewItem *item = section.items[i];
-        if ([item isKindOfClass:[CCTableViewItem class]]) {
-            Class class = [self.tableViewManager classForCellAtIndexPath:item.indexPath];
-            if ([class canFocusWithItem:item])
-                return [NSIndexPath indexPathForRow:i inSection:sectionIndex];
-        }
-    }
-    return nil;
-}
-
-- (NSIndexPath *)indexPathForPreviousResponder
-{
-    for (NSInteger i = self.sectionIndex; i >= 0; i--) {
-        NSIndexPath *indexPath = [self indexPathForPreviousResponderInSectionIndex:i];
-        if (indexPath)
-            return indexPath;
-    }
-    return nil;
-}
-
-- (NSIndexPath *)indexPathForNextResponderInSectionIndex:(NSUInteger)sectionIndex
-{
-    CCTableViewSection *section = self.tableViewManager.sections[sectionIndex];
-    NSUInteger indexInSection =  [section isEqual:self.section] ? [section.items indexOfObject:self.item] : -1;
-    for (NSInteger i = indexInSection + 1; i < section.items.count; i++) {
-        CCTableViewItem *item = section.items[i];
-        if ([item isKindOfClass:[CCTableViewItem class]]) {
-            Class class = [self.tableViewManager classForCellAtIndexPath:item.indexPath];
-            if ([class canFocusWithItem:item])
-                return [NSIndexPath indexPathForRow:i inSection:sectionIndex];
-        }
-    }
-    return nil;
-}
-
-- (NSIndexPath *)indexPathForNextResponder
-{
-    for (NSInteger i = self.sectionIndex; i < self.tableViewManager.sections.count; i++) {
-        NSIndexPath *indexPath = [self indexPathForNextResponderInSectionIndex:i];
-        if (indexPath)
-            return indexPath;
-    }
-    
-    return nil;
-}
-
-#pragma mark - 
-#pragma mark CCActionBar delegate
-
-- (void)actionBar:(CCActionBar *)actionBar navigationControlValueChanged:(UISegmentedControl *)navigationControl
-{
-    NSIndexPath *indexPath = navigationControl.selectedSegmentIndex == 0 ? [self indexPathForPreviousResponder] : [self indexPathForNextResponder];
-    if (indexPath) {
-        CCTableViewCell *cell = (CCTableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
-        if (!cell)
-            [self.parentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-        cell = (CCTableViewCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
-        [cell.responder becomeFirstResponder];
-    }
-    if (self.item.actionBarNavButtonTapHandler)
-        self.item.actionBarNavButtonTapHandler(self.item);
-}
-
-- (void)actionBar:(CCActionBar *)actionBar doneButtonPressed:(UIBarButtonItem *)doneButtonItem
-{
-    if (self.item.actionBarDoneButtonTapHandler)
-        self.item.actionBarDoneButtonTapHandler(self.item);
-
-    [self endEditing:YES];
 }
 
 @end

@@ -42,7 +42,7 @@ typedef NS_ENUM(NSInteger, CCTableViewCellType) {
  The `CCTableViewCell` class defines the attributes and behavior of the cells that appear in `UITableView` objects.
  
  */
-@interface CCTableViewCell : UITableViewCell <CCActionBarDelegate>
+@interface CCTableViewCell : UITableViewCell
 
 ///-----------------------------
 /// @name Accessing Table View and Table View Manager
@@ -55,17 +55,7 @@ typedef NS_ENUM(NSInteger, CCTableViewCellType) {
 /// @name Managing Cell Height
 ///-----------------------------
 
-+ (CGFloat)heightWithItem:(CCTableViewItem *)item tableViewManager:(CCTableViewManager *)tableViewManager;
-
-///-----------------------------
-/// @name Working With Keyboard
-///-----------------------------
-
-+ (BOOL)canFocusWithItem:(CCTableViewItem *)item;
-
-@property (strong, readonly, nonatomic) UIResponder *responder;
-@property (strong, readonly, nonatomic) NSIndexPath *indexPathForPreviousResponder;
-@property (strong, readonly, nonatomic) NSIndexPath *indexPathForNextResponder;
++ (CGFloat)heightWithItem:(id)item tableViewManager:(CCTableViewManager *)tableViewManager;
 
 ///-----------------------------
 /// @name Managing Cell Appearance
@@ -73,9 +63,7 @@ typedef NS_ENUM(NSInteger, CCTableViewCellType) {
 
 @property (strong, readonly, nonatomic) UIImageView *backgroundImageView;
 @property (strong, readonly, nonatomic) UIImageView *selectedBackgroundImageView;
-@property (strong, readwrite, nonatomic) CCActionBar *actionBar;
 
-- (void)updateActionBarNavigationControl;
 - (void)layoutDetailView:(UIView *)view minimumWidth:(CGFloat)minimumWidth;
 
 ///-----------------------------
@@ -85,7 +73,7 @@ typedef NS_ENUM(NSInteger, CCTableViewCellType) {
 @property (assign, readwrite, nonatomic) NSInteger rowIndex;
 @property (assign, readwrite, nonatomic) NSInteger sectionIndex;
 @property (weak, readwrite, nonatomic) CCTableViewSection *section;
-@property (strong, readwrite, nonatomic) CCTableViewItem *item;
+@property (strong, readwrite, nonatomic) id item;
 @property (assign, readonly, nonatomic) CCTableViewCellType type;
 
 ///-----------------------------
