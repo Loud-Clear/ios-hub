@@ -71,6 +71,18 @@ Pod::Spec.new do |s|
       subspec.dependency 'ComponentsHub/MutableCollections'
       subspec.dependency 'ComponentsHub/MapCollections'
   end
+  
+  s.subspec 'Table' do |subspec|
+      subspec.source_files   = 'Components/Table/**/*.{h,m}'
+  end
+  
+  s.subspec 'Forms' do |subspec|
+      subspec.source_files   = 'Components/Forms/**/*.{h,m}'
+      subspec.resource_bundle = { 'CCTableViewManager' => 'Components/Forms/Resources/*' }
+      subspec.preserve_paths = 'Components/Forms/Resources'
+      
+      subspec.dependency 'ComponentsHub/Table'
+  end
 
 
 end
