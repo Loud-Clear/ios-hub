@@ -27,6 +27,7 @@
 #import "CCTableViewCellStyle.h"
 
 @class CCTableViewSection;
+@class CCTableViewCellFactory;
 
 @interface CCTableViewItem : NSObject
 
@@ -66,6 +67,13 @@
 - (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(CCTableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^)(CCTableViewItem *item))accessoryButtonTapHandler;
 
 - (NSIndexPath *)indexPath;
+
+
+///
+/// Specifying cell for current item
+///
+
+- (CCTableViewCellFactory *)cellFactoryForCurrentItem;
 
 ///-----------------------------
 /// @name Manipulating table view row

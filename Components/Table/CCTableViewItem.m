@@ -26,6 +26,7 @@
 #import "CCTableViewItem.h"
 #import "CCTableViewSection.h"
 #import "CCTableViewManager.h"
+#import "CCTableViewCellFactory.h"
 
 @implementation CCTableViewItem
 
@@ -126,6 +127,13 @@
     NSInteger row = self.indexPath.row;
     [section removeItemAtIndex:self.indexPath.row];
     [section.tableViewManager.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:row inSection:section.index]] withRowAnimation:animation];
+}
+
+- (CCTableViewCellFactory *)cellFactoryForCurrentItem
+{
+    //Please override in subclass
+
+    return nil;
 }
 
 @end

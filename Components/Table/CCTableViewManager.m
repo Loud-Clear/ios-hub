@@ -25,6 +25,7 @@
 
 #import "CCTableViewManager.h"
 #import "CCTableViewItem.h"
+#import "CCTableViewCellFactory.h"
 
 @interface CCTableViewManager ()
 
@@ -152,50 +153,33 @@
 {
     CCTableViewSection *section = self.mutableSections[indexPath.section];
     CCTableViewItem *item = section.items[indexPath.row];
-    
-    UITableViewCellStyle cellStyle = UITableViewCellStyleDefault;
-    if ([item isKindOfClass:[CCTableViewItem class]])
-        cellStyle = ((CCTableViewItem *)item).style;
-    
-    NSString *cellIdentifier = [NSString stringWithFormat:@"CCTableViewManager_%@_%li", [item class], (long) cellStyle];
-    
-    Class cellClass = [self classForCellAtIndexPath:indexPath];
-    
-    if (self.registeredXIBs[NSStringFromClass(cellClass)]) {
-        cellIdentifier = self.registeredXIBs[NSStringFromClass(cellClass)];
-    }
-    
-    if ([item respondsToSelector:@selector(cellIdentifier)] && item.cellIdentifier) {
-        cellIdentifier = item.cellIdentifier;
-    }
-    
-    CCTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    void (^loadCell)(CCTableViewCell *cell) = ^(CCTableViewCell *cell) {
-        cell.tableViewManager = self;
-        
-        // CCTableViewManagerDelegate
-        //
-        if ([self.delegate conformsToProtocol:@protocol(CCTableViewManagerDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willLoadCell:forRowAtIndexPath:)])
-            [self.delegate tableView:tableView willLoadCell:cell forRowAtIndexPath:indexPath];
-        
-        [cell cellDidLoad];
-        
-        // CCTableViewManagerDelegate
-        //
-        if ([self.delegate conformsToProtocol:@protocol(CCTableViewManagerDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didLoadCell:forRowAtIndexPath:)])
-            [self.delegate tableView:tableView didLoadCell:cell forRowAtIndexPath:indexPath];
-    };
-    
-    if (cell == nil) {
-        cell = [[cellClass alloc] initWithStyle:cellStyle reuseIdentifier:cellIdentifier];
 
-        loadCell(cell);
+    CCTableViewCell *cell = nil;
+
+    if ([item isKindOfClass:[CCTableViewItem class]]) {
+
+        CCTableViewCellFactory *factory = [item cellFactoryForCurrentItem];
+
+        cell = [factory cellForIndexPath:indexPath usingTableView:tableView];
+    } else {
+        // Remove this way of using CCTableViewManager.
+        UITableViewCellStyle cellStyle = UITableViewCellStyleDefault;
+
+        NSString *cellIdentifier = [NSString stringWithFormat:@"CCTableViewManager_%@_%li", [item class], (long) cellStyle];
+
+        Class cellClass = [self classForCellAtIndexPath:indexPath];
+
+        if (self.registeredXIBs[NSStringFromClass(cellClass)]) {
+            cellIdentifier = self.registeredXIBs[NSStringFromClass(cellClass)];
+        }
+
+        if ([item respondsToSelector:@selector(cellIdentifier)] && item.cellIdentifier) {
+            cellIdentifier = item.cellIdentifier;
+        }
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     }
-    
-    if ([cell isKindOfClass:[CCTableViewCell class]] && [cell respondsToSelector:@selector(loaded)] && !cell.loaded) {
-        loadCell(cell);
-    }
+
+    [self loadCellIfNeeded:cell table:tableView indexPath:indexPath];
     
     cell.rowIndex = indexPath.row;
     cell.sectionIndex = indexPath.section;
@@ -210,6 +194,24 @@
     [cell cellWillAppear];
     
     return cell;
+}
+
+- (void)loadCellIfNeeded:(CCTableViewCell *)cell table:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
+{
+    if ([cell isKindOfClass:[CCTableViewCell class]] && [cell respondsToSelector:@selector(loaded)] && !cell.loaded) {
+        cell.tableViewManager = self;
+
+        if ([self.delegate conformsToProtocol:@protocol(CCTableViewManagerDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willLoadCell:forRowAtIndexPath:)])
+            [self.delegate tableView:tableView willLoadCell:cell forRowAtIndexPath:indexPath];
+
+        [cell cellDidLoad];
+
+        // CCTableViewManagerDelegate
+        //
+        if ([self.delegate conformsToProtocol:@protocol(CCTableViewManagerDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didLoadCell:forRowAtIndexPath:)])
+            [self.delegate tableView:tableView didLoadCell:cell forRowAtIndexPath:indexPath];
+
+    }
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView

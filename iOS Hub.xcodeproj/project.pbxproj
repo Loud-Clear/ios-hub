@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2DBA10792476FFCE7EA2F536 /* CCGeneralPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D805B9B1600C55FC061 /* CCGeneralPresenter.m */; };
 		2DBA110602B26C1D6E0D315C /* CCTableViewCellStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1744188395C568EB9F02 /* CCTableViewCellStyle.m */; };
+		2DBA1496B0331E84A3BC0825 /* CCTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */; };
 		2DBA14A5AF44ACAFAB0DC56A /* CCPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */; };
 		2DBA150A27435C502199776A /* CCTableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A0BF4F3E60B3D6DBF90 /* CCTableViewItem.m */; };
 		2DBA15EFE90B20AF3823885A /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA10CE13525A2D6ABA0D3E /* CCTableViewCell.m */; };
@@ -86,6 +87,7 @@
 		2DBA10CE13525A2D6ABA0D3E /* CCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCell.m; sourceTree = "<group>"; };
 		2DBA11BBC34D8545A219EAC2 /* CCTableViewCellStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCellStyle.h; sourceTree = "<group>"; };
 		2DBA1221C2F7AA7F1BAA5FEB /* CCTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewManager.m; sourceTree = "<group>"; };
+		2DBA1262DA2075C83CCB1A8B /* CCTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCellFactory.h; sourceTree = "<group>"; };
 		2DBA12AF504A133122C7CFCE /* NSBundle+CCTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+CCTableViewManager.h"; sourceTree = "<group>"; };
 		2DBA14E2ECC6208AA27CC903 /* CCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCell.h; sourceTree = "<group>"; };
 		2DBA151B65B698B19EAC1734 /* CCTableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewSection.h; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		2DBA1AA854B22D32382F824D /* CCObjectObserverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CCObjectObserverTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2DBA1ADFBA543D8D9E1ACF43 /* CCActionBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCActionBar.m; sourceTree = "<group>"; };
 		2DBA1C41006DC5F942FAB1BC /* CCActionBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCActionBar.h; sourceTree = "<group>"; };
+		2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCellFactory.m; sourceTree = "<group>"; };
 		2DBA1D805B9B1600C55FC061 /* CCGeneralPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCGeneralPresenter.m; sourceTree = "<group>"; };
 		2DBA1D929113A280E8F7F040 /* CCGeneralPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCGeneralPresenter.h; sourceTree = "<group>"; };
 		2DBA1D93E0513620DF602C84 /* NSBundle+CCTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+CCTableViewManager.m"; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 				2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */,
 				2DBA151B65B698B19EAC1734 /* CCTableViewSection.h */,
 				2DBA19FDB389A342F9CEA0C7 /* CCTableViewSection.m */,
+				2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */,
+				2DBA1262DA2075C83CCB1A8B /* CCTableViewCellFactory.h */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -1032,6 +1037,7 @@
 				2DBA1D5BDFE05702E067CF21 /* NSBundle+CCTableViewManager.m in Sources */,
 				31821FA63240C60C64AD0DD5 /* UIColor+Hex.m in Sources */,
 				2DBA10792476FFCE7EA2F536 /* CCGeneralPresenter.m in Sources */,
+				2DBA1496B0331E84A3BC0825 /* CCTableViewCellFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
