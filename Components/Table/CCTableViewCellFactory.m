@@ -10,6 +10,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import "CCTableViewCellFactory.h"
+#import "CCMacroses.h"
+#import <objc/runtime.h>
 
 @interface CCTableViewCellFactory ()
 
@@ -44,10 +46,11 @@
     return factory;
 }
 
-+ (instancetype)withXibName:(NSString *)xibName reusable:(BOOL)reusable
++ (instancetype)withCellClass:(Class)clazz andXib:(BOOL)useXib reusable:(BOOL)reusable
 {
     CCTableViewCellFactory *factory = [CCTableViewCellFactory sharedPrototype];
-    factory.nibName = xibName;
+    factory.nibName = NSStringFromClass(clazz);
+    factory.cellClass = clazz;
     factory.resuable = reusable;
     return factory;
 }
@@ -76,12 +79,28 @@
 
     if (self.cellClass) {
         [tableView registerClass:self.cellClass forCellReuseIdentifier:identifier];
-    } else if (self.nibName) {
-        UINib *nib = [UINib nibWithNibName:self.nibName bundle:[NSBundle mainBundle]];
-        [tableView registerNib:nib forCellReuseIdentifier:identifier];
     }
 
+    if (self.nibName) {
+        NSCache *registeredNibs = [self nibsForTable:tableView];
+        if (![[registeredNibs objectForKey:identifier] isEqualToString:self.nibName]) {
+            UINib *nib = [UINib nibWithNibName:self.nibName bundle:[NSBundle mainBundle]];
+            [tableView registerNib:nib forCellReuseIdentifier:identifier];
+            [registeredNibs setObject:self.nibName forKey:identifier];
+        }
+    }
     return [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
+}
+
+- (NSCache *)nibsForTable:(UITableView *)tableView
+{
+    static const char *key = "regisered_xibs";
+    NSCache *cache = GetAssociatedObjectFromObject(tableView, key);
+    if (!cache) {
+        cache = [NSCache new];
+        SetAssociatedObjectToObject(tableView, key, cache);
+    }
+    return cache;
 }
 
 @end

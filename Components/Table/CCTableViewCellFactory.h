@@ -16,8 +16,8 @@
 
 + (instancetype)withCellClass:(Class)clazz reusable:(BOOL)reusable;
 
-+ (instancetype)withXibName:(NSString *)xibName reusable:(BOOL)reusable;
-
 - (id)cellForIndexPath:(NSIndexPath *)indexPath usingTableView:(UITableView *)tableView;
+
+- (Class)cellClass;
 
 @end

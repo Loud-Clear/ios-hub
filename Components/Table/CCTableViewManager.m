@@ -120,7 +120,12 @@
 {
     CCTableViewSection *section = self.mutableSections[indexPath.section];
     NSObject *item = section.items[indexPath.row];
-    return self.registeredClasses[item.class];
+    Class clazz = self.registeredClasses[item.class];
+    if (!clazz && [item isKindOfClass:[CCTableViewItem class]]) {
+        CCTableViewCellFactory *cellConfig = [(CCTableViewItem *)item cellFactoryForCurrentItem];
+        clazz = [cellConfig cellClass];
+    }
+    return clazz;
 }
 
 - (NSArray *)sections
