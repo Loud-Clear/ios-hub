@@ -19,6 +19,7 @@
 #import "CCTransitionHandler.h"
 #import "CCMacroses.h"
 #import "UIViewController+CCTransitionHandler.h"
+#import "CCGeneralPresenter.h"
 
 @implementation CCModuleFactoryImplementation
 
@@ -28,16 +29,23 @@
 
 - (id<CCModule>)moduleForURL:(NSURL *)url thenChainUsingBlock:(ССModuleLinkBlock)block
 {
-    id<CCModule> module = [self moduleForURL:url];
+    id<CCModule> module = [self moduleForURL:url withoutConfiguration:NO];
 
     if (block) {
         [self tryCallBlock:block forModule:module];
     }
 
+    [self tryCallDidConfigureForModule:module];
+
     return module;
 }
 
 - (id<CCModule>)moduleForURL:(NSURL *)url
+{
+    return [self moduleForURL:url withoutConfiguration:YES];
+}
+
+- (id<CCModule>)moduleForURL:(NSURL *)url withoutConfiguration:(BOOL)willNotConfigure
 {
     NSError *error = nil;
     CCModuleURLParserResult *result = [CCModuleURLParser parseURL:url error:&error];
@@ -54,6 +62,10 @@
         id<CCGeneralModuleInput> input = [controller moduleInput];
         if (input && [input respondsToSelector:@selector(setInputParameters:)] && [result.parameters count] > 0) {
             [input setInputParameters:result.parameters];
+        }
+
+        if (willNotConfigure) {
+            [self tryCallDidConfigureForModule:controller];
         }
 
         return controller;
@@ -125,6 +137,15 @@
     } else {
         DDLogError(@"Module %@ doesn't conform to expected protocol %@!", NSStringFromClass([moduleInput class]), NSStringFromProtocol(moduleInputProtocol));
         NSAssert(NO, nil);
+    }
+}
+
+- (void)tryCallDidConfigureForModule:(id<CCModule>)module
+{
+    id<CCGeneralModuleInput> input = [module moduleInput];
+
+    if ([input isKindOfClass:[CCGeneralPresenter class]]) {
+        [(CCGeneralPresenter *)input didConfigureModule];
     }
 }
 

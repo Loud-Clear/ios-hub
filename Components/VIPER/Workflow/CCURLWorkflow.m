@@ -37,8 +37,10 @@
 
 - (UIViewController *)newInitialViewController
 {
-    id<CCModule> module = [self.moduleFactory moduleForURL:_url];
-    SafetyCall(_configureBlock, [module moduleInput]);
+    id<CCModule> module = [self.moduleFactory moduleForURL:_url thenChainUsingBlock:^id(id moduleInput) {
+        SafetyCall(_configureBlock, moduleInput);
+        return nil;
+    }];
     UIViewController *viewController = [module asViewController];
     viewController.workflow = self;
     return viewController;

@@ -10,6 +10,7 @@
 #import "CCTransitionPromise.h"
 #import "CTBlockDescription.h"
 #import "CCMacroses.h"
+#import "CCGeneralPresenter.h"
 
 @interface CCTransitionPromise()
 
@@ -95,6 +96,17 @@
 {
     for (void(^block)(id, id) in _postLinkBlocks) {
         block(self.moduleInput, self.nextViewController);
+    }
+
+    [self callDidConfigure];
+}
+
+- (void)callDidConfigure
+{
+    id<CCGeneralModuleInput> input = self.moduleInput;
+
+    if ([input isKindOfClass:[CCGeneralPresenter class]]) {
+        [(CCGeneralPresenter *)input didConfigureModule];
     }
 }
 

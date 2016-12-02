@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DBA10792476FFCE7EA2F536 /* CCGeneralPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D805B9B1600C55FC061 /* CCGeneralPresenter.m */; };
 		2DBA110602B26C1D6E0D315C /* CCTableViewCellStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1744188395C568EB9F02 /* CCTableViewCellStyle.m */; };
 		2DBA14A5AF44ACAFAB0DC56A /* CCPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */; };
 		2DBA150A27435C502199776A /* CCTableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A0BF4F3E60B3D6DBF90 /* CCTableViewItem.m */; };
@@ -97,6 +98,8 @@
 		2DBA1AA854B22D32382F824D /* CCObjectObserverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CCObjectObserverTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2DBA1ADFBA543D8D9E1ACF43 /* CCActionBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCActionBar.m; sourceTree = "<group>"; };
 		2DBA1C41006DC5F942FAB1BC /* CCActionBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCActionBar.h; sourceTree = "<group>"; };
+		2DBA1D805B9B1600C55FC061 /* CCGeneralPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCGeneralPresenter.m; sourceTree = "<group>"; };
+		2DBA1D929113A280E8F7F040 /* CCGeneralPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCGeneralPresenter.h; sourceTree = "<group>"; };
 		2DBA1D93E0513620DF602C84 /* NSBundle+CCTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+CCTableViewManager.m"; sourceTree = "<group>"; };
 		31821684BA6B0564A134BC6E /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
 		31821A231FAFE37B2CDE194F /* CCTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTypedefs.h; sourceTree = "<group>"; };
@@ -233,6 +236,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DBA141724A1F5F1D79D76DF /* BaseClasses */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA16F80982781C6D2BB316 /* Presenter */,
+			);
+			path = BaseClasses;
+			sourceTree = "<group>";
+		};
+		2DBA16F80982781C6D2BB316 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1D805B9B1600C55FC061 /* CCGeneralPresenter.m */,
+				2DBA1D929113A280E8F7F040 /* CCGeneralPresenter.h */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		2DBA1952040853CFFD6D9DDF /* Table */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,6 +388,7 @@
 				FA019A5B1DE064BC00364871 /* Protocols */,
 				FA019A4F1DE05D8000364871 /* Workflow */,
 				FA019A161DE05CED00364871 /* TransitionHandler */,
+				2DBA141724A1F5F1D79D76DF /* BaseClasses */,
 			);
 			path = VIPER;
 			sourceTree = "<group>";
@@ -1010,6 +1031,7 @@
 				2DBA1A94FFA9489047EB821D /* CCTableViewSection.m in Sources */,
 				2DBA1D5BDFE05702E067CF21 /* NSBundle+CCTableViewManager.m in Sources */,
 				31821FA63240C60C64AD0DD5 /* UIColor+Hex.m in Sources */,
+				2DBA10792476FFCE7EA2F536 /* CCGeneralPresenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
