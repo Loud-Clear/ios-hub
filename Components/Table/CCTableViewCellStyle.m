@@ -36,7 +36,7 @@
     
     self.backgroundImages = [[NSMutableDictionary alloc] init];
     self.selectedBackgroundImages = [[NSMutableDictionary alloc] init];
-    self.cellHeight = 44.0;
+    self.cellHeight = UITableViewAutomaticDimension;
     self.defaultCellSelectionStyle = UITableViewCellSelectionStyleBlue;
     
     return self;

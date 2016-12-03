@@ -44,11 +44,9 @@
 
 + (CGFloat)heightWithItem:(CCTableViewItem *)item tableViewManager:(CCTableViewManager *)tableViewManager
 {
-    if ([item isKindOfClass:[CCTableViewItem class]] && item.cellHeight > 0)
-        return item.cellHeight;
-    
-    if ([item isKindOfClass:[CCTableViewItem class]] && item.cellHeight == 0)
+    if ([item isKindOfClass:[CCTableViewItem class]]) {
         return item.section.style.cellHeight;
+    }
     
     return tableViewManager.style.cellHeight;
 }

@@ -178,9 +178,6 @@
             cellIdentifier = self.registeredXIBs[NSStringFromClass(cellClass)];
         }
 
-        if ([item respondsToSelector:@selector(cellIdentifier)] && item.cellIdentifier) {
-            cellIdentifier = item.cellIdentifier;
-        }
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     }
 

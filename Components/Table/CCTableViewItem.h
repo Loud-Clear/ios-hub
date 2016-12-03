@@ -53,9 +53,6 @@
 @property (copy, readwrite, nonatomic) void (^cutHandler)(id item);
 @property (copy, readwrite, nonatomic) void (^copyHandler)(id item);
 @property (copy, readwrite, nonatomic) void (^pasteHandler)(id item);
-@property (assign, readwrite, nonatomic) CGFloat cellHeight;
-@property (copy, readwrite, nonatomic) NSString *cellIdentifier;
-
 
 + (instancetype)item;
 + (instancetype)itemWithTitle:(NSString *)title;
@@ -67,7 +64,6 @@
 - (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(CCTableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^)(CCTableViewItem *item))accessoryButtonTapHandler;
 
 - (NSIndexPath *)indexPath;
-
 
 ///
 /// Specifying cell for current item
