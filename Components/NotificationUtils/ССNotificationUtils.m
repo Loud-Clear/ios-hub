@@ -1,5 +1,7 @@
 #import "ССNotificationUtils.h"
 #import <NSObject+DeallocNotification.h>
+#import "CCMacroses.h"
+#import <objc/runtime.h>
 
 
 @implementation NSObject (NotificationAdditions)
@@ -8,12 +10,21 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:selector name:notificaton object:nil];
 
+    [self unregisterOnDeallocIfNeeded];
+}
+
+- (void)unregisterOnDeallocIfNeeded
+{
     NSOperatingSystemVersion ios9 = (NSOperatingSystemVersion){9, 0, 0};
     if (![[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ios9]) {
-        __weak __typeof(self) weakSelf = self;
-        [self setDeallocNotificationWithKey:"ССNotificationUtils" andBlock:^{
-            [weakSelf unregisterForNotifications];
-        }];
+        NSNumber *isUnregisterListening = GetAssociatedObjectFromObject(self, "unregister_notifications");
+        if (!isUnregisterListening) {
+            __weak __typeof(self) weakSelf = self;
+            [self setDeallocNotificationWithKey:"ССNotificationUtils" andBlock:^{
+                [weakSelf unregisterForNotifications];
+            }];
+            SetAssociatedObjectToObject(self, "unregister_notifications", @YES);
+        }
     }
 }
 
