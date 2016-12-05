@@ -23,10 +23,10 @@
 		318217A32FB1966F17BA9ECC /* CCImageServiceCustomImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 318217DB332BA8CE7F3F2D36 /* CCImageServiceCustomImpl.m */; };
 		318217F543684CEC52DD501D /* CCImageDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821965F51A3CFF74B63A86 /* CCImageDiskCache.m */; };
 		3182195B61076EE1445A7B2A /* CCDispatchQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821BC2C3C1A1BA9CE2084A /* CCDispatchQueue.m */; };
-		31821B3B56A5DF951BAA48F0 /* UIImageView+CCImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821727AA348A2FCCC9F408 /* UIImageView+CCImageService.m */; };
 		31821B86F0EEBE6BA213852C /* CCImageServiceAFNetworkingImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821A6F657201DACCAE87D9 /* CCImageServiceAFNetworkingImpl.m */; };
 		31821C0A74E7A2348828DABD /* CCDispatchGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821B68418F6DD42460A9EA /* CCDispatchGroup.m */; };
 		31821C5E4CDD90941DAE4A31 /* CCImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 318214DA43524C0700DE8313 /* CCImageDownloader.m */; };
+		31821DE00394C89DB373BDBB /* UIImageView+CCImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 318210851C76EEF688743320 /* UIImageView+CCImageService.m */; };
 		31821E8386BF16B46CC4E7EC /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821938B6E7A8EFF41D85C5 /* NSString+SHA1.m */; };
 		31821FA63240C60C64AD0DD5 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821684BA6B0564A134BC6E /* UIColor+Hex.m */; };
 		8D966B34D57C5313A65AFAEF /* libPods-iOS HubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E49612B7121FB28899A6715E /* libPods-iOS HubTests.a */; };
@@ -120,6 +120,7 @@
 		2DBA1F9A06CA7C69A3A989B5 /* CCActionBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCActionBar.m; sourceTree = "<group>"; };
 		3182100067BD3B5EF13B5052 /* CCImageDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageDiskCache.h; sourceTree = "<group>"; };
 		31821053083AF35F8221E0FB /* CCImageGetContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageGetContext.h; sourceTree = "<group>"; };
+		318210851C76EEF688743320 /* UIImageView+CCImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CCImageService.m"; sourceTree = "<group>"; };
 		3182116647E16C7DCA962C98 /* CCImageServiceSDWebImageImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageServiceSDWebImageImpl.h; sourceTree = "<group>"; };
 		318212E32A3F573EBDC2389B /* CCDispatchUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDispatchUtils.h; sourceTree = "<group>"; };
 		318212E3BE1027DDE4EE8B5E /* CCImageServiceAFNetworkingImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageServiceAFNetworkingImpl.h; sourceTree = "<group>"; };
@@ -128,12 +129,11 @@
 		3182155A77379925139E618E /* CCImageMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageMemoryCache.h; sourceTree = "<group>"; };
 		31821668D9C7D47E85C0F202 /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
 		31821684BA6B0564A134BC6E /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		31821727AA348A2FCCC9F408 /* UIImageView+CCImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CCImageService.m"; sourceTree = "<group>"; };
 		318217617BD471F71A9F058B /* CCImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageDownloader.h; sourceTree = "<group>"; };
-		3182177B9C42C67A77E83051 /* UIImageView+CCImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CCImageService.h"; sourceTree = "<group>"; };
 		318217DAD8ECE0719A1E9775 /* CCDispatchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDispatchGroup.h; sourceTree = "<group>"; };
 		318217DB332BA8CE7F3F2D36 /* CCImageServiceCustomImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceCustomImpl.m; sourceTree = "<group>"; };
 		318217F950715FDFA5D44D71 /* CCImageLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageLog.h; sourceTree = "<group>"; };
+		318218D66C8F58C1B2110611 /* UIImageView+CCImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CCImageService.h"; sourceTree = "<group>"; };
 		31821938B6E7A8EFF41D85C5 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
 		31821965F51A3CFF74B63A86 /* CCImageDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageDiskCache.m; sourceTree = "<group>"; };
 		31821A231FAFE37B2CDE194F /* CCTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTypedefs.h; sourceTree = "<group>"; };
@@ -377,8 +377,8 @@
 			isa = PBXGroup;
 			children = (
 				31821EA8E9AC7A2048A1A3DA /* Implementations */,
-				3182170DF85767EBC35C47AB /* UIImageView+ImageService */,
 				31821F4D9E4A9EC1D1DC29D7 /* CCImageService.h */,
+				31821A7D731FD7D4C4DD9474 /* UIImageView+CCImageService */,
 			);
 			path = ImageService;
 			sourceTree = "<group>";
@@ -410,15 +410,6 @@
 			path = Private;
 			sourceTree = "<group>";
 		};
-		3182170DF85767EBC35C47AB /* UIImageView+ImageService */ = {
-			isa = PBXGroup;
-			children = (
-				3182177B9C42C67A77E83051 /* UIImageView+CCImageService.h */,
-				31821727AA348A2FCCC9F408 /* UIImageView+CCImageService.m */,
-			);
-			path = "UIImageView+ImageService";
-			sourceTree = "<group>";
-		};
 		3182179232F3332CD743A213 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +426,15 @@
 				31821A6F657201DACCAE87D9 /* CCImageServiceAFNetworkingImpl.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		31821A7D731FD7D4C4DD9474 /* UIImageView+CCImageService */ = {
+			isa = PBXGroup;
+			children = (
+				318218D66C8F58C1B2110611 /* UIImageView+CCImageService.h */,
+				318210851C76EEF688743320 /* UIImageView+CCImageService.m */,
+			);
+			path = "UIImageView+CCImageService";
 			sourceTree = "<group>";
 		};
 		31821D93A75370A05346F451 /* DispatchUtils */ = {
@@ -1186,10 +1186,10 @@
 				318217A32FB1966F17BA9ECC /* CCImageServiceCustomImpl.m in Sources */,
 				3182115962E5FF8E95036757 /* CCImageServiceSDWebImageImpl.m in Sources */,
 				31821B86F0EEBE6BA213852C /* CCImageServiceAFNetworkingImpl.m in Sources */,
-				31821B3B56A5DF951BAA48F0 /* UIImageView+CCImageService.m in Sources */,
 				31821C0A74E7A2348828DABD /* CCDispatchGroup.m in Sources */,
 				3182195B61076EE1445A7B2A /* CCDispatchQueue.m in Sources */,
 				31821E8386BF16B46CC4E7EC /* NSString+SHA1.m in Sources */,
+				31821DE00394C89DB373BDBB /* UIImageView+CCImageService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

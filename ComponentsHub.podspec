@@ -47,7 +47,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'ImageService-Common' do |subspec|
-      subspec.source_files   = 'Components/ImageService/CCImageService.h', 'UIImageView+ImageService/*.{h,m}'
+      subspec.source_files   = 'Components/ImageService/CCImageService.h', 'Components/ImageService/UIImageView+CCImageService/*.{h,m}'
       subspec.dependency 'ComponentsHub/Macroses'
       subspec.dependency 'Typhoon'
   end
