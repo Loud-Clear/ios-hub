@@ -13,6 +13,10 @@
 #import "CCFormOutput.h"
 #import "CCMacroses.h"
 
+@interface CCTableFormCell()
+@property (weak, nonatomic) id<CCFormOutput> output;
+@end
+
 @implementation CCTableFormCell {
     __weak UITextField *_managedTextField;
     UIReturnKeyType _nextKey;

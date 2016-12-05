@@ -9,6 +9,10 @@
 #import "CCTableFormItem.h"
 #import "CCFormOutput.h"
 
+@interface CCTableFormItem()
+@property (weak, nonatomic) id<CCFormOutput> output;
+@end
+
 @implementation CCTableFormItem
 
 @end
