@@ -39,10 +39,7 @@
     SafetyCallAfter(2, ^{
         self.value = @3;
     });
-
-    
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
