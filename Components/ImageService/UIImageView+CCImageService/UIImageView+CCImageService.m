@@ -15,10 +15,6 @@
 #import "UIImageView+CCImageService.h"
 #import "CCMacroses.h"
 
-@interface UIImageView ()
-@property (nonatomic) NSURL *cc_imageUrl;
-@end
-
 @implementation UIImageView (CCImageService)
 
 //-------------------------------------------------------------------------------------------
@@ -112,7 +108,7 @@
 
 static const void *kImageKey = &kImageKey;
 
-- (void)setDt_imageUrl:(NSURL *)url
+- (void)setCc_imageUrl:(NSURL *)url
 {
     SetAssociatedObject(kImageKey, url);
 }
