@@ -8,10 +8,13 @@
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:selector name:notificaton object:nil];
 
-    __weak __typeof(self) weakSelf = self;
-    [self setDeallocNotificationWithKey:"ССNotificationUtils" andBlock:^{
-        [weakSelf unregisterForNotifications];
-    }];
+    NSOperatingSystemVersion ios9 = (NSOperatingSystemVersion){9, 0, 0};
+    if (![[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:ios9]) {
+        __weak __typeof(self) weakSelf = self;
+        [self setDeallocNotificationWithKey:"ССNotificationUtils" andBlock:^{
+            [weakSelf unregisterForNotifications];
+        }];
+    }
 }
 
 - (void)unregisterForNotification:(NSString *)notification
