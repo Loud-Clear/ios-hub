@@ -194,6 +194,10 @@
         cell.detailTextLabel.text = ((CCTableViewItem *)item).detailLabelText;
     
     [cell cellWillAppear];
+
+    if ([cell isKindOfClass:[CCTableViewCell class]]) {
+        [self willAppearCell:cell];
+    }
     
     return cell;
 }
@@ -207,6 +211,8 @@
             [self.delegate tableView:tableView willLoadCell:cell forRowAtIndexPath:indexPath];
 
         [cell cellDidLoad];
+
+        [self didLoadCell:cell];
 
         // CCTableViewManagerDelegate
         //
@@ -1072,5 +1078,14 @@
 
 }
 
+- (void)willAppearCell:(CCTableViewCell *)cell
+{
+
+}
+
+- (void)didLoadCell:(CCTableViewCell *)cell
+{
+
+}
 
 @end

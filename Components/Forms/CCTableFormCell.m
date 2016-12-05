@@ -11,8 +11,13 @@
 #import "CCTableViewItem.h"
 #import "CCTableFormItem.h"
 #import "CCFormOutput.h"
+#import "CCMacroses.h"
 
-@implementation CCTableFormCell
+@implementation CCTableFormCell {
+    __weak UITextField *_managedTextField;
+    UIReturnKeyType _nextKey;
+    UIReturnKeyType _submitKey;
+}
 
 - (CCTableFormItem *)asItem
 {
@@ -34,13 +39,15 @@
 - (void)cellWillAppear
 {
     [super cellWillAppear];
-    [self updateActionBarNavigationControl];
+    [self updateNavigationActions];
 }
 
-- (void)updateActionBarNavigationControl
+- (void)updateNavigationActions
 {
     [self.actionBar.navigationControl setEnabled:[self canGoBack] forSegmentAtIndex:0];
     [self.actionBar.navigationControl setEnabled:[self canGoNext] forSegmentAtIndex:1];
+
+    _managedTextField.returnKeyType = [self canGoNext] ? _nextKey : _submitKey;
 }
 
 - (UIResponder *)responder
@@ -105,8 +112,16 @@
 
 - (void)setupReturnKeyFor:(UITextField *)textField next:(UIReturnKeyType)next submit:(UIReturnKeyType)submit
 {
+    if (_managedTextField) {
+        DDLogWarn(@"Cell %@ already have textField %@ to manage return button", self, _managedTextField);
+    }
+
     [textField addTarget:self action:@selector(cc_onKeyboardReturn) forControlEvents:UIControlEventEditingDidEndOnExit];
     textField.returnKeyType = [self canGoNext] ? next : submit;
+
+    _managedTextField = textField;
+    _nextKey = next;
+    _submitKey = submit;
 }
 
 - (void)cc_onKeyboardReturn

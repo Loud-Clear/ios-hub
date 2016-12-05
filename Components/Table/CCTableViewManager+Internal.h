@@ -25,4 +25,8 @@
 /// Calls when items set changed (something added or removed)
 - (void)didChangeItemsSet;
 
+
+- (void)willAppearCell:(CCTableViewCell *)cell;
+- (void)didLoadCell:(CCTableViewCell *)cell;
+
 @end

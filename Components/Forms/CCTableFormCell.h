@@ -44,6 +44,6 @@
 
 @property (strong, readwrite, nonatomic) CCActionBar *actionBar;
 
-- (void)updateActionBarNavigationControl;
+- (void)updateNavigationActions;
 
 @end
