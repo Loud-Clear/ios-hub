@@ -7,6 +7,7 @@
 //
 
 #import "CCTableFormItem.h"
+#import "CCFormOutput.h"
 
 @implementation CCTableFormItem
 

@@ -8,11 +8,15 @@
 
 #import "CCTableViewItem.h"
 
+@protocol CCFormOutput;
+
 @interface CCTableFormItem : CCTableViewItem
 
 @property (copy, readwrite, nonatomic) NSString *name;
 @property (nonatomic, strong) id value;
 @property (nonatomic, strong) id resetValue;
+
+@property (weak, readonly, nonatomic) id<CCFormOutput> output;
 
 // Action bar
 @property (copy, readwrite, nonatomic) void (^actionBarNavButtonTapHandler)(id item); //handler for nav button on ActionBar

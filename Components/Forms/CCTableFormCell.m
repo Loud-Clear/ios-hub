@@ -10,6 +10,7 @@
 #import "CCTableViewManager.h"
 #import "CCTableViewItem.h"
 #import "CCTableFormItem.h"
+#import "CCFormOutput.h"
 
 @implementation CCTableFormCell
 
@@ -38,8 +39,8 @@
 
 - (void)updateActionBarNavigationControl
 {
-    [self.actionBar.navigationControl setEnabled:[self indexPathForPreviousResponder] != nil forSegmentAtIndex:0];
-    [self.actionBar.navigationControl setEnabled:[self indexPathForNextResponder] != nil forSegmentAtIndex:1];
+    [self.actionBar.navigationControl setEnabled:[self canGoBack] forSegmentAtIndex:0];
+    [self.actionBar.navigationControl setEnabled:[self canGoNext] forSegmentAtIndex:1];
 }
 
 - (UIResponder *)responder
@@ -98,18 +99,60 @@
     return nil;
 }
 
+//-------------------------------------------------------------------------------------------
+#pragma mark - Keyboard
+//-------------------------------------------------------------------------------------------
+
+- (void)setupReturnKeyFor:(UITextField *)textField next:(UIReturnKeyType)next submit:(UIReturnKeyType)submit
+{
+    [textField addTarget:self action:@selector(cc_onKeyboardReturn) forControlEvents:UIControlEventEditingDidEndOnExit];
+    textField.returnKeyType = [self canGoNext] ? next : submit;
+}
+
+- (void)cc_onKeyboardReturn
+{
+    if ([self canGoNext]) {
+        [self onNext];
+    } else {
+        [self onSubmit];
+    }
+}
+
+- (BOOL)canGoNext
+{
+    return [self indexPathForNextResponder] != nil;
+}
+
+- (BOOL)canGoBack
+{
+    return [self indexPathForPreviousResponder] != nil;
+}
+
+- (void)onNext
+{
+    [self makeCellFirstResponderAtIndexPath:[self indexPathForNextResponder]];
+}
+
+- (void)onBack
+{
+    [self makeCellFirstResponderAtIndexPath:[self indexPathForPreviousResponder]];
+}
+
+- (void)onSubmit
+{
+    [self.output onSubmit];
+    [self endEditing:YES];
+}
+
 #pragma mark -
 #pragma mark CCActionBar delegate
 
 - (void)actionBar:(CCActionBar *)actionBar navigationControlValueChanged:(UISegmentedControl *)navigationControl
 {
-    NSIndexPath *indexPath = navigationControl.selectedSegmentIndex == 0 ? [self indexPathForPreviousResponder] : [self indexPathForNextResponder];
-    if (indexPath) {
-        CCTableFormCell *cell = (CCTableFormCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
-        if (!cell)
-            [self.parentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-        cell = (CCTableFormCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
-        [cell.responder becomeFirstResponder];
+    if (navigationControl.selectedSegmentIndex == 0) {
+        [self onBack];
+    } else {
+        [self onNext];
     }
 
     if (self.asItem.actionBarNavButtonTapHandler)
@@ -122,6 +165,23 @@
         self.asItem.actionBarDoneButtonTapHandler(self.asItem);
 
     [self endEditing:YES];
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Utils
+//-------------------------------------------------------------------------------------------
+
+- (void)makeCellFirstResponderAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath) {
+        CCTableFormCell *cell = (CCTableFormCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
+        if (!cell) {
+            [self.parentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop
+                                                animated:NO];
+        }
+        cell = (CCTableFormCell *)[self.parentTableView cellForRowAtIndexPath:indexPath];
+        [cell.responder becomeFirstResponder];
+    }
 }
 
 @end

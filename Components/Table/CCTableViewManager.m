@@ -895,84 +895,99 @@
 
 - (void)addSection:(CCTableViewSection *)section
 {
-    section.tableViewManager = self;
+    [self gotNewSections:@[section]];
     [self.mutableSections addObject:section];
+    [self sectionsSetChanged];
 }
 
 - (void)addSectionsFromArray:(NSArray *)array
 {
-    for (CCTableViewSection *section in array)
-        section.tableViewManager = self;
+    [self gotNewSections:array];
     [self.mutableSections addObjectsFromArray:array];
+    [self sectionsSetChanged];
 }
 
 - (void)insertSection:(CCTableViewSection *)section atIndex:(NSUInteger)index
 {
-    section.tableViewManager = self;
+    [self gotNewSections:@[section]];
     [self.mutableSections insertObject:section atIndex:index];
+    [self sectionsSetChanged];
 }
 
 - (void)insertSections:(NSArray *)sections atIndexes:(NSIndexSet *)indexes
 {
-    for (CCTableViewSection *section in sections)
-        section.tableViewManager = self;
+    [self gotNewSections:sections];
     [self.mutableSections insertObjects:sections atIndexes:indexes];
+    [self sectionsSetChanged];
 }
 
 - (void)removeSection:(CCTableViewSection *)section
 {
     [self.mutableSections removeObject:section];
+    [self sectionsSetChanged];
 }
 
 - (void)removeAllSections
 {
     [self.mutableSections removeAllObjects];
+    [self sectionsSetChanged];
 }
 
 - (void)removeSectionIdenticalTo:(CCTableViewSection *)section inRange:(NSRange)range
 {
     [self.mutableSections removeObjectIdenticalTo:section inRange:range];
+    [self sectionsSetChanged];
 }
 
 - (void)removeSectionIdenticalTo:(CCTableViewSection *)section
 {
     [self.mutableSections removeObjectIdenticalTo:section];
+    [self sectionsSetChanged];
 }
 
 - (void)removeSectionsInArray:(NSArray *)otherArray
 {
     [self.mutableSections removeObjectsInArray:otherArray];
+    [self sectionsSetChanged];
 }
 
 - (void)removeSectionsInRange:(NSRange)range
 {
     [self.mutableSections removeObjectsInRange:range];
+    [self sectionsSetChanged];
 }
 
 - (void)removeSection:(CCTableViewSection *)section inRange:(NSRange)range
 {
     [self.mutableSections removeObject:section inRange:range];
+    [self sectionsSetChanged];
 }
 
 - (void)removeLastSection
 {
     [self.mutableSections removeLastObject];
+    [self sectionsSetChanged];
 }
 
 - (void)removeSectionAtIndex:(NSUInteger)index
 {
     [self.mutableSections removeObjectAtIndex:index];
+    [self sectionsSetChanged];
 }
 
 - (void)removeSectionsAtIndexes:(NSIndexSet *)indexes
 {
     [self.mutableSections removeObjectsAtIndexes:indexes];
+    [self sectionsSetChanged];
 }
 
 - (void)replaceSectionAtIndex:(NSUInteger)index withSection:(CCTableViewSection *)section
 {
-    section.tableViewManager = self;
+    [self gotNewSections:@[section]];
+
     [self.mutableSections replaceObjectAtIndex:index withObject:section];
+
+    [self sectionsSetChanged];
 }
 
 - (void)replaceSectionsWithSectionsFromArray:(NSArray *)otherArray
@@ -983,16 +998,20 @@
 
 - (void)replaceSectionsAtIndexes:(NSIndexSet *)indexes withSections:(NSArray *)sections
 {
-    for (CCTableViewSection *section in sections)
-        section.tableViewManager = self;
+    [self gotNewSections:sections];
+
     [self.mutableSections replaceObjectsAtIndexes:indexes withObjects:sections];
+
+    [self sectionsSetChanged];
 }
 
 - (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray range:(NSRange)otherRange
 {
-    for (CCTableViewSection *section in otherArray)
-        section.tableViewManager = self;
+    [self gotNewSections:otherArray];
+
     [self.mutableSections replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
+
+    [self sectionsSetChanged];
 }
 
 - (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray
@@ -1014,5 +1033,44 @@
 {
     [self.mutableSections sortUsingSelector:comparator];
 }
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Modifying callbacks
+//-------------------------------------------------------------------------------------------
+
+- (void)sectionsSetChanged
+{
+    [self didChangeItemsSet];
+}
+
+- (void)gotNewSections:(NSArray *)sections
+{
+    for (CCTableViewSection *section in sections) {
+        section.tableViewManager = self;
+        [self gotNewItems:section.items];
+    }
+}
+
+- (void)sectionDidChangeItemsSet:(CCTableViewSection *)section
+{
+    [self didChangeItemsSet];
+}
+
+- (void)section:(CCTableViewSection *)section gotNewItems:(NSArray *)items
+{
+    [self gotNewItems:items];
+
+}
+
+- (void)gotNewItems:(NSArray *)items
+{
+
+}
+
+- (void)didChangeItemsSet
+{
+
+}
+
 
 @end

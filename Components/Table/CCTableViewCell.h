@@ -25,7 +25,6 @@
 
 #import <UIKit/UIKit.h>
 #import "CCTableViewSection.h"
-#import "CCActionBar.h"
 
 @class CCTableViewManager;
 @class CCTableViewItem;

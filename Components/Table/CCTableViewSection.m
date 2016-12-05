@@ -28,6 +28,7 @@
 #import "NSString+CCTableViewManagerAdditions.h"
 #import <float.h>
 #import "CCTableViewItem.h"
+#import "CCTableViewManager+Internal.h"
 
 CGFloat const CCTableViewSectionHeaderHeightAutomatic = DBL_MAX;
 CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
@@ -152,94 +153,117 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 
 - (void)addItem:(id)item
 {
-    if ([item isKindOfClass:[CCTableViewItem class]])
-        ((CCTableViewItem *)item).section = self;
+    [self gotNewItems:@[item]];
     
     [self.mutableItems addObject:item];
+
+    [self didChangeItemsSet];
 }
 
 - (void)addItemsFromArray:(NSArray *)array
 {
-    for (CCTableViewItem *item in array)
-        if ([item isKindOfClass:[CCTableViewItem class]])
-            ((CCTableViewItem *)item).section = self;
+    [self gotNewItems:array];
     
     [self.mutableItems addObjectsFromArray:array];
+
+    [self didChangeItemsSet];
 }
 
 - (void)insertItem:(id)item atIndex:(NSUInteger)index
 {
-    if ([item isKindOfClass:[CCTableViewItem class]])
-        ((CCTableViewItem *)item).section = self;
+    [self gotNewItems:@[item]];
     
     [self.mutableItems insertObject:item atIndex:index];
+
+    [self didChangeItemsSet];
 }
 
 - (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes
 {
-    for (CCTableViewItem *item in items)
-        if ([item isKindOfClass:[CCTableViewItem class]])
-            ((CCTableViewItem *)item).section = self;
+    [self gotNewItems:items];
     
     [self.mutableItems insertObjects:items atIndexes:indexes];
+
+    [self didChangeItemsSet];
 }
 
 - (void)removeItem:(id)item inRange:(NSRange)range
 {
     [self.mutableItems removeObject:item inRange:range];
+
+    [self didChangeItemsSet];
 }
 
 - (void)removeLastItem
 {
     [self.mutableItems removeLastObject];
+
+    [self didChangeItemsSet];
 }
 
 - (void)removeItemAtIndex:(NSUInteger)index
 {
     [self.mutableItems removeObjectAtIndex:index];
+
+    [self didChangeItemsSet];
 }
 
 - (void)removeItem:(id)item
 {
     [self.mutableItems removeObject:item];
+
+    [self didChangeItemsSet];
 }
 
 - (void)removeAllItems
 {
     [self.mutableItems removeAllObjects];
+
+    [self didChangeItemsSet];
 }
 
 - (void)removeItemIdenticalTo:(id)item inRange:(NSRange)range
 {
     [self.mutableItems removeObjectIdenticalTo:item inRange:range];
+
+    [self didChangeItemsSet];
 }
 
 - (void)removeItemIdenticalTo:(id)item
 {
     [self.mutableItems removeObjectIdenticalTo:item];
+
+    [self didChangeItemsSet];
 }
 
 - (void)removeItemsInArray:(NSArray *)otherArray
 {
     [self.mutableItems removeObjectsInArray:otherArray];
+
+    [self didChangeItemsSet];
 }
 
 - (void)removeItemsInRange:(NSRange)range
 {
     [self.mutableItems removeObjectsInRange:range];
+
+    [self didChangeItemsSet];
 }
 
 - (void)removeItemsAtIndexes:(NSIndexSet *)indexes
 {
     [self.mutableItems removeObjectsAtIndexes:indexes];
+
+    [self didChangeItemsSet];
 }
 
 - (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item
 {
-    if ([item isKindOfClass:[CCTableViewItem class]])
-        ((CCTableViewItem *)item).section = self;
+    [self gotNewItems:@[item]];
     
     [self.mutableItems replaceObjectAtIndex:index withObject:item];
+
+    [self didChangeItemsSet];
 }
 
 - (void)replaceItemsWithItemsFromArray:(NSArray *)otherArray
@@ -250,29 +274,29 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray range:(NSRange)otherRange
 {
-    for (CCTableViewItem *item in otherArray)
-        if ([item isKindOfClass:[CCTableViewItem class]])
-            ((CCTableViewItem *)item).section = self;
+    [self gotNewItems:otherArray];
     
     [self.mutableItems replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
+
+    [self didChangeItemsSet];
 }
 
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray
 {
-    for (CCTableViewItem *item in otherArray)
-        if ([item isKindOfClass:[CCTableViewItem class]])
-            ((CCTableViewItem *)item).section = self;
+    [self gotNewItems:otherArray];
     
     [self.mutableItems replaceObjectsInRange:range withObjectsFromArray:otherArray];
+
+    [self didChangeItemsSet];
 }
 
 - (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items
 {
-    for (CCTableViewItem *item in items)
-        if ([item isKindOfClass:[CCTableViewItem class]])
-            ((CCTableViewItem *)item).section = self;
+    [self gotNewItems:items];
     
     [self.mutableItems replaceObjectsAtIndexes:indexes withObjects:items];
+
+    [self didChangeItemsSet];
 }
 
 - (void)exchangeItemAtIndex:(NSUInteger)idx1 withItemAtIndex:(NSUInteger)idx2
@@ -296,6 +320,26 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 - (void)reloadSectionWithAnimation:(UITableViewRowAnimation)animation
 {
     [self.tableViewManager.tableView reloadSections:[NSIndexSet indexSetWithIndex:self.index] withRowAnimation:animation];
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Items change callbacks and post processors
+//-------------------------------------------------------------------------------------------
+
+- (void)didChangeItemsSet
+{
+    [self.tableViewManager sectionDidChangeItemsSet:self];
+}
+
+- (void)gotNewItems:(NSArray *)newItems
+{
+    for (CCTableViewItem *item in newItems) {
+        if ([item isKindOfClass:[CCTableViewItem class]]) {
+            item.section = self;
+        }
+    }
+
+    [self.tableViewManager section:self gotNewItems:newItems];
 }
 
 @end

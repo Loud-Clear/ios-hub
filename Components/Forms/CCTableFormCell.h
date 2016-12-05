@@ -7,8 +7,10 @@
 //
 
 #import "CCTableViewCell.h"
+#import "CCActionBar.h"
 
 @class CCTableFormItem;
+@protocol CCFormOutput;
 
 @interface CCTableFormCell: CCTableViewCell <CCActionBarDelegate>
 
@@ -21,6 +23,20 @@
 @property (strong, readonly, nonatomic) UIResponder *responder;
 @property (strong, readonly, nonatomic) NSIndexPath *indexPathForPreviousResponder;
 @property (strong, readonly, nonatomic) NSIndexPath *indexPathForNextResponder;
+
+@property (weak, readonly, nonatomic) id<CCFormOutput> output;
+
+- (void)setupReturnKeyFor:(UITextField *)textField next:(UIReturnKeyType)next submit:(UIReturnKeyType)submit;
+
+- (BOOL)canGoNext;
+
+- (BOOL)canGoBack;
+
+- (void)onNext;
+
+- (void)onBack;
+
+- (void)onSubmit;
 
 ///-----------------------------
 /// @name Managing Cell Appearance
