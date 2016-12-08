@@ -77,7 +77,7 @@
 {
     NSString *identifier = [self cellIdentifierForIndexPath:indexPath];
 
-    if (self.cellClass) {
+    if (self.cellClass && !self.nibName) {
         [tableView registerClass:self.cellClass forCellReuseIdentifier:identifier];
     }
 
