@@ -43,7 +43,7 @@ static NSString * const kErrorDomain = @"CCImageDownloader";
     request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
 
     if (modificationDate) {
-        NSString *dateString = [_dateFormatter stringFromDate:modificationDate];
+        NSString *dateString = [[[self class] dateFormatter] stringFromDate:modificationDate];
         [request setValue:dateString forHTTPHeaderField:@"If-Modified-Since"];
     }
 

@@ -5,6 +5,7 @@
 //
 
 #import <CommonCrypto/CommonDigest.h>
+#import <Foundation/Foundation.h>
 
 @implementation NSString (SHA1)
 

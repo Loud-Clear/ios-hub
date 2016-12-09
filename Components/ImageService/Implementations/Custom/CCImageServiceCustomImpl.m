@@ -17,6 +17,7 @@
 #import "CCImageGetContext.h"
 #import "CCImageLog.h"
 #import "CCDispatchUtils.h"
+#import "CCMacroses.h"
 
 @implementation CCImageServiceCustomImpl {
     CCImageDownloader *_imageDownloader;
