@@ -15,6 +15,7 @@
 @interface CCTableViewCellFactory : NSObject
 
 + (instancetype)withCellClass:(Class)clazz reusable:(BOOL)reusable;
++ (instancetype)withCellClass:(Class)clazz andXib:(BOOL)useXib reusable:(BOOL)reusable;
 
 - (id)cellForIndexPath:(NSIndexPath *)indexPath usingTableView:(UITableView *)tableView;
 
