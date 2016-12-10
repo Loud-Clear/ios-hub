@@ -29,39 +29,44 @@
 @class CCTableViewSection;
 @class CCTableViewCellFactory;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface CCTableViewItem : NSObject
 
-@property (copy, readwrite, nonatomic) NSString *title;
-@property (strong, readwrite, nonatomic) UIImage *image;
-@property (strong, readwrite, nonatomic) UIImage *highlightedImage;
-@property (assign, readwrite, nonatomic) NSTextAlignment textAlignment;
-@property (weak, readwrite, nonatomic) CCTableViewSection *section;
-@property (copy, readwrite, nonatomic) NSString *detailLabelText;
-@property (assign, readwrite, nonatomic) UITableViewCellStyle style;
-@property (assign, readwrite, nonatomic) UITableViewCellSelectionStyle selectionStyle;
-@property (assign, readwrite, nonatomic) UITableViewCellAccessoryType accessoryType;
-@property (assign, readwrite, nonatomic) UITableViewCellEditingStyle editingStyle;
-@property (strong, readwrite, nonatomic) UIView *accessoryView;
-@property (assign, readwrite, nonatomic) BOOL enabled;
-@property (copy, readwrite, nonatomic) void (^selectionHandler)(id item);
-@property (copy, readwrite, nonatomic) void (^accessoryButtonTapHandler)(id item);
-@property (copy, readwrite, nonatomic) void (^insertionHandler)(id item);
-@property (copy, readwrite, nonatomic) void (^deletionHandler)(id item);
-@property (copy, readwrite, nonatomic) void (^deletionHandlerWithCompletion)(id item, void (^)(void));
-@property (copy, readwrite, nonatomic) BOOL (^moveHandler)(id item, NSIndexPath *sourceIndexPath, NSIndexPath *destinationIndexPath);
-@property (copy, readwrite, nonatomic) void (^moveCompletionHandler)(id item, NSIndexPath *sourceIndexPath, NSIndexPath *destinationIndexPath);
-@property (copy, readwrite, nonatomic) void (^cutHandler)(id item);
-@property (copy, readwrite, nonatomic) void (^copyHandler)(id item);
-@property (copy, readwrite, nonatomic) void (^pasteHandler)(id item);
+@property (nonatomic, copy, nullable) NSString *title;
+@property (nonatomic, copy, nullable) NSString *detailLabelText;
+@property (nonatomic,) NSTextAlignment textAlignment;
+
+@property (nonatomic, strong, nullable) UIImage *image;
+@property (nonatomic, strong, nullable) UIImage *highlightedImage;
+
+@property (nonatomic, weak, nullable) CCTableViewSection *section;
+
+@property (nonatomic) UITableViewCellStyle style;
+@property (nonatomic) UITableViewCellSelectionStyle selectionStyle;
+@property (nonatomic) UITableViewCellAccessoryType accessoryType;
+@property (nonatomic) UITableViewCellEditingStyle editingStyle;
+@property (nonatomic, strong, nullable) UIView *accessoryView;
+@property (nonatomic) BOOL enabled;
+@property (nonatomic, copy, nullable) void (^selectionHandler)(id item);
+@property (nonatomic, copy, nullable) void (^accessoryButtonTapHandler)(id item);
+@property (nonatomic, copy, nullable) void (^insertionHandler)(id item);
+@property (nonatomic, copy, nullable) void (^deletionHandler)(id item);
+@property (nonatomic, copy, nullable) void (^deletionHandlerWithCompletion)(id item, void (^)(void));
+@property (nonatomic, copy, nullable) BOOL (^moveHandler)(id item, NSIndexPath *sourceIndexPath, NSIndexPath *destinationIndexPath);
+@property (nonatomic, copy, nullable) void (^moveCompletionHandler)(id item, NSIndexPath *sourceIndexPath, NSIndexPath *destinationIndexPath);
+@property (nonatomic, copy, nullable) void (^cutHandler)(id item);
+@property (nonatomic, copy, nullable) void (^copyHandler)(id item);
+@property (nonatomic, copy, nullable) void (^pasteHandler)(id item);
 
 + (instancetype)item;
 + (instancetype)itemWithTitle:(NSString *)title;
-+ (instancetype)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(CCTableViewItem *item))selectionHandler;
-+ (instancetype)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(CCTableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^)(CCTableViewItem *item))accessoryButtonTapHandler;
++ (instancetype)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^__nullable)(CCTableViewItem *item))selectionHandler;
++ (instancetype)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^__nullable)(CCTableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^__nullable)(CCTableViewItem *item))accessoryButtonTapHandler;
 
 - (id)initWithTitle:(NSString *)title;
-- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(CCTableViewItem *item))selectionHandler;
-- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(CCTableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^)(CCTableViewItem *item))accessoryButtonTapHandler;
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^__nullable)(CCTableViewItem *item))selectionHandler;
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^__nullable)(CCTableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^__nullable)(CCTableViewItem *item))accessoryButtonTapHandler;
 
 - (NSIndexPath *)indexPath;
 
@@ -70,6 +75,8 @@
 ///
 
 - (CCTableViewCellFactory *)cellFactoryForCurrentItem;
+
+- (NSString * __nullable)cellReusableIdentifier;
 
 ///-----------------------------
 /// @name Manipulating table view row
@@ -82,3 +89,6 @@
 - (void)deleteRowWithAnimation:(UITableViewRowAnimation)animation;
 
 @end
+
+NS_ASSUME_NONNULL_END
+

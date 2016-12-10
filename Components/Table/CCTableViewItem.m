@@ -45,7 +45,7 @@
     return [[self alloc] initWithTitle:title accessoryType:accessoryType selectionHandler:selectionHandler accessoryButtonTapHandler:nil];
 }
 
-+ (instancetype)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(CCTableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^)(CCTableViewItem *item))accessoryButtonTapHandler
++ (instancetype)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(CCTableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^__nullable)(CCTableViewItem *item))accessoryButtonTapHandler
 {
     return [[self alloc] initWithTitle:title accessoryType:accessoryType selectionHandler:selectionHandler accessoryButtonTapHandler:accessoryButtonTapHandler];
 }
@@ -66,7 +66,7 @@
     return [self initWithTitle:title accessoryType:accessoryType selectionHandler:selectionHandler accessoryButtonTapHandler:nil];
 }
 
-- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(CCTableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^)(CCTableViewItem *item))accessoryButtonTapHandler
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^__nullable)(CCTableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^__nullable)(CCTableViewItem *item))accessoryButtonTapHandler
 {
     self = [self init];
     if (!self)
@@ -96,6 +96,7 @@
 {
     return [NSIndexPath indexPathForRow:[self.section.items indexOfObject:self] inSection:self.section.index];
 }
+
 
 #pragma mark -
 #pragma mark Manipulating table view row
@@ -132,6 +133,11 @@
 {
     //Please override in subclass
 
+    return [CCTableViewCellFactory withCellClass:[CCTableViewCell class] reusable:YES];
+}
+
+- (NSString * __nullable)cellReusableIdentifier
+{
     return nil;
 }
 

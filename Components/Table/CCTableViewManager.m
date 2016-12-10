@@ -165,7 +165,7 @@
 
         CCTableViewCellFactory *factory = [item cellFactoryForCurrentItem];
 
-        cell = [factory cellForIndexPath:indexPath usingTableView:tableView];
+        cell = [factory cellForIndexPath:indexPath usingTableView:tableView item:item];
     } else {
         // Remove this way of using CCTableViewManager.
         UITableViewCellStyle cellStyle = UITableViewCellStyleDefault;

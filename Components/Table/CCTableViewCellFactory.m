@@ -13,17 +13,19 @@
 #import "CCMacroses.h"
 #import <objc/runtime.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface CCTableViewCellFactory ()
 
-@property (nonatomic) Class cellClass;
-@property (nonatomic) NSString *nibName;
+@property (nonatomic, nonnull) Class cellClass;
+@property (nonatomic, nullable) NSString *nibName;
 @property (nonatomic) BOOL resuable;
 
 @end
 
 @implementation CCTableViewCellFactory
 
-+ (instancetype)sharedPrototype
++ (instancetype)sharedPrototypeForCellClass:(Class)cellClass nibName:(NSString * __nullable)nibName reusable:(BOOL)reusable
 {
     static CCTableViewCellFactory *factory;
     static dispatch_once_t onceToken;
@@ -31,51 +33,40 @@
     	factory = [CCTableViewCellFactory new];
     });
 
-    factory.cellClass = nil;
-    factory.nibName = nil;
-    factory.resuable = YES;
+    factory.cellClass = cellClass;
+    factory.nibName = nibName;
+    factory.resuable = reusable;
 
     return factory;
 }
 
 + (instancetype)withCellClass:(Class)clazz reusable:(BOOL)reusable
 {
-    CCTableViewCellFactory *factory = [CCTableViewCellFactory sharedPrototype];
-    factory.cellClass = clazz;
-    factory.resuable = reusable;
-    return factory;
+    return [CCTableViewCellFactory sharedPrototypeForCellClass:clazz nibName:nil reusable:reusable];;
 }
 
 + (instancetype)withCellClass:(Class)clazz andXib:(BOOL)useXib reusable:(BOOL)reusable
 {
-    CCTableViewCellFactory *factory = [CCTableViewCellFactory sharedPrototype];
-    factory.nibName = NSStringFromClass(clazz);
-    factory.cellClass = clazz;
-    factory.resuable = reusable;
-    return factory;
+    return [CCTableViewCellFactory sharedPrototypeForCellClass:clazz nibName:NSStringFromClass(clazz) reusable:reusable];;
 }
 
-- (NSString *)cellIdentifierForIndexPath:(NSIndexPath *)indexPath
+- (NSString *)cellIdentifierForIndexPath:(NSIndexPath *)indexPath withItem:(CCTableViewItem *)item
 {
     if (self.resuable) {
         return [self cellReusableIdentifier];
     } else {
-        return [NSString stringWithFormat:@"%@(%d,%d)", [self cellReusableIdentifier], indexPath.section, indexPath.row];
+        return [NSString stringWithFormat:@"%@(%d,%d)", [self cellReusableIdentifier], (int)indexPath.section, (int)indexPath.row];
     }
 }
 
 - (NSString *)cellReusableIdentifier
 {
-    if (self.cellClass) {
-        return NSStringFromClass(self.cellClass);
-    } else {
-        return self.nibName;
-    }
+    return self.nibName ?: NSStringFromClass(self.cellClass);
 }
 
-- (id)cellForIndexPath:(NSIndexPath *)indexPath usingTableView:(UITableView *)tableView
+- (id)cellForIndexPath:(NSIndexPath *)indexPath usingTableView:(UITableView *)tableView item:(CCTableViewItem *)item
 {
-    NSString *identifier = [self cellIdentifierForIndexPath:indexPath];
+    NSString *identifier = [self cellIdentifierForIndexPath:indexPath withItem:item];
 
     if (self.cellClass && !self.nibName) {
         [tableView registerClass:self.cellClass forCellReuseIdentifier:identifier];
@@ -104,3 +95,5 @@
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

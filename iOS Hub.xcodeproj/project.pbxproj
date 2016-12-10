@@ -351,8 +351,8 @@
 				2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */,
 				2DBA151B65B698B19EAC1734 /* CCTableViewSection.h */,
 				2DBA19FDB389A342F9CEA0C7 /* CCTableViewSection.m */,
-				2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */,
 				2DBA1262DA2075C83CCB1A8B /* CCTableViewCellFactory.h */,
+				2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */,
 				2DBA1155E8073B5D351A6EA1 /* CCTableViewManager+Internal.h */,
 			);
 			path = Table;
