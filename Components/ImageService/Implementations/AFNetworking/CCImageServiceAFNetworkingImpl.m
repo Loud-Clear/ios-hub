@@ -23,7 +23,7 @@
 #pragma mark - Initialization & Destruction
 //-------------------------------------------------------------------------------------------
 
-- (id) init
+- (id)init
 {
     if ((self = [super init]))
     {
@@ -36,7 +36,13 @@
 #pragma mark - Interface Methods
 //-------------------------------------------------------------------------------------------
 
-- (void) getImageForUrl:(NSURL *)url completion:(CCImageServiceGetImageBlock)completion
+- (void)getImageForUrl:(NSURL *)url completion:(CCImageServiceGetImageBlock)completion
+{
+    [self getImageForUrl:url options:0 completion:completion];
+}
+
+- (void)getImageForUrl:(NSURL *)url
+               options:(CCGetImageOptions)options completion:(CCImageServiceGetImageBlock)completion
 {
     NSParameterAssert(_imageDownloader);
 

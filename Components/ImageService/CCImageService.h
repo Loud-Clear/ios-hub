@@ -14,10 +14,17 @@
 
 typedef void (^CCImageServiceGetImageBlock)(UIImage *image, NSError *error);
 
+typedef NS_OPTIONS(NSUInteger, CCGetImageOptions) {
+    CCGetImageForceLoad = 1 << 0,
+};
 
 @protocol CCImageService <NSObject>
 
+- (void)getImageForUrl:(NSURL *)url
+               options:(CCGetImageOptions)options completion:(CCImageServiceGetImageBlock)completion;
+
 - (void)getImageForUrl:(NSURL *)url completion:(CCImageServiceGetImageBlock)completion;
+
 
 @optional
 

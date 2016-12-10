@@ -80,7 +80,12 @@
         self.image = placeholderImage;
     }
 
-    [imageService getImageForUrl:url completion:^(UIImage *image, NSError *error)
+    CCGetImageOptions options = 0;
+    if (forceReload) {
+        options |= CCGetImageForceLoad;
+    }
+    
+    [imageService getImageForUrl:url options:options completion:^(UIImage *image, NSError *error)
     {
         if (!image) {
             SafetyCall(completion, image, error);
