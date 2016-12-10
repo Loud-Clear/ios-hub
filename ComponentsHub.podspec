@@ -121,6 +121,11 @@ Pod::Spec.new do |s|
       subspec.source_files   = 'Components/TopmostViewController/**/*.{h,m}'
   end
 
+  s.subspec 'TyphoonAddons' do |subspec|
+      subspec.source_files   = 'Components/TyphoonAddons/**/*.{h,m}'
+      subspec.dependency 'Typhoon'
+  end
+
   s.subspec 'VIPER' do |subspec|
       subspec.source_files   = 'Components/VIPER/**/*.{h,m}'
       subspec.dependency 'Typhoon'
