@@ -156,7 +156,9 @@
 {
     NSMutableDictionary *mutableData = [[self formRawData] mutableDictionary];
     for (id<CCFormPostProcessor> postProcessor in self.formPostProcessors) {
-        [postProcessor postProcessData:mutableData];
+        if ([postProcessor respondsToSelector:@selector(postProcessData:)]) {
+            [postProcessor postProcessData:mutableData];
+        }
     }
     return mutableData;
 }
@@ -169,10 +171,12 @@
 {
     NSMutableArray<NSError *> *errors = [NSMutableArray new];
     for (id<CCFormPostProcessor> filter in self.formPostProcessors) {
-        NSError *validationError = nil;
-        BOOL isValid = [filter validateData:data error:&validationError];
-        if (!isValid && validationError) {
-            [errors addObject:validationError];
+        if ([filter respondsToSelector:@selector(validateData:error:)]) {
+            NSError *validationError = nil;
+            BOOL isValid = [filter validateData:data error:&validationError];
+            if (!isValid && validationError) {
+                [errors addObject:validationError];
+            }
         }
     }
     return errors;
@@ -193,13 +197,14 @@
 {
     NSDictionary<NSString *, id> *data = [self formRawData];
     for (id<CCFormPostProcessor> filter in self.formPostProcessors) {
-        if ([filter respondsToSelector:@selector(shouldValidateAfterEndEditingName:)]) {
+        if ([filter respondsToSelector:@selector(shouldValidateAfterEndEditingName:)] &&
+                [filter respondsToSelector:@selector(validateData:error:)]) {
             if ([filter shouldValidateAfterEndEditingName:fieldName]) {
                 NSError *validationError = nil;
-                if ([filter validateData:data error:&validationError] && validationError) {
+                if (![filter validateData:data error:&validationError] && validationError) {
                     [self didFailWithValidationErrors:@[validationError]];
+                    return;
                 }
-                return;
             }
         }
     }

@@ -13,7 +13,6 @@
 
 @protocol CCFormPostProcessor <NSObject>
 
-
 @optional
 
 - (BOOL)validateData:(NSDictionary<NSString *, id> *)data error:(NSError **)error;
