@@ -21,4 +21,6 @@
 
 - (void)setInitialConfigureBlock:(void(^)(id moduleInput))block;
 
++ (instancetype)withURL:(NSString *)urlString;
+
 @end

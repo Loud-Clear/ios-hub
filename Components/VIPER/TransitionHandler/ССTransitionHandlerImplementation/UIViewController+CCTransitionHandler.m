@@ -232,4 +232,34 @@ static void ССViperViewWillDissappear(id<CCWorkflow> self, SEL selector, BOOL 
     return promise;
 }
 
+//-------------------------------------------------------------------------------------------
+#pragma mark - Shorthands
+//-------------------------------------------------------------------------------------------
+
+- (id<CCModulePromise>)openUrl:(NSString *)url
+{
+    return [self openModuleUsingURL:[NSURL URLWithString:url]];
+}
+
+- (id<CCModulePromise>)openUrl:(NSString *)url transitionBlock:(ССTransitionBlock)block
+{
+    return [self openModuleUsingURL:[NSURL URLWithString:url] transitionBlock:block];
+}
+
+- (id<CCModulePromise>)openUrl:(NSString *)url segueClass:(Class)segueClass
+{
+    return [self openModuleUsingURL:[NSURL URLWithString:url] segueClass:segueClass];
+}
+
+- (id<CCModulePromise>)openUrl:(NSString *)url transition:(ССTransitionStyle)style
+{
+    return [self openModuleUsingURL:[NSURL URLWithString:url] transition:style];
+}
+
+- (id<CCModulePromise>)openSegue:(NSString *)segueIdentifier
+{
+    return [self openModuleUsingSegue:segueIdentifier];
+}
+
+
 @end
