@@ -37,8 +37,6 @@
     XCTAssertTrue([_validator validateData:@{ @"email": @"alex@gmail.ru" }  error:nil]);
     XCTAssertTrue([_validator validateData:@{ @"email": @"ale_x@gmail.ru" }  error:nil]);
     XCTAssertTrue([_validator validateData:@{ @"email": @"ale_x@gm.a.il.ru" }  error:nil]);
-    
-    XCTAssertTrue([_validator validateData:@{ @"email": @"ale_x@u" }  error:nil]);
 }
 
 - (void)test_invalid_email
