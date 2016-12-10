@@ -9,24 +9,31 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import "CCFormFilterBoolean.h"
+#import "CCFormValidationBoolean.h"
 #import "NSError+CCTableFormManager.h"
 
 
-@implementation CCFormFilterBoolean
+@implementation CCFormValidationBoolean
 
-- (void)filterFormData:(NSMutableDictionary<NSString *, id> *)formData validationError:(NSError **)error
++ (instancetype)withField:(NSString *)name correctValue:(BOOL)value error:(NSString *)errorMessage
 {
-    NSNumber *value = formData[self.name];
+    CCFormValidationBoolean *validator = [CCFormValidationBoolean new];
+    validator.name = name;
+    validator.expectedValue = value;
+    validator.errorMessage = errorMessage;
+    return validator;
+}
+
+- (BOOL)validateData:(NSDictionary<NSString *, id> *)data error:(NSError **)error
+{
+    NSNumber *value = data[self.name];
     if ([value boolValue] != self.expectedValue) {
         if (error) {
             *error = [NSError errorWithCode:0 name:self.name localizedDescription:self.errorMessage];
         }
+        return NO;
     }
-
-    if (self.shouldDeleteValue) {
-        [formData removeObjectForKey:self.name];
-    }
+    return YES;
 }
 
 @end

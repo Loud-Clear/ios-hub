@@ -9,24 +9,24 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import "CCFormFilterEmail.h"
+#import "CCFormValidationEmail.h"
 #import "NSError+CCTableFormManager.h"
 
 
-@implementation CCFormFilterEmail
+@implementation CCFormValidationEmail
 
-+ (instancetype)withName:(NSString *)name message:(NSString *)message
++ (instancetype)withField:(NSString *)name error:(NSString *)message
 {
     NSParameterAssert(name && message);
-    CCFormFilterEmail *filterEmail = [CCFormFilterEmail new];
+    CCFormValidationEmail *filterEmail = [CCFormValidationEmail new];
     filterEmail.name = name;
     filterEmail.errorMessage = message;
     return filterEmail;
 }
 
-- (void)filterFormData:(NSMutableDictionary<NSString *, id> *)formData validationError:(NSError **)error
+- (BOOL)validateData:(NSDictionary<NSString *, id> *)data error:(NSError **)error
 {
-    NSString *value = formData[self.name];
+    NSString *value = data[self.name];
 
     if (value && [value isKindOfClass:[NSString class]]) {
         NSError *regexpError = nil;
@@ -36,9 +36,13 @@
         NSTextCheckingResult *match = [regex firstMatchInString:value options:0 range:NSMakeRange(0, value.length)];
 
         if (!match) {
-            *error = [NSError errorWithCode:0 name:self.name localizedDescription:self.errorMessage];
+            if (error) {
+                *error = [NSError errorWithCode:0 name:self.name localizedDescription:self.errorMessage];
+            }
+            return NO;
         }
     }
+    return YES;
 }
 
 - (BOOL)shouldValidateAfterEndEditingName:(NSString *)key

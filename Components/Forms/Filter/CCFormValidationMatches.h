@@ -10,17 +10,19 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import <Foundation/Foundation.h>
-#import "CCFormFilter.h"
+#import "CCFormPostProcessor.h"
 
 
-@interface CCFormFilterConfirmation : NSObject <CCFormFilter>
+@interface CCFormValidationMatches : NSObject <CCFormPostProcessor>
 
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSString *confirmationName;
+@property (nonatomic) NSString *nameToMatch;
 @property (nonatomic) NSString *errorMessage;
 
 @property (nonatomic) BOOL caseSensitive;
 
-@property (nonatomic) BOOL shouldDeleteConfirmationValue;
++ (instancetype)withField:(NSString *)name shouldMatch:(NSString *)nameToMatch error:(NSString *)message;
+
++ (instancetype)withField:(NSString *)name shouldMatch:(NSString *)nameToMatch caseSensitive:(BOOL)caseSensitive error:(NSString *)message;
 
 @end

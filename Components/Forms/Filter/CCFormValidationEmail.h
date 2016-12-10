@@ -10,14 +10,14 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import <Foundation/Foundation.h>
-#import "CCFormFilter.h"
+#import "CCFormPostProcessor.h"
 
 
-@interface CCFormFilterEmail : NSObject <CCFormFilter>
+@interface CCFormValidationEmail : NSObject <CCFormPostProcessor>
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *errorMessage;
 
-+ (instancetype)withName:(NSString *)name message:(NSString *)message;
++ (instancetype)withField:(NSString *)name error:(NSString *)message;
 
 @end

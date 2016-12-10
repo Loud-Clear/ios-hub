@@ -9,32 +9,31 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import "CCFormFilterExistsValidation.h"
+#import "CCFormValidationExist.h"
 #import "NSError+CCTableFormManager.h"
 
 
-@implementation CCFormFilterExistsValidation
+@implementation CCFormValidationExist
 
-- (instancetype)initWithKey:(NSString *)key errorMessage:(NSString *)errorMessage
+- (instancetype)initWithName:(NSString *)name errorMessage:(NSString *)errorMessage
 {
     self = [super init];
     if (self) {
-        self.name = key;
+        self.name = name;
         self.errorMessage = errorMessage;
     }
     return self;
 }
 
-+ (instancetype)validationWithKey:(NSString *)key errorMessage:(NSString *)errorMessage
++ (instancetype)withField:(NSString *)name error:(NSString *)errorMessage
 {
-    return [[self alloc] initWithKey:key errorMessage:errorMessage];
+    return [[self alloc] initWithName:name errorMessage:errorMessage];
 }
 
-
-- (void)filterFormData:(NSMutableDictionary<NSString *, id> *)formData validationError:(NSError **)error
+- (BOOL)validateData:(NSDictionary<NSString *, id> *)data error:(NSError **)error
 {
     BOOL failed = NO;
-    id value = formData[self.name];
+    id value = data[self.name];
 
     if (!value) {
         failed = YES;
@@ -47,6 +46,8 @@
     if (failed && error) {
         *error = [NSError errorWithCode:0 name:self.name localizedDescription:self.errorMessage];
     }
+
+    return !failed;
 }
 
 

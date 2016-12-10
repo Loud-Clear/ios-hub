@@ -9,15 +9,15 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import "CCFormFilter.h"
+#import "CCFormPostProcessor.h"
 
 
-@interface CCFormFilterBoolean : NSObject <CCFormFilter>
+@interface CCFormValidationBoolean : NSObject <CCFormPostProcessor>
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) BOOL expectedValue;
 @property (nonatomic) NSString *errorMessage;
 
-@property (nonatomic) BOOL shouldDeleteValue;
++ (instancetype)withField:(NSString *)name correctValue:(BOOL)value error:(NSString *)errorMessage;
 
 @end

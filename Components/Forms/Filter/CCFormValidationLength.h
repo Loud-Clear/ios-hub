@@ -10,10 +10,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import <Foundation/Foundation.h>
-#import "CCFormFilter.h"
+#import "CCFormPostProcessor.h"
 
 
-@interface CCFormLengthValidation : NSObject <CCFormFilter>
+@interface CCFormValidationLength : NSObject <CCFormPostProcessor>
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSNumber *minLength;
@@ -21,11 +21,11 @@
 @property (nonatomic) NSString *tooShortErrorMessage;
 @property (nonatomic) NSString *tooLongErrorMessage;
 
-+ (instancetype)validationWithName:(NSString *)name minLength:(NSUInteger)minLength error:(NSString *)errorMessage;
++ (instancetype)withField:(NSString *)name minLength:(NSUInteger)minLength error:(NSString *)errorMessage;
 
-+ (instancetype)validationWithName:(NSString *)name maxLength:(NSUInteger)maxLength error:(NSString *)errorMessage;
++ (instancetype)withField:(NSString *)name maxLength:(NSUInteger)maxLength error:(NSString *)errorMessage;
 
-+ (instancetype)validationWithName:(NSString *)name minLength:(NSUInteger)minLength tooShortError:(NSString *)tooShort
-                         maxLength:(NSUInteger)maxLength tooLongError:(NSString *)tooLong;
++ (instancetype)withField:(NSString *)name minLength:(NSUInteger)minLength tooShortError:(NSString *)tooShort
+                maxLength:(NSUInteger)maxLength tooLongError:(NSString *)tooLong;
 
 @end

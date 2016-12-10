@@ -9,36 +9,36 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import "CCFormLengthValidation.h"
+#import "CCFormValidationLength.h"
 #import "NSError+CCTableFormManager.h"
 
 
-@implementation CCFormLengthValidation
+@implementation CCFormValidationLength
 {
 
 }
-+ (instancetype)validationWithName:(NSString *)name minLength:(NSUInteger)minLength error:(NSString *)errorMessage
++ (instancetype)withField:(NSString *)name minLength:(NSUInteger)minLength error:(NSString *)errorMessage
 {
-    CCFormLengthValidation *validation = [CCFormLengthValidation new];
+    CCFormValidationLength *validation = [CCFormValidationLength new];
     validation.name = name;
     validation.minLength = @(minLength);
     validation.tooShortErrorMessage = errorMessage;
     return validation;
 }
 
-+ (instancetype)validationWithName:(NSString *)name maxLength:(NSUInteger)maxLength error:(NSString *)errorMessage
++ (instancetype)withField:(NSString *)name maxLength:(NSUInteger)maxLength error:(NSString *)errorMessage
 {
-    CCFormLengthValidation *validation = [CCFormLengthValidation new];
+    CCFormValidationLength *validation = [CCFormValidationLength new];
     validation.name = name;
     validation.maxLength = @(maxLength);
     validation.tooLongErrorMessage = errorMessage;
     return validation;
 }
 
-+ (instancetype)validationWithName:(NSString *)name minLength:(NSUInteger)minLength tooShortError:(NSString *)tooShort
-                         maxLength:(NSUInteger)maxLength tooLongError:(NSString *)tooLong
++ (instancetype)withField:(NSString *)name minLength:(NSUInteger)minLength tooShortError:(NSString *)tooShort
+                maxLength:(NSUInteger)maxLength tooLongError:(NSString *)tooLong
 {
-    CCFormLengthValidation *validation = [CCFormLengthValidation new];
+    CCFormValidationLength *validation = [CCFormValidationLength new];
     validation.name = name;
     validation.maxLength = @(minLength);
     validation.maxLength = @(maxLength);
@@ -47,26 +47,32 @@
     return validation;
 }
 
-- (void)filterFormData:(NSMutableDictionary<NSString *, id> *)formData validationError:(NSError **)error
+- (BOOL)validateData:(NSDictionary<NSString *, id> *)data error:(NSError **)error
 {
-    id value = formData[self.name];
+    id value = data[self.name];
 
     if (value && [value isKindOfClass:[NSString class]]) {
         NSString *string = value;
 
         if (self.minLength) {
             if ([string length] < [self.minLength integerValue]) {
-                *error = [NSError errorWithCode:0 name:self.name localizedDescription:self.tooShortErrorMessage];
+                if (error) {
+                    *error = [NSError errorWithCode:0 name:self.name localizedDescription:self.tooShortErrorMessage];
+                }
+                return NO;
             }
-            return;
         }
 
         if (self.maxLength) {
             if ([string length] > [self.maxLength integerValue]) {
-                *error = [NSError errorWithCode:0 name:self.name localizedDescription:self.tooLongErrorMessage];
+                if (error) {
+                    *error = [NSError errorWithCode:0 name:self.name localizedDescription:self.tooLongErrorMessage];
+                }
+                return NO;
             }
         }
     }
+    return YES;
 }
 
 - (BOOL)shouldValidateAfterEndEditingName:(NSString *)name

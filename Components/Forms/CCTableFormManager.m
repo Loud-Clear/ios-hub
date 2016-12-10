@@ -15,7 +15,7 @@
 #import "CCTableFormManager.h"
 #import "CCTableFormItem.h"
 #import "CCFormRule.h"
-#import "CCFormFilter.h"
+#import "CCFormPostProcessor.h"
 #import "NSError+CCTableFormManager.h"
 #import "CCFormRule.h"
 #import "CCObjectObserver.h"
@@ -107,7 +107,7 @@
 #pragma mark - Data
 //-------------------------------------------------------------------------------------------
 
-- (NSDictionary<NSString *, id> *)formData
+- (NSDictionary<NSString *, id> *)formRawData
 {
     NSMutableDictionary<NSString *, id> *data = [NSMutableDictionary new];
 
@@ -152,17 +152,26 @@
     [self.tableView setContentOffset:CGPointZero animated:NO];
 }
 
+- (NSDictionary<NSString *, id> *)formData
+{
+    NSMutableDictionary *mutableData = [[self formRawData] mutableDictionary];
+    for (id<CCFormPostProcessor> postProcessor in self.formPostProcessors) {
+        [postProcessor postProcessData:mutableData];
+    }
+    return mutableData;
+}
+
 //-------------------------------------------------------------------------------------------
 #pragma mark - Validations
 //-------------------------------------------------------------------------------------------
 
-- (NSArray *)validationErrorsAfterFilteringData:(NSMutableDictionary<NSString *, id> *)data
+- (NSArray<NSError *> *)validationErrorsFromData:(NSDictionary<NSString *, id> *)data
 {
     NSMutableArray<NSError *> *errors = [NSMutableArray new];
-    for (id<CCFormFilter> filter in self.formFilters) {
+    for (id<CCFormPostProcessor> filter in self.formPostProcessors) {
         NSError *validationError = nil;
-        [filter filterFormData:data validationError:&validationError];
-        if (validationError) {
+        BOOL isValid = [filter validateData:data error:&validationError];
+        if (!isValid && validationError) {
             [errors addObject:validationError];
         }
     }
@@ -182,13 +191,12 @@
 
 - (void)validateFieldWithName:(NSString *)fieldName
 {
-    NSMutableDictionary<NSString *, id> *data = [[self formData] mutableCopy];
-    for (id<CCFormFilter> filter in self.formFilters) {
+    NSDictionary<NSString *, id> *data = [self formRawData];
+    for (id<CCFormPostProcessor> filter in self.formPostProcessors) {
         if ([filter respondsToSelector:@selector(shouldValidateAfterEndEditingName:)]) {
             if ([filter shouldValidateAfterEndEditingName:fieldName]) {
                 NSError *validationError = nil;
-                [filter filterFormData:data validationError:&validationError];
-                if (validationError) {
+                if ([filter validateData:data error:&validationError] && validationError) {
                     [self didFailWithValidationErrors:@[validationError]];
                 }
                 return;
@@ -199,13 +207,12 @@
 
 - (BOOL)isValid
 {
-    return [[self validationErrorsAfterFilteringData:[[self formData] mutableDictionary]] count] == 0;
+    return [[self validationErrorsFromData:[self formRawData]] count] == 0;
 }
 
 - (BOOL)validate
 {
-    NSMutableDictionary *data = [[self formData] mutableDictionary];
-    NSArray *errors = [self validationErrorsAfterFilteringData:data];
+    NSArray *errors = [self validationErrorsFromData:[self formRawData]];
 
     [self didFailWithValidationErrors:errors];
 
@@ -425,8 +432,8 @@
         return;
     }
 
-    if ([self.formDelegate respondsToSelector:@selector(formManagerDidSubmit:)]) {
-        [self.formDelegate formManagerDidSubmit:self];
+    if ([self.formDelegate respondsToSelector:@selector(formManager:didSumbitWithData:)]) {
+        [self.formDelegate formManager:self didSumbitWithData:[self formData]];
     }
 }
 

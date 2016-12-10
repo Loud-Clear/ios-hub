@@ -55,12 +55,12 @@
 		FA019A671DE0651A00364871 /* CCDisplayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A651DE0651A00364871 /* CCDisplayManager.m */; };
 		FA019A6B1DE07DD000364871 /* CCModuleURLParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A6A1DE07DD000364871 /* CCModuleURLParserTests.m */; };
 		FA10FA261DFADD05004E93C0 /* NSError+CCTableFormManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA251DFADD05004E93C0 /* NSError+CCTableFormManager.m */; };
-		FA10FA351DFADD0A004E93C0 /* CCFormFilterBoolean.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA2A1DFADD0A004E93C0 /* CCFormFilterBoolean.m */; };
-		FA10FA361DFADD0A004E93C0 /* CCFormFilterConfirmation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA2C1DFADD0A004E93C0 /* CCFormFilterConfirmation.m */; };
-		FA10FA371DFADD0A004E93C0 /* CCFormFilterEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA2E1DFADD0A004E93C0 /* CCFormFilterEmail.m */; };
-		FA10FA381DFADD0A004E93C0 /* CCFormFilterExcludeValues.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA301DFADD0A004E93C0 /* CCFormFilterExcludeValues.m */; };
-		FA10FA391DFADD0A004E93C0 /* CCFormFilterExistsValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA321DFADD0A004E93C0 /* CCFormFilterExistsValidation.m */; };
-		FA10FA3A1DFADD0A004E93C0 /* CCFormLengthValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA341DFADD0A004E93C0 /* CCFormLengthValidation.m */; };
+		FA10FA351DFADD0A004E93C0 /* CCFormValidationBoolean.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA2A1DFADD0A004E93C0 /* CCFormValidationBoolean.m */; };
+		FA10FA361DFADD0A004E93C0 /* CCFormValidationMatches.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA2C1DFADD0A004E93C0 /* CCFormValidationMatches.m */; };
+		FA10FA371DFADD0A004E93C0 /* CCFormValidationEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA2E1DFADD0A004E93C0 /* CCFormValidationEmail.m */; };
+		FA10FA381DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA301DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.m */; };
+		FA10FA391DFADD0A004E93C0 /* CCFormValidationExist.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA321DFADD0A004E93C0 /* CCFormValidationExist.m */; };
+		FA10FA3A1DFADD0A004E93C0 /* CCFormValidationLength.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA341DFADD0A004E93C0 /* CCFormValidationLength.m */; };
 		FA10FA3F1DFADD7D004E93C0 /* CCTableFormManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA3E1DFADD7D004E93C0 /* CCTableFormManager.m */; };
 		FA1BB4531DF53368008602C3 /* Transparent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1BB4521DF53368008602C3 /* Transparent@2x.png */; };
 		FA3486691DDF0B8600B02A01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486681DDF0B8600B02A01 /* main.m */; };
@@ -215,19 +215,19 @@
 		FA019A6A1DE07DD000364871 /* CCModuleURLParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CCModuleURLParserTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FA10FA241DFADD05004E93C0 /* NSError+CCTableFormManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+CCTableFormManager.h"; sourceTree = "<group>"; };
 		FA10FA251DFADD05004E93C0 /* NSError+CCTableFormManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+CCTableFormManager.m"; sourceTree = "<group>"; };
-		FA10FA281DFADD0A004E93C0 /* CCFormFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormFilter.h; sourceTree = "<group>"; };
-		FA10FA291DFADD0A004E93C0 /* CCFormFilterBoolean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormFilterBoolean.h; sourceTree = "<group>"; };
-		FA10FA2A1DFADD0A004E93C0 /* CCFormFilterBoolean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormFilterBoolean.m; sourceTree = "<group>"; };
-		FA10FA2B1DFADD0A004E93C0 /* CCFormFilterConfirmation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormFilterConfirmation.h; sourceTree = "<group>"; };
-		FA10FA2C1DFADD0A004E93C0 /* CCFormFilterConfirmation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormFilterConfirmation.m; sourceTree = "<group>"; };
-		FA10FA2D1DFADD0A004E93C0 /* CCFormFilterEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormFilterEmail.h; sourceTree = "<group>"; };
-		FA10FA2E1DFADD0A004E93C0 /* CCFormFilterEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormFilterEmail.m; sourceTree = "<group>"; };
-		FA10FA2F1DFADD0A004E93C0 /* CCFormFilterExcludeValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormFilterExcludeValues.h; sourceTree = "<group>"; };
-		FA10FA301DFADD0A004E93C0 /* CCFormFilterExcludeValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormFilterExcludeValues.m; sourceTree = "<group>"; };
-		FA10FA311DFADD0A004E93C0 /* CCFormFilterExistsValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormFilterExistsValidation.h; sourceTree = "<group>"; };
-		FA10FA321DFADD0A004E93C0 /* CCFormFilterExistsValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormFilterExistsValidation.m; sourceTree = "<group>"; };
-		FA10FA331DFADD0A004E93C0 /* CCFormLengthValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormLengthValidation.h; sourceTree = "<group>"; };
-		FA10FA341DFADD0A004E93C0 /* CCFormLengthValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormLengthValidation.m; sourceTree = "<group>"; };
+		FA10FA281DFADD0A004E93C0 /* CCFormPostProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormPostProcessor.h; sourceTree = "<group>"; };
+		FA10FA291DFADD0A004E93C0 /* CCFormValidationBoolean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationBoolean.h; sourceTree = "<group>"; };
+		FA10FA2A1DFADD0A004E93C0 /* CCFormValidationBoolean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationBoolean.m; sourceTree = "<group>"; };
+		FA10FA2B1DFADD0A004E93C0 /* CCFormValidationMatches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationMatches.h; sourceTree = "<group>"; };
+		FA10FA2C1DFADD0A004E93C0 /* CCFormValidationMatches.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationMatches.m; sourceTree = "<group>"; };
+		FA10FA2D1DFADD0A004E93C0 /* CCFormValidationEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationEmail.h; sourceTree = "<group>"; };
+		FA10FA2E1DFADD0A004E93C0 /* CCFormValidationEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationEmail.m; sourceTree = "<group>"; };
+		FA10FA2F1DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormPostProcessorExcludeValues.h; sourceTree = "<group>"; };
+		FA10FA301DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormPostProcessorExcludeValues.m; sourceTree = "<group>"; };
+		FA10FA311DFADD0A004E93C0 /* CCFormValidationExist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationExist.h; sourceTree = "<group>"; };
+		FA10FA321DFADD0A004E93C0 /* CCFormValidationExist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationExist.m; sourceTree = "<group>"; };
+		FA10FA331DFADD0A004E93C0 /* CCFormValidationLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationLength.h; sourceTree = "<group>"; };
+		FA10FA341DFADD0A004E93C0 /* CCFormValidationLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationLength.m; sourceTree = "<group>"; };
 		FA10FA3C1DFADD0F004E93C0 /* CCFormRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormRule.h; sourceTree = "<group>"; };
 		FA10FA3D1DFADD7D004E93C0 /* CCTableFormManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableFormManager.h; sourceTree = "<group>"; };
 		FA10FA3E1DFADD7D004E93C0 /* CCTableFormManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableFormManager.m; sourceTree = "<group>"; };
@@ -803,19 +803,19 @@
 		FA10FA271DFADD0A004E93C0 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
-				FA10FA281DFADD0A004E93C0 /* CCFormFilter.h */,
-				FA10FA291DFADD0A004E93C0 /* CCFormFilterBoolean.h */,
-				FA10FA2A1DFADD0A004E93C0 /* CCFormFilterBoolean.m */,
-				FA10FA2B1DFADD0A004E93C0 /* CCFormFilterConfirmation.h */,
-				FA10FA2C1DFADD0A004E93C0 /* CCFormFilterConfirmation.m */,
-				FA10FA2D1DFADD0A004E93C0 /* CCFormFilterEmail.h */,
-				FA10FA2E1DFADD0A004E93C0 /* CCFormFilterEmail.m */,
-				FA10FA2F1DFADD0A004E93C0 /* CCFormFilterExcludeValues.h */,
-				FA10FA301DFADD0A004E93C0 /* CCFormFilterExcludeValues.m */,
-				FA10FA311DFADD0A004E93C0 /* CCFormFilterExistsValidation.h */,
-				FA10FA321DFADD0A004E93C0 /* CCFormFilterExistsValidation.m */,
-				FA10FA331DFADD0A004E93C0 /* CCFormLengthValidation.h */,
-				FA10FA341DFADD0A004E93C0 /* CCFormLengthValidation.m */,
+				FA10FA281DFADD0A004E93C0 /* CCFormPostProcessor.h */,
+				FA10FA291DFADD0A004E93C0 /* CCFormValidationBoolean.h */,
+				FA10FA2A1DFADD0A004E93C0 /* CCFormValidationBoolean.m */,
+				FA10FA2B1DFADD0A004E93C0 /* CCFormValidationMatches.h */,
+				FA10FA2C1DFADD0A004E93C0 /* CCFormValidationMatches.m */,
+				FA10FA2D1DFADD0A004E93C0 /* CCFormValidationEmail.h */,
+				FA10FA2E1DFADD0A004E93C0 /* CCFormValidationEmail.m */,
+				FA10FA2F1DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.h */,
+				FA10FA301DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.m */,
+				FA10FA311DFADD0A004E93C0 /* CCFormValidationExist.h */,
+				FA10FA321DFADD0A004E93C0 /* CCFormValidationExist.m */,
+				FA10FA331DFADD0A004E93C0 /* CCFormValidationLength.h */,
+				FA10FA341DFADD0A004E93C0 /* CCFormValidationLength.m */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -1233,13 +1233,13 @@
 				FA019A671DE0651A00364871 /* CCDisplayManager.m in Sources */,
 				FA3486691DDF0B8600B02A01 /* main.m in Sources */,
 				FA8C585F1DE2CCAC00AEBCB1 /* UIViewController+CCTransitionHandler.m in Sources */,
-				FA10FA371DFADD0A004E93C0 /* CCFormFilterEmail.m in Sources */,
+				FA10FA371DFADD0A004E93C0 /* CCFormValidationEmail.m in Sources */,
 				FA8C58651DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.m in Sources */,
-				FA10FA391DFADD0A004E93C0 /* CCFormFilterExistsValidation.m in Sources */,
+				FA10FA391DFADD0A004E93C0 /* CCFormValidationExist.m in Sources */,
 				FA019A4E1DE05CED00364871 /* CCURLPlaceholderViewController.m in Sources */,
 				FA019A4D1DE05CED00364871 /* CCTransitionPromise.m in Sources */,
 				FA3486AA1DDF1E8A00B02A01 /* CCObjectObserver+DatabaseAddons.m in Sources */,
-				FA10FA351DFADD0A004E93C0 /* CCFormFilterBoolean.m in Sources */,
+				FA10FA351DFADD0A004E93C0 /* CCFormValidationBoolean.m in Sources */,
 				FA3486B01DDF1F6E00B02A01 /* CCCollectionSerialization.m in Sources */,
 				FA019A001DDF5BBA00364871 /* CCUserDefaultsStorage.m in Sources */,
 				FA019A4B1DE05CED00364871 /* CCNavigatorStack.m in Sources */,
@@ -1256,7 +1256,7 @@
 				2DBA1EDF3A27D4288D1F4A26 /* CCTableViewManager.m in Sources */,
 				2DBA15EFE90B20AF3823885A /* CCTableViewCell.m in Sources */,
 				2DBA14A5AF44ACAFAB0DC56A /* CCPlaceholderTextView.m in Sources */,
-				FA10FA381DFADD0A004E93C0 /* CCFormFilterExcludeValues.m in Sources */,
+				FA10FA381DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.m in Sources */,
 				FAF38E571DF0400C00F44BC0 /* CCTableFormCell.m in Sources */,
 				2DBA1A94FFA9489047EB821D /* CCTableViewSection.m in Sources */,
 				2DBA1D5BDFE05702E067CF21 /* NSBundle+CCTableViewManager.m in Sources */,
@@ -1265,13 +1265,13 @@
 				2DBA1496B0331E84A3BC0825 /* CCTableViewCellFactory.m in Sources */,
 				2DBA1F393CB43D39F39B63EE /* CCActionBar.m in Sources */,
 				318217F543684CEC52DD501D /* CCImageDiskCache.m in Sources */,
-				FA10FA3A1DFADD0A004E93C0 /* CCFormLengthValidation.m in Sources */,
+				FA10FA3A1DFADD0A004E93C0 /* CCFormValidationLength.m in Sources */,
 				FA10FA261DFADD05004E93C0 /* NSError+CCTableFormManager.m in Sources */,
 				FA10FA3F1DFADD7D004E93C0 /* CCTableFormManager.m in Sources */,
 				31821C5E4CDD90941DAE4A31 /* CCImageDownloader.m in Sources */,
 				3182157BF56C83C5B2E2718A /* CCImageGetContext.m in Sources */,
 				3182130E59B1DBB16CACEAF4 /* CCImageMemoryCache.m in Sources */,
-				FA10FA361DFADD0A004E93C0 /* CCFormFilterConfirmation.m in Sources */,
+				FA10FA361DFADD0A004E93C0 /* CCFormValidationMatches.m in Sources */,
 				318217A32FB1966F17BA9ECC /* CCImageServiceCustomImpl.m in Sources */,
 				3182115962E5FF8E95036757 /* CCImageServiceSDWebImageImpl.m in Sources */,
 				31821B86F0EEBE6BA213852C /* CCImageServiceAFNetworkingImpl.m in Sources */,

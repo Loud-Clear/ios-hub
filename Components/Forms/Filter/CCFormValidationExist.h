@@ -9,16 +9,14 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import "CCFormFilter.h"
+#import "CCFormPostProcessor.h"
 
 
-@interface CCFormFilterExistsValidation : NSObject <CCFormFilter>
+@interface CCFormValidationExist : NSObject <CCFormPostProcessor>
 
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *errorMessage;
 
-- (instancetype)initWithKey:(NSString *)key errorMessage:(NSString *)errorMessage;
-
-+ (instancetype)validationWithKey:(NSString *)key errorMessage:(NSString *)errorMessage;
++ (instancetype)withField:(NSString *)name error:(NSString *)errorMessage;
 
 @end

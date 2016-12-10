@@ -12,13 +12,13 @@
 #import <Foundation/Foundation.h>
 #import "CCTableViewManager.h"
 
-@protocol CCFormFilter;
+@protocol CCFormPostProcessor;
 @protocol CCFormRule;
 @protocol CCTableFormManagerDelegate;
 
 @interface CCTableFormManager : CCTableViewManager
 
-@property (nonatomic, strong) NSArray<id<CCFormFilter>> *formFilters;
+@property (nonatomic, strong) NSArray<id<CCFormPostProcessor>> *formPostProcessors;
 @property (nonatomic, strong) NSArray<id<CCFormRule>> *rules;
 
 @property (nonatomic, weak) id<CCTableFormManagerDelegate> formDelegate;
@@ -29,6 +29,15 @@
 
 // Data Manipulations
 
+/**
+ * Returns actual data from items. Dictionary keys are field names and values are field
+ * values (see CCTableFormItem for refernce)
+ * */
+- (NSDictionary<NSString *, id> *)formRawData;
+
+/**
+ * Returns formRawData processed by formPostProcessors
+ * */
 - (NSDictionary<NSString *, id> *)formData;
 
 - (void)setFormData:(NSDictionary<NSString *, id> *)data;
@@ -37,7 +46,7 @@
 
 // Validations
 
-- (NSArray<NSError *> *)validationErrorsAfterFilteringData:(NSMutableDictionary<NSString *, id> *)data;
+- (NSArray<NSError *> *)validationErrorsFromData:(NSDictionary<NSString *, id> *)data;
 
 - (void)setValidationErrors:(NSDictionary<NSString *, NSString *> *)errors;
 
@@ -57,7 +66,7 @@
 @protocol CCTableFormManagerDelegate <NSObject>
 
 @optional
-- (void)formManagerDidSubmit:(CCTableFormManager *)formManager;
+- (void)formManager:(CCTableFormManager *)formManager didSumbitWithData:(NSDictionary<NSString *, id> *)data;
 
 - (void)formManager:(CCTableFormManager *)formManager didFailWithValidationErrors:(NSArray<NSError *> *)errors;
 

@@ -11,14 +11,15 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol CCFormFilter <NSObject>
+@protocol CCFormPostProcessor <NSObject>
 
-/**
- * Filters formData. Writes validationError with FormData is not valid
- * */
-- (void)filterFormData:(NSMutableDictionary<NSString *, id> *)formData validationError:(NSError **)error;
 
 @optional
+
+- (BOOL)validateData:(NSDictionary<NSString *, id> *)data error:(NSError **)error;
+
+- (void)postProcessData:(NSMutableDictionary<NSString *, id> *)mutableData;
+
 - (BOOL)shouldValidateAfterEndEditingName:(NSString *)name;
 
 @end
