@@ -14,6 +14,7 @@
 		2DBA150A27435C502199776A /* CCTableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A0BF4F3E60B3D6DBF90 /* CCTableViewItem.m */; };
 		2DBA15EFE90B20AF3823885A /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA10CE13525A2D6ABA0D3E /* CCTableViewCell.m */; };
 		2DBA1661CA7311CCA9DF8446 /* CCAssemblyCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA180B909823C1F490ECA4 /* CCAssemblyCollector.m */; };
+		2DBA1906F41097E3E0C40F4A /* CCFormValidationEmailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19C33C3C3F6910E65677 /* CCFormValidationEmailTests.m */; };
 		2DBA1A94FFA9489047EB821D /* CCTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19FDB389A342F9CEA0C7 /* CCTableViewSection.m */; };
 		2DBA1D5BDFE05702E067CF21 /* NSBundle+CCTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D93E0513620DF602C84 /* NSBundle+CCTableViewManager.m */; };
 		2DBA1D856CF604FC011026DF /* CCResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1B77D0950507FD1807A3 /* CCResults.m */; };
@@ -121,6 +122,7 @@
 		2DBA183F86F3CB4DA7AF3460 /* CCResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCResults.h; sourceTree = "<group>"; };
 		2DBA19536DC9041B2099840A /* CCTableViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewItem.h; sourceTree = "<group>"; };
 		2DBA199E31E45E4E4235DD9D /* CCTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewManager.h; sourceTree = "<group>"; };
+		2DBA19C33C3C3F6910E65677 /* CCFormValidationEmailTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationEmailTests.m; sourceTree = "<group>"; };
 		2DBA19E131D7542460368501 /* CCFormOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormOutput.h; sourceTree = "<group>"; };
 		2DBA19FDB389A342F9CEA0C7 /* CCTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewSection.m; sourceTree = "<group>"; };
 		2DBA1A0BF4F3E60B3D6DBF90 /* CCTableViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewItem.m; sourceTree = "<group>"; };
@@ -311,6 +313,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DBA1393C3600DC6CA973A8D /* PostProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA19C33C3C3F6910E65677 /* CCFormValidationEmailTests.m */,
+			);
+			path = PostProcessor;
+			sourceTree = "<group>";
+		};
+		2DBA13FE77D6A0FCCBFE1481 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
 		2DBA141724A1F5F1D79D76DF /* BaseClasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +361,14 @@
 				2DBA180B909823C1F490ECA4 /* CCAssemblyCollector.m */,
 			);
 			path = TyphoonAddons;
+			sourceTree = "<group>";
+		};
+		2DBA183A7E5A12409BCAFF5F /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1393C3600DC6CA973A8D /* PostProcessor */,
+			);
+			path = Form;
 			sourceTree = "<group>";
 		};
 		2DBA1952040853CFFD6D9DDF /* Table */ = {
@@ -384,7 +409,7 @@
 				FA10FA3D1DFADD7D004E93C0 /* CCTableFormManager.h */,
 				FA10FA3E1DFADD7D004E93C0 /* CCTableFormManager.m */,
 				FA10FA3B1DFADD0F004E93C0 /* Rules */,
-				FA10FA271DFADD0A004E93C0 /* Filter */,
+				FA10FA271DFADD0A004E93C0 /* PostProcessor */,
 				FA10FA231DFADD05004E93C0 /* Error */,
 				FAF38E581DF0461000F44BC0 /* Resources */,
 				2DBA1BBDD7E7EEE1E214F245 /* Protocols */,
@@ -414,6 +439,8 @@
 				FA019A681DE07DD000364871 /* VIPER */,
 				FA019A051DE01C1800364871 /* SingletoneStorage */,
 				2DBA1A8D148689C93749F6C3 /* Observing */,
+				2DBA13FE77D6A0FCCBFE1481 /* Table */,
+				2DBA183A7E5A12409BCAFF5F /* Form */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -812,7 +839,7 @@
 			path = Error;
 			sourceTree = "<group>";
 		};
-		FA10FA271DFADD0A004E93C0 /* Filter */ = {
+		FA10FA271DFADD0A004E93C0 /* PostProcessor */ = {
 			isa = PBXGroup;
 			children = (
 				FA10FA281DFADD0A004E93C0 /* CCFormPostProcessor.h */,
@@ -829,7 +856,7 @@
 				FA10FA331DFADD0A004E93C0 /* CCFormValidationLength.h */,
 				FA10FA341DFADD0A004E93C0 /* CCFormValidationLength.m */,
 			);
-			path = Filter;
+			path = PostProcessor;
 			sourceTree = "<group>";
 		};
 		FA10FA3B1DFADD0F004E93C0 /* Rules */ = {
@@ -1304,6 +1331,7 @@
 				FA019A081DE01C1800364871 /* CCUserDefaultsStorageTests.m in Sources */,
 				FA0199C51DDF307D00364871 /* CCObjectObserverTests.m in Sources */,
 				FA019A6B1DE07DD000364871 /* CCModuleURLParserTests.m in Sources */,
+				2DBA1906F41097E3E0C40F4A /* CCFormValidationEmailTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
