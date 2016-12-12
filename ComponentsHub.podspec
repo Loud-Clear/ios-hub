@@ -100,6 +100,10 @@ Pod::Spec.new do |s|
       subspec.dependency 'Typhoon/IntrospectionUtils'
   end
 
+  s.subspec 'RoundButton' do |subspec|
+        subspec.source_files   = 'Components/RoundButton/**/*.{h,m}'
+  end
+
   s.subspec 'RealmAddons' do |subspec|
       subspec.source_files   = 'Components/RealmAddons/**/*.{h,m}'
       subspec.dependency 'Realm'
