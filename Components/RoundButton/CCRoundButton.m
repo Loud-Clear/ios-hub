@@ -148,11 +148,12 @@
             [self drawTextWithColor:[UIColor whiteColor]];
         } opaque:NO inverse:YES];
 
-        CGImageRef mask = [self getMaskForImage:imageForMask];
+        CGImageRef mask = [self newMaskForImage:imageForMask];
 
         return [self drawInContext:^(CGContextRef context) {
             CGContextClipToMask(context, self.bounds, mask);
             [self drawRoundedRectWithColor:self.borderStyleColor];
+            CGImageRelease(mask);
         } opaque:NO inverse:NO];
     }
 }
@@ -173,11 +174,12 @@
             [self drawIconWithColor:[UIColor whiteColor]];
         } opaque:NO inverse:YES];
 
-        CGImageRef mask = [self getMaskForImage:imageForMask];
+        CGImageRef mask = [self newMaskForImage:imageForMask];
 
         return [self drawInContext:^(CGContextRef context) {
             CGContextClipToMask(context, self.bounds, mask);
             [self drawRoundedRectWithColor:self.borderStyleColor];
+            CGImageRelease(mask);
         } opaque:NO inverse:NO];
     }
 }
@@ -233,7 +235,7 @@
     );
 }
 
-- (CGImageRef)getMaskForImage:(UIImage *)image
+- (CGImageRef)newMaskForImage:(UIImage *)image
 {
     CGImageRef cgimage = image.CGImage;
     size_t bytesPerRow = CGImageGetBytesPerRow(cgimage);
