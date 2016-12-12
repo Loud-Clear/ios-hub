@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DBA104DF5D2EA69E63A66D9 /* CCRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1CAAAFA689B2C4121909 /* CCRoundButton.m */; };
 		2DBA10792476FFCE7EA2F536 /* CCGeneralPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D805B9B1600C55FC061 /* CCGeneralPresenter.m */; };
 		2DBA110602B26C1D6E0D315C /* CCTableViewCellStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1744188395C568EB9F02 /* CCTableViewCellStyle.m */; };
 		2DBA1496B0331E84A3BC0825 /* CCTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */; };
@@ -118,6 +119,7 @@
 		2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPlaceholderTextView.m; sourceTree = "<group>"; };
 		2DBA16E1A9A5FA6C8C0E733C /* CCAssemblyCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAssemblyCollector.h; sourceTree = "<group>"; };
 		2DBA1744188395C568EB9F02 /* CCTableViewCellStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCellStyle.m; sourceTree = "<group>"; };
+		2DBA178A8B7FF15B9230FFFB /* CCRoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRoundButton.h; sourceTree = "<group>"; };
 		2DBA180B909823C1F490ECA4 /* CCAssemblyCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAssemblyCollector.m; sourceTree = "<group>"; };
 		2DBA183F86F3CB4DA7AF3460 /* CCResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCResults.h; sourceTree = "<group>"; };
 		2DBA19536DC9041B2099840A /* CCTableViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewItem.h; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		2DBA1A0BF4F3E60B3D6DBF90 /* CCTableViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewItem.m; sourceTree = "<group>"; };
 		2DBA1AA854B22D32382F824D /* CCObjectObserverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CCObjectObserverTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2DBA1B77D0950507FD1807A3 /* CCResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCResults.m; sourceTree = "<group>"; };
+		2DBA1CAAAFA689B2C4121909 /* CCRoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRoundButton.m; sourceTree = "<group>"; };
 		2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCellFactory.m; sourceTree = "<group>"; };
 		2DBA1D805B9B1600C55FC061 /* CCGeneralPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCGeneralPresenter.m; sourceTree = "<group>"; };
 		2DBA1D929113A280E8F7F040 /* CCGeneralPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCGeneralPresenter.h; sourceTree = "<group>"; };
@@ -319,6 +322,15 @@
 				2DBA19C33C3C3F6910E65677 /* CCFormValidationEmailTests.m */,
 			);
 			path = PostProcessor;
+			sourceTree = "<group>";
+		};
+		2DBA13C51D89C87EE3A329BE /* RoundButton */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1CAAAFA689B2C4121909 /* CCRoundButton.m */,
+				2DBA178A8B7FF15B9230FFFB /* CCRoundButton.h */,
+			);
+			path = RoundButton;
 			sourceTree = "<group>";
 		};
 		2DBA13FE77D6A0FCCBFE1481 /* Table */ = {
@@ -942,6 +954,7 @@
 				3182131EE990E63A19AE1F03 /* ImageService */,
 				31821D93A75370A05346F451 /* DispatchUtils */,
 				2DBA1738419FD8D3C066B15E /* TyphoonAddons */,
+				2DBA13C51D89C87EE3A329BE /* RoundButton */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1321,6 +1334,7 @@
 				31821DE00394C89DB373BDBB /* UIImageView+CCImageService.m in Sources */,
 				2DBA1661CA7311CCA9DF8446 /* CCAssemblyCollector.m in Sources */,
 				2DBA1D856CF604FC011026DF /* CCResults.m in Sources */,
+				2DBA104DF5D2EA69E63A66D9 /* CCRoundButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
