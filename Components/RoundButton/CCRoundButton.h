@@ -5,17 +5,32 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CCRoundButtonRenderer;
+
 @interface CCRoundButton : UIButton
 
-@property (nonatomic, assign) IBInspectable BOOL hideBorder;
 @property (nonatomic, assign) IBInspectable BOOL inverseHighlight;
-@property (nonatomic, assign) IBInspectable BOOL opaqueTitle;
-@property (nonatomic, strong) IBInspectable UIColor *borderColor;
+@property (nonatomic, assign) IBInspectable BOOL usesOpaqueContentWhenHighlighted;
+@property (nonatomic) IBInspectable CGFloat borderWidth;
 
-@property (nonatomic, strong) UIFont *customFont;
-@property (nonatomic, strong) UIColor *customTextColor;
+- (void)setBorderColor:(UIColor *)color forState:(UIControlState)state;
+- (void)setFillColor:(UIColor *)color forState:(UIControlState)state;
+- (void)setImageTint:(UIColor *)color forState:(UIControlState)state;
 
-- (instancetype)initWithTitle:(NSString *)title;
-- (instancetype)initWithIcon:(UIImage *)icon;
+@property (nonatomic, strong) id<CCRoundButtonRenderer> background;
+
+- (void)setRightImage:(UIImage *)image forState:(UIControlState)state;
+
+- (void)setLeftImage:(UIImage *)image forState:(UIControlState)state;
+
+- (void)setRightImageOffset:(CGSize)rightOffset;
+
+- (void)setLeftImageOffset:(CGSize)leftOffset;
+
+@end
+
+@protocol CCRoundButtonRenderer <NSObject>
+
+- (void)drawInRect:(CGRect)rect forState:(UIControlState)state;
 
 @end
