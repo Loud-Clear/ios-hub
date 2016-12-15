@@ -423,12 +423,16 @@ static UIControlState UIControlStateInvertHighlighted(UIControlState state)
 
     CGContextScaleCTM(context, 1, -1);
     CGContextTranslateCTM(context, 0, -self.bounds.size.height);
-
+    
     drawBlock();
 
+    CGContextSetFillColorWithColor(context, [[UIColor whiteColor] CGColor]);
+    CGContextSetBlendMode(context, kCGBlendModeSourceAtop);
+    CGContextFillRect(context, self.bounds);
+    
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
-
+    
     return image;
 }
 

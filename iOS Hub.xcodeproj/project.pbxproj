@@ -327,8 +327,8 @@
 		2DBA13C51D89C87EE3A329BE /* RoundButton */ = {
 			isa = PBXGroup;
 			children = (
-				2DBA1CAAAFA689B2C4121909 /* CCRoundButton.m */,
 				2DBA178A8B7FF15B9230FFFB /* CCRoundButton.h */,
+				2DBA1CAAAFA689B2C4121909 /* CCRoundButton.m */,
 			);
 			path = RoundButton;
 			sourceTree = "<group>";
