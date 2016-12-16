@@ -17,7 +17,7 @@
 #define SafetyCallOn(queue, block, ...) if((block)) { dispatch_async(queue, ^{ (block)(__VA_ARGS__); }); }
 #define SafetyCallOnMain(block, ...) if((block)) { dispatch_async(dispatch_get_main_queue(), ^{ (block)(__VA_ARGS__); }); }
 
-#define SafeSelector(sel) NSStringFromSelector(@selector(sel))
+#define CCSelectorToString(sel) NSStringFromSelector(@selector(sel))
 
 #define MainQueue dispatch_get_main_queue()
 #define QueueHigh dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
