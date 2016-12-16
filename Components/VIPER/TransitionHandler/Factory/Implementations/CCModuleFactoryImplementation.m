@@ -105,6 +105,19 @@
 }
 
 //-------------------------------------------------------------------------------------------
+#pragma mark - Shorthands
+//-------------------------------------------------------------------------------------------
+
+- (id<CCModule>)moduleFor:(NSString *)urlString
+{
+    return [self moduleForURL:[NSURL URLWithString:urlString]];
+}
+- (id<CCModule>)moduleFor:(NSString *)urlString thenChainUsingBlock:(ССModuleLinkBlock)block
+{
+    return [self moduleForURL:[NSURL URLWithString:urlString] thenChainUsingBlock:block];
+}
+
+//-------------------------------------------------------------------------------------------
 #pragma mark - Private Methods
 //-------------------------------------------------------------------------------------------
 

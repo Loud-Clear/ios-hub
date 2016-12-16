@@ -51,4 +51,10 @@
 
 - (id<CCModule>)moduleForURL:(NSURL *)url thenChainUsingBlock:(ССModuleLinkBlock)block;
 
+
+/** Shorthands */
+
+- (id<CCModule>)moduleFor:(NSString *)urlString;
+- (id<CCModule>)moduleFor:(NSString *)urlString thenChainUsingBlock:(ССModuleLinkBlock)block;
+
 @end

@@ -79,22 +79,22 @@ typedef NS_ENUM(NSInteger, ССTransitionStyle)
 
 - (id<CCModulePromise>)openModuleUsingURL:(NSURL *)url transition:(ССTransitionStyle)style;
 
-
-///
-///
-///
-- (void)navigateToURL:(NSURL *)url context:(CCNavigatorContext *)context withAnimation:(CCDisplayManagerTransitionAnimation)animation;
-
-// Returns YES, if found route from current ViewController
-- (BOOL)canNavigateToURL:(NSURL *)url;
-
 /**
  * Method removes/closes module
  * */
 - (void)closeCurrentModule:(BOOL)animated;
 
 /**
- * Workflows
+ * Custom navigation using CCNavigator class. You should register CCNavigator instance definition in your Typhoon assembly,
+ * before using these methods
+ * */
+- (void)navigateToURL:(NSURL *)url context:(CCNavigatorContext *)context withAnimation:(CCDisplayManagerTransitionAnimation)animation;
+
+// Returns YES, if found route from current ViewController
+- (BOOL)canNavigateToURL:(NSURL *)url;
+
+/**
+ * Workflow support
  * */
 
 - (id<CCModulePromise>)openWorkflow:(id<CCWorkflow>)workflow transition:(ССTransitionStyle)style;
@@ -104,6 +104,22 @@ typedef NS_ENUM(NSInteger, ССTransitionStyle)
 - (void)completeCurrentWorkflowWithObject:(id)object;
 
 - (void)completeCurrentWorkflowWithFailure:(NSError *)error;
+
+
+/**
+ *  Shorthands
+ *  Discussion: maybe we should deprecate long versions of these ones, since signature matches
+ * */
+
+- (id<CCModulePromise>)openUrl:(NSString *)url;
+
+- (id<CCModulePromise>)openUrl:(NSString *)url transitionBlock:(ССTransitionBlock)block;
+
+- (id<CCModulePromise>)openUrl:(NSString *)url segueClass:(Class)segueClass;
+
+- (id<CCModulePromise>)openUrl:(NSString *)url transition:(ССTransitionStyle)style;
+
+- (id<CCModulePromise>)openSegue:(NSString *)segueIdentifier;
 
 @end
 

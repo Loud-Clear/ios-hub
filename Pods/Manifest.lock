@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
   - Aspects (1.4.1)
   - CTObjectiveCRuntimeAdditions (0.0.1)
   - FastCoding (3.2.1)
@@ -8,20 +23,25 @@ PODS:
   - libextobjc/RuntimeExtensions (0.4.1)
   - MTAnimation (1.2.2)
   - OCMock (3.3.1)
-  - Realm (2.1.0):
-    - Realm/Headers (= 2.1.0)
-  - Realm/Headers (2.1.0)
+  - PINCache (2.3)
+  - Realm (2.1.1):
+    - Realm/Headers (= 2.1.1)
+  - Realm/Headers (2.1.1)
   - SAMKeychain (1.5.2)
-  - Typhoon (3.6.0):
-    - Typhoon/DeallocNotifier (= 3.6.0)
-    - Typhoon/IntrospectionUtils (= 3.6.0)
-    - Typhoon/no-arc (= 3.6.0)
-  - Typhoon/DeallocNotifier (3.6.0)
-  - Typhoon/IntrospectionUtils (3.6.0)
-  - Typhoon/no-arc (3.6.0):
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - Typhoon (4.0.0):
+    - Typhoon/DeallocNotifier (= 4.0.0)
+    - Typhoon/IntrospectionUtils (= 4.0.0)
+    - Typhoon/no-arc (= 4.0.0)
+  - Typhoon/DeallocNotifier (4.0.0)
+  - Typhoon/IntrospectionUtils (4.0.0)
+  - Typhoon/no-arc (4.0.0):
     - Typhoon/IntrospectionUtils
 
 DEPENDENCIES:
+  - AFNetworking
   - Aspects (from `https://github.com/steipete/Aspects.git`, tag `1.4.2`)
   - CTObjectiveCRuntimeAdditions
   - FastCoding
@@ -29,8 +49,10 @@ DEPENDENCIES:
   - libextobjc/EXTScope
   - MTAnimation
   - OCMock
+  - PINCache
   - Realm
   - SAMKeychain
+  - SDWebImage
   - Typhoon
 
 EXTERNAL SOURCES:
@@ -44,6 +66,7 @@ CHECKOUT OPTIONS:
     :tag: 1.4.2
 
 SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   CTObjectiveCRuntimeAdditions: e4164f82d489d542447a1ae35b27965b356c4738
   FastCoding: ed46c83ba23d048aafa0251972a1e1fc1cfc58ed
@@ -51,10 +74,12 @@ SPEC CHECKSUMS:
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   MTAnimation: 1079f4ff38c0282779ced010d7363a8f893fd3ee
   OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
-  Realm: bc829ad0ef3d4eea70c34cfcc3b1704d18d50df1
+  PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
+  Realm: a55959c0b171a5fe5267406d17f314fec3cefaae
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
-  Typhoon: 551cc8fae881d0f4b20ddafc6d276da3e867f61f
+  SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
+  Typhoon: 1fcbf6417e7040e645c910e7004336c51c916fb3
 
-PODFILE CHECKSUM: dec6467bb9e252c83ebd97726ee576d4fe4e4a88
+PODFILE CHECKSUM: ef625a3776239476d903dd93053050efaf184b36
 
 COCOAPODS: 1.1.1

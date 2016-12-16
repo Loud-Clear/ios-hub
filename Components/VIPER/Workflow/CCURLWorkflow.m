@@ -21,6 +21,11 @@
 
 @synthesize url=_url;
 
++ (instancetype)withURL:(NSString *)urlString
+{
+    return [[self alloc] initWithURL:[NSURL URLWithString:urlString]];
+}
+
 - (instancetype)initWithURL:(NSURL *)url
 {
     self = [super init];

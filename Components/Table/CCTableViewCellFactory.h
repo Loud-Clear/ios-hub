@@ -11,14 +11,19 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "CCTableViewItem.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface CCTableViewCellFactory : NSObject
 
 + (instancetype)withCellClass:(Class)clazz reusable:(BOOL)reusable;
 + (instancetype)withCellClass:(Class)clazz andXib:(BOOL)useXib reusable:(BOOL)reusable;
 
-- (id)cellForIndexPath:(NSIndexPath *)indexPath usingTableView:(UITableView *)tableView;
+- (id)cellForIndexPath:(NSIndexPath *)indexPath usingTableView:(UITableView *)tableView item:(CCTableViewItem *)item;
 
 - (Class)cellClass;
 
 @end
+
+NS_ASSUME_NONNULL_END

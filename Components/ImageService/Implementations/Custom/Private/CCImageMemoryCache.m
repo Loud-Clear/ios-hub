@@ -14,6 +14,7 @@
 #import "CCImageLog.h"
 #import "CCDispatchUtils.h"
 #import "NSString+SHA1.h"
+#import "CCMacroses.h"
 
 @interface MemoryCacheItem : NSObject
 @property (nonatomic) UIImage *image;

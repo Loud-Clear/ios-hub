@@ -44,6 +44,7 @@ Pod::Spec.new do |s|
       subspec.preserve_paths = 'Components/Forms/Resources'
 
       subspec.dependency 'ComponentsHub/Table'
+      subspec.dependency 'ComponentsHub/Observation'
   end
 
   s.subspec 'ImageService-Common' do |subspec|
@@ -71,6 +72,7 @@ Pod::Spec.new do |s|
       subspec.dependency 'ComponentsHub/NSString+SHA1'
       subspec.dependency 'PINCache'
       subspec.dependency 'libextobjc/EXTScope'
+      subspec.dependency 'ComponentsHub/Macroses'
   end
 
   s.subspec 'Macroses' do |subspec|
@@ -95,7 +97,11 @@ Pod::Spec.new do |s|
       subspec.source_files   = 'Components/Observing/**/*.{h,m}'
       subspec.dependency 'KVOController'
       subspec.dependency 'ComponentsHub/Macroses'
-      subspec.dependency 'Typhoon'
+      subspec.dependency 'Typhoon/IntrospectionUtils'
+  end
+
+  s.subspec 'RoundButton' do |subspec|
+        subspec.source_files   = 'Components/RoundButton/**/*.{h,m}'
   end
 
   s.subspec 'RealmAddons' do |subspec|
@@ -117,6 +123,11 @@ Pod::Spec.new do |s|
   
   s.subspec 'TopmostViewController' do |subspec|
       subspec.source_files   = 'Components/TopmostViewController/**/*.{h,m}'
+  end
+
+  s.subspec 'TyphoonAddons' do |subspec|
+      subspec.source_files   = 'Components/TyphoonAddons/**/*.{h,m}'
+      subspec.dependency 'Typhoon'
   end
 
   s.subspec 'VIPER' do |subspec|

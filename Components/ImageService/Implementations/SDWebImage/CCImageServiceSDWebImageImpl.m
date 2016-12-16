@@ -34,10 +34,21 @@
 #pragma mark - Interface Methods
 //-------------------------------------------------------------------------------------------
 
-- (void) getImageForUrl:(NSURL *)url completion:(CCImageServiceGetImageBlock)completion
+- (void)getImageForUrl:(NSURL *)url completion:(CCImageServiceGetImageBlock)completion
 {
+    [self getImageForUrl:url options:0 completion:completion];
+}
+
+- (void)getImageForUrl:(NSURL *)url
+               options:(CCGetImageOptions)options completion:(CCImageServiceGetImageBlock)completion
+{
+    SDWebImageOptions sdOptions = SDWebImageRetryFailed;
+    
+    if (options & CCGetImageForceLoad) {
+        sdOptions |= SDWebImageRefreshCached;
+    }
     [_manager downloadImageWithURL:url
-                          options:SDWebImageRetryFailed
+                          options:sdOptions
                          progress:^(NSInteger receivedSize, NSInteger expectedSize) {
                              // progression tracking code
                          } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {

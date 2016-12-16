@@ -7,14 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DBA104DF5D2EA69E63A66D9 /* CCRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1CAAAFA689B2C4121909 /* CCRoundButton.m */; };
 		2DBA10792476FFCE7EA2F536 /* CCGeneralPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D805B9B1600C55FC061 /* CCGeneralPresenter.m */; };
 		2DBA110602B26C1D6E0D315C /* CCTableViewCellStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1744188395C568EB9F02 /* CCTableViewCellStyle.m */; };
 		2DBA1496B0331E84A3BC0825 /* CCTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */; };
 		2DBA14A5AF44ACAFAB0DC56A /* CCPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */; };
 		2DBA150A27435C502199776A /* CCTableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A0BF4F3E60B3D6DBF90 /* CCTableViewItem.m */; };
 		2DBA15EFE90B20AF3823885A /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA10CE13525A2D6ABA0D3E /* CCTableViewCell.m */; };
+		2DBA1661CA7311CCA9DF8446 /* CCAssemblyCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA180B909823C1F490ECA4 /* CCAssemblyCollector.m */; };
+		2DBA1906F41097E3E0C40F4A /* CCFormValidationEmailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19C33C3C3F6910E65677 /* CCFormValidationEmailTests.m */; };
 		2DBA1A94FFA9489047EB821D /* CCTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19FDB389A342F9CEA0C7 /* CCTableViewSection.m */; };
 		2DBA1D5BDFE05702E067CF21 /* NSBundle+CCTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D93E0513620DF602C84 /* NSBundle+CCTableViewManager.m */; };
+		2DBA1D856CF604FC011026DF /* CCResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1B77D0950507FD1807A3 /* CCResults.m */; };
 		2DBA1EDF3A27D4288D1F4A26 /* CCTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1221C2F7AA7F1BAA5FEB /* CCTableViewManager.m */; };
 		2DBA1F393CB43D39F39B63EE /* CCActionBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1F9A06CA7C69A3A989B5 /* CCActionBar.m */; };
 		3182115962E5FF8E95036757 /* CCImageServiceSDWebImageImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821E84B9AA69201F38A8CF /* CCImageServiceSDWebImageImpl.m */; };
@@ -53,6 +57,14 @@
 		FA019A5A1DE060D700364871 /* CCMapCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A591DE060D700364871 /* CCMapCollections.m */; };
 		FA019A671DE0651A00364871 /* CCDisplayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A651DE0651A00364871 /* CCDisplayManager.m */; };
 		FA019A6B1DE07DD000364871 /* CCModuleURLParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A6A1DE07DD000364871 /* CCModuleURLParserTests.m */; };
+		FA10FA261DFADD05004E93C0 /* NSError+CCTableFormManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA251DFADD05004E93C0 /* NSError+CCTableFormManager.m */; };
+		FA10FA351DFADD0A004E93C0 /* CCFormValidationBoolean.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA2A1DFADD0A004E93C0 /* CCFormValidationBoolean.m */; };
+		FA10FA361DFADD0A004E93C0 /* CCFormValidationMatches.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA2C1DFADD0A004E93C0 /* CCFormValidationMatches.m */; };
+		FA10FA371DFADD0A004E93C0 /* CCFormValidationEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA2E1DFADD0A004E93C0 /* CCFormValidationEmail.m */; };
+		FA10FA381DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA301DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.m */; };
+		FA10FA391DFADD0A004E93C0 /* CCFormValidationExist.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA321DFADD0A004E93C0 /* CCFormValidationExist.m */; };
+		FA10FA3A1DFADD0A004E93C0 /* CCFormValidationLength.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA341DFADD0A004E93C0 /* CCFormValidationLength.m */; };
+		FA10FA3F1DFADD7D004E93C0 /* CCTableFormManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FA10FA3E1DFADD7D004E93C0 /* CCTableFormManager.m */; };
 		FA1BB4531DF53368008602C3 /* Transparent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA1BB4521DF53368008602C3 /* Transparent@2x.png */; };
 		FA3486691DDF0B8600B02A01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486681DDF0B8600B02A01 /* main.m */; };
 		FA34866C1DDF0B8600B02A01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34866B1DDF0B8600B02A01 /* AppDelegate.m */; };
@@ -105,13 +117,20 @@
 		2DBA14E2ECC6208AA27CC903 /* CCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCell.h; sourceTree = "<group>"; };
 		2DBA151B65B698B19EAC1734 /* CCTableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewSection.h; sourceTree = "<group>"; };
 		2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPlaceholderTextView.m; sourceTree = "<group>"; };
+		2DBA16E1A9A5FA6C8C0E733C /* CCAssemblyCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAssemblyCollector.h; sourceTree = "<group>"; };
 		2DBA1744188395C568EB9F02 /* CCTableViewCellStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCellStyle.m; sourceTree = "<group>"; };
+		2DBA178A8B7FF15B9230FFFB /* CCRoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRoundButton.h; sourceTree = "<group>"; };
+		2DBA180B909823C1F490ECA4 /* CCAssemblyCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAssemblyCollector.m; sourceTree = "<group>"; };
+		2DBA183F86F3CB4DA7AF3460 /* CCResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCResults.h; sourceTree = "<group>"; };
 		2DBA19536DC9041B2099840A /* CCTableViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewItem.h; sourceTree = "<group>"; };
 		2DBA199E31E45E4E4235DD9D /* CCTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewManager.h; sourceTree = "<group>"; };
+		2DBA19C33C3C3F6910E65677 /* CCFormValidationEmailTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationEmailTests.m; sourceTree = "<group>"; };
 		2DBA19E131D7542460368501 /* CCFormOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormOutput.h; sourceTree = "<group>"; };
 		2DBA19FDB389A342F9CEA0C7 /* CCTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewSection.m; sourceTree = "<group>"; };
 		2DBA1A0BF4F3E60B3D6DBF90 /* CCTableViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewItem.m; sourceTree = "<group>"; };
 		2DBA1AA854B22D32382F824D /* CCObjectObserverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CCObjectObserverTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2DBA1B77D0950507FD1807A3 /* CCResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCResults.m; sourceTree = "<group>"; };
+		2DBA1CAAAFA689B2C4121909 /* CCRoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRoundButton.m; sourceTree = "<group>"; };
 		2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCellFactory.m; sourceTree = "<group>"; };
 		2DBA1D805B9B1600C55FC061 /* CCGeneralPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCGeneralPresenter.m; sourceTree = "<group>"; };
 		2DBA1D929113A280E8F7F040 /* CCGeneralPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCGeneralPresenter.h; sourceTree = "<group>"; };
@@ -202,6 +221,24 @@
 		FA019A651DE0651A00364871 /* CCDisplayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CCDisplayManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FA019A661DE0651A00364871 /* CCDisplayManagerAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CCDisplayManagerAnimation.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		FA019A6A1DE07DD000364871 /* CCModuleURLParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CCModuleURLParserTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		FA10FA241DFADD05004E93C0 /* NSError+CCTableFormManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+CCTableFormManager.h"; sourceTree = "<group>"; };
+		FA10FA251DFADD05004E93C0 /* NSError+CCTableFormManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+CCTableFormManager.m"; sourceTree = "<group>"; };
+		FA10FA281DFADD0A004E93C0 /* CCFormPostProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormPostProcessor.h; sourceTree = "<group>"; };
+		FA10FA291DFADD0A004E93C0 /* CCFormValidationBoolean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationBoolean.h; sourceTree = "<group>"; };
+		FA10FA2A1DFADD0A004E93C0 /* CCFormValidationBoolean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationBoolean.m; sourceTree = "<group>"; };
+		FA10FA2B1DFADD0A004E93C0 /* CCFormValidationMatches.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationMatches.h; sourceTree = "<group>"; };
+		FA10FA2C1DFADD0A004E93C0 /* CCFormValidationMatches.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationMatches.m; sourceTree = "<group>"; };
+		FA10FA2D1DFADD0A004E93C0 /* CCFormValidationEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationEmail.h; sourceTree = "<group>"; };
+		FA10FA2E1DFADD0A004E93C0 /* CCFormValidationEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationEmail.m; sourceTree = "<group>"; };
+		FA10FA2F1DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormPostProcessorExcludeValues.h; sourceTree = "<group>"; };
+		FA10FA301DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormPostProcessorExcludeValues.m; sourceTree = "<group>"; };
+		FA10FA311DFADD0A004E93C0 /* CCFormValidationExist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationExist.h; sourceTree = "<group>"; };
+		FA10FA321DFADD0A004E93C0 /* CCFormValidationExist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationExist.m; sourceTree = "<group>"; };
+		FA10FA331DFADD0A004E93C0 /* CCFormValidationLength.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationLength.h; sourceTree = "<group>"; };
+		FA10FA341DFADD0A004E93C0 /* CCFormValidationLength.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationLength.m; sourceTree = "<group>"; };
+		FA10FA3C1DFADD0F004E93C0 /* CCFormRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormRule.h; sourceTree = "<group>"; };
+		FA10FA3D1DFADD7D004E93C0 /* CCTableFormManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableFormManager.h; sourceTree = "<group>"; };
+		FA10FA3E1DFADD7D004E93C0 /* CCTableFormManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableFormManager.m; sourceTree = "<group>"; };
 		FA1BB4521DF53368008602C3 /* Transparent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Transparent@2x.png"; sourceTree = "<group>"; };
 		FA3486641DDF0B8600B02A01 /* iOS Hub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS Hub.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA3486681DDF0B8600B02A01 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -279,12 +316,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2DBA1393C3600DC6CA973A8D /* PostProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA19C33C3C3F6910E65677 /* CCFormValidationEmailTests.m */,
+			);
+			path = PostProcessor;
+			sourceTree = "<group>";
+		};
+		2DBA13C51D89C87EE3A329BE /* RoundButton */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA178A8B7FF15B9230FFFB /* CCRoundButton.h */,
+				2DBA1CAAAFA689B2C4121909 /* CCRoundButton.m */,
+			);
+			path = RoundButton;
+			sourceTree = "<group>";
+		};
+		2DBA13FE77D6A0FCCBFE1481 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
 		2DBA141724A1F5F1D79D76DF /* BaseClasses */ = {
 			isa = PBXGroup;
 			children = (
 				2DBA16F80982781C6D2BB316 /* Presenter */,
 			);
 			path = BaseClasses;
+			sourceTree = "<group>";
+		};
+		2DBA1643F909F504AB6B52DC /* Results */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1B77D0950507FD1807A3 /* CCResults.m */,
+				2DBA183F86F3CB4DA7AF3460 /* CCResults.h */,
+			);
+			path = Results;
 			sourceTree = "<group>";
 		};
 		2DBA16F80982781C6D2BB316 /* Presenter */ = {
@@ -294,6 +364,23 @@
 				2DBA1D929113A280E8F7F040 /* CCGeneralPresenter.h */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2DBA1738419FD8D3C066B15E /* TyphoonAddons */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA16E1A9A5FA6C8C0E733C /* CCAssemblyCollector.h */,
+				2DBA180B909823C1F490ECA4 /* CCAssemblyCollector.m */,
+			);
+			path = TyphoonAddons;
+			sourceTree = "<group>";
+		};
+		2DBA183A7E5A12409BCAFF5F /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1393C3600DC6CA973A8D /* PostProcessor */,
+			);
+			path = Form;
 			sourceTree = "<group>";
 		};
 		2DBA1952040853CFFD6D9DDF /* Table */ = {
@@ -313,8 +400,8 @@
 				2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */,
 				2DBA151B65B698B19EAC1734 /* CCTableViewSection.h */,
 				2DBA19FDB389A342F9CEA0C7 /* CCTableViewSection.m */,
-				2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */,
 				2DBA1262DA2075C83CCB1A8B /* CCTableViewCellFactory.h */,
+				2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */,
 				2DBA1155E8073B5D351A6EA1 /* CCTableViewManager+Internal.h */,
 			);
 			path = Table;
@@ -331,16 +418,21 @@
 		2DBA1B0E0CDF3DC5E092DC78 /* Forms */ = {
 			isa = PBXGroup;
 			children = (
+				FA10FA3D1DFADD7D004E93C0 /* CCTableFormManager.h */,
+				FA10FA3E1DFADD7D004E93C0 /* CCTableFormManager.m */,
+				FA10FA3B1DFADD0F004E93C0 /* Rules */,
+				FA10FA271DFADD0A004E93C0 /* PostProcessor */,
+				FA10FA231DFADD05004E93C0 /* Error */,
 				FAF38E581DF0461000F44BC0 /* Resources */,
+				2DBA1BBDD7E7EEE1E214F245 /* Protocols */,
+				2DBA12AF504A133122C7CFCE /* NSBundle+CCTableViewManager.h */,
+				2DBA1D93E0513620DF602C84 /* NSBundle+CCTableViewManager.m */,
 				FAF38E521DF03FFB00F44BC0 /* CCTableFormItem.h */,
 				FAF38E531DF03FFB00F44BC0 /* CCTableFormItem.m */,
 				FAF38E551DF0400C00F44BC0 /* CCTableFormCell.h */,
 				FAF38E561DF0400C00F44BC0 /* CCTableFormCell.m */,
-				2DBA12AF504A133122C7CFCE /* NSBundle+CCTableViewManager.h */,
-				2DBA1D93E0513620DF602C84 /* NSBundle+CCTableViewManager.m */,
-				2DBA1BBDD7E7EEE1E214F245 /* Protocols */,
-				2DBA1F9A06CA7C69A3A989B5 /* CCActionBar.m */,
 				2DBA1DB10BE9FD9D42159592 /* CCActionBar.h */,
+				2DBA1F9A06CA7C69A3A989B5 /* CCActionBar.m */,
 			);
 			path = Forms;
 			sourceTree = "<group>";
@@ -359,6 +451,8 @@
 				FA019A681DE07DD000364871 /* VIPER */,
 				FA019A051DE01C1800364871 /* SingletoneStorage */,
 				2DBA1A8D148689C93749F6C3 /* Observing */,
+				2DBA13FE77D6A0FCCBFE1481 /* Table */,
+				2DBA183A7E5A12409BCAFF5F /* Form */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -748,6 +842,43 @@
 			path = TransitionHandler;
 			sourceTree = "<group>";
 		};
+		FA10FA231DFADD05004E93C0 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				FA10FA241DFADD05004E93C0 /* NSError+CCTableFormManager.h */,
+				FA10FA251DFADD05004E93C0 /* NSError+CCTableFormManager.m */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		FA10FA271DFADD0A004E93C0 /* PostProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				FA10FA281DFADD0A004E93C0 /* CCFormPostProcessor.h */,
+				FA10FA291DFADD0A004E93C0 /* CCFormValidationBoolean.h */,
+				FA10FA2A1DFADD0A004E93C0 /* CCFormValidationBoolean.m */,
+				FA10FA2B1DFADD0A004E93C0 /* CCFormValidationMatches.h */,
+				FA10FA2C1DFADD0A004E93C0 /* CCFormValidationMatches.m */,
+				FA10FA2D1DFADD0A004E93C0 /* CCFormValidationEmail.h */,
+				FA10FA2E1DFADD0A004E93C0 /* CCFormValidationEmail.m */,
+				FA10FA2F1DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.h */,
+				FA10FA301DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.m */,
+				FA10FA311DFADD0A004E93C0 /* CCFormValidationExist.h */,
+				FA10FA321DFADD0A004E93C0 /* CCFormValidationExist.m */,
+				FA10FA331DFADD0A004E93C0 /* CCFormValidationLength.h */,
+				FA10FA341DFADD0A004E93C0 /* CCFormValidationLength.m */,
+			);
+			path = PostProcessor;
+			sourceTree = "<group>";
+		};
+		FA10FA3B1DFADD0F004E93C0 /* Rules */ = {
+			isa = PBXGroup;
+			children = (
+				FA10FA3C1DFADD0F004E93C0 /* CCFormRule.h */,
+			);
+			path = Rules;
+			sourceTree = "<group>";
+		};
 		FA34865B1DDF0B8600B02A01 = {
 			isa = PBXGroup;
 			children = (
@@ -822,6 +953,8 @@
 				318215BFEBBBA39F69C8FBBF /* Categories */,
 				3182131EE990E63A19AE1F03 /* ImageService */,
 				31821D93A75370A05346F451 /* DispatchUtils */,
+				2DBA1738419FD8D3C066B15E /* TyphoonAddons */,
+				2DBA13C51D89C87EE3A329BE /* RoundButton */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -862,6 +995,7 @@
 				FA3486A31DDF1E8A00B02A01 /* RLMObject+ThreadSafety.m */,
 				FA3486A41DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.h */,
 				FA3486A51DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m */,
+				2DBA1643F909F504AB6B52DC /* Results */,
 			);
 			path = RealmAddons;
 			sourceTree = "<group>";
@@ -1152,10 +1286,13 @@
 				FA019A671DE0651A00364871 /* CCDisplayManager.m in Sources */,
 				FA3486691DDF0B8600B02A01 /* main.m in Sources */,
 				FA8C585F1DE2CCAC00AEBCB1 /* UIViewController+CCTransitionHandler.m in Sources */,
+				FA10FA371DFADD0A004E93C0 /* CCFormValidationEmail.m in Sources */,
 				FA8C58651DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.m in Sources */,
+				FA10FA391DFADD0A004E93C0 /* CCFormValidationExist.m in Sources */,
 				FA019A4E1DE05CED00364871 /* CCURLPlaceholderViewController.m in Sources */,
 				FA019A4D1DE05CED00364871 /* CCTransitionPromise.m in Sources */,
 				FA3486AA1DDF1E8A00B02A01 /* CCObjectObserver+DatabaseAddons.m in Sources */,
+				FA10FA351DFADD0A004E93C0 /* CCFormValidationBoolean.m in Sources */,
 				FA3486B01DDF1F6E00B02A01 /* CCCollectionSerialization.m in Sources */,
 				FA019A001DDF5BBA00364871 /* CCUserDefaultsStorage.m in Sources */,
 				FA019A4B1DE05CED00364871 /* CCNavigatorStack.m in Sources */,
@@ -1172,6 +1309,7 @@
 				2DBA1EDF3A27D4288D1F4A26 /* CCTableViewManager.m in Sources */,
 				2DBA15EFE90B20AF3823885A /* CCTableViewCell.m in Sources */,
 				2DBA14A5AF44ACAFAB0DC56A /* CCPlaceholderTextView.m in Sources */,
+				FA10FA381DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.m in Sources */,
 				FAF38E571DF0400C00F44BC0 /* CCTableFormCell.m in Sources */,
 				2DBA1A94FFA9489047EB821D /* CCTableViewSection.m in Sources */,
 				2DBA1D5BDFE05702E067CF21 /* NSBundle+CCTableViewManager.m in Sources */,
@@ -1180,9 +1318,13 @@
 				2DBA1496B0331E84A3BC0825 /* CCTableViewCellFactory.m in Sources */,
 				2DBA1F393CB43D39F39B63EE /* CCActionBar.m in Sources */,
 				318217F543684CEC52DD501D /* CCImageDiskCache.m in Sources */,
+				FA10FA3A1DFADD0A004E93C0 /* CCFormValidationLength.m in Sources */,
+				FA10FA261DFADD05004E93C0 /* NSError+CCTableFormManager.m in Sources */,
+				FA10FA3F1DFADD7D004E93C0 /* CCTableFormManager.m in Sources */,
 				31821C5E4CDD90941DAE4A31 /* CCImageDownloader.m in Sources */,
 				3182157BF56C83C5B2E2718A /* CCImageGetContext.m in Sources */,
 				3182130E59B1DBB16CACEAF4 /* CCImageMemoryCache.m in Sources */,
+				FA10FA361DFADD0A004E93C0 /* CCFormValidationMatches.m in Sources */,
 				318217A32FB1966F17BA9ECC /* CCImageServiceCustomImpl.m in Sources */,
 				3182115962E5FF8E95036757 /* CCImageServiceSDWebImageImpl.m in Sources */,
 				31821B86F0EEBE6BA213852C /* CCImageServiceAFNetworkingImpl.m in Sources */,
@@ -1190,6 +1332,9 @@
 				3182195B61076EE1445A7B2A /* CCDispatchQueue.m in Sources */,
 				31821E8386BF16B46CC4E7EC /* NSString+SHA1.m in Sources */,
 				31821DE00394C89DB373BDBB /* UIImageView+CCImageService.m in Sources */,
+				2DBA1661CA7311CCA9DF8446 /* CCAssemblyCollector.m in Sources */,
+				2DBA1D856CF604FC011026DF /* CCResults.m in Sources */,
+				2DBA104DF5D2EA69E63A66D9 /* CCRoundButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1200,6 +1345,7 @@
 				FA019A081DE01C1800364871 /* CCUserDefaultsStorageTests.m in Sources */,
 				FA0199C51DDF307D00364871 /* CCObjectObserverTests.m in Sources */,
 				FA019A6B1DE07DD000364871 /* CCModuleURLParserTests.m in Sources */,
+				2DBA1906F41097E3E0C40F4A /* CCFormValidationEmailTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,10 @@ target 'iOS Hub' do
   pod 'MTAnimation' # For DisplayManager animation
   pod 'Aspects', :git => 'https://github.com/steipete/Aspects.git', :tag => '1.4.2'
   pod 'CTObjectiveCRuntimeAdditions'
+  
+  pod 'SDWebImage'
+  pod 'PINCache'
+  pod 'AFNetworking'
 
 
   target 'iOS HubTests' do
