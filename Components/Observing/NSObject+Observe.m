@@ -10,12 +10,16 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import <objc/runtime.h>
+#import <Typhoon/NSObject+DeallocNotification.h>
 #import "NSObject+Observe.h"
 #import "CCObjectObserver.h"
 #import "CCMacroses.h"
+#import "TPDWeakProxy.h"
+#import "Typhoon/NSObject+DeallocNotification.h"
 
 @interface CCObjectObserver (SelfLink)
 @property (nonatomic) id cc_selfLink;
+
 @end
 
 @implementation CCObjectObserver (SelfLink)
@@ -30,25 +34,39 @@
     return GetAssociatedObject(@selector(cc_selfLink));
 }
 
+- (void)liveUntilObjectDies:(id)object
+{
+    self.cc_selfLink = self;
+
+    [object setDeallocNotificationInBlock:^{
+        self.cc_selfLink = nil;
+    }];
+}
+
 @end
 
 
-@interface NSObject (Observe)
+@interface NSObject (CCObserve)
 
-@property (nonatomic, weak) CCObjectObserver *cc_observer;
+@property (nonatomic) CCObjectObserver *cc_observer;
 
 @end
 
 
-@implementation NSObject (Observe)
+@implementation NSObject (CCObserve)
 
 - (void)observe:(id)object key:(NSString *)key action:(SEL)action
 {
     [self.cc_observer unobserveKeys:@[key]];
 
     if (!self.cc_observer) {
-        self.cc_observer = [[CCObjectObserver alloc] initWithObject:object observer:self];
+        CCObjectObserver *observer = [[CCObjectObserver alloc] initWithObject:object observer:self];
+        observer.cc_selfLink = observer;
+        self.cc_observer = (id)[[TPDWeakProxy alloc] initWithObject:observer];
+        [self.cc_observer liveUntilObjectDies:self];
     }
+
+    [self.cc_observer observeKeys:@[key] withAction:action];
 }
 
 //-------------------------------------------------------------------------------------------
