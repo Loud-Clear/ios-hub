@@ -21,7 +21,7 @@ target 'iOS Hub' do
   pod 'SDWebImage'
   pod 'PINCache'
   pod 'AFNetworking'
-
+  pod 'TPDWeakProxy'
 
   target 'iOS HubTests' do
     inherit! :search_paths

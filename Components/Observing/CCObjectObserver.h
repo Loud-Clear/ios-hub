@@ -32,6 +32,8 @@
 
 - (void)connectKey:(NSString *)srcKey to:(NSString *)dstKey on:(id)dstObject onChanges:(NSArray *)observationKeys;
 
+- (void)unobserveKeys:(NSArray *)keys;
+
 - (void)observeInvalidationWithAction:(SEL)action;
 
 - (void)observeInvalidationWithBlock:(void(^)())block;

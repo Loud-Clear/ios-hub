@@ -31,6 +31,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - TPDWeakProxy (1.1.1)
   - Typhoon (4.0.0):
     - Typhoon/DeallocNotifier (= 4.0.0)
     - Typhoon/IntrospectionUtils (= 4.0.0)
@@ -53,6 +54,7 @@ DEPENDENCIES:
   - Realm
   - SAMKeychain
   - SDWebImage
+  - TPDWeakProxy
   - Typhoon
 
 EXTERNAL SOURCES:
@@ -78,8 +80,9 @@ SPEC CHECKSUMS:
   Realm: a55959c0b171a5fe5267406d17f314fec3cefaae
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
+  TPDWeakProxy: 39bf1d2675b75a1e87c38d4cd426110c21934842
   Typhoon: 1fcbf6417e7040e645c910e7004336c51c916fb3
 
-PODFILE CHECKSUM: ef625a3776239476d903dd93053050efaf184b36
+PODFILE CHECKSUM: 88591863f7120d64dde67373bdc56b00405f3432
 
 COCOAPODS: 1.1.1
