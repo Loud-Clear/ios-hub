@@ -23,6 +23,7 @@
 		2DBA1F393CB43D39F39B63EE /* CCActionBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1F9A06CA7C69A3A989B5 /* CCActionBar.m */; };
 		3182115962E5FF8E95036757 /* CCImageServiceSDWebImageImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821E84B9AA69201F38A8CF /* CCImageServiceSDWebImageImpl.m */; };
 		3182130E59B1DBB16CACEAF4 /* CCImageMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821B3855A95DFE6BD92120 /* CCImageMemoryCache.m */; };
+		3182142F7E177F793AE8C546 /* NSObject+Observe.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821A33CDD8344AF9AE47B8 /* NSObject+Observe.m */; };
 		3182157BF56C83C5B2E2718A /* CCImageGetContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 318213B5F30917FF9E1B38FC /* CCImageGetContext.m */; };
 		318217A32FB1966F17BA9ECC /* CCImageServiceCustomImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 318217DB332BA8CE7F3F2D36 /* CCImageServiceCustomImpl.m */; };
 		318217F543684CEC52DD501D /* CCImageDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821965F51A3CFF74B63A86 /* CCImageDiskCache.m */; };
@@ -33,6 +34,7 @@
 		31821DE00394C89DB373BDBB /* UIImageView+CCImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 318210851C76EEF688743320 /* UIImageView+CCImageService.m */; };
 		31821E8386BF16B46CC4E7EC /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821938B6E7A8EFF41D85C5 /* NSString+SHA1.m */; };
 		31821FA63240C60C64AD0DD5 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821684BA6B0564A134BC6E /* UIColor+Hex.m */; };
+		31821FEC66638DE3255FCF65 /* ССObservationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821961BB5A2B4154DC1D7D /* ССObservationInfo.m */; };
 		8D966B34D57C5313A65AFAEF /* libPods-iOS HubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E49612B7121FB28899A6715E /* libPods-iOS HubTests.a */; };
 		F3D62DA1DEE065A7AC3A4765 /* libPods-iOS Hub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 900BB96B6BF13BEBEA951A07 /* libPods-iOS Hub.a */; };
 		FA0199C41DDF279000364871 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FA0199C31DDF279000364871 /* Podfile */; };
@@ -152,15 +154,19 @@
 		318217DAD8ECE0719A1E9775 /* CCDispatchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDispatchGroup.h; sourceTree = "<group>"; };
 		318217DB332BA8CE7F3F2D36 /* CCImageServiceCustomImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceCustomImpl.m; sourceTree = "<group>"; };
 		318217F950715FDFA5D44D71 /* CCImageLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageLog.h; sourceTree = "<group>"; };
+		3182185416E43C8F980A4E9D /* ССObservationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ССObservationInfo.h"; sourceTree = "<group>"; };
 		318218D66C8F58C1B2110611 /* UIImageView+CCImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CCImageService.h"; sourceTree = "<group>"; };
 		31821938B6E7A8EFF41D85C5 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
+		31821961BB5A2B4154DC1D7D /* ССObservationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ССObservationInfo.m"; sourceTree = "<group>"; };
 		31821965F51A3CFF74B63A86 /* CCImageDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageDiskCache.m; sourceTree = "<group>"; };
 		31821A231FAFE37B2CDE194F /* CCTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTypedefs.h; sourceTree = "<group>"; };
+		31821A33CDD8344AF9AE47B8 /* NSObject+Observe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Observe.m"; sourceTree = "<group>"; };
 		31821A6F657201DACCAE87D9 /* CCImageServiceAFNetworkingImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceAFNetworkingImpl.m; sourceTree = "<group>"; };
 		31821AD048458F6B4C112EC6 /* CCDispatchQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDispatchQueue.h; sourceTree = "<group>"; };
 		31821B3855A95DFE6BD92120 /* CCImageMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageMemoryCache.m; sourceTree = "<group>"; };
 		31821B68418F6DD42460A9EA /* CCDispatchGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDispatchGroup.m; sourceTree = "<group>"; };
 		31821BC2C3C1A1BA9CE2084A /* CCDispatchQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDispatchQueue.m; sourceTree = "<group>"; };
+		31821C74E489CA353FDD23D4 /* NSObject+Observe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Observe.h"; sourceTree = "<group>"; };
 		31821E84B9AA69201F38A8CF /* CCImageServiceSDWebImageImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceSDWebImageImpl.m; sourceTree = "<group>"; };
 		31821E9A5C9CE5A8D340E988 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		31821F4D9E4A9EC1D1DC29D7 /* CCImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageService.h; sourceTree = "<group>"; };
@@ -529,6 +535,15 @@
 				318210851C76EEF688743320 /* UIImageView+CCImageService.m */,
 			);
 			path = "UIImageView+CCImageService";
+			sourceTree = "<group>";
+		};
+		31821A8C6A2D9FE0366E3144 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				31821961BB5A2B4154DC1D7D /* ССObservationInfo.m */,
+				3182185416E43C8F980A4E9D /* ССObservationInfo.h */,
+			);
+			path = Private;
 			sourceTree = "<group>";
 		};
 		31821D93A75370A05346F451 /* DispatchUtils */ = {
@@ -964,6 +979,9 @@
 			children = (
 				FA34868E1DDF0BF000B02A01 /* CCObjectObserver.h */,
 				FA34868F1DDF0BF000B02A01 /* CCObjectObserver.m */,
+				31821A8C6A2D9FE0366E3144 /* Private */,
+				31821A33CDD8344AF9AE47B8 /* NSObject+Observe.m */,
+				31821C74E489CA353FDD23D4 /* NSObject+Observe.h */,
 			);
 			path = Observing;
 			sourceTree = "<group>";
@@ -1335,6 +1353,8 @@
 				2DBA1661CA7311CCA9DF8446 /* CCAssemblyCollector.m in Sources */,
 				2DBA1D856CF604FC011026DF /* CCResults.m in Sources */,
 				2DBA104DF5D2EA69E63A66D9 /* CCRoundButton.m in Sources */,
+				31821FEC66638DE3255FCF65 /* ССObservationInfo.m in Sources */,
+				3182142F7E177F793AE8C546 /* NSObject+Observe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

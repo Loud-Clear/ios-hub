@@ -14,6 +14,8 @@
 #import "CCObjectObserver.h"
 #import "KVOController.h"
 #import "CCMacroses.h"
+#import "ССObservationInfo.h"
+
 
 @protocol ССObjectObserverDatabaseSerialization <NSObject>
 
@@ -24,57 +26,6 @@
 - (NSDictionary *)deserializeValuesInChangeDictionary:(NSDictionary *)dictionary withObjectKey:(NSString *)objectKey instance:(id)instance;
 
 @end
-
-@interface ССObservationInfo : NSObject
-
-@property (nonatomic, copy) void(^block)();
-@property (nonatomic, copy) void(^blockChange)(NSArray* keys, NSDictionary *change);
-@property (nonatomic) SEL action;
-@property (nonatomic) NSSet *observedKeys;
-@property (nonatomic) CGFloat batchUpdateDelay;
-
-@property (nonatomic, strong) NSMutableDictionary *changes;
-
-- (void)notifyChangeWithTarget:(id)target key:(NSString *)key change:(NSDictionary *)change;
-
-@end
-
-@implementation ССObservationInfo {
-    BOOL _notificationScheduled;
-}
-
-- (void)notifyChangeWithTarget:(id)target key:(NSString *)key change:(NSDictionary *)change
-{
-	if(!self.changes) {
-        self.changes = [NSMutableDictionary dictionary];
-    }
-
-	self.changes[key] = [change copy];
-	
-    if (!_notificationScheduled) {
-        _notificationScheduled = YES;
-        void(^notificationBlock)() = ^{
-            SafetyCall(self.block);
-			SafetyCall(self.blockChange, [self.observedKeys allObjects], self.changes);
-			_notificationScheduled = NO;
-			self.changes = nil;
-            if (self.action) {
-                SuppressPerformSelectorLeakWarning(
-                        [target performSelector:self.action]
-                );
-            }
-        };
-
-        if (self.batchUpdateDelay > 0) {
-            SafetyCallAfter(self.batchUpdateDelay, notificationBlock);
-        } else {
-            SafetyCall(notificationBlock);
-        }
-    }
-}
-
-@end
-
 
 
 @implementation CCObjectObserver
@@ -89,11 +40,6 @@
     FBKVOController *_kvoController;
 }
 
-- (Class)realmObjectClass
-{
-    return NSClassFromString(@"RLMObject");
-}
-
 - (id)objectToObserve
 {
     return _objectToObserve;
@@ -103,6 +49,10 @@
 {
     return _observer;
 }
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Initialization & Destruction
+//-------------------------------------------------------------------------------------------
 
 - (instancetype)initWithObject:(id)objectToObserve observer:(id)observer
 {
@@ -142,6 +92,10 @@
 {
     [self stopAndInvalidate];
 }
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Interface Methods
+//-------------------------------------------------------------------------------------------
 
 - (void)connectKey:(NSString *)srcKey to:(UILabel *)label
 {
@@ -215,6 +169,49 @@
 	[self addObserverWithInfo:info];
 }
 
+- (void)unobserveKeys:(NSArray *)keys
+{
+    NSSet *keysAsSet = nil;
+
+    for (ССObservationInfo *info in [_observers reverseObjectEnumerator])
+    {
+        if (!keysAsSet) {
+            keysAsSet = [NSSet setWithArray:keys];
+        }
+
+        if ([info.observedKeys isEqualToSet:keysAsSet])
+        {
+            for (NSString *key in info.observedKeys) {
+                [_kvoController unobserve:_objectToObserve keyPath:key];
+            }
+
+            [_observers removeObject:info];
+        }
+        else
+        {
+            // TODO: write tests for this logic.
+            NSMutableSet *intersection = [info.observedKeys mutableCopy];
+            [intersection intersectSet:keysAsSet];
+
+            for (NSString *key in intersection) {
+                [_kvoController unobserve:_objectToObserve keyPath:key];
+            }
+
+            NSMutableSet *newObservedKeys = [info.observedKeys mutableCopy];
+            [newObservedKeys minusSet:intersection];
+            info.observedKeys = newObservedKeys;
+
+            if ([newObservedKeys count] == 0) {
+                [_observers removeObject:info];
+            }
+        }
+    }
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Private Methods
+//-------------------------------------------------------------------------------------------
+
 - (void)addObserverWithInfo:(ССObservationInfo *)info
 {
     info.batchUpdateDelay = [info.observedKeys count] > 1 ? 0.1f : 0;
@@ -269,6 +266,11 @@
             SafetyCall(block, info);
         }
     }
+}
+
+- (Class)realmObjectClass
+{
+    return NSClassFromString(@"RLMObject");
 }
 
 - (BOOL)hasDatabaseAdditionals
