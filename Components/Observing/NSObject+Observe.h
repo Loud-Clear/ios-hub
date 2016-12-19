@@ -14,7 +14,7 @@
 @interface NSObject (Observe)
 
 /// Will subscribe to changes of specified key, and automatically unsubscribe when self dies.
-// TODO: write tests for this magic.
+// TODO: write detailed tests for this magic.
 - (void)observe:(id)object key:(NSString *)key action:(SEL)action;
 
 @end

@@ -38,7 +38,10 @@
 {
     self.cc_selfLink = self;
 
+    @weakify(self);
     [object setDeallocNotificationInBlock:^{
+        @strongify(self);
+        [self stopAndInvalidate];
         self.cc_selfLink = nil;
     }];
 }
@@ -61,9 +64,8 @@
 
     if (!self.cc_observer) {
         CCObjectObserver *observer = [[CCObjectObserver alloc] initWithObject:object observer:self];
-        observer.cc_selfLink = observer;
+        [observer liveUntilObjectDies:self];
         self.cc_observer = (id)[[TPDWeakProxy alloc] initWithObject:observer];
-        [self.cc_observer liveUntilObjectDies:self];
     }
 
     [self.cc_observer observeKeys:@[key] withAction:action];
@@ -73,9 +75,9 @@
 #pragma mark - Private Methods
 //-------------------------------------------------------------------------------------------
 
-- (void)setCc_observer:(CCObjectObserver *)cc_observer
+- (void)setCc_observer:(CCObjectObserver *)observer
 {
-    SetAssociatedObject(@selector(cc_observer), cc_observer);
+    SetAssociatedObject(@selector(cc_observer), observer);
 }
 
 - (CCObjectObserver *)cc_observer

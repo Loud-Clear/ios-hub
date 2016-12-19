@@ -14,15 +14,28 @@
 
 #import "CCObjectObserver.h"
 #import "CCMacroses.h"
+#import "NSObject+Observe.h"
 
-@interface ObserverObject : NSObject
+static NSInteger gObjectToObserveDeallocCount = 0;
+static NSInteger gObserverDeallocCount = 0;
+
+@interface Observer : NSObject
 
 - (void)didChangeValue;
 
 @end
 
-@implementation ObserverObject
-- (void)didChangeValue {}
+@implementation Observer
+
+- (void)didChangeValue
+{
+}
+
+- (void)dealloc
+{
+    gObserverDeallocCount++;
+}
+
 @end
 
 ////
@@ -36,8 +49,14 @@
 @end
 
 @implementation ObjectToObserve
-@end
 
+- (void)dealloc
+{
+    gObjectToObserveDeallocCount++;
+}
+
+
+@end
 
 
 @interface CCObjectObserverTests : XCTestCase
@@ -51,14 +70,14 @@
 #pragma mark - Setup
 //-------------------------------------------------------------------------------------------
 
-- (void)setUp 
+- (void)setUp
 {
     [super setUp];
 
 
 }
 
-- (void)tearDown 
+- (void)tearDown
 {
     [super tearDown];
 }
@@ -69,13 +88,13 @@
 
 - (void)test_basic_observation
 {
-    id observerMock = OCMClassMock([ObserverObject class]);
+    id observerMock = OCMClassMock([Observer class]);
     ObjectToObserve *objectToObserve = [ObjectToObserve new];
 
     CCObjectObserver *observer = [[CCObjectObserver alloc] initWithObject:objectToObserve observer:observerMock];
 
     objectToObserve.value = @"123";
-    
+
     __block BOOL fired = NO;
     [observer observeKeys:@[@"value"] withBlock:^{
         fired = YES;
@@ -93,14 +112,14 @@
 
     CCObjectObserver *observer = [[CCObjectObserver alloc] initWithObject:objectToObserve observer:nil];
 
-    
+
     XCTestExpectation *e = [self expectationWithDescription:@""];
-    
+
     __block NSInteger callCount = 0;
     [observer observeKeys:@[@"value", @"number"] withBlock:^{
         callCount += 1;
     }];
-    
+
     SafetyCallAfter(0.2, ^{
         [e fulfill];
     });
@@ -108,12 +127,31 @@
     objectToObserve.number = @2;
     objectToObserve.value = @"123";
 
-    [self waitForExpectationsWithTimeout:1 handler:^(NSError * _Nullable error) {
+    [self waitForExpectationsWithTimeout:1 handler:^(NSError *_Nullable error) {
 
     }];
-    
+
     XCTAssertEqual(callCount, 1);
+}
+
+- (void)test_quick_observe_dealloc_called
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        ObjectToObserve *objectToObserve = [ObjectToObserve new];
+        Observer *observer = [Observer new];
+
+        [observer observe:objectToObserve key:@"value" action:@selector(didChangeValue)];
+    });
     
+    XCTestExpectation *e = [self expectationWithDescription:@""];
+    SafetyCallAfter(0.1, ^{
+        [e fulfill];
+    });
+
+    [self waitForExpectationsWithTimeout:0.2 handler:^(NSError *_Nullable error) {
+        XCTAssertEqual(gObserverDeallocCount, 1);
+        XCTAssertEqual(gObjectToObserveDeallocCount, 1);
+    }];
 }
 
 @end
