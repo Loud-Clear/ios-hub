@@ -137,6 +137,9 @@ static NSInteger gObserverDeallocCount = 0;
 - (void)test_quick_observe_dealloc_called
 {
     dispatch_async(dispatch_get_main_queue(), ^{
+        gObjectToObserveDeallocCount = 0;
+        gObserverDeallocCount = 0;
+        
         ObjectToObserve *objectToObserve = [ObjectToObserve new];
         Observer *observer = [Observer new];
 

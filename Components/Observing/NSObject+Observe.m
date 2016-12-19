@@ -49,7 +49,7 @@
 @end
 
 
-@interface NSObject (CCObserve)
+@interface NSObject (CCObserver)
 
 @property (nonatomic) CCObjectObserver *cc_observer;
 
