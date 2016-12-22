@@ -179,7 +179,10 @@ static UIControlState UIControlStateInvertHighlighted(UIControlState state)
 
     CGFloat leftPadding = self.bounds.size.height * 0.75f;
 
-    return CGRectMake(leftPadding - imageSize.width*0.5f, 0.5f * (self.bounds.size.height - imageSize.height), imageSize.width, imageSize.height);
+    return CGRectMake(leftPadding - imageSize.width * 0.5f + _leftOffset.width,
+                      0.5f * (self.bounds.size.height - imageSize.height) + _leftOffset.height,
+                      imageSize.width,
+                      imageSize.height);
 }
 
 - (CGRect)rightImageRectForState:(UIControlState)state
@@ -188,7 +191,10 @@ static UIControlState UIControlStateInvertHighlighted(UIControlState state)
 
     CGFloat rightPadding = self.bounds.size.height * 0.75f;
 
-    return CGRectMake(self.bounds.size.width - rightPadding - imageSize.width*0.5f, 0.5f * (self.bounds.size.height - imageSize.height), imageSize.width, imageSize.height);
+    return CGRectMake(self.bounds.size.width - rightPadding - imageSize.width * 0.5f + _rightOffset.width,
+                      0.5f * (self.bounds.size.height - imageSize.height) + _rightOffset.height,
+                      imageSize.width,
+                      imageSize.height);
 
 }
 
