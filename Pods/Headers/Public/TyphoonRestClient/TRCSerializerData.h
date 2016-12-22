@@ -1,0 +1,1 @@
+../../../TyphoonRestClient/TyphoonRestClient/Extras/Serializations/TRCSerializerData.h

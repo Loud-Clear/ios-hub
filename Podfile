@@ -23,6 +23,8 @@ target 'iOS Hub' do
   pod 'AFNetworking'
   pod 'TPDWeakProxy'
 
+  pod 'TyphoonRestClient'
+
   target 'iOS HubTests' do
     inherit! :search_paths
     # Pods for testing

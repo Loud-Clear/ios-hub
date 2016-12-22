@@ -121,6 +121,12 @@ Pod::Spec.new do |s|
   s.subspec 'Table' do |subspec|
       subspec.source_files   = 'Components/Table/**/*.{h,m}'
   end
+
+  s.subspec 'TestUtils' do |subspec|
+      subspec.source_files   = 'Components/TestUtils/**/*.{h,m}'
+      subspec.dependency 'TyphoonRestClient'
+      subspec.dependency 'Typhoon'
+  end
   
   s.subspec 'TopmostViewController' do |subspec|
       subspec.source_files   = 'Components/TopmostViewController/**/*.{h,m}'

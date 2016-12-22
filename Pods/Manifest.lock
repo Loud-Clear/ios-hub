@@ -40,6 +40,7 @@ PODS:
   - Typhoon/IntrospectionUtils (4.0.0)
   - Typhoon/no-arc (4.0.0):
     - Typhoon/IntrospectionUtils
+  - TyphoonRestClient (1.4.3)
 
 DEPENDENCIES:
   - AFNetworking
@@ -56,6 +57,7 @@ DEPENDENCIES:
   - SDWebImage
   - TPDWeakProxy
   - Typhoon
+  - TyphoonRestClient
 
 EXTERNAL SOURCES:
   Aspects:
@@ -82,7 +84,8 @@ SPEC CHECKSUMS:
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   TPDWeakProxy: 39bf1d2675b75a1e87c38d4cd426110c21934842
   Typhoon: 1fcbf6417e7040e645c910e7004336c51c916fb3
+  TyphoonRestClient: a115f3634c8b6c598a3cd0777a10976cd208895f
 
-PODFILE CHECKSUM: 88591863f7120d64dde67373bdc56b00405f3432
+PODFILE CHECKSUM: 14618911b85607825212af3578844762bc90ae58
 
 COCOAPODS: 1.1.1
