@@ -1,0 +1,1 @@
+../../../TyphoonRestClient/TyphoonRestClient/Internal/Converter/TRCConverter.h

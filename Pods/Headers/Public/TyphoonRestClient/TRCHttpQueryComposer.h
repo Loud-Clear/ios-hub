@@ -1,0 +1,1 @@
+../../../TyphoonRestClient/TyphoonRestClient/Third Parties/AFNetwroking Parts/HttpQueryComposer/TRCHttpQueryComposer.h

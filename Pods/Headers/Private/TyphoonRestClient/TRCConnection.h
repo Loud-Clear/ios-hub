@@ -1,0 +1,1 @@
+../../../TyphoonRestClient/TyphoonRestClient/Protocols/TRCConnection.h

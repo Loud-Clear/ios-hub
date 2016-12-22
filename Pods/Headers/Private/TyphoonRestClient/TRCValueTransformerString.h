@@ -1,0 +1,1 @@
+../../../TyphoonRestClient/TyphoonRestClient/Extras/DataConverters/TRCValueTransformerString.h

@@ -84,6 +84,9 @@
 		FA3486AB1DDF1E8A00B02A01 /* RLMObject+ThreadSafety.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486A31DDF1E8A00B02A01 /* RLMObject+ThreadSafety.m */; };
 		FA3486AC1DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486A51DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m */; };
 		FA3486B01DDF1F6E00B02A01 /* CCCollectionSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486AF1DDF1F6E00B02A01 /* CCCollectionSerialization.m */; };
+		FA7247921E0BD70E009A9CF6 /* CCAssemblyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA13B72D6D5F55C68D69E4 /* CCAssemblyTests.m */; };
+		FA7247931E0BD70E009A9CF6 /* CCAdditionalAsserts.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1BA28B947E4C31A07BB5 /* CCAdditionalAsserts.m */; };
+		FA7247951E0BD712009A9CF6 /* TyphoonRestClientStub.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1BB9C2ABBC636856FD47 /* TyphoonRestClientStub.m */; };
 		FA8C585E1DE2CCAC00AEBCB1 /* UIViewController+CCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C58591DE2CCAC00AEBCB1 /* UIViewController+CCTransition.m */; };
 		FA8C585F1DE2CCAC00AEBCB1 /* UIViewController+CCTransitionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C585B1DE2CCAC00AEBCB1 /* UIViewController+CCTransitionHandler.m */; };
 		FA8C58601DE2CCAC00AEBCB1 /* UIViewController+CCWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C585D1DE2CCAC00AEBCB1 /* UIViewController+CCWorkflow.m */; };
@@ -116,15 +119,19 @@
 		2DBA1221C2F7AA7F1BAA5FEB /* CCTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewManager.m; sourceTree = "<group>"; };
 		2DBA1262DA2075C83CCB1A8B /* CCTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCellFactory.h; sourceTree = "<group>"; };
 		2DBA12AF504A133122C7CFCE /* NSBundle+CCTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+CCTableViewManager.h"; sourceTree = "<group>"; };
+		2DBA13B72D6D5F55C68D69E4 /* CCAssemblyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAssemblyTests.m; sourceTree = "<group>"; };
 		2DBA14E2ECC6208AA27CC903 /* CCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCell.h; sourceTree = "<group>"; };
 		2DBA151B65B698B19EAC1734 /* CCTableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewSection.h; sourceTree = "<group>"; };
+		2DBA15EF14892BE9C0B9700E /* CCAdditionalAsserts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAdditionalAsserts.h; sourceTree = "<group>"; };
 		2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPlaceholderTextView.m; sourceTree = "<group>"; };
 		2DBA16E1A9A5FA6C8C0E733C /* CCAssemblyCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAssemblyCollector.h; sourceTree = "<group>"; };
 		2DBA1744188395C568EB9F02 /* CCTableViewCellStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCellStyle.m; sourceTree = "<group>"; };
 		2DBA178A8B7FF15B9230FFFB /* CCRoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRoundButton.h; sourceTree = "<group>"; };
 		2DBA180B909823C1F490ECA4 /* CCAssemblyCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAssemblyCollector.m; sourceTree = "<group>"; };
 		2DBA183F86F3CB4DA7AF3460 /* CCResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCResults.h; sourceTree = "<group>"; };
+		2DBA18D2C58154E9915AD020 /* CCAssemblyTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAssemblyTests.h; sourceTree = "<group>"; };
 		2DBA19536DC9041B2099840A /* CCTableViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewItem.h; sourceTree = "<group>"; };
+		2DBA198F79C6F5CEA6B52F67 /* TyphoonRestClientStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TyphoonRestClientStub.h; sourceTree = "<group>"; };
 		2DBA199E31E45E4E4235DD9D /* CCTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewManager.h; sourceTree = "<group>"; };
 		2DBA19C33C3C3F6910E65677 /* CCFormValidationEmailTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationEmailTests.m; sourceTree = "<group>"; };
 		2DBA19E131D7542460368501 /* CCFormOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormOutput.h; sourceTree = "<group>"; };
@@ -132,6 +139,8 @@
 		2DBA1A0BF4F3E60B3D6DBF90 /* CCTableViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewItem.m; sourceTree = "<group>"; };
 		2DBA1AA854B22D32382F824D /* CCObjectObserverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CCObjectObserverTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2DBA1B77D0950507FD1807A3 /* CCResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCResults.m; sourceTree = "<group>"; };
+		2DBA1BA28B947E4C31A07BB5 /* CCAdditionalAsserts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAdditionalAsserts.m; sourceTree = "<group>"; };
+		2DBA1BB9C2ABBC636856FD47 /* TyphoonRestClientStub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TyphoonRestClientStub.m; sourceTree = "<group>"; };
 		2DBA1CAAAFA689B2C4121909 /* CCRoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRoundButton.m; sourceTree = "<group>"; };
 		2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCellFactory.m; sourceTree = "<group>"; };
 		2DBA1D805B9B1600C55FC061 /* CCGeneralPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCGeneralPresenter.m; sourceTree = "<group>"; };
@@ -279,6 +288,7 @@
 		FA3486AE1DDF1F6E00B02A01 /* CCCollectionSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCollectionSerialization.h; sourceTree = "<group>"; };
 		FA3486AF1DDF1F6E00B02A01 /* CCCollectionSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCollectionSerialization.m; sourceTree = "<group>"; };
 		FA3486B11DDF1F9300B02A01 /* CCDatabaseJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CCDatabaseJSONSerialization.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		FA7247901E0BD685009A9CF6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FA8C58581DE2CCAC00AEBCB1 /* UIViewController+CCTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CCTransition.h"; sourceTree = "<group>"; };
 		FA8C58591DE2CCAC00AEBCB1 /* UIViewController+CCTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CCTransition.m"; sourceTree = "<group>"; };
 		FA8C585A1DE2CCAC00AEBCB1 /* UIViewController+CCTransitionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CCTransitionHandler.h"; sourceTree = "<group>"; };
@@ -419,6 +429,27 @@
 				2DBA1AA854B22D32382F824D /* CCObjectObserverTests.m */,
 			);
 			path = Observing;
+			sourceTree = "<group>";
+		};
+		2DBA1A9D1EAF3071F418C9CB /* TestUtils */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1AE5E5425D07A828BF85 /* Stubs */,
+				2DBA18D2C58154E9915AD020 /* CCAssemblyTests.h */,
+				2DBA13B72D6D5F55C68D69E4 /* CCAssemblyTests.m */,
+				2DBA15EF14892BE9C0B9700E /* CCAdditionalAsserts.h */,
+				2DBA1BA28B947E4C31A07BB5 /* CCAdditionalAsserts.m */,
+			);
+			path = TestUtils;
+			sourceTree = "<group>";
+		};
+		2DBA1AE5E5425D07A828BF85 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA198F79C6F5CEA6B52F67 /* TyphoonRestClientStub.h */,
+				2DBA1BB9C2ABBC636856FD47 /* TyphoonRestClientStub.m */,
+			);
+			path = Stubs;
 			sourceTree = "<group>";
 		};
 		2DBA1B0E0CDF3DC5E092DC78 /* Forms */ = {
@@ -582,6 +613,7 @@
 		5DEDDDAB8DEA1A0446585A1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA7247901E0BD685009A9CF6 /* XCTest.framework */,
 				900BB96B6BF13BEBEA951A07 /* libPods-iOS Hub.a */,
 				E49612B7121FB28899A6715E /* libPods-iOS HubTests.a */,
 			);
@@ -970,6 +1002,7 @@
 				31821D93A75370A05346F451 /* DispatchUtils */,
 				2DBA1738419FD8D3C066B15E /* TyphoonAddons */,
 				2DBA13C51D89C87EE3A329BE /* RoundButton */,
+				2DBA1A9D1EAF3071F418C9CB /* TestUtils */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1122,7 +1155,7 @@
 		FA34865C1DDF0B8600B02A01 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Loud & Clear";
 				TargetAttributes = {
 					FA3486631DDF0B8600B02A01 = {
@@ -1364,8 +1397,11 @@
 			files = (
 				FA019A081DE01C1800364871 /* CCUserDefaultsStorageTests.m in Sources */,
 				FA0199C51DDF307D00364871 /* CCObjectObserverTests.m in Sources */,
+				FA7247931E0BD70E009A9CF6 /* CCAdditionalAsserts.m in Sources */,
 				FA019A6B1DE07DD000364871 /* CCModuleURLParserTests.m in Sources */,
 				2DBA1906F41097E3E0C40F4A /* CCFormValidationEmailTests.m in Sources */,
+				FA7247951E0BD712009A9CF6 /* TyphoonRestClientStub.m in Sources */,
+				FA7247921E0BD70E009A9CF6 /* CCAssemblyTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1417,6 +1453,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1464,6 +1501,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
