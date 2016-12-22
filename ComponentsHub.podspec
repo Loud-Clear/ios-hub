@@ -124,8 +124,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'TestUtils' do |subspec|
       subspec.source_files   = 'Components/TestUtils/**/*.{h,m}'
-      subspec.dependency 'TyphoonRestClient'
-      subspec.dependency 'Typhoon'
       subspec.framework = 'XCTest'
   end
   
