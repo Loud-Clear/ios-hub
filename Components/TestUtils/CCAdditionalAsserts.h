@@ -22,6 +22,8 @@
 #define XCTAssertDependency(instance, dependencySelector) XCTAssertDependencyWithType(instance, dependencySelector, nil)
 #define XCTAssertDependencyWithType(anInstance, dependencySelector, type) [CCAdditionalAsserts assert:self at:CCFileAndLineMake(__FILE__, __LINE__) instance:anInstance hasDependency:@selector(dependencySelector) withKind:type]
 
+#define XCTAssertEqualFloat(floatA, floatB, ...)  XCTAssertTrue(fabs((double)floatA - floatB) < DBL_EPSILON, __VA_ARGS__)
+
 
 typedef struct {
     const char *filePath;
