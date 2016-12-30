@@ -55,36 +55,22 @@
         return self;
     }
 
-    CCUserDefaultsStorage *storage = [CCUserDefaultsStorage withClass:[self class] key:name];
-    CCEnvironment *object = [storage getObject];
-
-    if (!object) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:nil];
-        object = [self initWithContentsOfFile:path];
-    }
-
+    CCEnvironment *object = [[self class]environmentFromName:name];
     if (!object) {
         return nil;
     }
 
-    object.filename = name;
-
-    [self useEnvironment:object];
-
     if (nameWasNil) {
         [_nameStorage saveObject:name];
     }
+
+    [self useEnvironment:object];
 
     [self setupObserving];
 
     _initializing = NO;
 
     return self;
-}
-
-+ (instancetype)currentEnvironment
-{
-    return [[self alloc] initCurrent];
 }
 
 - (void)dealloc
@@ -95,12 +81,14 @@
 + (CCEnvironment *)environmentFromName:(NSString *)name
 {
     CCUserDefaultsStorage *storage = [CCUserDefaultsStorage withClass:[self class] key:name];
-    id object = [storage getObject];
+    CCEnvironment *object = [storage getObject];
 
     if (!object) {
         NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:nil];
         object = [self instanceWithContentsOfFile:path];
     }
+
+    object.filename = name;
 
     return object;
 }
@@ -135,6 +123,11 @@
 #pragma mark - Interface Methods
 //-------------------------------------------------------------------------------------------
 
++ (instancetype)currentEnvironment
+{
+    return [[self alloc] initCurrent];
+}
+
 + (NSArray<CCEnvironment *> *)availableEnvironments
 {
     NSMutableArray<CCEnvironment *> *envs = [NSMutableArray new];
@@ -151,14 +144,18 @@
 
 - (void)useEnvironment:(CCEnvironment *)environment
 {
+    if (!environment.filename) {
+        NSAssert(NO, nil);
+        return;
+    }
+
     [self batchSave:^{
         for (NSString *key in [[self class] allPropertyKeys]) {
             id value = [environment valueForKey:key];
             [self setValue:value forKey:key];
         }
+        [_nameStorage saveObject:environment.filename];
     }];
-
-    [_nameStorage saveObject:environment.filename];
 }
 
 - (void)batchSave:(dispatch_block_t)saveBlock
@@ -168,6 +165,16 @@
     _batchSaveInProgress = NO;
 
     [self performSave];
+}
+
++ (void)reset
+{
+    NSArray<NSString *> *names = [[self class] environmentFilenames];
+
+    for (NSString *name in names) {
+        CCUserDefaultsStorage *storage = [CCUserDefaultsStorage withClass:[self class] key:name];
+        [storage deleteInstanceFromDisk];
+    }
 }
 
 //-------------------------------------------------------------------------------------------
@@ -200,6 +207,7 @@
     NSString *name = [_nameStorage getObject];
     if (!name) {
         NSAssert(NO, nil);
+        return;
     }
 
     CCUserDefaultsStorage *storage = [CCUserDefaultsStorage withClass:[self class] key:[_nameStorage getObject]];

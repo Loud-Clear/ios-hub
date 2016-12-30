@@ -12,6 +12,7 @@
 
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
+#import <KVOController/NSObject+FBKVOController.h>
 
 #import "CCEnvironment.h"
 #import "CCMacroses.h"
@@ -44,11 +45,13 @@
 - (void)setUp
 {
     [super setUp];
+    [TestEnvironment reset];
 }
 
 - (void)tearDown
 {
     [super tearDown];
+    [TestEnvironment reset];
 }
 
 //-------------------------------------------------------------------------------------------
@@ -71,7 +74,7 @@
     XCTAssertEqualObjects(envs[1].title, @"UAT");
 }
 
-- (void)test_useEnv
+- (void)test_switchEnv
 {
     NSArray<TestEnvironment *> *envs = (id)[TestEnvironment availableEnvironments];
     TestEnvironment *env = [TestEnvironment currentEnvironment];
@@ -97,5 +100,39 @@
 
     env.title = @"Prod";
 }
+
+- (void)test_observingWhenSwitchingEnvs
+{
+    NSArray<TestEnvironment *> *envs = (id)[TestEnvironment availableEnvironments];
+    TestEnvironment *env = [TestEnvironment currentEnvironment];
+
+    __block BOOL observed = NO;
+
+    [self.KVOController observe:env keyPath:@"title" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew block:^(id observer, id object, NSDictionary<NSString *, id> *change) {
+        observed = YES;
+    }];
+
+    [env useEnvironment:envs[1]];
+
+    XCTAssertTrue(observed);
+}
+
+- (void)test_reset
+{
+    NSString *initialTitle = nil;
+    {
+        TestEnvironment *env = [TestEnvironment currentEnvironment];
+
+        initialTitle = env.title;
+        env.title = @"Foo";
+    }
+
+    [TestEnvironment reset];
+
+    TestEnvironment *env = [TestEnvironment currentEnvironment];
+
+    XCTAssertEqualObjects(env.title, initialTitle);
+}
+
 
 @end
