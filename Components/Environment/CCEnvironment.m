@@ -14,8 +14,13 @@
 #import "CCLogger.h"
 #import "CCMacroses.h"
 
+@interface CCEnvironment ()
+@property (nonatomic) NSString *filename;
+@end
+
 
 @implementation CCEnvironment {
+    BOOL _initializing;
     CCUserDefaultsStorage *_nameStorage;
     BOOL _batchSaveInProgress;
     BOOL _observing;
@@ -25,16 +30,24 @@
 #pragma mark - Initialization & Destruction
 //-------------------------------------------------------------------------------------------
 
-- (instancetype) init
+- (instancetype)initCurrent
 {
     if (!(self = [super init])) {
         return nil;
     }
 
+    if (_initializing) {
+        return self;
+    }
+
+    _initializing = YES;
+
     _nameStorage = [CCUserDefaultsStorage withClass:[NSString class] key:@"EnvironmentName"];
     NSString *name = [_nameStorage getObject];
+    BOOL nameWasNil = NO;
 
     if (!name) {
+        nameWasNil = YES;
         name = [[[self class] environmentFilenames] firstObject];
     }
     if (!name) {
@@ -43,7 +56,7 @@
     }
 
     CCUserDefaultsStorage *storage = [CCUserDefaultsStorage withClass:[self class] key:name];
-    id object = [storage getObject];
+    CCEnvironment *object = [storage getObject];
 
     if (!object) {
         NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:nil];
@@ -54,11 +67,24 @@
         return nil;
     }
 
-    self = object;
+    object.filename = name;
+
+    [self useEnvironment:object];
+
+    if (nameWasNil) {
+        [_nameStorage saveObject:name];
+    }
 
     [self setupObserving];
 
+    _initializing = NO;
+
     return self;
+}
+
++ (instancetype)currentEnvironment
+{
+    return [[self alloc] initCurrent];
 }
 
 - (void)dealloc
@@ -171,6 +197,11 @@
 
 - (void)performSave
 {
+    NSString *name = [_nameStorage getObject];
+    if (!name) {
+        NSAssert(NO, nil);
+    }
+
     CCUserDefaultsStorage *storage = [CCUserDefaultsStorage withClass:[self class] key:[_nameStorage getObject]];
     [storage saveObject:self];
 }

@@ -11,6 +11,8 @@
 		2CD634291E16668F00A2BB15 /* Config.production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD634261E16668F00A2BB15 /* Config.production.plist */; };
 		2CD6342A1E16668F00A2BB15 /* Config.staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD634271E16668F00A2BB15 /* Config.staging.plist */; };
 		2CD6342F1E1666A800A2BB15 /* CCEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6342D1E1666A100A2BB15 /* CCEnvironment.m */; };
+		2CD634301E1667A400A2BB15 /* Config.production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD634261E16668F00A2BB15 /* Config.production.plist */; };
+		2CD634311E1667A600A2BB15 /* Config.staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD634271E16668F00A2BB15 /* Config.staging.plist */; };
 		2DBA104DF5D2EA69E63A66D9 /* CCRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1CAAAFA689B2C4121909 /* CCRoundButton.m */; };
 		2DBA10792476FFCE7EA2F536 /* CCGeneralPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D805B9B1600C55FC061 /* CCGeneralPresenter.m */; };
 		2DBA110602B26C1D6E0D315C /* CCTableViewCellStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1744188395C568EB9F02 /* CCTableViewCellStyle.m */; };
@@ -1241,8 +1243,10 @@
 				FA1BB4531DF53368008602C3 /* Transparent@2x.png in Resources */,
 				FA3486941DDF149F00B02A01 /* ComponentsHub.podspec in Resources */,
 				FA3486721DDF0B8600B02A01 /* Main.storyboard in Resources */,
+				2CD634301E1667A400A2BB15 /* Config.production.plist in Resources */,
 				FAF38E5E1DF0461000F44BC0 /* UIButtonBarArrowLeft@2x.png in Resources */,
 				FAF38E601DF0461000F44BC0 /* UIButtonBarArrowRight@2x.png in Resources */,
+				2CD634311E1667A600A2BB15 /* Config.staging.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -23,7 +23,7 @@
  4. Create and fill environment files (in plist format) and add them to application Resources.
 
  How to use in code:
- - Just create your CCEnvironment subclass instance to get current environment. At first time, environment
+ - Call your CCEnvironment subclass `currentEnvironment` method to get current environment. At first time, environment
      will be loaded from first file returned from `environmentFilenames`.
  - To get list of all available environments, call `availableEnvironments`.
  - To switch to specific environment, just call `useEnvironment` on previously created CCEnvironment subclass instance
@@ -35,6 +35,8 @@
 */
 
 @interface CCEnvironment : BaseModel
+
++ (instancetype)currentEnvironment;
 
 + (NSArray<CCEnvironment *> *)availableEnvironments;
 

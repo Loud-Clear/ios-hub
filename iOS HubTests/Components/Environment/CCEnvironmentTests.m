@@ -57,25 +57,45 @@
 
 - (void)test_loading
 {
-    TestEnvironment *env = [TestEnvironment new];
+    TestEnvironment *env = [TestEnvironment currentEnvironment];
 
     XCTAssertEqualObjects(env.baseApiUrl, @"http://api.com");
+}
 
-//    id observerMock = OCMClassMock([ObserverObject class]);
-//    ObjectToObserve *objectToObserve = [ObjectToObserve new];
-//
-//    CCObjectObserver *observer = [[CCObjectObserver alloc] initWithObject:objectToObserve observer:observerMock];
-//
-//    objectToObserve.value = @"123";
-//
-//    __block BOOL fired = NO;
-//    [observer observeKeys:@[@"value"] withBlock:^{
-//        fired = YES;
-//    }];
-//
-//    objectToObserve.value = @"321";
-//
-//    XCTAssertTrue(fired);
+- (void)test_availableEnvs
+{
+    NSArray<TestEnvironment *> *envs = (id)[TestEnvironment availableEnvironments];
+
+    XCTAssertEqual([envs count], 2);
+    XCTAssertEqualObjects(envs[0].title, @"Prod");
+    XCTAssertEqualObjects(envs[1].title, @"UAT");
+}
+
+- (void)test_useEnv
+{
+    NSArray<TestEnvironment *> *envs = (id)[TestEnvironment availableEnvironments];
+    TestEnvironment *env = [TestEnvironment currentEnvironment];
+
+    [env useEnvironment:envs[1]];
+
+    XCTAssertEqualObjects(env.title, @"UAT");
+
+    [env useEnvironment:envs[0]];
+
+    XCTAssertEqualObjects(env.title, @"Prod");
+}
+
+- (void)test_save
+{
+    {
+        TestEnvironment *env = [TestEnvironment currentEnvironment];
+        env.title = @"New title";
+    }
+
+    TestEnvironment *env = [TestEnvironment currentEnvironment];
+    XCTAssertEqualObjects(env.title, @"New title");
+
+    env.title = @"Prod";
 }
 
 @end
