@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Aspects (1.4.1)
+  - BaseModel (2.6.3)
   - CTObjectiveCRuntimeAdditions (0.0.1)
   - FastCoding (3.2.1)
   - KVOController (1.2.0)
@@ -24,27 +25,28 @@ PODS:
   - MTAnimation (1.2.2)
   - OCMock (3.3.1)
   - PINCache (2.3)
-  - Realm (2.1.1):
-    - Realm/Headers (= 2.1.1)
-  - Realm/Headers (2.1.1)
+  - Realm (2.1.2):
+    - Realm/Headers (= 2.1.2)
+  - Realm/Headers (2.1.2)
   - SAMKeychain (1.5.2)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - TPDWeakProxy (1.1.1)
-  - Typhoon (4.0.0):
-    - Typhoon/DeallocNotifier (= 4.0.0)
-    - Typhoon/IntrospectionUtils (= 4.0.0)
-    - Typhoon/no-arc (= 4.0.0)
-  - Typhoon/DeallocNotifier (4.0.0)
-  - Typhoon/IntrospectionUtils (4.0.0)
-  - Typhoon/no-arc (4.0.0):
+  - Typhoon (4.0.1):
+    - Typhoon/DeallocNotifier (= 4.0.1)
+    - Typhoon/IntrospectionUtils (= 4.0.1)
+    - Typhoon/no-arc (= 4.0.1)
+  - Typhoon/DeallocNotifier (4.0.1)
+  - Typhoon/IntrospectionUtils (4.0.1)
+  - Typhoon/no-arc (4.0.1):
     - Typhoon/IntrospectionUtils
-  - TyphoonRestClient (1.4.3)
+  - TyphoonRestClient (1.4.4)
 
 DEPENDENCIES:
   - AFNetworking
   - Aspects (from `https://github.com/steipete/Aspects.git`, tag `1.4.2`)
+  - BaseModel
   - CTObjectiveCRuntimeAdditions
   - FastCoding
   - KVOController
@@ -72,6 +74,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  BaseModel: 4c9965bea266250b90e78bc1a1948d74e81d9e89
   CTObjectiveCRuntimeAdditions: e4164f82d489d542447a1ae35b27965b356c4738
   FastCoding: ed46c83ba23d048aafa0251972a1e1fc1cfc58ed
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
@@ -79,13 +82,13 @@ SPEC CHECKSUMS:
   MTAnimation: 1079f4ff38c0282779ced010d7363a8f893fd3ee
   OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
-  Realm: a55959c0b171a5fe5267406d17f314fec3cefaae
+  Realm: efe855f4d977c8ce5a82d3116d9f1ff155a6550c
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   TPDWeakProxy: 39bf1d2675b75a1e87c38d4cd426110c21934842
-  Typhoon: 1fcbf6417e7040e645c910e7004336c51c916fb3
-  TyphoonRestClient: a115f3634c8b6c598a3cd0777a10976cd208895f
+  Typhoon: 7c89512070755057373a1495720fd001c276eb2a
+  TyphoonRestClient: 39ab0e8ed9a6cf3fc6b6bb8295b11f2fe7cdce94
 
-PODFILE CHECKSUM: 14618911b85607825212af3578844762bc90ae58
+PODFILE CHECKSUM: f83497995f6c07bebdb957439e79c3a722894f54
 
 COCOAPODS: 1.1.1

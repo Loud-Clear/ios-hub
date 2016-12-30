@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2CD634281E16668F00A2BB15 /* CCEnvironmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD634241E16668F00A2BB15 /* CCEnvironmentTests.m */; };
+		2CD634291E16668F00A2BB15 /* Config.production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD634261E16668F00A2BB15 /* Config.production.plist */; };
+		2CD6342A1E16668F00A2BB15 /* Config.staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD634271E16668F00A2BB15 /* Config.staging.plist */; };
+		2CD6342F1E1666A800A2BB15 /* CCEnvironment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD6342D1E1666A100A2BB15 /* CCEnvironment.m */; };
+		2CD634301E1667A400A2BB15 /* Config.production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD634261E16668F00A2BB15 /* Config.production.plist */; };
+		2CD634311E1667A600A2BB15 /* Config.staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD634271E16668F00A2BB15 /* Config.staging.plist */; };
 		2DBA104DF5D2EA69E63A66D9 /* CCRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1CAAAFA689B2C4121909 /* CCRoundButton.m */; };
 		2DBA10792476FFCE7EA2F536 /* CCGeneralPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D805B9B1600C55FC061 /* CCGeneralPresenter.m */; };
 		2DBA110602B26C1D6E0D315C /* CCTableViewCellStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1744188395C568EB9F02 /* CCTableViewCellStyle.m */; };
@@ -113,6 +119,11 @@
 
 /* Begin PBXFileReference section */
 		2C2E96FE3DB2ACE797D0A8A2 /* Pods-iOS Hub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Hub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Hub/Pods-iOS Hub.debug.xcconfig"; sourceTree = "<group>"; };
+		2CD634241E16668F00A2BB15 /* CCEnvironmentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEnvironmentTests.m; sourceTree = "<group>"; };
+		2CD634261E16668F00A2BB15 /* Config.production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.production.plist; sourceTree = "<group>"; };
+		2CD634271E16668F00A2BB15 /* Config.staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.staging.plist; sourceTree = "<group>"; };
+		2CD6342C1E1666A100A2BB15 /* CCEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEnvironment.h; sourceTree = "<group>"; };
+		2CD6342D1E1666A100A2BB15 /* CCEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEnvironment.m; sourceTree = "<group>"; };
 		2DBA10CE13525A2D6ABA0D3E /* CCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCell.m; sourceTree = "<group>"; };
 		2DBA1155E8073B5D351A6EA1 /* CCTableViewManager+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCTableViewManager+Internal.h"; sourceTree = "<group>"; };
 		2DBA11BBC34D8545A219EAC2 /* CCTableViewCellStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCellStyle.h; sourceTree = "<group>"; };
@@ -332,6 +343,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2CD634231E16668F00A2BB15 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				2CD634241E16668F00A2BB15 /* CCEnvironmentTests.m */,
+				2CD634251E16668F00A2BB15 /* Environments */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		2CD634251E16668F00A2BB15 /* Environments */ = {
+			isa = PBXGroup;
+			children = (
+				2CD634261E16668F00A2BB15 /* Config.production.plist */,
+				2CD634271E16668F00A2BB15 /* Config.staging.plist */,
+			);
+			path = Environments;
+			sourceTree = "<group>";
+		};
+		2CD6342B1E1666A100A2BB15 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				2CD6342C1E1666A100A2BB15 /* CCEnvironment.h */,
+				2CD6342D1E1666A100A2BB15 /* CCEnvironment.m */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
 		2DBA1393C3600DC6CA973A8D /* PostProcessor */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,6 +523,7 @@
 		2DBA1CA4386B5B53A73F166F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2CD634231E16668F00A2BB15 /* Environment */,
 				FA019A681DE07DD000364871 /* VIPER */,
 				FA019A051DE01C1800364871 /* SingletoneStorage */,
 				2DBA1A8D148689C93749F6C3 /* Observing */,
@@ -986,6 +1025,7 @@
 		FA34868C1DDF0BBE00B02A01 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2CD6342B1E1666A100A2BB15 /* Environment */,
 				FA019A571DE060D700364871 /* MapCollections */,
 				FA019A121DE05C7A00364871 /* MutableCollections */,
 				FA019A0E1DE05C3C00364871 /* NotificationUtils */,
@@ -1203,8 +1243,10 @@
 				FA1BB4531DF53368008602C3 /* Transparent@2x.png in Resources */,
 				FA3486941DDF149F00B02A01 /* ComponentsHub.podspec in Resources */,
 				FA3486721DDF0B8600B02A01 /* Main.storyboard in Resources */,
+				2CD634301E1667A400A2BB15 /* Config.production.plist in Resources */,
 				FAF38E5E1DF0461000F44BC0 /* UIButtonBarArrowLeft@2x.png in Resources */,
 				FAF38E601DF0461000F44BC0 /* UIButtonBarArrowRight@2x.png in Resources */,
+				2CD634311E1667A600A2BB15 /* Config.staging.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1212,6 +1254,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CD634291E16668F00A2BB15 /* Config.production.plist in Resources */,
+				2CD6342A1E16668F00A2BB15 /* Config.staging.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1332,6 +1376,7 @@
 				FA8C58661DE2CCDF00AEBCB1 /* UIViewController+ССModule.m in Sources */,
 				FACFEECD1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.m in Sources */,
 				FA0199FF1DDF5BBA00364871 /* CCKeychainStorage.m in Sources */,
+				2CD6342F1E1666A800A2BB15 /* CCEnvironment.m in Sources */,
 				FA8C58601DE2CCAC00AEBCB1 /* UIViewController+CCWorkflow.m in Sources */,
 				FA019A4C1DE05CED00364871 /* UIViewController+URL.m in Sources */,
 				FA019A671DE0651A00364871 /* CCDisplayManager.m in Sources */,
@@ -1400,6 +1445,7 @@
 				FA7247931E0BD70E009A9CF6 /* CCAdditionalAsserts.m in Sources */,
 				FA019A6B1DE07DD000364871 /* CCModuleURLParserTests.m in Sources */,
 				2DBA1906F41097E3E0C40F4A /* CCFormValidationEmailTests.m in Sources */,
+				2CD634281E16668F00A2BB15 /* CCEnvironmentTests.m in Sources */,
 				FA7247951E0BD712009A9CF6 /* TyphoonRestClientStub.m in Sources */,
 				FA7247921E0BD70E009A9CF6 /* CCAssemblyTests.m in Sources */,
 			);

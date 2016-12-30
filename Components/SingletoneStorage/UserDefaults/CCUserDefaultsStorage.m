@@ -35,6 +35,11 @@
     return self;
 }
 
++ (instancetype)withClass:(Class)objectClass key:(NSString *)key
+{
+    return [[self alloc] initWithClass:objectClass key:key];
+}
+
 //-------------------------------------------------------------------------------------------
 #pragma mark - Singletone Storage
 //-------------------------------------------------------------------------------------------
@@ -102,27 +107,27 @@
         [self.userDefaults synchronize];
         DDLogInfo(@"Saved %@ to disk as '%@'.", _objectClass, _key);
     } else {
-        DDLogError(@"Failed to current profile to disk.");
+        DDLogError(@"Failed to save %@ to disk as '%@'", _objectClass, _key);
     }
 }
 
 - (id)readInstanceFromDisk
 {
-    NSData *profileData = [self.userDefaults objectForKey:_key];
+    NSData *data = [self.userDefaults objectForKey:_key];
 
     id instance = nil;
 
-    if (![profileData isKindOfClass:[NSData class]]) {
-        if ([profileData isKindOfClass:_objectClass]) {
+    if (![data isKindOfClass:[NSData class]]) {
+        if ([data isKindOfClass:_objectClass]) {
             //Occurs, after we migrate direct NSUserDefaults save to CCUserDefaultsStorage.
-            return profileData;
+            return data;
         } else {
             DDLogInfo(@"Failed to decode %@ from '%@'", _objectClass, _key);
             return nil;
         }
     }
 
-    instance = [FastCoder objectWithData:profileData];
+    instance = [FastCoder objectWithData:data];
 
     if (![instance isKindOfClass:_objectClass]) {
         DDLogInfo(@"Failed to decode %@ from '%@'", _objectClass, _key);

@@ -17,6 +17,8 @@
 
 - (instancetype)initWithClass:(Class)objectClass key:(NSString *)key;
 
++ (instancetype)withClass:(Class)objectClass key:(NSString *)key;
+
 - (void)writeInstanceToDisk:(id)instance;
 
 - (id)readInstanceFromDisk;
