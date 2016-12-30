@@ -45,7 +45,7 @@
 - (void)batchSave:(dispatch_block_t)saveBlock;
 
 /// Resets all environments to default values (provided from plist files). Be sure not to have instance of `currentEnvironment`
-/// to avoid overwriting just-resetted values with previous values.
+/// at moment of calling to avoid overwriting just-resetted values with previous values.
 + (void)reset;
 
 @property (nonatomic, readonly) NSString *filename;
