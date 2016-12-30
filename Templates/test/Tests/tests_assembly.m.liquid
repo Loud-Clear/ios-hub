@@ -1,0 +1,37 @@
+{% include 'header' %}
+
+#import <Typhoon/Typhoon.h>
+#import "CCAssemblyTests.h"
+
+#import "{{ custom_parameters.class_name }}.h"
+
+@interface {{ custom_parameters.class_name }}Tests : CCAssemblyTests
+
+@property (nonatomic, strong) {{ custom_parameters.class_name }} *assembly;
+
+@end
+
+@implementation {{ custom_parameters.class_name }}Tests
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Setup
+//-------------------------------------------------------------------------------------------
+
+- (void)setUp 
+{
+    [super setUp];
+	
+	self.assembly = [self activatedAssemblyForClass:[{{ custom_parameters.class_name }} class]];
+}
+
+- (void)tearDown 
+{
+    self.assembly = nil;
+    [super tearDown];
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Tests
+//-------------------------------------------------------------------------------------------
+
+@end
