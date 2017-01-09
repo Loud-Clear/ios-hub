@@ -67,7 +67,7 @@
         CCTableViewItem *item = section.items[i];
         if ([item isKindOfClass:[CCTableViewItem class]]) {
             Class class = [self.tableViewManager classForCellAtIndexPath:item.indexPath];
-            if ([class canFocusWithItem:item])
+            if ([class isSubclassOfClass:[CCTableFormCell class]] && [class canFocusWithItem:item])
                 return [NSIndexPath indexPathForRow:i inSection:sectionIndex];
         }
     }
@@ -92,7 +92,7 @@
         CCTableViewItem *item = section.items[i];
         if ([item isKindOfClass:[CCTableViewItem class]]) {
             Class class = [self.tableViewManager classForCellAtIndexPath:item.indexPath];
-            if ([class canFocusWithItem:item])
+            if ([class isSubclassOfClass:[CCTableFormCell class]] && [class canFocusWithItem:item])
                 return [NSIndexPath indexPathForRow:i inSection:sectionIndex];
         }
     }
