@@ -88,6 +88,11 @@ Pod::Spec.new do |s|
       subspec.source_files   = 'Components/MutableCollections/**/*.{h,m}'
   end
 
+  s.subspec 'NetworkAddons' do |subspec|
+      subspec.source_files   = 'Components/NetworkAddons/**/*.{h,m}'
+      subspec.dependency 'TyphoonRestClient'
+  end
+
   s.subspec 'NotificationUtils' do |subspec|
       subspec.source_files   = 'Components/NotificationUtils/**/*.{h,m}'
       subspec.dependency 'Typhoon/DeallocNotifier'
