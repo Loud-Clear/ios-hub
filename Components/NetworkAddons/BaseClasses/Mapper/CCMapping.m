@@ -12,7 +12,6 @@
 #import "CCMapping.h"
 #import "CCRestClient.h"
 #import "CCRestClientRegistry.h"
-#import "NSObject+TyphoonDefaultFactory.h"
 
 
 @implementation CCMapping
