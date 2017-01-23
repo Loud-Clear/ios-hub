@@ -19,6 +19,8 @@
 
 #define CCSelectorToString(sel) NSStringFromSelector(@selector(sel))
 
+#define ССSetPointer(pointer, ...) if ((pointer)) {*pointer = __VA_ARGS__;}
+
 #define MainQueue dispatch_get_main_queue()
 #define QueueHigh dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)
 #define QueueDefault dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
@@ -60,3 +62,5 @@
 #define DegreesToRadians(degrees) (CGFloat) ((degrees) / 180.0 * M_PI)
 #define NSValueFromPrimitive(primitive) ([NSValue value:&primitive withObjCType:@encode(typeof(primitive))])
 #define IOS_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+
