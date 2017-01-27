@@ -35,16 +35,21 @@
 		2DBA1F393CB43D39F39B63EE /* CCActionBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1F9A06CA7C69A3A989B5 /* CCActionBar.m */; };
 		3182115962E5FF8E95036757 /* CCImageServiceSDWebImageImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821E84B9AA69201F38A8CF /* CCImageServiceSDWebImageImpl.m */; };
 		3182130E59B1DBB16CACEAF4 /* CCImageMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821B3855A95DFE6BD92120 /* CCImageMemoryCache.m */; };
+		31821318859B945CDF64A6CB /* CCValueTransformerDateIso8601.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821CB9BC97EFBDDA081066 /* CCValueTransformerDateIso8601.m */; };
+		3182134A94B7183D5BC763D7 /* CCValueTransformerToString.m in Sources */ = {isa = PBXBuildFile; fileRef = 318210298F999EB5FEBC00BC /* CCValueTransformerToString.m */; };
 		318213D97709F5D4CF60F837 /* CCFormValidationAnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821D6608238549600585FD /* CCFormValidationAnd.m */; };
 		3182142F7E177F793AE8C546 /* NSObject+Observe.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821A33CDD8344AF9AE47B8 /* NSObject+Observe.m */; };
 		3182149406362581145D7446 /* CCFormValidationOr.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182102ACDFFB44E79A3B388 /* CCFormValidationOr.m */; };
+		318214A87C965A20875198C7 /* CCValueTransformerUnixTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 318216AF963411977C7849F9 /* CCValueTransformerUnixTime.m */; };
 		3182157BF56C83C5B2E2718A /* CCImageGetContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 318213B5F30917FF9E1B38FC /* CCImageGetContext.m */; };
+		318216D3DB63BC45092B0C6F /* CCValueTransformerUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 318219AA360C9A8660034AC2 /* CCValueTransformerUrl.m */; };
 		31821777B18A4A6A68DFF62E /* CCFormValidationAnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821D6608238549600585FD /* CCFormValidationAnd.m */; };
 		318217A32FB1966F17BA9ECC /* CCImageServiceCustomImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 318217DB332BA8CE7F3F2D36 /* CCImageServiceCustomImpl.m */; };
 		318217E21EBCEB304575DEE4 /* CCFormValidationOr.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182102ACDFFB44E79A3B388 /* CCFormValidationOr.m */; };
 		318217F543684CEC52DD501D /* CCImageDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821965F51A3CFF74B63A86 /* CCImageDiskCache.m */; };
 		3182195B61076EE1445A7B2A /* CCDispatchQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821BC2C3C1A1BA9CE2084A /* CCDispatchQueue.m */; };
 		318219A994EC9A03A4C8DEEA /* CCFormValidationPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182136D5EE80A0EE741678B /* CCFormValidationPhone.m */; };
+		318219F5A32C302C8B70EB15 /* CCValueTransformerToNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821E82412E289DB954A0BA /* CCValueTransformerToNumber.m */; };
 		31821B86F0EEBE6BA213852C /* CCImageServiceAFNetworkingImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821A6F657201DACCAE87D9 /* CCImageServiceAFNetworkingImpl.m */; };
 		31821BE48C128AC08D118C7E /* CCFormValidationPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182136D5EE80A0EE741678B /* CCFormValidationPhone.m */; };
 		31821C0A74E7A2348828DABD /* CCDispatchGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821B68418F6DD42460A9EA /* CCDispatchGroup.m */; };
@@ -185,6 +190,7 @@
 		2DBA1F8C007E342704E24574 /* CCRestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRestClient.m; sourceTree = "<group>"; };
 		2DBA1F9A06CA7C69A3A989B5 /* CCActionBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCActionBar.m; sourceTree = "<group>"; };
 		3182100067BD3B5EF13B5052 /* CCImageDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageDiskCache.h; sourceTree = "<group>"; };
+		318210298F999EB5FEBC00BC /* CCValueTransformerToString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerToString.m; sourceTree = "<group>"; };
 		3182102ACDFFB44E79A3B388 /* CCFormValidationOr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationOr.m; sourceTree = "<group>"; };
 		31821053083AF35F8221E0FB /* CCImageGetContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageGetContext.h; sourceTree = "<group>"; };
 		318210851C76EEF688743320 /* UIImageView+CCImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CCImageService.m"; sourceTree = "<group>"; };
@@ -195,22 +201,28 @@
 		318212E3BE1027DDE4EE8B5E /* CCImageServiceAFNetworkingImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageServiceAFNetworkingImpl.h; sourceTree = "<group>"; };
 		3182136D5EE80A0EE741678B /* CCFormValidationPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationPhone.m; sourceTree = "<group>"; };
 		318213B5F30917FF9E1B38FC /* CCImageGetContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageGetContext.m; sourceTree = "<group>"; };
+		318214325B4A63AF590764D7 /* CCValueTransformerUnixTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerUnixTime.h; sourceTree = "<group>"; };
 		318214DA43524C0700DE8313 /* CCImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageDownloader.m; sourceTree = "<group>"; };
 		3182155A77379925139E618E /* CCImageMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageMemoryCache.h; sourceTree = "<group>"; };
 		31821668D9C7D47E85C0F202 /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
 		31821684BA6B0564A134BC6E /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		318216ADC11DE2CD65F4C444 /* CCValueTransformerToString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerToString.h; sourceTree = "<group>"; };
+		318216AF963411977C7849F9 /* CCValueTransformerUnixTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerUnixTime.m; sourceTree = "<group>"; };
 		318217617BD471F71A9F058B /* CCImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageDownloader.h; sourceTree = "<group>"; };
 		318217B2896E64AA18E36425 /* CCFormValidationPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationPhone.h; sourceTree = "<group>"; };
 		318217DAD8ECE0719A1E9775 /* CCDispatchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDispatchGroup.h; sourceTree = "<group>"; };
 		318217DB332BA8CE7F3F2D36 /* CCImageServiceCustomImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceCustomImpl.m; sourceTree = "<group>"; };
 		318217F950715FDFA5D44D71 /* CCImageLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageLog.h; sourceTree = "<group>"; };
+		31821823E7BC242804BDB8F3 /* CCValueTransformerUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerUrl.h; sourceTree = "<group>"; };
 		3182185416E43C8F980A4E9D /* ССObservationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ССObservationInfo.h"; sourceTree = "<group>"; };
 		318218D66C8F58C1B2110611 /* UIImageView+CCImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CCImageService.h"; sourceTree = "<group>"; };
 		31821938B6E7A8EFF41D85C5 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
 		31821961BB5A2B4154DC1D7D /* ССObservationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ССObservationInfo.m"; sourceTree = "<group>"; };
 		31821965F51A3CFF74B63A86 /* CCImageDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageDiskCache.m; sourceTree = "<group>"; };
+		318219AA360C9A8660034AC2 /* CCValueTransformerUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerUrl.m; sourceTree = "<group>"; };
 		31821A231FAFE37B2CDE194F /* CCTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTypedefs.h; sourceTree = "<group>"; };
 		31821A33CDD8344AF9AE47B8 /* NSObject+Observe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Observe.m"; sourceTree = "<group>"; };
+		31821A3EB6892FC38F41DF67 /* CCValueTransformerDateIso8601.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerDateIso8601.h; sourceTree = "<group>"; };
 		31821A6F657201DACCAE87D9 /* CCImageServiceAFNetworkingImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceAFNetworkingImpl.m; sourceTree = "<group>"; };
 		31821AD048458F6B4C112EC6 /* CCDispatchQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDispatchQueue.h; sourceTree = "<group>"; };
 		31821B2F840857DC85C7B958 /* CCFormValidationAndTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationAndTests.m; sourceTree = "<group>"; };
@@ -218,7 +230,10 @@
 		31821B68418F6DD42460A9EA /* CCDispatchGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDispatchGroup.m; sourceTree = "<group>"; };
 		31821BC2C3C1A1BA9CE2084A /* CCDispatchQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDispatchQueue.m; sourceTree = "<group>"; };
 		31821C74E489CA353FDD23D4 /* NSObject+Observe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Observe.h"; sourceTree = "<group>"; };
+		31821CB9BC97EFBDDA081066 /* CCValueTransformerDateIso8601.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerDateIso8601.m; sourceTree = "<group>"; };
+		31821CFA1CF8D33D17D5009F /* CCValueTransformerToNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerToNumber.h; sourceTree = "<group>"; };
 		31821D6608238549600585FD /* CCFormValidationAnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationAnd.m; sourceTree = "<group>"; };
+		31821E82412E289DB954A0BA /* CCValueTransformerToNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerToNumber.m; sourceTree = "<group>"; };
 		31821E84B9AA69201F38A8CF /* CCImageServiceSDWebImageImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceSDWebImageImpl.m; sourceTree = "<group>"; };
 		31821E9A5C9CE5A8D340E988 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		31821F4D9E4A9EC1D1DC29D7 /* CCImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageService.h; sourceTree = "<group>"; };
@@ -643,6 +658,15 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		3182130FCC581B1E39BF402B /* Url */ = {
+			isa = PBXGroup;
+			children = (
+				31821823E7BC242804BDB8F3 /* CCValueTransformerUrl.h */,
+				318219AA360C9A8660034AC2 /* CCValueTransformerUrl.m */,
+			);
+			path = Url;
+			sourceTree = "<group>";
+		};
 		3182131EE990E63A19AE1F03 /* ImageService */ = {
 			isa = PBXGroup;
 			children = (
@@ -651,6 +675,35 @@
 				31821A7D731FD7D4C4DD9474 /* UIImageView+CCImageService */,
 			);
 			path = ImageService;
+			sourceTree = "<group>";
+		};
+		318213D715745D5A1A8ED5CF /* TRCAddons */ = {
+			isa = PBXGroup;
+			children = (
+				318215190F9356F2A45A3724 /* ValueTransformers */,
+			);
+			path = TRCAddons;
+			sourceTree = "<group>";
+		};
+		318215190F9356F2A45A3724 /* ValueTransformers */ = {
+			isa = PBXGroup;
+			children = (
+				3182130FCC581B1E39BF402B /* Url */,
+				318219D576E1AFF4DA665C3A /* ToNumber */,
+				3182153CA7F335D98D2F05D6 /* ToString */,
+				31821D7027958EFF19D0C241 /* UnixTime */,
+				31821C2868A30FDCE450929A /* DateIso8601 */,
+			);
+			path = ValueTransformers;
+			sourceTree = "<group>";
+		};
+		3182153CA7F335D98D2F05D6 /* ToString */ = {
+			isa = PBXGroup;
+			children = (
+				318216ADC11DE2CD65F4C444 /* CCValueTransformerToString.h */,
+				318210298F999EB5FEBC00BC /* CCValueTransformerToString.m */,
+			);
+			path = ToString;
 			sourceTree = "<group>";
 		};
 		318215BFEBBBA39F69C8FBBF /* Categories */ = {
@@ -698,6 +751,15 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		318219D576E1AFF4DA665C3A /* ToNumber */ = {
+			isa = PBXGroup;
+			children = (
+				31821CFA1CF8D33D17D5009F /* CCValueTransformerToNumber.h */,
+				31821E82412E289DB954A0BA /* CCValueTransformerToNumber.m */,
+			);
+			path = ToNumber;
+			sourceTree = "<group>";
+		};
 		31821A7D731FD7D4C4DD9474 /* UIImageView+CCImageService */ = {
 			isa = PBXGroup;
 			children = (
@@ -714,6 +776,24 @@
 				3182185416E43C8F980A4E9D /* ССObservationInfo.h */,
 			);
 			path = Private;
+			sourceTree = "<group>";
+		};
+		31821C2868A30FDCE450929A /* DateIso8601 */ = {
+			isa = PBXGroup;
+			children = (
+				31821A3EB6892FC38F41DF67 /* CCValueTransformerDateIso8601.h */,
+				31821CB9BC97EFBDDA081066 /* CCValueTransformerDateIso8601.m */,
+			);
+			path = DateIso8601;
+			sourceTree = "<group>";
+		};
+		31821D7027958EFF19D0C241 /* UnixTime */ = {
+			isa = PBXGroup;
+			children = (
+				318214325B4A63AF590764D7 /* CCValueTransformerUnixTime.h */,
+				318216AF963411977C7849F9 /* CCValueTransformerUnixTime.m */,
+			);
+			path = UnixTime;
 			sourceTree = "<group>";
 		};
 		31821D93A75370A05346F451 /* DispatchUtils */ = {
@@ -1150,6 +1230,7 @@
 				2DBA13C51D89C87EE3A329BE /* RoundButton */,
 				2DBA1A9D1EAF3071F418C9CB /* TestUtils */,
 				2DBA1F8C6ADE36243C4EDE4F /* NetworkAddons */,
+				318213D715745D5A1A8ED5CF /* TRCAddons */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1549,6 +1630,11 @@
 				31821777B18A4A6A68DFF62E /* CCFormValidationAnd.m in Sources */,
 				3182149406362581145D7446 /* CCFormValidationOr.m in Sources */,
 				31821BE48C128AC08D118C7E /* CCFormValidationPhone.m in Sources */,
+				318216D3DB63BC45092B0C6F /* CCValueTransformerUrl.m in Sources */,
+				318219F5A32C302C8B70EB15 /* CCValueTransformerToNumber.m in Sources */,
+				3182134A94B7183D5BC763D7 /* CCValueTransformerToString.m in Sources */,
+				318214A87C965A20875198C7 /* CCValueTransformerUnixTime.m in Sources */,
+				31821318859B945CDF64A6CB /* CCValueTransformerDateIso8601.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,7 +6,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ComponentsHub"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "A short description of ComponentsHub."
   s.description  = "Shared components for iOS projects"
 
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.license      = "Proprietary"
 
-  s.author             = { "Aleksey Garbarev" => "aleksey.garbarev@loudclear.com.au" }
+  s.author       = { "Aleksey Garbarev" => "aleksey.garbarev@loudclear.com.au" }
   s.platform     = :ios, "7.0"
   s.source       = { :git => "git@github.com:Loud-Clear/ios-hub.git", :tag => "#{s.version}" }
   s.source_files  = "Components", "Components/**/*.{h,m}"
@@ -134,6 +134,11 @@ Pod::Spec.new do |s|
   
   s.subspec 'TopmostViewController' do |subspec|
       subspec.source_files   = 'Components/TopmostViewController/**/*.{h,m}'
+  end
+
+  s.subspec 'TRCAddons' do |subspec|
+    subspec.source_files   = 'Components/TRCAddons/**/*.{h,m}'
+    subspec.dependency 'TyphoonRestClient'
   end
 
   s.subspec 'TyphoonAddons' do |subspec|
