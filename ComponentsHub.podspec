@@ -47,6 +47,13 @@ Pod::Spec.new do |s|
       subspec.dependency 'ComponentsHub/Observation'
   end
 
+  s.subspec 'Environment' do |subspec|
+      subspec.source_files   = 'Components/Environment/**/*.{h,m}'
+      subspec.dependency 'BaseModel'
+      subspec.dependency 'ComponentsHub/SingletonStorage'
+      subspec.dependency 'ComponentsHub/Macroses'
+  end
+
   s.subspec 'ImageService-Common' do |subspec|
       subspec.source_files   = 'Components/ImageService/CCImageService.h', 'Components/ImageService/UIImageView+CCImageService/*.{h,m}'
       subspec.dependency 'ComponentsHub/Macroses'
@@ -116,7 +123,15 @@ Pod::Spec.new do |s|
       subspec.dependency 'ComponentsHub/Observation'
   end
 
+# TODO: remove (use SingletonStorage instead)
   s.subspec 'SingletoneStorage' do |subspec|
+      subspec.source_files   = 'Components/SingletoneStorage/**/*.{h,m}'
+      subspec.dependency 'FastCoding'
+      subspec.dependency 'SAMKeychain'
+      subspec.dependency 'ComponentsHub/Macroses'
+  end
+
+  s.subspec 'SingletonStorage' do |subspec|
       subspec.source_files   = 'Components/SingletoneStorage/**/*.{h,m}'
       subspec.dependency 'FastCoding'
       subspec.dependency 'SAMKeychain'
