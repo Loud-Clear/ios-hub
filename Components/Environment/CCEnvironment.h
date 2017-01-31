@@ -10,7 +10,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import <Foundation/Foundation.h>
-#import "BaseModel.h"
+#import <BaseModel/BaseModel.h>
 
 /**
  CCEnvironment is used for storing "environments" - e.g. server addresses, and for switching
