@@ -42,23 +42,22 @@
 - (void)getImageForUrl:(NSURL *)url
                options:(CCGetImageOptions)options completion:(CCImageServiceGetImageBlock)completion
 {
-    SDWebImageOptions sdOptions = SDWebImageRetryFailed;
+    SDWebImageDownloaderOptions sdOptions = 0;
     
     if (options & CCGetImageForceLoad) {
-        sdOptions |= SDWebImageRefreshCached;
+        sdOptions |= SDWebImageDownloaderIgnoreCachedResponse;
     }
-    [_manager downloadImageWithURL:url
-                          options:sdOptions
-                         progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                             // progression tracking code
-                         } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-                            SafetyCall(completion, image, error);
-                        }];
+
+    [_manager.imageDownloader downloadImageWithURL:url options:sdOptions progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL *targetURL) {
+        // progression tracking code
+    } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+        SafetyCall(completion, image, error);
+    }];
 }
 
 - (void)removeImageUrlFromCache:(NSURL *)url
 {
-    [[SDImageCache sharedImageCache] removeImageForKey:[url absoluteString]];
+    [_manager.imageCache removeImageForKey:[url absoluteString] withCompletion:nil];
 }
 
 @end
