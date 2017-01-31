@@ -23,15 +23,15 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
   - MTAnimation (1.2.2)
-  - OCMock (3.3.1)
+  - OCMock (3.4)
   - PINCache (2.3)
-  - Realm (2.1.2):
-    - Realm/Headers (= 2.1.2)
-  - Realm/Headers (2.1.2)
+  - Realm (2.4.2):
+    - Realm/Headers (= 2.4.2)
+  - Realm/Headers (2.4.2)
   - SAMKeychain (1.5.2)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - TPDWeakProxy (1.1.1)
   - Typhoon (4.0.1):
     - Typhoon/DeallocNotifier (= 4.0.1)
@@ -80,11 +80,11 @@ SPEC CHECKSUMS:
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   MTAnimation: 1079f4ff38c0282779ced010d7363a8f893fd3ee
-  OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
+  OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
-  Realm: efe855f4d977c8ce5a82d3116d9f1ff155a6550c
+  Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
-  SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   TPDWeakProxy: 39bf1d2675b75a1e87c38d4cd426110c21934842
   Typhoon: 7c89512070755057373a1495720fd001c276eb2a
   TyphoonRestClient: 39ab0e8ed9a6cf3fc6b6bb8295b11f2fe7cdce94
