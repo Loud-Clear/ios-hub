@@ -6,7 +6,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ComponentsHub"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "A short description of ComponentsHub."
   s.description  = "Shared components for iOS projects"
 
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   s.license      = "Proprietary"
 
-  s.author             = { "Aleksey Garbarev" => "aleksey.garbarev@loudclear.com.au" }
+  s.author       = { "Aleksey Garbarev" => "aleksey.garbarev@loudclear.com.au" }
   s.platform     = :ios, "7.0"
   s.source       = { :git => "git@github.com:Loud-Clear/ios-hub.git", :tag => "#{s.version}" }
   s.source_files  = "Components", "Components/**/*.{h,m}"
@@ -45,6 +45,13 @@ Pod::Spec.new do |s|
 
       subspec.dependency 'ComponentsHub/Table'
       subspec.dependency 'ComponentsHub/Observation'
+  end
+
+  s.subspec 'Environment' do |subspec|
+      subspec.source_files   = 'Components/Environment/**/*.{h,m}'
+      subspec.dependency 'BaseModel'
+      subspec.dependency 'ComponentsHub/SingletonStorage'
+      subspec.dependency 'ComponentsHub/Macroses'
   end
 
   s.subspec 'ImageService-Common' do |subspec|
@@ -88,6 +95,11 @@ Pod::Spec.new do |s|
       subspec.source_files   = 'Components/MutableCollections/**/*.{h,m}'
   end
 
+  s.subspec 'NetworkAddons' do |subspec|
+      subspec.source_files   = 'Components/NetworkAddons/**/*.{h,m}'
+      subspec.dependency 'TyphoonRestClient'
+  end
+
   s.subspec 'NotificationUtils' do |subspec|
       subspec.source_files   = 'Components/NotificationUtils/**/*.{h,m}'
       subspec.dependency 'Typhoon/DeallocNotifier'
@@ -111,7 +123,15 @@ Pod::Spec.new do |s|
       subspec.dependency 'ComponentsHub/Observation'
   end
 
+# TODO: remove (use SingletonStorage instead)
   s.subspec 'SingletoneStorage' do |subspec|
+      subspec.source_files   = 'Components/SingletoneStorage/**/*.{h,m}'
+      subspec.dependency 'FastCoding'
+      subspec.dependency 'SAMKeychain'
+      subspec.dependency 'ComponentsHub/Macroses'
+  end
+
+  s.subspec 'SingletonStorage' do |subspec|
       subspec.source_files   = 'Components/SingletoneStorage/**/*.{h,m}'
       subspec.dependency 'FastCoding'
       subspec.dependency 'SAMKeychain'
@@ -129,6 +149,11 @@ Pod::Spec.new do |s|
   
   s.subspec 'TopmostViewController' do |subspec|
       subspec.source_files   = 'Components/TopmostViewController/**/*.{h,m}'
+  end
+
+  s.subspec 'TRCAddons' do |subspec|
+    subspec.source_files   = 'Components/TRCAddons/**/*.{h,m}'
+    subspec.dependency 'TyphoonRestClient'
   end
 
   s.subspec 'TyphoonAddons' do |subspec|
