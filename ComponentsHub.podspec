@@ -69,7 +69,7 @@ Pod::Spec.new do |s|
   s.subspec 'ImageService-SDWebImage' do |subspec|
       subspec.source_files   = 'Components/ImageService/Implementations/SDWebImage/*.{h,m}'
       subspec.dependency 'ComponentsHub/ImageService-Common'
-      subspec.dependency 'SDWebImage'
+      subspec.dependency 'SDWebImage', '~> 3.0'
   end
 
   s.subspec 'ImageService-Custom' do |subspec|

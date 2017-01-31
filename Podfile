@@ -18,7 +18,7 @@ target 'iOS Hub' do
   pod 'Aspects', :git => 'https://github.com/steipete/Aspects.git', :tag => '1.4.2'
   pod 'CTObjectiveCRuntimeAdditions'
   
-  pod 'SDWebImage'
+  pod 'SDWebImage', '~> 3.0'
   pod 'PINCache'
   pod 'AFNetworking'
   pod 'TPDWeakProxy'
