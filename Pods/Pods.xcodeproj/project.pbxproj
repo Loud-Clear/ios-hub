@@ -11,6 +11,7 @@
 		02527DFB122F73BD3DC8C8A86222F3E2 /* OCMArg.h in Headers */ = {isa = PBXBuildFile; fileRef = BB27FC6B16B85321FAF561E96FEC35A1 /* OCMArg.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		025AACA095398188727601421D89908C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC753811AB948C6D7E2FBD763C476D /* Foundation.framework */; };
 		04077AABB35BF38DA5CD0F969D409F78 /* shared_realm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5072F12B7B4C0E5360C9FD71B4FE71EC /* shared_realm.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
+		053B0ABE4979081A074E07729A4A30E3 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CB286040198BB793AF5D99EF2ED4E4 /* SDImageCache.m */; };
 		0549902860160FCA1991D8AB0FDD8BA7 /* TyphoonDefinition+InstanceBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = C8B6A26B0BE08B1052E2DBB1997BF415 /* TyphoonDefinition+InstanceBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05A2F21AD7F4270E5F63566F56B5B08D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311369F1788D2F10F1EC15B682818CBA /* Security.framework */; };
 		071C795CC71CDDD3C56FF4FB99BAB16A /* NSObject+OCMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F243E87B33CBAEB9A13134F3402ACD6 /* NSObject+OCMAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -38,11 +39,10 @@
 		0D27F628A81E166A67B43A2D70E89ABC /* BaseModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 12A38A1667BFFE5483DF1E3825937DF2 /* BaseModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0E18FFE7DD357C5F3052B85A7546E185 /* TyphoonInjectionByObjectFromString.m in Sources */ = {isa = PBXBuildFile; fileRef = D27E84F9784E3DDD5E3CCECFB6BD542D /* TyphoonInjectionByObjectFromString.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		0E1ED31837C555C996AAD4A41709AD75 /* NSNotificationCenter+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F575C6E8274424E1B48ED7377AAAAC /* NSNotificationCenter+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0EA43C878C74C16928C4577E0AA8B4B9 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FD47C577CA3E631CA56368147BC696A5 /* SDWebImageManager.m */; };
 		0EB295E4BF984425055EC3F116B15619 /* TyphoonComponentFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C4FA263C0670063F9DA0F0E4F2EBCE7 /* TyphoonComponentFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EF10CCB77BB1A3DD3F97B42A6D12B44 /* TyphoonDefinition+Option.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B03A50823CE5CD861EC03639A5B9775 /* TyphoonDefinition+Option.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		10CF9CAA8BAC3AA3E32887305A084DF4 /* UIImage+MultiFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 766EC95B0F5BEFAF5656C9CF93CC846C /* UIImage+MultiFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		10D7AF152B75B784CABCB37F52A1AF1C /* TRCSerializerMultipart.h in Headers */ = {isa = PBXBuildFile; fileRef = F3C0DC30B7D44F47D822B15FC5803CF4 /* TRCSerializerMultipart.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1117310F95569F14848A6F572D20F476 /* UIButton+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 5276B772910C71ECF4FB7EAFADDC29DC /* UIButton+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		132426BD843C5BD639D014E44DD5CCF7 /* TRCSessionTaskContext.h in Headers */ = {isa = PBXBuildFile; fileRef = BD97C48BAC01413F73D0FE6C57226C44 /* TRCSessionTaskContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1328BE3FF15986E4EC32234FFDF0AE03 /* TyphoonPathResource.h in Headers */ = {isa = PBXBuildFile; fileRef = D89344A0A7F44EAD98230610B6E33D8F /* TyphoonPathResource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		132FBCF5F9EAB2D7FE47E2B8E9CEAC6C /* TyphoonBlockDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C447E59A3C5AAC426920FB917376756 /* TyphoonBlockDefinition.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -72,12 +72,12 @@
 		1BB7F709A08BD2D00DB76F71C6D5ADB2 /* TyphoonIntrospectionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F6DA5F7CFFB4F77797543AA2072BF5 /* TyphoonIntrospectionUtils.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0 -DOS_OBJECT_USE_OBJC=0"; }; };
 		1CD34D02EC9C728A6A039636D436F569 /* NSInvocation+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9361004470328C2B3ACD7397E5C164D8 /* NSInvocation+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1D0219C686FEC2C19D0AE4385924905C /* TyphoonInjectionsEnumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = 35C38ADBF85C1975B9665CD0A58B438D /* TyphoonInjectionsEnumeration.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1D47B789C7E0C730592337F95F2276C5 /* SDWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 253FF86DF2C283323D843E97EBF8B0C9 /* SDWebImageOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D5B6609ABE1CBA51391E3499D877913 /* SDWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 26116E33826B7EF86CF86D1F04D64A4E /* SDWebImageOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1D75E9F5EE07F939ADB7F66E50053B7C /* RLMSyncConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A1F89E05D17618DB8A2D165D16499FC /* RLMSyncConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1DCBA981F60745122CAF6D32B79BC218 /* TRCNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0FC2F7A2244104CC739DDE39DAFFBF /* TRCNetworkReachabilityManager.m */; };
 		1DEBC9F8724EB17F961C040DECBB2B03 /* RLMConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 150AD5A0BFB06D799EE502DEA3B19015 /* RLMConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F9788240E7D37DB4DE5F04FDC0E2C12 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C6239ED17610DA76895407B6AE8A8EA6 /* UIButton+WebCache.m */; };
 		20333BBFD0D24B302728FE26F003BD60 /* TyphoonOptionMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AD8AB7A7BAE22604BB39CED7EDBA183 /* TyphoonOptionMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		204CB32E7661ECA01F4180835D5A3FBB /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AF983927AF6B617AFDC515BCF58BB44B /* UIButton+WebCache.m */; };
 		208BA1ADD9B561033844FF14C42E3751 /* TyphoonAssemblyAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = AC35FF68300A5EE72FB9B3480DE08521 /* TyphoonAssemblyAccessor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		20F42D6A0F0AD8D0E68E5D151773D9BC /* TRCConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = A99EAAFC536A4C28DE7D63F92E642ED9 /* TRCConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21FE9A0F8616E01CD2960DDE133753A9 /* TyphoonInjectionByCurrentRuntimeArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = 99809BE2837BD51313A8C8804DA29162 /* TyphoonInjectionByCurrentRuntimeArguments.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -85,10 +85,13 @@
 		2268832F49032D5D1442B742233B9C44 /* EXTScope.h in Headers */ = {isa = PBXBuildFile; fileRef = A936867578B7980C6D96E51B143BA0BA /* EXTScope.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		22B3015032AEE97013F60EE430FF78EC /* TyphoonTypeConverterRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 23136243063998E52C5B1796B77E21AD /* TyphoonTypeConverterRegistry.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		22FDD7EF290A56ED72E88CF044A78DB8 /* NSObject+FactoryHooks.h in Headers */ = {isa = PBXBuildFile; fileRef = 852D7FD5CBBC16FBB592AAEA7AF1E616 /* NSObject+FactoryHooks.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2415BD28D87E36DF6CD7AAAFB7142EBD /* SDWebImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 46943E374A9E78988D35E8BAFCF07E0C /* SDWebImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24346D9D8F4BFAA42058A2CE4DEE5956 /* TyphoonPreattachedComponentsRegisterer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4305AE1D1B7DC487934749A0A1614877 /* TyphoonPreattachedComponentsRegisterer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		247457AFE19921424B346DC83840F83E /* TyphoonSwizzlerDefaultImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFCC1A05214986AE15C1DA7F7D5F219 /* TyphoonSwizzlerDefaultImpl.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2487042658E78C523608EA03F8D60072 /* SDWebImageDownloaderOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B33BA4D319DEDAA4D2018306ECAEB8 /* SDWebImageDownloaderOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24CEBB2F3E92BA405B85F70074359BFC /* RLMSchema_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 2857A85BFFAA20FD9635261FEDEB55CC /* RLMSchema_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		2529D875EBA253013FF05D79E62960DA /* TRCSchemaStackTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = DF520AD76A4E4BB2A81EF3079605A174 /* TRCSchemaStackTrace.m */; };
+		256521C4F32B8482F4A432999578FACD /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B3A26872C33A5AC143227FB222B48115 /* UIView+WebCacheOperation.m */; };
 		256B4E7EBD969140F2ED79CF8B460EC4 /* RLMArrayLinkView.mm in Sources */ = {isa = PBXBuildFile; fileRef = ACD8024004E34460DD076F28E85DEC63 /* RLMArrayLinkView.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		2579663181BFA8F7DA4B5D7CF8537FC0 /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E8FD12704C09CE5049F44D37A4719226 /* UIActivityIndicatorView+AFNetworking.m */; };
 		25954CB18F465D9FD067B6CDBB971CA5 /* TyphoonConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C857D1274A3C4F84A74CB0EA46B8106 /* TyphoonConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -97,22 +100,19 @@
 		2843898C40D365BC1361BF1CD832E9B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4832899E11927733C8B858AF857DCC47 /* CoreGraphics.framework */; };
 		28755865099BE91073B2E048D54F24AD /* TyphoonUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 6441D714042280D245E5B986C8DE8A4E /* TyphoonUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28CD85CBC8F6056977BA19DFF098337A /* TyphoonConfigPostProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = A4294FBB82E42312EC19F16BCE2BB004 /* TyphoonConfigPostProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		28D25F39CCC4C79691C8EA89420F03F0 /* SDWebImageCompat.h in Headers */ = {isa = PBXBuildFile; fileRef = 735E8BB8F08289BBD7982852FE2EDC0C /* SDWebImageCompat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		29385E46BF8CF0EDFC92B08038E7DF09 /* NSValue+TCFUnwrapValues.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D8660C4A417392AC18D78B889A942D4 /* NSValue+TCFUnwrapValues.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		293F92D976D75F6312306A77EE9D377C /* UIImage+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DBA9A71AC4DB33D31D9F7121BFD44D9 /* UIImage+GIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		294D3A6D7F9879DB8A65DDC25A9C0874 /* TRCObjectMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3451211C747A6E16B686DBCB0201FBFF /* TRCObjectMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		295B2D71E085ECA0CFE9838383C7F622 /* sync_session.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C14CFE7C445B1D8ECF84DF2FA5DB7A26 /* sync_session.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		296367E5CFDE46210DEE68F4816387FE /* Typhoon.h in Headers */ = {isa = PBXBuildFile; fileRef = F2F45751AD416FB8757B0C8AB0B41C79 /* Typhoon.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		297F631AD2B0400D81230646E837DEF3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC753811AB948C6D7E2FBD763C476D /* Foundation.framework */; };
 		298E8CF83E23B0C0B24DDEBF4C9BE022 /* RLMObjectBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AD72DA00D6154F0048A1B4CE95D046F /* RLMObjectBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		29E60F3AAD6AACDD6A50FAD4822CE7A5 /* TRCSchemaDictionaryData.m in Sources */ = {isa = PBXBuildFile; fileRef = C153F7D9B3527CB3C7505D6FE0A80B6D /* TRCSchemaDictionaryData.m */; };
-		2A3B5B56071C2835CB1337D77234A438 /* UIView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 1442C60367E8ADE1062B480FCA427BDD /* UIView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2AB58DF87C827B27748A77FD89A5E83F /* TRCSerializerString.m in Sources */ = {isa = PBXBuildFile; fileRef = CB726824238A0D04DF720DB57F06C872 /* TRCSerializerString.m */; };
 		2AB5ECF16062761435EB9F1EC5DD6D0E /* TyphoonBundledImageTypeConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = E31D897403B45FA8F3435E1E666D623C /* TyphoonBundledImageTypeConverter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		2AF79581C364E78E56983F86BAE52FDE /* TyphoonInjectionContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 634365392957D4716726A2A86E61AEE7 /* TyphoonInjectionContext.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		2B19092F98FC0EF75E5D2EE6E331BC90 /* TyphoonInjectionByReference.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BE9A1EB21988FE00A1B348BEB91E28F /* TyphoonInjectionByReference.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2B448C1250516CF7970C11D3EBB381EA /* UIResponder+TyphoonOutletTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BBAF9815F7CC5B2FB2AA42FE187D2C /* UIResponder+TyphoonOutletTransfer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		2B5E191265F2E8C4AE4D943FA947D896 /* SDWebImageDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = CD28370379B4E019299F2799027FC1A3 /* SDWebImageDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2BEFAB38794C118E21822DC5C79AA04B /* SDWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E081A91828A6CD49D84FDA4B5C67B2F /* SDWebImagePrefetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2C1D4CE81545EEA0D8346958564790F9 /* TyphoonMethodSwizzler.h in Headers */ = {isa = PBXBuildFile; fileRef = 155989816E3E5BF172E970C74F7C493F /* TyphoonMethodSwizzler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2C29ABF82C3C7C0F5DE3AAA4C2975375 /* OCMLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = CC0BBF670B39F9B41BE1904E11BDE2AB /* OCMLocation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2C5F3708770246E25E25C9C6C94DDA7B /* RLMListBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 010C23F20A24244C4F382DA813805867 /* RLMListBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -131,7 +131,9 @@
 		34506CD2AF2EBBEE51082A2C3750C811 /* TyphoonBundleResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 980F70199815999E47D77D226BDA6246 /* TyphoonBundleResource.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		347134F4621C46EE9B36775B26280C7A /* object_schema.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F4A2639D15F0119AC68915AB7E1FBD37 /* object_schema.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		348BE161886E0726630D2347B7261AE9 /* NSObject+PropertyInjection.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D74E6486B7EB63479634E86BC4876B9 /* NSObject+PropertyInjection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		34E8C4E099861400682BA26974489079 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 063BFB54D061338D999672171574C879 /* UIImage+GIF.m */; };
 		35564C0DE46480CD1416A5DE56D87C03 /* RLMSyncPermissionOfferResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = FDFF588943E897FCBE88F4DE30CF0617 /* RLMSyncPermissionOfferResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		355C4FDBB06ACA1EEF3D2B85E898AC8F /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = B72FA9BCFB90E977020A6AECA3A28AF6 /* NSData+ImageContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		357DAFB6F3BED6FDF91F1DA493491D19 /* RLMRealm.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E8D4F2F5131687C8A4E36E73E67A52C /* RLMRealm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		35C6410C18D294CABCE7192958012E54 /* TyphoonInjectionByRuntimeArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 914E6614DE8C6A972A304CFA4890542F /* TyphoonInjectionByRuntimeArgument.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		35D2B74E85F082E342108C039267C19A /* TyphoonInjectedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 467531F820045B400EA083A69513146A /* TyphoonInjectedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -147,12 +149,10 @@
 		3971515C7CD8837001784D6FC78613B0 /* TyphoonComponentFactory+TyphoonDefinitionRegisterer.h in Headers */ = {isa = PBXBuildFile; fileRef = 369BABFC9CB6731CACF4E06EFB12DFA8 /* TyphoonComponentFactory+TyphoonDefinitionRegisterer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3985AA777206571F79FF5188D6C13352 /* TyphoonViewHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AA5538EB3E46BBEE3E38A48C326317A /* TyphoonViewHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39A27D69F60237298C1EC035AC223CF4 /* RLMListBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = A31AC24159D17B0F8C238686522C2D0F /* RLMListBase.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
-		39FFCB7275ACE67359D718E7D2FBD5F1 /* SDWebImageDownloaderOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 858B72A4F8976F85BA11C0A8DFC687C7 /* SDWebImageDownloaderOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A2E4ADCCFCFB88C561BD1ED9CB88CB2 /* TyphoonAssembly+TyphoonAssemblyFriend.h in Headers */ = {isa = PBXBuildFile; fileRef = EA8599E8C332DD544C004E31DADCF535 /* TyphoonAssembly+TyphoonAssemblyFriend.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3A3E87D07A2F7693C82ADC60E0848415 /* TyphoonFactoryPropertyInjectionPostProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D4B3D38D3D98C0B3FF8E2EA6AC990D8 /* TyphoonFactoryPropertyInjectionPostProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AB05E1B5B3B0A9947C56FBE86B6E2AE /* TyphoonObjectWithCustomInjection.h in Headers */ = {isa = PBXBuildFile; fileRef = 517FCBB06C5B6DF77DAC5A7AD56B17B8 /* TyphoonObjectWithCustomInjection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3AE9D3C41565CB178733858E51996FD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4832899E11927733C8B858AF857DCC47 /* CoreGraphics.framework */; };
-		3AED62062CA6333F9D07B072417843D5 /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = A61B13564013E8A8878094B4DB76BD34 /* UIView+WebCacheOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3B37DDF5680D93FB57A7D04012502F1D /* TyphoonComponentFactory+Storyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = E15D6EE4F06A741FECA0397C0BD41FAF /* TyphoonComponentFactory+Storyboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3B6D94894BA70F194950ECA4086BB51A /* NSObject+FBKVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = E177F8C847A8A594A664113EA8EF419D /* NSObject+FBKVOController.m */; };
 		3BAD94B400BC6C3265E3B10BD938948A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B30D7D9906CB43F577DAFA21316545 /* UIKit.framework */; };
@@ -169,13 +169,13 @@
 		4098094A3A41A6AD38ED4C1A6C205C39 /* TyphoonInjectionByReference.m in Sources */ = {isa = PBXBuildFile; fileRef = 14892B740376D6F4C210E16EC5127EBE /* TyphoonInjectionByReference.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		40BA2C54E635E70E3721EEF46153A898 /* NSObject+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B53B256F3F457AB344684C56D712850 /* NSObject+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		40BE9640ECD0F85906CF3491BFC0354A /* OCMInvocationExpectation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5D72193CEFB120CC0AE5A6F4D79BA10 /* OCMInvocationExpectation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		416DEE5C2AD5EFB87B89A19233D2276A /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = D7E82060AAF40FA54364990848F73FDC /* UIImage+MultiFormat.m */; };
 		41B44EC9ADBC48D8ADD601284B6AE486 /* OCMRealObjectForwarder.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EB0BB42B5BC430F13B7DF58FF0DC79 /* OCMRealObjectForwarder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		42046743618B167BCEB6214E5CBDE6C1 /* OCMRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D9FABE29E04C429107659E749783868 /* OCMRecorder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		42C51BEB85A645220133CFE56E3F6D63 /* CTObjectiveCRuntimeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A92B889FB07C455F5CF177FF5F1217 /* CTObjectiveCRuntimeAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		435753BD3FB0D7FBFE119AD224CDE298 /* TRCSchemaDictionaryData.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A8A90CE90BE08C2943D568A74E2A537 /* TRCSchemaDictionaryData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		451256100D23809A8BB5B630063AE327 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ADF62592B1327752830C317FB7F262B /* UIImageView+WebCache.m */; };
+		44D87221AE111FD16F57BF64A873933A /* SDWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 50553BE96424740B0FE217CCD0577C7E /* SDWebImagePrefetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		456DB849F630FFFE3CEBF9D5B9D5AF9A /* TyphoonInjectedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AD451BBEE1C19DA7D9334F2D93C0FE06 /* TyphoonInjectedObject.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		457097DF70C1F3985926890188A27996 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AA284DB0D1123E251E6966051179F8 /* SDWebImageDownloaderOperation.m */; };
 		4609DFE3BB01019A6769F689056DBC51 /* TyphoonStoryboardDefinitionContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 6670ECF2A00F21A9291B0B583A446C40 /* TyphoonStoryboardDefinitionContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46401F3C7FF0B0CFE2E9B14914780835 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 01863D565D2451B7E931FF4DFA6C37C4 /* AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		467D3C4FC8236D0EB7A63BB718DAC3FA /* TyphoonStoryboardDefinitionContext.m in Sources */ = {isa = PBXBuildFile; fileRef = FEFA86F1E554944C2EDAEA3AA4A081A1 /* TyphoonStoryboardDefinitionContext.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -188,14 +188,12 @@
 		4ABF7EBB30E3679902E6452E9DB25DDC /* RLMArray.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5F9E952D598E734B3899DB391ACFC39F /* RLMArray.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		4AF89209B993C00DECBBF45B1AC116FC /* TyphoonDefinition+InstanceBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 193F501641FC5B52992417D3BB509F8E /* TyphoonDefinition+InstanceBuilder.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		4AFFD30CBEE484E078AE17039DA3D62B /* Nullability.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D9AF24F19B0B79CCEC47F2620FEB5EE /* Nullability.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4B16909B6C97D0F8D1DE072DE8C6406F /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = 22B0E0750079404BCA26B79C93734B6C /* NSData+ImageContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B2BC2AA882BE8F1715CD2D128DB486C /* RLMObjectBase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9037B304CF305B128784F501A90C48EF /* RLMObjectBase.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		4B4BBDB8C7D7D0EEBC283BE8B74DD9C9 /* RLMSyncManager_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C3F36C7C3B1B1CBBAFA1E5E866541FC2 /* RLMSyncManager_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		4BA959EF8739274EC08DD582DF28E21A /* index_set.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 349C278A36BB0C4176A40644B3BC4A5C /* index_set.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		4BA9C7D6D8F38ADE595007DB5D815367 /* TyphoonBlockDefinitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E8961647CA0D092E7BC13D59DF7EC81 /* TyphoonBlockDefinitionController.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		4BB61BA1441CC3F4A7B2B2AABBA197F5 /* TyphoonMethod+InstanceBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8381D9FB32557423838EF64CA0212818 /* TyphoonMethod+InstanceBuilder.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		4C27041395EC9F9AFCB02A3F6242EC0B /* RLMSchema.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F7FF5F6654E8E6A93AB55C1E4695F56 /* RLMSchema.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4C2D1D86F2E4DF2CA362B86DAAB2D2EE /* SDImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 57DCC1CD41FECC69D2BCD85FB1702AD7 /* SDImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4CF71C074892F5C0B734EBDE2A13B957 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC753811AB948C6D7E2FBD763C476D /* Foundation.framework */; };
 		4DD2A1EC32FE829E6854BD77FEB11894 /* Typhoon-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 417CA1C81D79C2F576852E54EAEA2575 /* Typhoon-dummy.m */; };
 		4DEAA47D071E57EECAD1D5786E5A84A2 /* TyphoonSwizzlerDefaultImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = E04E7A47FB327A6AED55403AD2B6CB88 /* TyphoonSwizzlerDefaultImpl.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -248,7 +246,6 @@
 		6167CD730A94A408329EDA8C85EE0E68 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC753811AB948C6D7E2FBD763C476D /* Foundation.framework */; };
 		61A2CDFB79F0E69C19B4331034D96FF6 /* RLMThreadSafeReference.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1DAFF5E2BE359C9EF8CF9ED110F3550D /* RLMThreadSafeReference.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		61C8EF121D2CC7380FE0363107FDFFB1 /* TyphoonViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C7C69127043C68D293DED928D0360 /* TyphoonViewControllerFactory.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		6200440547ACA9ACDA9A83323AEE85ED /* NSImage+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F00257649FC8684E304C2CE45860E5E /* NSImage+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		621D2C1BA7CB45FA9B66EF637CF7ADE5 /* FBKVOController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0957BB460053B8FCDD4C5219095D2DBD /* FBKVOController.m */; };
 		62385C462979E3B807D91F832F4498FC /* TyphoonInjections.h in Headers */ = {isa = PBXBuildFile; fileRef = D57F7F99CB39D614A3787FACBAE03CCE /* TyphoonInjections.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6239AB839A4F9FE4953AA410600CFF3D /* OCMRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B7D8361D0937BAF0BC9651757F2A60A /* OCMRecorder.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -275,14 +272,12 @@
 		6B3DDD8ABD75C0B672CB1D140F753049 /* TRCPostProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DC751F78029F4055C26B4E603BA1FC1 /* TRCPostProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6B71CE5BA32574F407349C1DA20605B4 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D5D2D2CFB2B8ECC2B3B07883A51D346 /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BE3CA596B2054FBA6BBE795D813542B /* UIView+TyphoonDefinitionKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 59974DB8EF6D08E1BBBE109A45370207 /* UIView+TyphoonDefinitionKey.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		6C3E42FFD9FC734362570C350F0F4B3E /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = ABDB7D853E0A0F90BED63E9443B74FD1 /* SDImageCache.m */; };
 		6D0B725F54D2A06495336F070655F6B5 /* TyphoonWeakComponentsPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 79CD963F4804BD40E4CE1AC9D115F014 /* TyphoonWeakComponentsPool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		6D346E0F4F497F270D1B4FD7D26E0A44 /* thread_safe_reference.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 77027293A0F02067C83BF8C735408700 /* thread_safe_reference.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		6D425653C6BAF07E0833A104C2FECF11 /* OCMExceptionReturnValueProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A90CD1CD99AAD35EFE7D3599EFDA1F /* OCMExceptionReturnValueProvider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6DB0D6B43061B75E6719F732007C8D0F /* TRCSessionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = BF4BA0DF2A7E86548446FFF69CA3C4ED /* TRCSessionHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6DDDC6D01259A53B54C5B27A93007F3D /* NSInvocation+TCFWrapValues.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC4515E5BD47276D5F1CA7BF6981678 /* NSInvocation+TCFWrapValues.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		6FC332E8DA71DDE87DD064555244DEE5 /* TRCValueTransformerString.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F06716B30E0A0809DCE2B13A067AE9 /* TRCValueTransformerString.m */; };
-		702C0E1DB02F7237DC7E5161C6B2B841 /* SDImageCacheConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CD410395FB7D5D5C6D322C6D085719B4 /* SDImageCacheConfig.m */; };
 		7051BAAD9F42985F1F261E7073D09C87 /* TyphoonInjectionByCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 78AF74A40E9FD9BFBCB9AF20808B6367 /* TyphoonInjectionByCollection.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		707E818332E5033501DF2D7826C639DF /* AFImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C43CB476C030552E0D5A14D12A7B89D /* AFImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70E16DE10FDF2D20AEB93267DCA7F090 /* TyphoonAssemblyAdviser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4766F04FB10FBF30D19843E233FEB81F /* TyphoonAssemblyAdviser.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -311,19 +306,20 @@
 		7BC2AD0C68C9554580CE54697D6F76DB /* TyphoonAutoInjection.h in Headers */ = {isa = PBXBuildFile; fileRef = 28B57ED0E47B0C4574548BEF20F8A8F4 /* TyphoonAutoInjection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7C4025B59A72855E60FBA1A3CC554F73 /* TyphoonLoadedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D5B9E5D5790AF6FE5502F08334ED0AC /* TyphoonLoadedView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7C5FE7F5082D00CBB0568C9D5889E535 /* TRCSerializerImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D9D71E3ED2BF610AB709B6F68F02A6B4 /* TRCSerializerImage.m */; };
-		7D84912ABFD8556C6C388913BF70A8DB /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = E149E3DC7947DE5C65884B8E7FE81FE1 /* UIImage+GIF.m */; };
 		7F21C1CF8EB3135F8341EF01A402861F /* TRCSchema.h in Headers */ = {isa = PBXBuildFile; fileRef = 57561D51269B6B10146EEF4F6990DBCF /* TRCSchema.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7FE094EA68D9804D4A50E4C6107D32C7 /* TyphoonInjectionByCurrentRuntimeArguments.m in Sources */ = {isa = PBXBuildFile; fileRef = A693BFD17D880BD2A9BBCB2EAAA4BDF9 /* TyphoonInjectionByCurrentRuntimeArguments.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		8026773F83457E67145F3B6762E4EA1F /* TyphoonStoryboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A0F980ED22DDD085DC8A8C69CDA8CE7 /* TyphoonStoryboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		808707A07B58BA14F9B789D985153C3E /* TRCSerializerPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = A74FD2ABDF6CFAABAF8AC211A97D3407 /* TRCSerializerPlist.m */; };
 		81F02A69CCDADEA32DC58FAB4BF6880F /* TyphoonMemoryManagementUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = EBC0D28F2EC92BE8E256B11B12BB6004 /* TyphoonMemoryManagementUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		828BADC5729BF1287CCD1114F2B5A0B4 /* OCObserverMockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 964A88C8EC07D8BBE6FA628734F3498A /* OCObserverMockObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		82AB1848F6B17592D7755F58E6015634 /* SDWebImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E947024FB5A78EB208412E531F7D5313 /* SDWebImage-dummy.m */; };
 		82D399856E726D146866C939A04C37C1 /* TyphoonPreattachedComponentsRegisterer.m in Sources */ = {isa = PBXBuildFile; fileRef = 60ECA2086A5501AE07D9D40C6EB9D2D1 /* TyphoonPreattachedComponentsRegisterer.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		8301A676ABB86417243A607F0B5B8A7B /* TRCConnectionNSURLSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 1252A5DA40A65FB58D5FAE4BF26FFA34 /* TRCConnectionNSURLSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83295140CABC55514CD947F63F738306 /* RLMSyncUser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6B299BF916C772604B927961457B70E7 /* RLMSyncUser.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		8376E391D1DA98F25B7A66D4568CC8DC /* OCProtocolMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 17DE2C17058E4A70B6DB307F7B3D3792 /* OCProtocolMockObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		846A95339D88D7CDDF12D5530E4D1E43 /* TyphoonTypeConversionUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = CBC2DCF2020B42077A8A67ADC31B7C53 /* TyphoonTypeConversionUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		857968810E16AB0B42FA993C71F73469 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC753811AB948C6D7E2FBD763C476D /* Foundation.framework */; };
+		85891B4CD7885C9C460DC15E5CBC23B5 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 00DBDE209AE5BCFDE1FD3B3A2382C90B /* SDWebImagePrefetcher.m */; };
 		85D30678FF4F0AB306399A368EAA46B2 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BD1BDFA25D6075B1F302D538D044887 /* AFURLResponseSerialization.m */; };
 		85EA86731830DF3E9EC27AD32AB66C4C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC753811AB948C6D7E2FBD763C476D /* Foundation.framework */; };
 		868EDDCF8D50052A1262B33D8DA9A0BA /* OCMFunctionsPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = F55E393A1E8095ACF9F102C7338DE2ED /* OCMFunctionsPrivate.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -332,16 +328,13 @@
 		878DEA65C106520060470C9E122741E7 /* MTMatrixInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B339B7A5577E646744E36351B16B82B /* MTMatrixInterpolation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		878EF6E6D7174BE1D010F3B73211BA19 /* CTObjectiveCRuntimeAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 84E027B8B1CE0F7D2FC383F50DD42F3A /* CTObjectiveCRuntimeAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		88B52F1339B59C1AB2F38187EFA4C802 /* TyphoonJsonStyleConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FEEB1AB48ECAA8AA5F5839A8150ED71C /* TyphoonJsonStyleConfiguration.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		88E2E7F097DBBD6A5FF9504C99BFAD5F /* UIImageView+HighlightedWebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 5349202112058540D82A6C3ED962A7DB /* UIImageView+HighlightedWebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		892529A6AF3F7009BE3F64DBDCB3E6D6 /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CABC2E7D0ED56B925581A33FDA711FD /* UIView+WebCache.m */; };
 		8958F2453EEBAF71BFEBD78FB48986EC /* UIWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 775D6E4D65A15CA4A743CB7696829807 /* UIWebView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A2C5CF2D28776EBB3B9EFF562CCCFC2 /* KVOController.h in Headers */ = {isa = PBXBuildFile; fileRef = 929C4EB3BABEACDB93DD00FF83669375 /* KVOController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A426D1F04C27A315AEA52936495B7B3 /* TyphoonRestClient-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0E92EE2D2932D2C1441EE3EF1B3258 /* TyphoonRestClient-dummy.m */; };
 		8B1E1A45E0B423395CE2A513BB1B1010 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5817772794AE4D81CB064EE17EF7F073 /* MobileCoreServices.framework */; };
-		8BD11BF326D028F9338EE61B549A2011 /* SDWebImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = D1D178E16DBF55FBE87EC2C31843BA4D /* SDWebImageDownloader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8B5DF688E8D2D6A64DF0DBE575402465 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = E05A60871C57841298DE7E3BE9ECBB52 /* SDWebImageDecoder.m */; };
 		8BDF00D2677C6A72B546ECFFBAD4C059 /* TyphoonInjectionByType.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ECD4B6C4240A82EE061817D8879007E /* TyphoonInjectionByType.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		8BE4D550FA6166EA76C4E6367A5A06DC /* TyphoonComponentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F56E0FB9EC6A2E047F9637C95DE5E4D /* TyphoonComponentFactory.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		8BEC029D7F31749C0ADE981F2056819B /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F6DD12869214E727CEC7624B4427CBCF /* UIImageView+HighlightedWebCache.m */; };
 		8BF0564304272D7B9EF81C48D41D7E32 /* RLMObservation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 35F21294F4E7AF6517EFBB06A65D7181 /* RLMObservation.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		8C0953C1AC4AB2190448FF3A55C62E0D /* OCMArgAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AB6AE893861A1F51579E018CA7C3E2B /* OCMArgAction.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8D32EEADD91B47CFE04919FED5D56BD1 /* UIView+TyphoonOutletTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = CC7839A3C94D5C6CEFBFC71F75A2B389 /* UIView+TyphoonOutletTransfer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -352,6 +345,7 @@
 		900551B0CAB168E93BCEC3EF662E2FA7 /* TyphoonPassThroughTypeConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EFB5D715257187E3D9A88AFB84D0B45 /* TyphoonPassThroughTypeConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9017782FB9B264E389DDADE8093E0E7E /* TyphoonCollaboratingAssemblyProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = B9C01592396C5B7E4BA53A52442AA05A /* TyphoonCollaboratingAssemblyProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		90A159049A1FC51E79F53DC969281653 /* TyphoonInjectionDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = EBE875E2E064D067B0EF31171A3A698D /* TyphoonInjectionDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		90B751DA43AD9FB6F6F20D2011B3EAB1 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7FC740D4BEE70BD8FE757EAAB5F56E /* UIImageView+WebCache.m */; };
 		912BB2BBF10C7FB00B44A81000A1BAA5 /* RLMNetworkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 13F634E041432BD2A7E7810C5BB608CB /* RLMNetworkClient.m */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		9173C61244ABC566FB1C033C07AE2D5F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC753811AB948C6D7E2FBD763C476D /* Foundation.framework */; };
 		920A24D9C37F9FBF4A76EAECC69E2C75 /* OCMBlockArgCaller.m in Sources */ = {isa = PBXBuildFile; fileRef = 2354FACA5D43DAB6B4754B6AF9E85673 /* OCMBlockArgCaller.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -364,12 +358,12 @@
 		9404E43F7B1FAA14F174E5E90EA2C46C /* TyphoonTypeConversionUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C5CE120CCD2A931DFA84664B23241216 /* TyphoonTypeConversionUtils.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		94D2CC8E7ACAE1AFEDF1F4AD8511D49B /* RLMClassInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0318238D56039BD8D403F40E5DDC9EAD /* RLMClassInfo.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		956A09CDF2CD80A3CBC7FD9A08127469 /* TyphoonIntrospectionUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B86390448927AC9E7A4889BA68223D9 /* TyphoonIntrospectionUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95B5F3E5D54294E27C11AF8CE535AAA1 /* UIImage+MultiFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = E97C2467A1705B94CBB00593061B0EFD /* UIImage+MultiFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		972A4220F1E6DCFDB7A133F086550C08 /* OCMInvocationExpectation.h in Headers */ = {isa = PBXBuildFile; fileRef = DDE40CCB7046A2697842285E629ECAC0 /* OCMInvocationExpectation.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		97A86FAAD4B1AD9B3292FF6AF1D8F82B /* AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C6440487519DF55C11064A2EEFB76D35 /* AFNetworking-dummy.m */; };
 		97B790F0A20183A1FA3941A5FF23E348 /* RLMSyncCredentials.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B56E772E50AEF766D3A2F431FA162C /* RLMSyncCredentials.m */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		989AA536E0FEF60516A22096200F8040 /* TRCSerializerHttpQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = FF4094E283D34C85E5CEC8FC770F3430 /* TRCSerializerHttpQuery.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		996A8948B5534EFAD76E2315993F4C65 /* TyphoonInjections.m in Sources */ = {isa = PBXBuildFile; fileRef = F7AADE434CE2BD2DC507E2A5DA7EED5C /* TyphoonInjections.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		99912A5B3A9097CDE5604C9008CCFE39 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D6F61C69AA13D702F23D89D2123BC9 /* NSData+ImageContentType.m */; };
 		99C031328DB2D08B02AD6812009E4B19 /* TRCSerializerImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AEC316C111B8D3CCF77802EA487B88E /* TRCSerializerImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A74DA82A9D3063746279C945A504066 /* OCMExceptionReturnValueProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = CB8CA9D92A70EF42532930AFE1EAB926 /* OCMExceptionReturnValueProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9AA180AC9D8DF08064A18149F30D0D30 /* OCMInvocationMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B61DC59664054B2BCD2A0159579DCF /* OCMInvocationMatcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -378,7 +372,6 @@
 		9B20D4FF863ED18A6CF7BBF05EB933E2 /* Collections+CustomInjection.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6E9F0CB995257BF695A5A55C11CA74 /* Collections+CustomInjection.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		9BA40BE21FCBC8FFEF42197B3903E633 /* NSObject+DeallocNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 77B5E4FE0E69C10ACD22C2328334696B /* NSObject+DeallocNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C75C65A5CA91B887EFF9508EC0D3111 /* collection_change_builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22D858D0C19433CAFA9C84398BB0CFE6 /* collection_change_builder.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
-		9D1CB563953D925EE170D3A325F1C13E /* UIImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 27C66A3DEA85CE4EB99C608B8EA8EAC3 /* UIImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D32F9C0265ABCCE91D981F26FC6957C /* TRCSessionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DF536874899B9BF07CC8FAE8BFE95D /* TRCSessionHandler.m */; };
 		9D6926B60DD04448C4BDDD147AEFC492 /* OCMInvocationStub.h in Headers */ = {isa = PBXBuildFile; fileRef = A214F36D90C10D365E85FB10D0DC0928 /* OCMInvocationStub.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9DCF0CA81317EB52A2BE694938104457 /* TyphoonInject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4874EBAC7A7A7BB52A6290144C751463 /* TyphoonInject.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -389,6 +382,7 @@
 		9F5E654276D5C01F97058BA1575D6D43 /* TyphoonInjectionByDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB53CD08E7B3859B1E97C2ACD91D381 /* TyphoonInjectionByDictionary.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		A0268C351BA54225AD7E5EC2EFDAF019 /* TyphoonColorConversionUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C742F2B41199DFE12218E7B0C9FB294 /* TyphoonColorConversionUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A02E787E417D3D6F485C5D909F7F4BBA /* TyphoonAssemblySelectorAdviser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CC56618EA5CB707277145DC5FE7218D /* TyphoonAssemblySelectorAdviser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A06DE2BBFC26321043D3CBB418252048 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 211EDE7519448A199C27112B106FAA2F /* UIImageView+HighlightedWebCache.m */; };
 		A126D9AF407E3DB27C5EC7AB713AD531 /* CTObjectiveCRuntimeAdditions-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C4B2909BA7D96313B505B5859831A191 /* CTObjectiveCRuntimeAdditions-dummy.m */; };
 		A158B2012E66263AA7AD3F35E2087E61 /* RLMSyncUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 413453E58B222BACE699D241BF6A7A48 /* RLMSyncUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A15FEBD350D9AB0E26CEA13716C7EB99 /* TyphoonDefinition+Option.m in Sources */ = {isa = PBXBuildFile; fileRef = 779B1368636E9368F7A78E541236DBBC /* TyphoonDefinition+Option.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -398,11 +392,9 @@
 		A1D853D93EC29064C7CD9D0D1A857CF4 /* RLMPlatform.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B28F06F0ED281CD5600C7838979C613 /* RLMPlatform.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A207CC86B82394EFFDA8454D1025AE27 /* RLMSyncConfiguration.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7852AA7294C6885E0A98277B24802591 /* RLMSyncConfiguration.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		A26BFD6F4C9541BB37D42E93A7D83024 /* collection_notifications.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 34BF16F17FE95ADC62CDF1F4BB1F32B8 /* collection_notifications.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
-		A27514B66DDC87DF02F8496407F43F72 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F7B9F52B5A612DFDF0C1106DEEB2D68F /* SDWebImageDownloader.m */; };
 		A277AD9070E44BED5A7DE0B1D64D6F15 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 50A8D1F2F56C4BE2D8B440E9539927D7 /* UIImageView+AFNetworking.m */; };
 		A2BB29196011A7F3C269A5E1B15045F7 /* EXTRuntimeExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 10CD3F79DA70A3FC8B5AD590EB42F7A4 /* EXTRuntimeExtensions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		A362A26D2BB4D40A46EB6D3B738501C6 /* TyphoonStoryboardResolver.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC24BBB78B0035AECDB956A8C37A9F5 /* TyphoonStoryboardResolver.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		A39FDD06A26815866D94DD7812C85889 /* UIImage+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = D8ED0236BFCDBD063A2198E860F061A5 /* UIImage+GIF.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A582F5F461650EBA82AD0033BB1A97DE /* RLMSchema.mm in Sources */ = {isa = PBXBuildFile; fileRef = 505DEFD50513E59FFA12A1C621D44623 /* RLMSchema.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		A5D01C0859D0C39BFDB709649D3C3F54 /* TRCValueTransformerUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF91BC78B99D6CFBF960522D473615B /* TRCValueTransformerUrl.m */; };
 		A61227D729ABDD68E5E932F32B92DAFB /* TyphoonInjectionByCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = D19966786D0A35CB2A8DD955C3AFD5CC /* TyphoonInjectionByCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -425,7 +417,7 @@
 		ABE413C1A7ACC6ED46BD405CFCFDB277 /* TyphoonRestClientErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = EF5810A2CB64461B482BD5E1C9DF5F42 /* TyphoonRestClientErrors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AC175EEDDF46312AAB68B4AACA138E6C /* TyphoonInjectionByConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 795FA1EE126A0006C4797A806C274064 /* TyphoonInjectionByConfig.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		AD00C27AC02A505D8338B510154F4781 /* PINCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 34831F68BF9F44C7F07AE5E7129FA93A /* PINCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		AD927E2C95D8642AA185D6B26E120151 /* SDWebImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 51576BCB474D3CF8F22A269E140ADD54 /* SDWebImage-dummy.m */; };
+		ADB7D3A0C74917DE5202AAC35B5E396A /* UIImageView+HighlightedWebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 20C3DDEB5AF2DC8115B264A87695E16C /* UIImageView+HighlightedWebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ADC62BCF0918474F717764D2CB10BEF3 /* OCLogTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = C64B7E013178C05AF42E9CF3CC2C08F5 /* OCLogTemplate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ADC80FCACB61F93BCCB74CD89EC94901 /* TRCConnectionLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FFE5AF329104C4FD4916BBEBA58476 /* TRCConnectionLogger.m */; };
 		AE3A2480D0E3744FF83A1A334674E8E2 /* TyphoonParameterInjection.h in Headers */ = {isa = PBXBuildFile; fileRef = 31E7BFDDBCC745CA24C06FC868AA759A /* TyphoonParameterInjection.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -440,20 +432,24 @@
 		B11CF18B19C2DC8C3C4CA8067348F695 /* TRCSerializerData.h in Headers */ = {isa = PBXBuildFile; fileRef = C4B9CBF2BCADB1FFD5FD2196E26586D7 /* TRCSerializerData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B1AC1794DFE45C57D210A79052838297 /* OCClassMockObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C2CC7BB952D081315CFB2C93A1D35CC /* OCClassMockObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B1C7C41369C4FDED19ED391EFABF908E /* OCMBoxedReturnValueProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = E4F1FB5C20884185A3DFF7D3AFD70AC1 /* OCMBoxedReturnValueProvider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		B21299A86E4305967B3480976F1D7CAE /* UIButton+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = C4C5771D5ECFEC5FAE5DEA36EF05B35B /* UIButton+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2D7CE287948D85593480315BED62FD4 /* TyphoonJsonStyleConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = ED94F8E9880224AD55BFA52D3DCDBB5F /* TyphoonJsonStyleConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B30E6074A0745FDC1653EF5DFEA92E1B /* FastCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 529ACCC793E5B249565B23F6B537736A /* FastCoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B40756412613B53C80EE77C4C223990F /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 1780D840A38682A57B5F3C88DA6164E1 /* UIProgressView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B426881B2F61614429247B183826F04B /* SDWebImageDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C28B867A13DB8CFD80B4BD1E30C5EE4 /* SDWebImageDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B44505FA5ECA17E16DC365299A89046D /* TRCValueTransformerNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B329610FD88BDAA81DAF32E0105C4D /* TRCValueTransformerNumber.m */; };
 		B468C5ADC312E1039FBE55D1A2BBF7E8 /* TyphoonComponentFactory+InstanceBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E5DDCC214EF61272F9317D661C68B3B /* TyphoonComponentFactory+InstanceBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B498D48FEFB9850E483604EA88AB6051 /* TyphoonMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B6A5C81AE6AC847A5FFC748CE7B410 /* TyphoonMethod.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		B51EC73206B1EFE3CEF9EA975091A0FB /* TyphoonAssemblyBuilder+PlistProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 8173F5598BF80F888540AD1771393F33 /* TyphoonAssemblyBuilder+PlistProcessor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		B56AF72E3ECA3157DE6B94B7C39122E6 /* PINMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 51042111F08FCE1F022E5F88FCE9CAAA /* PINMemoryCache.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		B5DEEA5DDE37B1B085974618A6BE013B /* SDImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CC1B5BD25AE5B9860C550EF8A11C4CB /* SDImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B6462885514D2F90665D9DC354A0296E /* OCMVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C011E4F0A5FF73E6831449CDBD996D /* OCMVerifier.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B69E38DB42BC39E2B1002A4E5127351B /* TRCSessionTaskContext.m in Sources */ = {isa = PBXBuildFile; fileRef = EF383FE337D3B90D0DEF75D08DC24B08 /* TRCSessionTaskContext.m */; };
 		B6EB37757FD418261827318C474C6D46 /* RLMResults.h in Headers */ = {isa = PBXBuildFile; fileRef = E8FF1AFEBB11ADCA19391D81FD5094A7 /* RLMResults.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B7A14E56140C43625C06AFE262B4066F /* TyphoonInjectionDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = D222AA9B2EA03D43B956D8E2D7351764 /* TyphoonInjectionDefinition.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		B7B4C6A816F863DC1543CC5CD9FE5076 /* transact_log_handler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB12EF556531AD0973DEA0A618C5DB5A /* transact_log_handler.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		B7FDF728CF6DFC9817511A7AA5FC0420 /* TyphoonSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = BDBE89A8B45FE901F347B40F185C2252 /* TyphoonSelector.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B7FEF3988FE98D279B0FA63837C299F4 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC7B798966C656892A4EF71DD40D47A /* UIImage+MultiFormat.m */; };
 		B80049D64BBB91D2E2CF63A7FC58FFB5 /* TyphoonStoryboardProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 43E769F23503E3E94EA4A3CC538A3BBD /* TyphoonStoryboardProvider.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		B805C5FF5FD8D7890DD5F8F2644E0481 /* OCMFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = CACD36DE58A10C60657440156BF56A14 /* OCMFunctions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		B817D6204F6ACCA95335FCE4B9D0D606 /* TRCProxyProgressHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = D42612773D898D1C485CE399D1F8A3B0 /* TRCProxyProgressHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -466,7 +462,6 @@
 		B9D3215155772C882CA3E2BCDEB5270D /* MTMatrixInterpolation.h in Headers */ = {isa = PBXBuildFile; fileRef = 284FBC10117B54A7CC0F5CE8ABF4FF85 /* MTMatrixInterpolation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAB1064596A60C4276F829E999F8DA09 /* NSNotificationCenter+OCMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = B34A64C5DE0914EBA805EA09CEF71AC0 /* NSNotificationCenter+OCMAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAC0BDE87C9152E6C109755515C1D26F /* OCMIndirectReturnValueProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = AB54776252F992EA222CAB523A7FA61F /* OCMIndirectReturnValueProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		BB0BE1E17D6923C4C50857FDFCC7ABAD /* NSImage+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 61376966961329A7E592866BF645E93F /* NSImage+WebCache.m */; };
 		BB325BCFCD719EB35184B43347DAD4F7 /* TyphoonOptionMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE984AB8FEBA3549E6472E4A06D834A /* TyphoonOptionMatcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		BB48692126576D01569F8B53A8AC37EE /* TyphoonParentReferenceHydratingPostProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = BA8CB1F82C2F6B3847F1FAC5F1454B5D /* TyphoonParentReferenceHydratingPostProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB4A5B5C415EE3A90805E92B928E3966 /* NSArray+TyphoonManualEnumeration.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E66A2B1C654CE7EE158A876B2848DCF /* NSArray+TyphoonManualEnumeration.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -478,11 +473,11 @@
 		BD01FB26CCC17CF378D4AE780F347FA1 /* EXTRuntimeExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F66F3F147630BBBAE625835927F1FB2 /* EXTRuntimeExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD186E6D35A7DDB10BE0B79D6390909C /* TyphoonWeakComponentsPool.h in Headers */ = {isa = PBXBuildFile; fileRef = F2107633FFF4BD5685D0AA82F14FE766 /* TyphoonWeakComponentsPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BD581FD16F49FB74720AB66FD0F47CDC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC753811AB948C6D7E2FBD763C476D /* Foundation.framework */; };
+		BE46F052FBDEDF6AD5C46AD092F49119 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1B43B1625A1282B674C785F0787628 /* SDWebImageCompat.m */; };
 		BF5D02DC008E03097E34BECB6AC8E1C6 /* TyphoonAbstractInjection.h in Headers */ = {isa = PBXBuildFile; fileRef = 145BA9904AFA7E0BBA93770290146F1A /* TyphoonAbstractInjection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF6FB2993CB14EF6BAFB17E6297BC728 /* OCMMacroState.m in Sources */ = {isa = PBXBuildFile; fileRef = 5428FEED6632FAA94DE365AA6A6DA2CE /* OCMMacroState.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C0358CB095F1FF249F167BCBA959A409 /* object_store.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C54369E5EE6CE0D916337523B308522B /* object_store.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		C0AF60196BB06123C571902A01F397A3 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C8CB986776B599711A7291E8A1B58 /* BaseModel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		C0B40835542125229B9E228C92B6D071 /* SDWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D32E66301E3DF9AC4CC1BC11D811398 /* SDWebImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C12B1B740AAD4F52BEC5B26AF200E89C /* TRCSchemaStackTrace.h in Headers */ = {isa = PBXBuildFile; fileRef = E4AF0BA83401EA597AE54B84CB1B7998 /* TRCSchemaStackTrace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C158A67FA7FB04B21C8B71965059773B /* TRCSchemaDataValueOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = C41E8C4F3B4702AB18C934041CB8B905 /* TRCSchemaDataValueOptions.m */; };
 		C15A75F4FC6835114FFE842E4A33AB3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC753811AB948C6D7E2FBD763C476D /* Foundation.framework */; };
@@ -493,12 +488,14 @@
 		C32418A3F880D90DE54CBD125980FBAA /* RLMMigration.mm in Sources */ = {isa = PBXBuildFile; fileRef = F00BDEC454A4EC617CBBC9CA7FF7C759 /* RLMMigration.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		C34EA3AA39B99E3976F77A3F922D71CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC753811AB948C6D7E2FBD763C476D /* Foundation.framework */; };
 		C35880D791A54652C389D071E89FCE9B /* TyphoonTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 171D3A30E17BFC147D2D3B1E871389E3 /* TyphoonTestUtils.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		C3AE969E3C015F137AC041AD755A4C1E /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B777DA530C7FB544A1ECED0C0B5F301 /* NSData+ImageContentType.m */; };
 		C402B922879C31511BEDFA53AE3CC958 /* UIView+TyphoonDefinitionKey.h in Headers */ = {isa = PBXBuildFile; fileRef = 45F6A0857A547AE34BC12327AC22CE33 /* UIView+TyphoonDefinitionKey.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C41484189CCD479E1EF1D99746B47787 /* NSArray+TyphoonManualEnumeration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1305653BE862705DB337C60E220169E0 /* NSArray+TyphoonManualEnumeration.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		C4542067B3E82D6CD671080207FC5A7B /* TyphoonBlockDefinition+InstanceBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B2285851920F9B8777C4C3BC9ADDEAF /* TyphoonBlockDefinition+InstanceBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C4945BF00E7C57BB73562DD5BC37D898 /* NSInvocation+OCMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BCB6F5423912D2BE0EE0CE413D3885B /* NSInvocation+OCMAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C4E611BA5BA3E0032D4FA80542FF2033 /* OCMArg.m in Sources */ = {isa = PBXBuildFile; fileRef = 57E8508E48FA65635CDD59D94FEB6C8C /* OCMArg.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C59FA586747A805939392CBF9B85BA77 /* TyphoonLinkerCategoryBugFix.h in Headers */ = {isa = PBXBuildFile; fileRef = AAC4CBE029E7D64CC06D5C7727D5EBFA /* TyphoonLinkerCategoryBugFix.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5D2C01C782044BDA74ACA03E397CB6A /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E800F96EC8365F5937A1527385E360B /* UIView+WebCacheOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C63AA1B0CA3AFCC52DE7220E3C8B3058 /* RLMSyncPermissionChange_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D0844F3B9CAFF03EBE8038BEB914D424 /* RLMSyncPermissionChange_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		C6CEDEF2654C28D54E0453FCFE5E1E97 /* TyphoonLoadedView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3606032F2523B88884B01CA5C4E6962 /* TyphoonLoadedView.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		C77EB7BBE55CEF90B822C2A38B57A603 /* TyphoonTestUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 14AF0DD109B3144582A39A51841FE918 /* TyphoonTestUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -507,6 +504,7 @@
 		CA873B81B4BCBE7DEF24B2D95683C4C5 /* TyphoonOptionMatcher+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB43905E05BEE669F960A94290043C1 /* TyphoonOptionMatcher+Internal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAA304507A780FB3FA9F988EC751F1CB /* RLMObjectSchema.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61F4D895DFAF207FD7F303C0B99012AE /* RLMObjectSchema.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		CAE5C0EAD446D9541482D8FB9D2A38BF /* RLMSyncSession.h in Headers */ = {isa = PBXBuildFile; fileRef = B04F0A94027E2F7EA490A7842D22C1AE /* RLMSyncSession.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CB0897624BBC1E7735AA2A2781ABB2EC /* SDWebImageCompat.h in Headers */ = {isa = PBXBuildFile; fileRef = B1C83341C40210E3EC27DBBBFFEC3DD1 /* SDWebImageCompat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB1AE1B95E0057FD040856AE6E0EF874 /* TRCConnectionNSURLSession.m in Sources */ = {isa = PBXBuildFile; fileRef = B054622BD2F7A2D682C9DC31646420CA /* TRCConnectionNSURLSession.m */; };
 		CB2E6CEE02E1098428521BD07B1BBC42 /* TyphoonAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = B2AC8427B46C5897AE2957D4BB79B0BB /* TyphoonAssembly.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		CB4A0138FBBDB6FAA80F4F6ABB35EECD /* OCMNotificationPoster.h in Headers */ = {isa = PBXBuildFile; fileRef = 57089D0DF71B2B7EA0531E9A8CB7BD7D /* OCMNotificationPoster.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -518,7 +516,7 @@
 		CEA29118A8F7D193197027312B71B163 /* TyphoonStoryboardResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B277C6B6D1626E370A559ED573B331A /* TyphoonStoryboardResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEF1666DECE7AACDE1E66AA2E00828C1 /* TyphoonDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = A8BDF558AC058E7A53882CD8344F0EB7 /* TyphoonDefinition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CF01D468B955B1B9169A3D1449FD51AE /* OCMFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = C71B9FE4E1ECD0A6370699AFAC1127AB /* OCMFunctions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CF1CE5A7027EAE8714B9C7A976075E3B /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8ECB1F85AA9BA44AD45D6542FFD3ED49 /* SDWebImagePrefetcher.m */; };
+		CF0BE71D9E2C5D0DB49EAEC7DBA1B171 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = C32F767C4C9C6338C25704CDC45C4BAF /* SDWebImageDownloader.m */; };
 		CF25AACB0E35F4CF8746CC35DDEDF778 /* TRCSerializerString.h in Headers */ = {isa = PBXBuildFile; fileRef = 38A2335E970A297EF720B4F9861DD520 /* TRCSerializerString.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D02A782ADA036662045F7E6FCDC7F977 /* NSInvocation+TCFUnwrapValues.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C0D47BF714B17EFEBBC2109D111644C /* NSInvocation+TCFUnwrapValues.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0983D6D59B802B2E00F77BEA5D241C4 /* NSMethodSignature+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5D5A0AF5052C8703677564F6CD9D15 /* NSMethodSignature+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -532,11 +530,11 @@
 		D3FA5083C8A87EC5918ED53F18405F32 /* NSValue+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F27CB0D0FEC39A82794F62FFC780D0 /* NSValue+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D4946EC05F4B1948842BB7A8CD50F113 /* OCMStubRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1657C9293BD1007470A1CBE62A0AF58C /* OCMStubRecorder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D4AA4704CA7863CC86E22AAF88635836 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = B7350C1041E44CC60B12B122E28E8944 /* UIProgressView+AFNetworking.m */; };
+		D4C38EA2B664A2F509052EE6CD3347C5 /* SDWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E4C831CF27FEE2ABEF82515DDDFFAF0E /* SDWebImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4F8546A82014998880F4C0E9465055F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC753811AB948C6D7E2FBD763C476D /* Foundation.framework */; };
 		D5191E5EFD512BA83321B6A4A6943C1E /* RLMProperty.mm in Sources */ = {isa = PBXBuildFile; fileRef = 90071E6B23B4423E2BC853D1847D78B1 /* RLMProperty.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		D59FC98A74E440C4725B6FDC28F5951E /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 17AB3DADB428171CB6B73517FEDC6436 /* AFSecurityPolicy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D5CB999FB5FC80FC126A38AB4DF12227 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F8A81D9643CB254612A79DDB5E06180 /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D5DE3A46B067228708B3947FA2A5D2CA /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3AD3F4C95D66216C3C3136DCD29D347 /* SDWebImageDownloaderOperation.m */; };
 		D6661D944DA4B5402DA6B57914542DF9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 311369F1788D2F10F1EC15B682818CBA /* Security.framework */; };
 		D754D52C9C0FC5FDA9D79E359A5CEB63 /* NSMethodSignature+OCMAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 132D75BBDE991384B4D91B441CD4A9DD /* NSMethodSignature+OCMAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D75E11401CA528C308BC77AEC13AC346 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6CA8A14A7AD3548AA9259719CAA3D24 /* ImageIO.framework */; };
@@ -580,7 +578,6 @@
 		E66A3CFA14686BB1D2E5361C239B5333 /* TyphoonRuntimeArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = C6CD7555214CDF1C362A972DAB8C6DE1 /* TyphoonRuntimeArguments.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E6CE7E482261CFBDB354443EFA78D35C /* OCMockObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6707178012EE8D0581992BEB63D92F /* OCMockObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E6F2109C6964B50037DDAFD60C457B9F /* NSMethodSignature+TCFUnwrapValues.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E9114E449C780CF4D898B30188C9286 /* NSMethodSignature+TCFUnwrapValues.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E708941369778A237C3446C55DAE70E8 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFF834C5898FED5C62978D1A1231FAD /* UIView+WebCacheOperation.m */; };
 		E738C16AF8020F2D6948D867AA7109EF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D668229702A603DF06B25B3596792155 /* SystemConfiguration.framework */; };
 		E76A3E77BDFDF68F6DB38B126A2C27F2 /* RLMOptionalBase.h in Headers */ = {isa = PBXBuildFile; fileRef = B669CCADDE002C5A3CCEC811D11ABBFA /* RLMOptionalBase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E7B0270BEDCBE116DDD853F76E27B0BA /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FDD11EFEF423EE22E7038B3A3D04F32 /* AFNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -590,6 +587,7 @@
 		E9142B37546EAE1F8D2AFC9110F5E00F /* TyphoonAssemblyPropertyInjectionPostProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A49819DC9254456C78D5FE3B7DC702 /* TyphoonAssemblyPropertyInjectionPostProcessor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		E98F2951D6155DED379C99802D50344E /* TyphoonDefinition+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8C433AAE86C797548BB68F32E93095 /* TyphoonDefinition+Config.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		EA3A12D25220E2A21F26C5312AC68491 /* RLMSyncConfiguration_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D4E63C2CACE1945A83A89990A72E2AD /* RLMSyncConfiguration_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		EA5B3433BF73A4618B3C21344178FC31 /* UIImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = ED22440D8956F9B49E5DD43851A8B9FD /* UIImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EA6E97A2ACC01BA27C7FFA723F837368 /* TyphoonPlistStyleConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ADC05875784D7FF70EBD8CC6E35C9B /* TyphoonPlistStyleConfiguration.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		EA9A79135185FA9B8D8E0460B13083A0 /* OCMPassByRefSetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B37126254522681E73E0AEEE0BC41E7 /* OCMPassByRefSetter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EAA2279F30CF5F02DB2ABFDFACD78D2E /* NSError+RLMSync.h in Headers */ = {isa = PBXBuildFile; fileRef = 97083DA6F1A8637897620972EB32EF22 /* NSError+RLMSync.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -606,14 +604,12 @@
 		EE1EBC77C46E7AAA72D396CFA944B5E2 /* TyphoonConfigPostProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 948247F80BFD8F56DD2390D45B8CD380 /* TyphoonConfigPostProcessor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		EED946152B890059CE075FD22F3DE78C /* TyphoonFactoryPropertyInjectionPostProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 88DF957BD5268946CA9035A395B97EB8 /* TyphoonFactoryPropertyInjectionPostProcessor.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		EEDD4F469D67BE76BDC056ACC785A40A /* TyphoonGlobalConfigCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 68937929A189275CDBFB8F57D250E3ED /* TyphoonGlobalConfigCollector.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		EF55BF481333C646850E53F96CB9E8A7 /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F0EF6DA00C9AC68F130F04C02D264C /* SDWebImageCompat.m */; };
 		EF6E4DE1B63294D5451B9653C0D17C7B /* RLMSyncSessionRefreshHandle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8F3435C0AC0B866047BA12AC6671A5FA /* RLMSyncSessionRefreshHandle.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		F030A698BB2DC19A88B0BFA88CD1749A /* RLMCollection.mm in Sources */ = {isa = PBXBuildFile; fileRef = E7432ACE1A7BE316807012BF7F937F7A /* RLMCollection.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		F0865B011A41CB869F658899175176A0 /* TyphoonCallStack.h in Headers */ = {isa = PBXBuildFile; fileRef = 244885EFA222586F7FC18710037DA6AC /* TyphoonCallStack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F09557BBCF7F84397920AD3D183F2FC2 /* TyphoonStoryboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F3665676CBDF5D6BF3B2E2827FCAC9B /* TyphoonStoryboard.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		F099E5987DD80E8D78E909AF81D3C587 /* UIRefreshControl+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 8277D5AF77249D7247555EF64A22E2A2 /* UIRefreshControl+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F10CC0DC0A1B01D749CC95D884C300BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACC753811AB948C6D7E2FBD763C476D /* Foundation.framework */; };
-		F1F255B1069E4DB6C6A71B7577BF5678 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8042222128FD5689AC7B5ABF7159439B /* SDWebImageManager.m */; };
 		F1F93EE1AA5E870F2CE81325CE9EB643 /* AFAutoPurgingImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DD49D7A3097842A13385D931ECF0D2F /* AFAutoPurgingImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F261D98AE9E878D134AA810D28E6B84D /* OCMVerifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E82C1F099EF232E6754EE6BE6E985C7 /* OCMVerifier.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F2A06AFF5DEE5B0CAE18A801AEB4D881 /* Typhoon+Infrastructure.h in Headers */ = {isa = PBXBuildFile; fileRef = 71966DD37CEAF6BF6B95576C2557CF7F /* Typhoon+Infrastructure.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -628,7 +624,6 @@
 		F5DBAD0706BDF6EEF0B61E9B947CE1AF /* external_commit_helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38C56C168FBFFEA72BB237BA18329702 /* external_commit_helper.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		F6370FB8426ACC82304BD332B490C911 /* RLMSyncUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = AA1D53D1B45F5352C679A7A39DCE8D2E /* RLMSyncUtil.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		F670747FC982AEE901B0229D7ADF8287 /* realm_coordinator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F691FBA90D253899FB281E174DE802BA /* realm_coordinator.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
-		F70D8872B7692950124D7E01DF04F030 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 17D8AAD9C69F4FC8C6AB2DF3974F44D0 /* SDWebImageDecoder.m */; };
 		F76C42A3EEA7F274B51B593374D9E6A1 /* OCMIndirectReturnValueProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = EB46527747B293A6E379F6DB06FBA906 /* OCMIndirectReturnValueProvider.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F77DFA9A51A4F147887D4D5F65A2C37A /* OCMInvocationStub.m in Sources */ = {isa = PBXBuildFile; fileRef = 077706A9F6029283DF3DE4E5BC4E859D /* OCMInvocationStub.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		F788E4C31B81FEED9A83A20B17D6A967 /* UIViewController+TyphoonStoryboardIntegration.h in Headers */ = {isa = PBXBuildFile; fileRef = 493034C23B05EDC386F63B701B3FD988 /* UIViewController+TyphoonStoryboardIntegration.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -647,7 +642,6 @@
 		FBB81102A24ADDFECC6060A59CDCA8B0 /* RLMAuthResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 25C85EF68E77417333E4153389AE2CE6 /* RLMAuthResponseModel.m */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		FBC7C3F33DC9E1C8B73455674683440C /* RLMObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4920931BD4B70F81A1F2B88D3FA51482 /* RLMObject.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.2\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		FC818377C77395F411699C0663283636 /* TyphoonInjectionByComponentFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 078FBC0697E032A551308B5CB6760AE9 /* TyphoonInjectionByComponentFactory.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		FC8DA3E7927A29CC05132082353F8BCB /* SDImageCacheConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = ECF4A9541D6069E230840AAFF6923A04 /* SDImageCacheConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FCC7872E4A0286DF5A01DE195F59B67B /* OCMExpectationRecorder.h in Headers */ = {isa = PBXBuildFile; fileRef = C6DCE4F70180EF409A1C3ECDD862D482 /* OCMExpectationRecorder.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FCDF157F8C576001703F19842332C843 /* TyphoonDefinitionNamespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D7092707258C123AB73F59D69529CEE /* TyphoonDefinitionNamespace.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FCE84613D2F375704120470E668AAAB8 /* TPDWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 08856D8213EC2D6B2C2B07924999D6F7 /* TPDWeakProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -783,6 +777,7 @@
 		0053B1BC0DFC96418427D722BA52382C /* TPDWeakProxy.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TPDWeakProxy.xcconfig; sourceTree = "<group>"; };
 		0082E221C84C31B0736810BFAF2A0926 /* RLMSyncUtil_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncUtil_Private.h; path = include/RLMSyncUtil_Private.h; sourceTree = "<group>"; };
 		0093472E293B4102FCEF17F195D52159 /* TyphoonUIColorTypeConverter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonUIColorTypeConverter.h; path = Source/ios/TypeConversion/Converters/TyphoonUIColorTypeConverter.h; sourceTree = "<group>"; };
+		00DBDE209AE5BCFDE1FD3B3A2382C90B /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImagePrefetcher.m; path = SDWebImage/SDWebImagePrefetcher.m; sourceTree = "<group>"; };
 		010C23F20A24244C4F382DA813805867 /* RLMListBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMListBase.h; path = include/RLMListBase.h; sourceTree = "<group>"; };
 		01863D565D2451B7E931FF4DFA6C37C4 /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
 		01B01A231F6C4AE42767635600F9B272 /* TyphoonBlockDefinition+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "TyphoonBlockDefinition+Internal.h"; path = "Source/Definition/Internal/TyphoonBlockDefinition+Internal.h"; sourceTree = "<group>"; };
@@ -794,6 +789,7 @@
 		04EB0BB42B5BC430F13B7DF58FF0DC79 /* OCMRealObjectForwarder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMRealObjectForwarder.m; path = Source/OCMock/OCMRealObjectForwarder.m; sourceTree = "<group>"; };
 		04FFE5AF329104C4FD4916BBEBA58476 /* TRCConnectionLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TRCConnectionLogger.m; path = TyphoonRestClient/Extras/Connections/TRCConnectionLogger.m; sourceTree = "<group>"; };
 		05F27CB0D0FEC39A82794F62FFC780D0 /* NSValue+OCMAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSValue+OCMAdditions.m"; path = "Source/OCMock/NSValue+OCMAdditions.m"; sourceTree = "<group>"; };
+		063BFB54D061338D999672171574C879 /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/UIImage+GIF.m"; sourceTree = "<group>"; };
 		06421C78052242EEF762E8D4C0CA67A2 /* collection_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = collection_notifier.cpp; path = Realm/ObjectStore/src/impl/collection_notifier.cpp; sourceTree = "<group>"; };
 		066E04458EBBA200DAF4C10833CA33F5 /* TRCSchemeFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TRCSchemeFactory.m; path = TyphoonRestClient/Internal/SchemeFactory/TRCSchemeFactory.m; sourceTree = "<group>"; };
 		069CF3F8CD765C82E3D40C221A288A1E /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+AFNetworking.m"; path = "UIKit+AFNetworking/UIButton+AFNetworking.m"; sourceTree = "<group>"; };
@@ -852,7 +848,6 @@
 		137A2D4F3AAAB875BBA94E86F09142EB /* TRCSerializerInputStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TRCSerializerInputStream.m; path = TyphoonRestClient/Extras/Serializations/TRCSerializerInputStream.m; sourceTree = "<group>"; };
 		13934E15EAAD9D0EEF2F35E201B8DD17 /* TyphoonViewControllerFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonViewControllerFactory.h; path = Source/ios/Storyboard/TyphoonViewControllerFactory.h; sourceTree = "<group>"; };
 		13F634E041432BD2A7E7810C5BB608CB /* RLMNetworkClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RLMNetworkClient.m; path = Realm/RLMNetworkClient.m; sourceTree = "<group>"; };
-		1442C60367E8ADE1062B480FCA427BDD /* UIView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCache.h"; path = "SDWebImage/UIView+WebCache.h"; sourceTree = "<group>"; };
 		145BA9904AFA7E0BBA93770290146F1A /* TyphoonAbstractInjection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonAbstractInjection.h; path = Source/Definition/Injections/TyphoonAbstractInjection.h; sourceTree = "<group>"; };
 		147E277B5E563089948F4934B437ACDA /* PINCache-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "PINCache-dummy.m"; sourceTree = "<group>"; };
 		14892B740376D6F4C210E16EC5127EBE /* TyphoonInjectionByReference.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonInjectionByReference.m; path = Source/Definition/Injections/TyphoonInjectionByReference.m; sourceTree = "<group>"; };
@@ -870,7 +865,6 @@
 		17AB3DADB428171CB6B73517FEDC6436 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
 		17B7AC488F47BDA913380BB03ACF1D0A /* TyphoonStartup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonStartup.h; path = Source/Configuration/Startup/TyphoonStartup.h; sourceTree = "<group>"; };
 		17BBAF9815F7CC5B2FB2AA42FE187D2C /* UIResponder+TyphoonOutletTransfer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIResponder+TyphoonOutletTransfer.m"; path = "Source/ios/Storyboard/UIResponder+TyphoonOutletTransfer.m"; sourceTree = "<group>"; };
-		17D8AAD9C69F4FC8C6AB2DF3974F44D0 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDecoder.m; path = SDWebImage/SDWebImageDecoder.m; sourceTree = "<group>"; };
 		17DE2C17058E4A70B6DB307F7B3D3792 /* OCProtocolMockObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCProtocolMockObject.h; path = Source/OCMock/OCProtocolMockObject.h; sourceTree = "<group>"; };
 		18B61DC59664054B2BCD2A0159579DCF /* OCMInvocationMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMInvocationMatcher.m; path = Source/OCMock/OCMInvocationMatcher.m; sourceTree = "<group>"; };
 		193F501641FC5B52992417D3BB509F8E /* TyphoonDefinition+InstanceBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "TyphoonDefinition+InstanceBuilder.m"; path = "Source/Definition/Internal/TyphoonDefinition+InstanceBuilder.m"; sourceTree = "<group>"; };
@@ -889,12 +883,15 @@
 		1F658087384E6C199F67457A1B075A20 /* TyphoonCollaboratingAssemblyPropertyEnumerator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonCollaboratingAssemblyPropertyEnumerator.h; path = Source/Factory/Internal/TyphoonCollaboratingAssemblyPropertyEnumerator.h; sourceTree = "<group>"; };
 		1F66F3F147630BBBAE625835927F1FB2 /* EXTRuntimeExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXTRuntimeExtensions.h; path = extobjc/EXTRuntimeExtensions.h; sourceTree = "<group>"; };
 		1F6F9A9FF1A9D3F12A7A7D3E1EA78039 /* PINCacheObjectSubscripting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PINCacheObjectSubscripting.h; path = PINCache/PINCacheObjectSubscripting.h; sourceTree = "<group>"; };
+		1F7FC740D4BEE70BD8FE757EAAB5F56E /* UIImageView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		1FB8A4AD0D97A0B515780C48B6B588D0 /* OCMExpectationRecorder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMExpectationRecorder.m; path = Source/OCMock/OCMExpectationRecorder.m; sourceTree = "<group>"; };
 		1FCD52B4871548C0C4C1A0CE92FFC493 /* TyphoonInjectionByFactoryReference.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonInjectionByFactoryReference.m; path = Source/Definition/Injections/TyphoonInjectionByFactoryReference.m; sourceTree = "<group>"; };
+		20C3DDEB5AF2DC8115B264A87695E16C /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+HighlightedWebCache.h"; path = "SDWebImage/UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
+		211EDE7519448A199C27112B106FAA2F /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
 		214DC04022CA6CE07D9799B8A1F5E801 /* TyphoonAssemblyDefinitionBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonAssemblyDefinitionBuilder.m; path = Source/Factory/Internal/TyphoonAssemblyDefinitionBuilder.m; sourceTree = "<group>"; };
-		22B0E0750079404BCA26B79C93734B6C /* NSData+ImageContentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
+		2193A5C8C9F7AE36F112938A53FBCAC0 /* SDWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDWebImage.xcconfig; sourceTree = "<group>"; };
+		22CB286040198BB793AF5D99EF2ED4E4 /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
 		22D858D0C19433CAFA9C84398BB0CFE6 /* collection_change_builder.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = collection_change_builder.cpp; path = Realm/ObjectStore/src/impl/collection_change_builder.cpp; sourceTree = "<group>"; };
-		22E4B5C0DFE0C447D5C35676A538FB50 /* SDWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDWebImage.xcconfig; sourceTree = "<group>"; };
 		23136243063998E52C5B1796B77E21AD /* TyphoonTypeConverterRegistry.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonTypeConverterRegistry.m; path = Source/TypeConversion/TyphoonTypeConverterRegistry.m; sourceTree = "<group>"; };
 		2354FACA5D43DAB6B4754B6AF9E85673 /* OCMBlockArgCaller.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMBlockArgCaller.m; path = Source/OCMock/OCMBlockArgCaller.m; sourceTree = "<group>"; };
 		23C8BDA658F0DDFAE807C6C7EFFECC82 /* TyphoonRestClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonRestClient.h; path = TyphoonRestClient/TyphoonRestClient.h; sourceTree = "<group>"; };
@@ -902,15 +899,13 @@
 		24122AC1271E17A198B0BADC973AB717 /* TyphoonInjectionByConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonInjectionByConfig.h; path = Source/Definition/Injections/TyphoonInjectionByConfig.h; sourceTree = "<group>"; };
 		244885EFA222586F7FC18710037DA6AC /* TyphoonCallStack.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonCallStack.h; path = Source/Factory/Internal/TyphoonCallStack.h; sourceTree = "<group>"; };
 		248EC801CFBB5E5A38410E46664E4BB5 /* sync_manager.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = sync_manager.cpp; path = Realm/ObjectStore/src/sync/sync_manager.cpp; sourceTree = "<group>"; };
-		253FF86DF2C283323D843E97EBF8B0C9 /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/SDWebImageOperation.h; sourceTree = "<group>"; };
 		25C011E4F0A5FF73E6831449CDBD996D /* OCMVerifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMVerifier.m; path = Source/OCMock/OCMVerifier.m; sourceTree = "<group>"; };
 		25C85EF68E77417333E4153389AE2CE6 /* RLMAuthResponseModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RLMAuthResponseModel.m; path = Realm/RLMAuthResponseModel.m; sourceTree = "<group>"; };
-		25D6F61C69AA13D702F23D89D2123BC9 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+ImageContentType.m"; path = "SDWebImage/NSData+ImageContentType.m"; sourceTree = "<group>"; };
+		26116E33826B7EF86CF86D1F04D64A4E /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/SDWebImageOperation.h; sourceTree = "<group>"; };
 		2677B3604C1914E7C8E3E5E7AADC222F /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
 		26D78E3C3DF23C245DB05D845869EF86 /* OCPartialMockObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCPartialMockObject.m; path = Source/OCMock/OCPartialMockObject.m; sourceTree = "<group>"; };
 		270070AEB451178E1BF5910EB656874F /* TyphoonInjectionByFactoryReference.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonInjectionByFactoryReference.h; path = Source/Definition/Injections/TyphoonInjectionByFactoryReference.h; sourceTree = "<group>"; };
 		277967C81BB35F16E08C3301551D5594 /* RLMSyncPermissionOffer_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncPermissionOffer_Private.h; path = include/RLMSyncPermissionOffer_Private.h; sourceTree = "<group>"; };
-		27C66A3DEA85CE4EB99C608B8EA8EAC3 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		27D72537B28E8D3F76D46795FB58ECEC /* OCMBoxedReturnValueProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMBoxedReturnValueProvider.h; path = Source/OCMock/OCMBoxedReturnValueProvider.h; sourceTree = "<group>"; };
 		27D9CCCA34020B9BFAFE8780467942A6 /* KVOController-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KVOController-prefix.pch"; sourceTree = "<group>"; };
 		284C89ED4E1795E318F6F861D698AF46 /* RLMPredicateUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMPredicateUtil.mm; path = Realm/RLMPredicateUtil.mm; sourceTree = "<group>"; };
@@ -924,6 +919,7 @@
 		2B339B7A5577E646744E36351B16B82B /* MTMatrixInterpolation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTMatrixInterpolation.m; path = MTAnimation/MTMatrixInterpolation.m; sourceTree = "<group>"; };
 		2B7D8361D0937BAF0BC9651757F2A60A /* OCMRecorder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMRecorder.h; path = Source/OCMock/OCMRecorder.h; sourceTree = "<group>"; };
 		2BD1BDFA25D6075B1F302D538D044887 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		2CC1B5BD25AE5B9860C550EF8A11C4CB /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
 		2D9AF24F19B0B79CCEC47F2620FEB5EE /* Nullability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Nullability.h; path = PINCache/Nullability.h; sourceTree = "<group>"; };
 		2D9FABE29E04C429107659E749783868 /* OCMRecorder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMRecorder.m; path = Source/OCMock/OCMRecorder.m; sourceTree = "<group>"; };
 		2DE984AB8FEBA3549E6472E4A06D834A /* TyphoonOptionMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonOptionMatcher.m; path = Source/Configuration/DefinitionOptionConfiguration/Matcher/TyphoonOptionMatcher.m; sourceTree = "<group>"; };
@@ -970,9 +966,10 @@
 		3A6707178012EE8D0581992BEB63D92F /* OCMockObject.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMockObject.m; path = Source/OCMock/OCMockObject.m; sourceTree = "<group>"; };
 		3AFF414D8E40A3D39867327CD2DD532E /* TRCConnectionStub.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TRCConnectionStub.h; path = TyphoonRestClient/Extras/Connections/TRCConnectionStub.h; sourceTree = "<group>"; };
 		3B53B256F3F457AB344684C56D712850 /* NSObject+OCMAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+OCMAdditions.m"; path = "Source/OCMock/NSObject+OCMAdditions.m"; sourceTree = "<group>"; };
+		3B777DA530C7FB544A1ECED0C0B5F301 /* NSData+ImageContentType.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+ImageContentType.m"; path = "SDWebImage/NSData+ImageContentType.m"; sourceTree = "<group>"; };
 		3C2CC7BB952D081315CFB2C93A1D35CC /* OCClassMockObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCClassMockObject.h; path = Source/OCMock/OCClassMockObject.h; sourceTree = "<group>"; };
 		3C5AB590D2B5E8B097077FC297285920 /* libextobjc-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "libextobjc-dummy.m"; sourceTree = "<group>"; };
-		3E081A91828A6CD49D84FDA4B5C67B2F /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImagePrefetcher.h; path = SDWebImage/SDWebImagePrefetcher.h; sourceTree = "<group>"; };
+		3DBA9A71AC4DB33D31D9F7121BFD44D9 /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/UIImage+GIF.h"; sourceTree = "<group>"; };
 		3E73890B5E43125E39AADE1B673EA083 /* libSAMKeychain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSAMKeychain.a; path = libSAMKeychain.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EBFFFEBB6B85B369E33D1B4DC338536 /* liblibextobjc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = liblibextobjc.a; path = liblibextobjc.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ED46574DC0D3B238256CE7EEBA7AF3D /* TRCInfrastructure.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TRCInfrastructure.h; path = TyphoonRestClient/Protocols/Infrastructure/TRCInfrastructure.h; sourceTree = "<group>"; };
@@ -990,6 +987,7 @@
 		44A4B3454BA749D3AE4D5A831CBFFF43 /* format.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = format.cpp; path = Realm/ObjectStore/src/util/format.cpp; sourceTree = "<group>"; };
 		45F6A0857A547AE34BC12327AC22CE33 /* UIView+TyphoonDefinitionKey.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+TyphoonDefinitionKey.h"; path = "Source/ios/Storyboard/Internal/UIView+TyphoonDefinitionKey.h"; sourceTree = "<group>"; };
 		467531F820045B400EA083A69513146A /* TyphoonInjectedObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonInjectedObject.h; path = Source/Definition/AutoInjection/TyphoonInjectedObject.h; sourceTree = "<group>"; };
+		46943E374A9E78988D35E8BAFCF07E0C /* SDWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloader.h; path = SDWebImage/SDWebImageDownloader.h; sourceTree = "<group>"; };
 		46CC9F419742561B10C473C6DD514B1C /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
 		474E3D37EC31277F214076BEA0AD7D4E /* OCMMacroState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMMacroState.h; path = Source/OCMock/OCMMacroState.h; sourceTree = "<group>"; };
 		4766F04FB10FBF30D19843E233FEB81F /* TyphoonAssemblyAdviser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonAssemblyAdviser.m; path = Source/Factory/Internal/TyphoonAssemblyAdviser.m; sourceTree = "<group>"; };
@@ -1011,10 +1009,10 @@
 		4C8E5A1E5121FFF4FE1C046F248E4CB6 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
 		4CC1401CE0C9F803BFC65A474C5F5F9C /* RLMSyncPermissionOffer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RLMSyncPermissionOffer.m; path = Realm/RLMSyncPermissionOffer.m; sourceTree = "<group>"; };
 		4D15E293A5FACBFDD39E312DA442AA75 /* libRealm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libRealm.a; path = libRealm.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D32E66301E3DF9AC4CC1BC11D811398 /* SDWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageManager.h; path = SDWebImage/SDWebImageManager.h; sourceTree = "<group>"; };
 		4D60B3141F84009AABEDFD7964696618 /* TRCConnectionStub.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TRCConnectionStub.m; path = TyphoonRestClient/Extras/Connections/TRCConnectionStub.m; sourceTree = "<group>"; };
 		4DC4515E5BD47276D5F1CA7BF6981678 /* NSInvocation+TCFWrapValues.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSInvocation+TCFWrapValues.m"; path = "Source/Factory/Internal/NSInvocation+TCFWrapValues.m"; sourceTree = "<group>"; };
 		4E5FD21951F49EBDE6EB94B48F9D4F20 /* NSValue+OCMAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValue+OCMAdditions.h"; path = "Source/OCMock/NSValue+OCMAdditions.h"; sourceTree = "<group>"; };
+		4E800F96EC8365F5937A1527385E360B /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		4E8D4F2F5131687C8A4E36E73E67A52C /* RLMRealm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMRealm.h; path = include/RLMRealm.h; sourceTree = "<group>"; };
 		4F122CE8C71271241F4E5E41FF602097 /* CTObjectiveCRuntimeAdditions.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CTObjectiveCRuntimeAdditions.xcconfig; sourceTree = "<group>"; };
 		4F1AF427CB32B940884748B53E8BA7BF /* OCMock-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "OCMock-prefix.pch"; sourceTree = "<group>"; };
@@ -1022,17 +1020,16 @@
 		4F3665676CBDF5D6BF3B2E2827FCAC9B /* TyphoonStoryboard.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonStoryboard.m; path = Source/ios/Storyboard/TyphoonStoryboard.m; sourceTree = "<group>"; };
 		4F679AE7F72BB634D74FFA09370406D4 /* TyphoonMethod+InstanceBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "TyphoonMethod+InstanceBuilder.h"; path = "Source/Definition/Method/Internal/TyphoonMethod+InstanceBuilder.h"; sourceTree = "<group>"; };
 		4F7FF5F6654E8E6A93AB55C1E4695F56 /* RLMSchema.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSchema.h; path = include/RLMSchema.h; sourceTree = "<group>"; };
+		50553BE96424740B0FE217CCD0577C7E /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImagePrefetcher.h; path = SDWebImage/SDWebImagePrefetcher.h; sourceTree = "<group>"; };
 		505DEFD50513E59FFA12A1C621D44623 /* RLMSchema.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSchema.mm; path = Realm/RLMSchema.mm; sourceTree = "<group>"; };
 		5072F12B7B4C0E5360C9FD71B4FE71EC /* shared_realm.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = shared_realm.cpp; path = Realm/ObjectStore/src/shared_realm.cpp; sourceTree = "<group>"; };
 		509B5601B8E8B764BC3128EBD07A8AF1 /* OCMNotificationPoster.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMNotificationPoster.m; path = Source/OCMock/OCMNotificationPoster.m; sourceTree = "<group>"; };
 		50A8D1F2F56C4BE2D8B440E9539927D7 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+AFNetworking.m"; path = "UIKit+AFNetworking/UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		51042111F08FCE1F022E5F88FCE9CAAA /* PINMemoryCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = PINMemoryCache.m; path = PINCache/PINMemoryCache.m; sourceTree = "<group>"; };
-		51576BCB474D3CF8F22A269E140ADD54 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
+		512C3727AEB078DA8D4EDB53BA6743E4 /* SDWebImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-prefix.pch"; sourceTree = "<group>"; };
 		517FCBB06C5B6DF77DAC5A7AD56B17B8 /* TyphoonObjectWithCustomInjection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonObjectWithCustomInjection.h; path = Source/Definition/Internal/TyphoonObjectWithCustomInjection.h; sourceTree = "<group>"; };
 		51DE2F575048531674DEBDB99499DB95 /* Realm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Realm.h; path = include/Realm.h; sourceTree = "<group>"; };
-		5276B772910C71ECF4FB7EAFADDC29DC /* UIButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+WebCache.h"; path = "SDWebImage/UIButton+WebCache.h"; sourceTree = "<group>"; };
 		529ACCC793E5B249565B23F6B537736A /* FastCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FastCoder.h; path = FastCoder/FastCoder.h; sourceTree = "<group>"; };
-		5349202112058540D82A6C3ED962A7DB /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+HighlightedWebCache.h"; path = "SDWebImage/UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
 		538FCFFE393BCD9BC1E534FE852B1267 /* PINCache-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "PINCache-prefix.pch"; sourceTree = "<group>"; };
 		5428FEED6632FAA94DE365AA6A6DA2CE /* OCMMacroState.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMMacroState.m; path = Source/OCMock/OCMMacroState.m; sourceTree = "<group>"; };
 		547F89D8CF312FEB6CC13834A8F3AB3D /* object_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = object_notifier.cpp; path = Realm/ObjectStore/src/impl/object_notifier.cpp; sourceTree = "<group>"; };
@@ -1043,7 +1040,6 @@
 		57089D0DF71B2B7EA0531E9A8CB7BD7D /* OCMNotificationPoster.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMNotificationPoster.h; path = Source/OCMock/OCMNotificationPoster.h; sourceTree = "<group>"; };
 		57561D51269B6B10146EEF4F6990DBCF /* TRCSchema.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TRCSchema.h; path = TyphoonRestClient/Internal/Scheme/TRCSchema.h; sourceTree = "<group>"; };
 		57A82F3B68AFED1377A15A0AC318152E /* NSMethodSignature+TCFUnwrapValues.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMethodSignature+TCFUnwrapValues.m"; path = "Source/Factory/Internal/NSMethodSignature+TCFUnwrapValues.m"; sourceTree = "<group>"; };
-		57DCC1CD41FECC69D2BCD85FB1702AD7 /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
 		57E8508E48FA65635CDD59D94FEB6C8C /* OCMArg.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMArg.m; path = Source/OCMock/OCMArg.m; sourceTree = "<group>"; };
 		5817772794AE4D81CB064EE17EF7F073 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		59974DB8EF6D08E1BBBE109A45370207 /* UIView+TyphoonDefinitionKey.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+TyphoonDefinitionKey.m"; path = "Source/ios/Storyboard/Internal/UIView+TyphoonDefinitionKey.m"; sourceTree = "<group>"; };
@@ -1063,13 +1059,11 @@
 		5F9E952D598E734B3899DB391ACFC39F /* RLMArray.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMArray.mm; path = Realm/RLMArray.mm; sourceTree = "<group>"; };
 		5FA9BB50DB55F4F670E076F5434FCFE7 /* PINCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = PINCache.h; path = PINCache/PINCache.h; sourceTree = "<group>"; };
 		5FBDF676B0E0145C9AF52D2C8D59CC24 /* TyphoonAbstractDetachableComponentFactoryPostProcessor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonAbstractDetachableComponentFactoryPostProcessor.m; path = Source/Configuration/TyphoonAbstractDetachableComponentFactoryPostProcessor.m; sourceTree = "<group>"; };
-		5FFF834C5898FED5C62978D1A1231FAD /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		602AB1078C8893147E85795329559E6E /* TRCBuiltInObjects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TRCBuiltInObjects.h; path = TyphoonRestClient/Internal/Utils/TRCBuiltInObjects.h; sourceTree = "<group>"; };
 		604368109EDAFB252287553A8A0F42A0 /* OCMBlockCaller.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMBlockCaller.h; path = Source/OCMock/OCMBlockCaller.h; sourceTree = "<group>"; };
 		6066D6C45C6B63DAC111E573B812C10D /* TyphoonInjectionByObjectFromString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonInjectionByObjectFromString.h; path = Source/Definition/Injections/TyphoonInjectionByObjectFromString.h; sourceTree = "<group>"; };
 		60918BE37D156FFF60CCA7656C80C54A /* Aspects-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Aspects-prefix.pch"; sourceTree = "<group>"; };
 		60ECA2086A5501AE07D9D40C6EB9D2D1 /* TyphoonPreattachedComponentsRegisterer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonPreattachedComponentsRegisterer.m; path = Source/Factory/TyphoonPreattachedComponentsRegisterer.m; sourceTree = "<group>"; };
-		61376966961329A7E592866BF645E93F /* NSImage+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSImage+WebCache.m"; path = "SDWebImage/NSImage+WebCache.m"; sourceTree = "<group>"; };
 		614A8F592003748AF036E82754BA1A59 /* SAMKeychainQuery.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SAMKeychainQuery.m; path = Sources/SAMKeychainQuery.m; sourceTree = "<group>"; };
 		61F4D895DFAF207FD7F303C0B99012AE /* RLMObjectSchema.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMObjectSchema.mm; path = Realm/RLMObjectSchema.mm; sourceTree = "<group>"; };
 		62429A3C3351B5977991A4AEA857ABC5 /* RLMResults.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMResults.mm; path = Realm/RLMResults.mm; sourceTree = "<group>"; };
@@ -1092,7 +1086,6 @@
 		6904E8B07B294117B655C7BF506CB6FB /* TyphoonDefinition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonDefinition.m; path = Source/Definition/TyphoonDefinition.m; sourceTree = "<group>"; };
 		6976AD55B6D066C7F0CAB51955A09E5F /* TyphoonDefinitionPostProcessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonDefinitionPostProcessor.h; path = Source/Configuration/TyphoonDefinitionPostProcessor.h; sourceTree = "<group>"; };
 		699A51FDA607B5E43BC08085C4FDE8BD /* TRCUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TRCUtils.h; path = TyphoonRestClient/Internal/Utils/TRCUtils.h; sourceTree = "<group>"; };
-		6ADF62592B1327752830C317FB7F262B /* UIImageView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebCache.m"; path = "SDWebImage/UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		6AE31EB2D2D584245C158E40298B1B01 /* NSObject+TyphoonIntrospectionUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+TyphoonIntrospectionUtils.h"; path = "Source/Utils/NSObject+TyphoonIntrospectionUtils.h"; sourceTree = "<group>"; };
 		6B299BF916C772604B927961457B70E7 /* RLMSyncUser.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncUser.mm; path = Realm/RLMSyncUser.mm; sourceTree = "<group>"; };
 		6B5D3F9EC7BB4BA3E4643747CF683741 /* TyphoonInject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonInject.h; path = Source/Definition/Injections/TyphoonInject.h; sourceTree = "<group>"; };
@@ -1109,7 +1102,6 @@
 		71966DD37CEAF6BF6B95576C2557CF7F /* Typhoon+Infrastructure.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "Typhoon+Infrastructure.h"; path = "Source/Typhoon+Infrastructure.h"; sourceTree = "<group>"; };
 		71D93E24D500066960886C78616F9021 /* TyphoonTypeConverterRegistry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonTypeConverterRegistry.h; path = Source/TypeConversion/TyphoonTypeConverterRegistry.h; sourceTree = "<group>"; };
 		733B7C4BAC028CBC21BFAFB5BE7E7844 /* RLMConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RLMConstants.m; path = Realm/RLMConstants.m; sourceTree = "<group>"; };
-		735E8BB8F08289BBD7982852FE2EDC0C /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/SDWebImageCompat.h; sourceTree = "<group>"; };
 		7366038C292A7F9DC1F53FAF3DC48BDE /* libextobjc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = libextobjc.xcconfig; sourceTree = "<group>"; };
 		739E971A40363A19AD6A08874D26B512 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
 		73F4CD3FD01CA5005AD1448283CCAB69 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSDWebImage.a; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1119,7 +1111,6 @@
 		7560055B881E66CA332A637B928DA3F7 /* NSInvocation+TCFCustomImplementation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSInvocation+TCFCustomImplementation.h"; path = "Source/Factory/Internal/NSInvocation+TCFCustomImplementation.h"; sourceTree = "<group>"; };
 		76017CBDDEFD1022E3664F622EFC3CFE /* RLMUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMUtil.mm; path = Realm/RLMUtil.mm; sourceTree = "<group>"; };
 		761154EBAB23932F751AF618DE87C8CB /* Realm.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Realm.xcconfig; sourceTree = "<group>"; };
-		766EC95B0F5BEFAF5656C9CF93CC846C /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MultiFormat.h"; path = "SDWebImage/UIImage+MultiFormat.h"; sourceTree = "<group>"; };
 		76A92B889FB07C455F5CF177FF5F1217 /* CTObjectiveCRuntimeAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = CTObjectiveCRuntimeAdditions.m; path = CTObjectiveCRuntimeAdditions/CTObjectiveCRuntimeAdditions/CTObjectiveCRuntimeAdditions.m; sourceTree = "<group>"; };
 		76C9A94A77E380F01BE416E7D6EDFBF0 /* NSNullTypeConverter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = NSNullTypeConverter.m; path = Source/TypeConversion/Converters/NSNullTypeConverter.m; sourceTree = "<group>"; };
 		76E6967FA613969C143B5602E297D4EC /* UIView+MTAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+MTAnimation.m"; path = "MTAnimation/UIView+MTAnimation.m"; sourceTree = "<group>"; };
@@ -1150,7 +1141,6 @@
 		7C4DDA9FF9AA14CC3BF6244F8B96A99C /* TyphoonAssemblyPropertyInjectionPostProcessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonAssemblyPropertyInjectionPostProcessor.h; path = Source/Factory/Internal/TyphoonAssemblyPropertyInjectionPostProcessor.h; sourceTree = "<group>"; };
 		7C5226A34CEAEBF3CE507B15AB5AEB13 /* OCMArgAction.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMArgAction.m; path = Source/OCMock/OCMArgAction.m; sourceTree = "<group>"; };
 		7D31AC56AA34F706696D8ECDD26BB9AC /* Pods-iOS Hub-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOS Hub-frameworks.sh"; sourceTree = "<group>"; };
-		7D5AB970DA767DED3F133CCF60EF88ED /* SDWebImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-prefix.pch"; sourceTree = "<group>"; };
 		7D6E9F0CB995257BF695A5A55C11CA74 /* Collections+CustomInjection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "Collections+CustomInjection.m"; path = "Source/Definition/Internal/Collections+CustomInjection.m"; sourceTree = "<group>"; };
 		7D74E6486B7EB63479634E86BC4876B9 /* NSObject+PropertyInjection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+PropertyInjection.h"; path = "Source/Utils/NSObject+PropertyInjection.h"; sourceTree = "<group>"; };
 		7E0E92EE2D2932D2C1441EE3EF1B3258 /* TyphoonRestClient-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TyphoonRestClient-dummy.m"; sourceTree = "<group>"; };
@@ -1160,27 +1150,25 @@
 		7E9114E449C780CF4D898B30188C9286 /* NSMethodSignature+TCFUnwrapValues.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMethodSignature+TCFUnwrapValues.h"; path = "Source/Factory/Internal/NSMethodSignature+TCFUnwrapValues.h"; sourceTree = "<group>"; };
 		7EA8F988E9D6E809178D915CC0CC7D0A /* OCMReturnValueProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMReturnValueProvider.h; path = Source/OCMock/OCMReturnValueProvider.h; sourceTree = "<group>"; };
 		7EF27992D586FED24452545C1BDB678E /* TyphoonStackElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonStackElement.h; path = Source/Factory/Internal/TyphoonStackElement.h; sourceTree = "<group>"; };
-		7F00257649FC8684E304C2CE45860E5E /* NSImage+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSImage+WebCache.h"; path = "SDWebImage/NSImage+WebCache.h"; sourceTree = "<group>"; };
-		8042222128FD5689AC7B5ABF7159439B /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/SDWebImageManager.m; sourceTree = "<group>"; };
 		80841A3BA67F13C7D0F2D343110B8F12 /* FastCoding-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FastCoding-prefix.pch"; sourceTree = "<group>"; };
 		80B8ED6A966871DA23ABD7D4FA1ADD2D /* SAMKeychain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SAMKeychain-dummy.m"; sourceTree = "<group>"; };
 		815FA711EBDFEBA7DE0853417BAD8B04 /* TyphoonDefinition+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "TyphoonDefinition+Internal.h"; path = "Source/Definition/Internal/TyphoonDefinition+Internal.h"; sourceTree = "<group>"; };
 		8173F5598BF80F888540AD1771393F33 /* TyphoonAssemblyBuilder+PlistProcessor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "TyphoonAssemblyBuilder+PlistProcessor.m"; path = "Source/Factory/Internal/TyphoonAssemblyBuilder+PlistProcessor.m"; sourceTree = "<group>"; };
 		818F284E6D5B3E747C701DFCCAD0EC68 /* NSDictionary+CustomInjection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+CustomInjection.h"; path = "Source/Definition/Internal/NSDictionary+CustomInjection.h"; sourceTree = "<group>"; };
+		81B33BA4D319DEDAA4D2018306ECAEB8 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderOperation.h; path = SDWebImage/SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
 		822FA82D9CD1751B18F2D0E4826C4C4A /* Realm-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Realm-prefix.pch"; sourceTree = "<group>"; };
 		8277D5AF77249D7247555EF64A22E2A2 /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIRefreshControl+AFNetworking.h"; path = "UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
 		829954AA5EA58CC54CF23B5E20CF00CA /* RLMSyncUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncUtil.h; path = include/RLMSyncUtil.h; sourceTree = "<group>"; };
 		8381D9FB32557423838EF64CA0212818 /* TyphoonMethod+InstanceBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "TyphoonMethod+InstanceBuilder.m"; path = "Source/Definition/Method/Internal/TyphoonMethod+InstanceBuilder.m"; sourceTree = "<group>"; };
 		839822E36AFB5C5960A0A958D0ECFEA9 /* KVOController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KVOController-dummy.m"; sourceTree = "<group>"; };
+		83AA284DB0D1123E251E6966051179F8 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderOperation.m; path = SDWebImage/SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
 		83FC83AE1BF3D816548CBACC1E16B7F3 /* NSInvocation+TCFWrapValues.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSInvocation+TCFWrapValues.h"; path = "Source/Factory/Internal/NSInvocation+TCFWrapValues.h"; sourceTree = "<group>"; };
 		84008CCCC3B601158F15782D96A013A2 /* RLMAccessor.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMAccessor.mm; path = Realm/RLMAccessor.mm; sourceTree = "<group>"; };
 		84E027B8B1CE0F7D2FC383F50DD42F3A /* CTObjectiveCRuntimeAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CTObjectiveCRuntimeAdditions.h; path = CTObjectiveCRuntimeAdditions/CTObjectiveCRuntimeAdditions/CTObjectiveCRuntimeAdditions.h; sourceTree = "<group>"; };
 		84F71D8B239A6C8384D8F47BC60139F4 /* list.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = list.cpp; path = Realm/ObjectStore/src/list.cpp; sourceTree = "<group>"; };
 		852D7FD5CBBC16FBB592AAEA7AF1E616 /* NSObject+FactoryHooks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+FactoryHooks.h"; path = "Source/Factory/Hooks/NSObject+FactoryHooks.h"; sourceTree = "<group>"; };
 		853B9EB267CC2FD1246648F27CC3C4A2 /* NSInvocation+TCFInstanceBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSInvocation+TCFInstanceBuilder.m"; path = "Source/Factory/Internal/NSInvocation+TCFInstanceBuilder.m"; sourceTree = "<group>"; };
-		858B72A4F8976F85BA11C0A8DFC687C7 /* SDWebImageDownloaderOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderOperation.h; path = SDWebImage/SDWebImageDownloaderOperation.h; sourceTree = "<group>"; };
 		85E09049382E9EEA847DB4230C2B1556 /* AFURLSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
-		85F0EF6DA00C9AC68F130F04C02D264C /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/SDWebImageCompat.m; sourceTree = "<group>"; };
 		86D00F2DF5BBAA80B522EF3556FC296A /* TyphoonPropertyInjection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonPropertyInjection.h; path = Source/Definition/Injections/TyphoonPropertyInjection.h; sourceTree = "<group>"; };
 		88DF957BD5268946CA9035A395B97EB8 /* TyphoonFactoryPropertyInjectionPostProcessor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonFactoryPropertyInjectionPostProcessor.m; path = Source/Factory/Internal/TyphoonFactoryPropertyInjectionPostProcessor.m; sourceTree = "<group>"; };
 		8A7A9FA36527D96B12D90ACD0D5B24DE /* NSObject+DeallocNotification.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+DeallocNotification.m"; path = "Source/Utils/NSObject+DeallocNotification.m"; sourceTree = "<group>"; };
@@ -1189,15 +1177,14 @@
 		8BAB9A3C9A16079501E40104DE7B0B99 /* MTAnimation-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTAnimation-prefix.pch"; sourceTree = "<group>"; };
 		8BF7181781925DD47962D40C7F163C37 /* AFNetworking.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AFNetworking.xcconfig; sourceTree = "<group>"; };
 		8C0D02694F639EBE75D64DDFB928AF97 /* Pods-iOS Hub-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-iOS Hub-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8C1B43B1625A1282B674C785F0787628 /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/SDWebImageCompat.m; sourceTree = "<group>"; };
 		8C28E150807830423BA40BD2009C432F /* RLMAccessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMAccessor.h; path = include/RLMAccessor.h; sourceTree = "<group>"; };
 		8C857D1274A3C4F84A74CB0EA46B8106 /* TyphoonConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonConfiguration.h; path = Source/Configuration/ConfigPostProcessor/TyphoonConfiguration/TyphoonConfiguration.h; sourceTree = "<group>"; };
 		8C872D6CD96080D95698944B801668A0 /* TRCValueTransformerString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TRCValueTransformerString.h; path = TyphoonRestClient/Extras/DataConverters/TRCValueTransformerString.h; sourceTree = "<group>"; };
-		8CABC2E7D0ED56B925581A33FDA711FD /* UIView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCache.m"; path = "SDWebImage/UIView+WebCache.m"; sourceTree = "<group>"; };
 		8CD07DF2C300A709C2B1E40A6B06EDC4 /* libOCMock.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libOCMock.a; path = libOCMock.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D393AD99A31BEB065E0F0BA3591EC18 /* TyphoonAssemblyAdviser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonAssemblyAdviser.h; path = Source/Factory/Internal/TyphoonAssemblyAdviser.h; sourceTree = "<group>"; };
 		8D7A6C63B820AB4BEE39214B98ECFBE5 /* UIView+MTAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MTAnimation.h"; path = "MTAnimation/UIView+MTAnimation.h"; sourceTree = "<group>"; };
 		8EA34F363287D8F34EC7936A7AD7AC16 /* RLMObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMObject.h; path = include/RLMObject.h; sourceTree = "<group>"; };
-		8ECB1F85AA9BA44AD45D6542FFD3ED49 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImagePrefetcher.m; path = SDWebImage/SDWebImagePrefetcher.m; sourceTree = "<group>"; };
 		8F2CC5B73102F5835790D013BD571B24 /* TyphoonViewControllerNibResolver.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonViewControllerNibResolver.m; path = Source/ios/Nib/TyphoonViewControllerNibResolver.m; sourceTree = "<group>"; };
 		8F3435C0AC0B866047BA12AC6671A5FA /* RLMSyncSessionRefreshHandle.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncSessionRefreshHandle.mm; path = Realm/RLMSyncSessionRefreshHandle.mm; sourceTree = "<group>"; };
 		8F3D01BDD6E40E02B8AAD2F2EBF3F190 /* placeholder.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = placeholder.cpp; path = Realm/ObjectStore/src/placeholder.cpp; sourceTree = "<group>"; };
@@ -1237,6 +1224,7 @@
 		9B445EA6C82D3BBEE6016B5F3812BD7F /* AFNetworking-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AFNetworking-prefix.pch"; sourceTree = "<group>"; };
 		9C0CD20ED1133630434CED07FA9BCB95 /* TRCProxyProgressHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TRCProxyProgressHandler.m; path = TyphoonRestClient/Internal/ProxyProgressHandler/TRCProxyProgressHandler.m; sourceTree = "<group>"; };
 		9C0D47BF714B17EFEBBC2109D111644C /* NSInvocation+TCFUnwrapValues.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSInvocation+TCFUnwrapValues.h"; path = "Source/Factory/Internal/NSInvocation+TCFUnwrapValues.h"; sourceTree = "<group>"; };
+		9C28B867A13DB8CFD80B4BD1E30C5EE4 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDecoder.h; path = SDWebImage/SDWebImageDecoder.h; sourceTree = "<group>"; };
 		9C9A877B730BDB08412E534F1E0419AC /* RLMQueryUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMQueryUtil.mm; path = Realm/RLMQueryUtil.mm; sourceTree = "<group>"; };
 		9E132E7C6631147B0C3C8FE82FDD7B23 /* RLMSyncCredentials.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncCredentials.h; path = include/RLMSyncCredentials.h; sourceTree = "<group>"; };
 		9E4AD9F6699FDC05CC5BD8FC24AB9BBF /* TRCSerializerData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TRCSerializerData.m; path = TyphoonRestClient/Extras/Serializations/TRCSerializerData.m; sourceTree = "<group>"; };
@@ -1251,14 +1239,12 @@
 		A31AC24159D17B0F8C238686522C2D0F /* RLMListBase.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMListBase.mm; path = Realm/RLMListBase.mm; sourceTree = "<group>"; };
 		A3606032F2523B88884B01CA5C4E6962 /* TyphoonLoadedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonLoadedView.m; path = Source/ios/Storyboard/TyphoonLoadedView.m; sourceTree = "<group>"; };
 		A36138FF0A19E51764D7483B99C5EA64 /* libPods-iOS HubTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-iOS HubTests.a"; path = "libPods-iOS HubTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A3AD3F4C95D66216C3C3136DCD29D347 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderOperation.m; path = SDWebImage/SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
 		A41B4EBFC71C645D239BE78214DA00D6 /* RLMSyncPermissionChange.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RLMSyncPermissionChange.m; path = Realm/RLMSyncPermissionChange.m; sourceTree = "<group>"; };
 		A4294FBB82E42312EC19F16BCE2BB004 /* TyphoonConfigPostProcessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonConfigPostProcessor.h; path = Source/Configuration/ConfigPostProcessor/TyphoonConfigPostProcessor.h; sourceTree = "<group>"; };
 		A4AB344C1C03CD89D0FCBE9B0B401F4E /* TRCSchemaData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TRCSchemaData.h; path = TyphoonRestClient/Protocols/Infrastructure/TRCSchemaData.h; sourceTree = "<group>"; };
 		A572C96AB78E803C41316DCD95D8FE46 /* TyphoonDefinitionRegisterer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonDefinitionRegisterer.m; path = Source/Factory/TyphoonDefinitionRegisterer.m; sourceTree = "<group>"; };
 		A58F9C6A9B89C7575FDAE15BFC01E6F6 /* UIResponder+TyphoonOutletTransfer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIResponder+TyphoonOutletTransfer.h"; path = "Source/ios/Storyboard/UIResponder+TyphoonOutletTransfer.h"; sourceTree = "<group>"; };
 		A5EFE9CFA6789F86BF3497B6FB0B632A /* MTAnimation.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MTAnimation.xcconfig; sourceTree = "<group>"; };
-		A61B13564013E8A8878094B4DB76BD34 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+WebCacheOperation.h"; path = "SDWebImage/UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		A693BFD17D880BD2A9BBCB2EAAA4BDF9 /* TyphoonInjectionByCurrentRuntimeArguments.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonInjectionByCurrentRuntimeArguments.m; path = Source/Definition/Injections/TyphoonInjectionByCurrentRuntimeArguments.m; sourceTree = "<group>"; };
 		A74FD2ABDF6CFAABAF8AC211A97D3407 /* TRCSerializerPlist.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TRCSerializerPlist.m; path = TyphoonRestClient/Extras/Serializations/TRCSerializerPlist.m; sourceTree = "<group>"; };
 		A81912E8CAB340A099150F546C2560AA /* TyphoonPlistStyleConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonPlistStyleConfiguration.h; path = Source/Configuration/ConfigPostProcessor/TyphoonConfiguration/TyphoonPlistStyleConfiguration.h; sourceTree = "<group>"; };
@@ -1274,11 +1260,11 @@
 		AA8149B276C69CED3043CB4E81FB89DF /* TyphoonInjectionContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonInjectionContext.h; path = Source/Definition/Injections/TyphoonInjectionContext.h; sourceTree = "<group>"; };
 		AA91E2CA50401B02EF5924E00A64F847 /* TRCSchema.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TRCSchema.m; path = TyphoonRestClient/Internal/Scheme/TRCSchema.m; sourceTree = "<group>"; };
 		AAC4CBE029E7D64CC06D5C7727D5EBFA /* TyphoonLinkerCategoryBugFix.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonLinkerCategoryBugFix.h; path = Source/Utils/TyphoonLinkerCategoryBugFix.h; sourceTree = "<group>"; };
+		AAC7B798966C656892A4EF71DD40D47A /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MultiFormat.m"; path = "SDWebImage/UIImage+MultiFormat.m"; sourceTree = "<group>"; };
 		AB1D6E7A482955BC8729F6FAF33E0FB1 /* TyphoonDefinition+Storyboard.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "TyphoonDefinition+Storyboard.h"; path = "Source/ios/Storyboard/TyphoonDefinition+Storyboard.h"; sourceTree = "<group>"; };
 		AB54776252F992EA222CAB523A7FA61F /* OCMIndirectReturnValueProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCMIndirectReturnValueProvider.h; path = Source/OCMock/OCMIndirectReturnValueProvider.h; sourceTree = "<group>"; };
 		AB5D5A0AF5052C8703677564F6CD9D15 /* NSMethodSignature+OCMAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMethodSignature+OCMAdditions.m"; path = "Source/OCMock/NSMethodSignature+OCMAdditions.m"; sourceTree = "<group>"; };
 		AB85845B0A321AE09934AB1B6207683C /* TyphoonInjectionByObjectInstance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonInjectionByObjectInstance.m; path = Source/Definition/Injections/TyphoonInjectionByObjectInstance.m; sourceTree = "<group>"; };
-		ABDB7D853E0A0F90BED63E9443B74FD1 /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
 		AC35FF68300A5EE72FB9B3480DE08521 /* TyphoonAssemblyAccessor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonAssemblyAccessor.m; path = Source/Factory/Assembly/TyphoonAssemblyAccessor.m; sourceTree = "<group>"; };
 		AC825745B08F3A9BFEFBBF23FAA5D354 /* Aspects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
 		ACD8024004E34460DD076F28E85DEC63 /* RLMArrayLinkView.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMArrayLinkView.mm; path = Realm/RLMArrayLinkView.mm; sourceTree = "<group>"; };
@@ -1288,21 +1274,23 @@
 		AF03ACA71607F215023C686513BB17E3 /* RLMSyncPermissionChange.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncPermissionChange.h; path = include/RLMSyncPermissionChange.h; sourceTree = "<group>"; };
 		AF52981CAD9F62F35A55A635B4024291 /* TyphoonComponentsPool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonComponentsPool.h; path = Source/Factory/Pool/TyphoonComponentsPool.h; sourceTree = "<group>"; };
 		AF78D286E4941D899644B39F37EF65B4 /* RLMRealm.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMRealm.mm; path = Realm/RLMRealm.mm; sourceTree = "<group>"; };
-		AF983927AF6B617AFDC515BCF58BB44B /* UIButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+WebCache.m"; path = "SDWebImage/UIButton+WebCache.m"; sourceTree = "<group>"; };
 		AFEDE5346D05117FD52B799534A7BE9D /* TyphoonComponentFactory+InstanceBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "TyphoonComponentFactory+InstanceBuilder.m"; path = "Source/Factory/Internal/TyphoonComponentFactory+InstanceBuilder.m"; sourceTree = "<group>"; };
 		B04F0A94027E2F7EA490A7842D22C1AE /* RLMSyncSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncSession.h; path = include/RLMSyncSession.h; sourceTree = "<group>"; };
 		B054622BD2F7A2D682C9DC31646420CA /* TRCConnectionNSURLSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TRCConnectionNSURLSession.m; path = TyphoonRestClient/Extras/Connections/TRCConnectionNSURLSession/TRCConnectionNSURLSession.m; sourceTree = "<group>"; };
 		B1B8FE5B9060714262378D6BE3312636 /* RLMSyncErrorResponseModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RLMSyncErrorResponseModel.m; path = Realm/RLMSyncErrorResponseModel.m; sourceTree = "<group>"; };
+		B1C83341C40210E3EC27DBBBFFEC3DD1 /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/SDWebImageCompat.h; sourceTree = "<group>"; };
 		B22DD747FC892EB4F3C715C99E19C8FA /* TyphoonRestClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonRestClient.m; path = TyphoonRestClient/TyphoonRestClient.m; sourceTree = "<group>"; };
 		B2AC8427B46C5897AE2957D4BB79B0BB /* TyphoonAssembly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonAssembly.m; path = Source/Factory/Assembly/TyphoonAssembly.m; sourceTree = "<group>"; };
 		B30921C262657EA555A7EC27485FF843 /* RLMAnalytics.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMAnalytics.mm; path = Realm/RLMAnalytics.mm; sourceTree = "<group>"; };
 		B34A64C5DE0914EBA805EA09CEF71AC0 /* NSNotificationCenter+OCMAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSNotificationCenter+OCMAdditions.h"; path = "Source/OCMock/NSNotificationCenter+OCMAdditions.h"; sourceTree = "<group>"; };
 		B36F83696F31649BC35AE4C13D604E19 /* NSDictionary+CustomInjection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+CustomInjection.m"; path = "Source/Definition/Internal/NSDictionary+CustomInjection.m"; sourceTree = "<group>"; };
+		B3A26872C33A5AC143227FB222B48115 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCacheOperation.m"; path = "SDWebImage/UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		B4B6D24B73E5C155B829806E93C97380 /* RLMRealm_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMRealm_Private.h; path = include/RLMRealm_Private.h; sourceTree = "<group>"; };
 		B5C5B6BC688E42516A9B9605FE3CDB97 /* SAMKeychainQuery.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SAMKeychainQuery.h; path = Sources/SAMKeychainQuery.h; sourceTree = "<group>"; };
 		B669CCADDE002C5A3CCEC811D11ABBFA /* RLMOptionalBase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMOptionalBase.h; path = include/RLMOptionalBase.h; sourceTree = "<group>"; };
 		B68C733E2CD88492D5317225A265D698 /* TyphoonDefinition+Infrastructure.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "TyphoonDefinition+Infrastructure.h"; path = "Source/Definition/Infrastructure/TyphoonDefinition+Infrastructure.h"; sourceTree = "<group>"; };
 		B6A716DB035C0801B3745743165ACCB4 /* sync_user.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = sync_user.cpp; path = Realm/ObjectStore/src/sync/sync_user.cpp; sourceTree = "<group>"; };
+		B72FA9BCFB90E977020A6AECA3A28AF6 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
 		B7350C1041E44CC60B12B122E28E8944 /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+AFNetworking.m"; path = "UIKit+AFNetworking/UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
 		B7C664BA6CECFC14DCFA978D9D44E31E /* RLMObjectSchema_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMObjectSchema_Private.h; path = include/RLMObjectSchema_Private.h; sourceTree = "<group>"; };
 		B7EAEA26CBC97D3725582852DB182D0D /* TyphoonOrdered.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonOrdered.h; path = Source/Configuration/TyphoonOrdered.h; sourceTree = "<group>"; };
@@ -1324,16 +1312,19 @@
 		C1AC6CFF6668650221515E825E7D3C89 /* RLMObjectSchema.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMObjectSchema.h; path = include/RLMObjectSchema.h; sourceTree = "<group>"; };
 		C20295AA2718C979E337241B1A7C947D /* TyphoonTypeDescriptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonTypeDescriptor.m; path = Source/TypeConversion/TyphoonTypeDescriptor.m; sourceTree = "<group>"; };
 		C22EDCECC9DDFF154667D1FBC673E0B5 /* TRCHttpQueryComposer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TRCHttpQueryComposer.h; path = "TyphoonRestClient/Third Parties/AFNetwroking Parts/HttpQueryComposer/TRCHttpQueryComposer.h"; sourceTree = "<group>"; };
+		C32F767C4C9C6338C25704CDC45C4BAF /* SDWebImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloader.m; path = SDWebImage/SDWebImageDownloader.m; sourceTree = "<group>"; };
 		C34C2EABE71679E5C15EAEA316B2AFD1 /* TyphoonReferenceDefinition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonReferenceDefinition.m; path = Source/Definition/Internal/TyphoonReferenceDefinition.m; sourceTree = "<group>"; };
 		C3F36C7C3B1B1CBBAFA1E5E866541FC2 /* RLMSyncManager_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncManager_Private.h; path = include/RLMSyncManager_Private.h; sourceTree = "<group>"; };
 		C415A2E18FBDC3DF9AD1EDC5376D3B25 /* OCMock.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = OCMock.xcconfig; sourceTree = "<group>"; };
 		C41E8C4F3B4702AB18C934041CB8B905 /* TRCSchemaDataValueOptions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TRCSchemaDataValueOptions.m; path = TyphoonRestClient/Internal/Scheme/Data/TRCSchemaDataValueOptions.m; sourceTree = "<group>"; };
 		C4B2909BA7D96313B505B5859831A191 /* CTObjectiveCRuntimeAdditions-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CTObjectiveCRuntimeAdditions-dummy.m"; sourceTree = "<group>"; };
 		C4B9CBF2BCADB1FFD5FD2196E26586D7 /* TRCSerializerData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TRCSerializerData.h; path = TyphoonRestClient/Extras/Serializations/TRCSerializerData.h; sourceTree = "<group>"; };
+		C4C5771D5ECFEC5FAE5DEA36EF05B35B /* UIButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIButton+WebCache.h"; path = "SDWebImage/UIButton+WebCache.h"; sourceTree = "<group>"; };
 		C54369E5EE6CE0D916337523B308522B /* object_store.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = object_store.cpp; path = Realm/ObjectStore/src/object_store.cpp; sourceTree = "<group>"; };
 		C5CE120CCD2A931DFA84664B23241216 /* TyphoonTypeConversionUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonTypeConversionUtils.m; path = Source/TypeConversion/TyphoonTypeConversionUtils.m; sourceTree = "<group>"; };
 		C5DBEC5FD1822B384A6D14BE30E3F2CA /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
 		C5E7624F744DBEC0198A807BF0B65B1E /* EXTScope.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXTScope.m; path = extobjc/EXTScope.m; sourceTree = "<group>"; };
+		C6239ED17610DA76895407B6AE8A8EA6 /* UIButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+WebCache.m"; path = "SDWebImage/UIButton+WebCache.m"; sourceTree = "<group>"; };
 		C6440487519DF55C11064A2EEFB76D35 /* AFNetworking-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AFNetworking-dummy.m"; sourceTree = "<group>"; };
 		C64B7E013178C05AF42E9CF3CC2C08F5 /* OCLogTemplate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OCLogTemplate.h; path = Source/Vendor/OCLogTemplate/OCLogTemplate.h; sourceTree = "<group>"; };
 		C662134844BB727D755E5FA4AF75B673 /* RLMRealmConfiguration.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMRealmConfiguration.mm; path = Realm/RLMRealmConfiguration.mm; sourceTree = "<group>"; };
@@ -1353,8 +1344,6 @@
 		CBECCC4FC26B9C3198CDA048FAFDE87E /* TPDWeakProxy-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TPDWeakProxy-prefix.pch"; sourceTree = "<group>"; };
 		CC0BBF670B39F9B41BE1904E11BDE2AB /* OCMLocation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMLocation.m; path = Source/OCMock/OCMLocation.m; sourceTree = "<group>"; };
 		CC7839A3C94D5C6CEFBFC71F75A2B389 /* UIView+TyphoonOutletTransfer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+TyphoonOutletTransfer.h"; path = "Source/ios/Storyboard/UIView+TyphoonOutletTransfer.h"; sourceTree = "<group>"; };
-		CD28370379B4E019299F2799027FC1A3 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDecoder.h; path = SDWebImage/SDWebImageDecoder.h; sourceTree = "<group>"; };
-		CD410395FB7D5D5C6D322C6D085719B4 /* SDImageCacheConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCacheConfig.m; path = SDWebImage/SDImageCacheConfig.m; sourceTree = "<group>"; };
 		CE0C7DDB1A2560BFF0E5F66E67498AA8 /* RLMRealmUtil.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMRealmUtil.mm; path = Realm/RLMRealmUtil.mm; sourceTree = "<group>"; };
 		CE6040491D9BA0945051B2FF2AFF945D /* TyphoonPassThroughTypeConverter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonPassThroughTypeConverter.m; path = Source/TypeConversion/Converters/TyphoonPassThroughTypeConverter.m; sourceTree = "<group>"; };
 		CF4BEF7CEA4A589A5849A6652E38091C /* TyphoonStoryboardDefinition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonStoryboardDefinition.m; path = Source/ios/Definition/TyphoonStoryboardDefinition.m; sourceTree = "<group>"; };
@@ -1365,7 +1354,6 @@
 		D143DAFFC0DD54CA2C46F5B175B2AFE8 /* BaseModel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BaseModel-dummy.m"; sourceTree = "<group>"; };
 		D16029668A4B7B22DC27264552F2AD20 /* RLMSyncSession.mm */ = {isa = PBXFileReference; includeInIndex = 1; name = RLMSyncSession.mm; path = Realm/RLMSyncSession.mm; sourceTree = "<group>"; };
 		D19966786D0A35CB2A8DD955C3AFD5CC /* TyphoonInjectionByCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonInjectionByCollection.h; path = Source/Definition/Injections/TyphoonInjectionByCollection.h; sourceTree = "<group>"; };
-		D1D178E16DBF55FBE87EC2C31843BA4D /* SDWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloader.h; path = SDWebImage/SDWebImageDownloader.h; sourceTree = "<group>"; };
 		D21B9D189AE4E7502DD3A88D083932F4 /* CTBlockDescription.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CTBlockDescription.h; path = CTObjectiveCRuntimeAdditions/CTObjectiveCRuntimeAdditions/CTBlockDescription.h; sourceTree = "<group>"; };
 		D222AA9B2EA03D43B956D8E2D7351764 /* TyphoonInjectionDefinition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonInjectionDefinition.m; path = Source/Definition/Internal/TyphoonInjectionDefinition.m; sourceTree = "<group>"; };
 		D27E84F9784E3DDD5E3CCECFB6BD542D /* TyphoonInjectionByObjectFromString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonInjectionByObjectFromString.m; path = Source/Definition/Injections/TyphoonInjectionByObjectFromString.m; sourceTree = "<group>"; };
@@ -1379,10 +1367,8 @@
 		D668229702A603DF06B25B3596792155 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		D70CE1B52DD703FA4CF63BBE78E36108 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
 		D7C995D97885C8F81D6ABB620B9CFD80 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
-		D7E82060AAF40FA54364990848F73FDC /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MultiFormat.m"; path = "SDWebImage/UIImage+MultiFormat.m"; sourceTree = "<group>"; };
 		D87FF60176847A0EC86803796C9075FF /* RLMObject_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMObject_Private.h; path = include/RLMObject_Private.h; sourceTree = "<group>"; };
 		D89344A0A7F44EAD98230610B6E33D8F /* TyphoonPathResource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonPathResource.h; path = Source/Configuration/Resource/TyphoonPathResource.h; sourceTree = "<group>"; };
-		D8ED0236BFCDBD063A2198E860F061A5 /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/UIImage+GIF.h"; sourceTree = "<group>"; };
 		D9410F34800DFC541EA40CF978FFA2C2 /* Pods-iOS HubTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOS HubTests-resources.sh"; sourceTree = "<group>"; };
 		D94D4A235CEE029D3157EAE80B5C0F72 /* TyphoonInjection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonInjection.h; path = Source/Definition/Injections/TyphoonInjection.h; sourceTree = "<group>"; };
 		D9D71E3ED2BF610AB709B6F68F02A6B4 /* TRCSerializerImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TRCSerializerImage.m; path = TyphoonRestClient/Extras/Serializations/TRCSerializerImage.m; sourceTree = "<group>"; };
@@ -1395,9 +1381,9 @@
 		DF520AD76A4E4BB2A81EF3079605A174 /* TRCSchemaStackTrace.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TRCSchemaStackTrace.m; path = TyphoonRestClient/Internal/Scheme/TRCSchemaStackTrace.m; sourceTree = "<group>"; };
 		DFD4183302EDF61E349C560E5242A396 /* Pods-iOS Hub-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOS Hub-resources.sh"; sourceTree = "<group>"; };
 		E04E7A47FB327A6AED55403AD2B6CB88 /* TyphoonSwizzlerDefaultImpl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonSwizzlerDefaultImpl.h; path = Source/Utils/Swizzle/TyphoonSwizzlerDefaultImpl.h; sourceTree = "<group>"; };
+		E05A60871C57841298DE7E3BE9ECBB52 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDecoder.m; path = SDWebImage/SDWebImageDecoder.m; sourceTree = "<group>"; };
 		E0B9867A52F2758DAF32AEF8B40A9FBD /* TyphoonCallStack.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonCallStack.m; path = Source/Factory/Internal/TyphoonCallStack.m; sourceTree = "<group>"; };
 		E11AEC08181DA64B1BBBD5367DEE6190 /* Pods-iOS Hub-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-iOS Hub-dummy.m"; sourceTree = "<group>"; };
-		E149E3DC7947DE5C65884B8E7FE81FE1 /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/UIImage+GIF.m"; sourceTree = "<group>"; };
 		E15D6EE4F06A741FECA0397C0BD41FAF /* TyphoonComponentFactory+Storyboard.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "TyphoonComponentFactory+Storyboard.h"; path = "Source/ios/Storyboard/TyphoonComponentFactory+Storyboard.h"; sourceTree = "<group>"; };
 		E177F8C847A8A594A664113EA8EF419D /* NSObject+FBKVOController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+FBKVOController.m"; path = "FBKVOController/NSObject+FBKVOController.m"; sourceTree = "<group>"; };
 		E187FEF5DC0A94397082E2E24B63808D /* libPINCache.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libPINCache.a; path = libPINCache.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1406,6 +1392,7 @@
 		E31D897403B45FA8F3435E1E666D623C /* TyphoonBundledImageTypeConverter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonBundledImageTypeConverter.m; path = Source/ios/TypeConversion/Converters/TyphoonBundledImageTypeConverter.m; sourceTree = "<group>"; };
 		E37DC6EDDBAE14D32637710283B749DA /* TRCSerializerMultipart.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TRCSerializerMultipart.m; path = TyphoonRestClient/Extras/Serializations/TRCSerializerMultipart.m; sourceTree = "<group>"; };
 		E4AF0BA83401EA597AE54B84CB1B7998 /* TRCSchemaStackTrace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TRCSchemaStackTrace.h; path = TyphoonRestClient/Internal/Scheme/TRCSchemaStackTrace.h; sourceTree = "<group>"; };
+		E4C831CF27FEE2ABEF82515DDDFFAF0E /* SDWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageManager.h; path = SDWebImage/SDWebImageManager.h; sourceTree = "<group>"; };
 		E4F1FB5C20884185A3DFF7D3AFD70AC1 /* OCMBoxedReturnValueProvider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMBoxedReturnValueProvider.m; path = Source/OCMock/OCMBoxedReturnValueProvider.m; sourceTree = "<group>"; };
 		E56F3ED91DF4F234F1ED00152E6B1A24 /* RLMSyncPermissionOfferResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = RLMSyncPermissionOfferResponse.m; path = Realm/RLMSyncPermissionOfferResponse.m; sourceTree = "<group>"; };
 		E5FC301E25E57F6DB02D4CD348DC99C9 /* TyphoonNSNumberTypeConverter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonNSNumberTypeConverter.h; path = Source/TypeConversion/Converters/TyphoonNSNumberTypeConverter.h; sourceTree = "<group>"; };
@@ -1419,6 +1406,8 @@
 		E8B30D7D9906CB43F577DAFA21316545 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		E8FD12704C09CE5049F44D37A4719226 /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
 		E8FF1AFEBB11ADCA19391D81FD5094A7 /* RLMResults.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMResults.h; path = include/RLMResults.h; sourceTree = "<group>"; };
+		E947024FB5A78EB208412E531F7D5313 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
+		E97C2467A1705B94CBB00593061B0EFD /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MultiFormat.h"; path = "SDWebImage/UIImage+MultiFormat.h"; sourceTree = "<group>"; };
 		EA8599E8C332DD544C004E31DADCF535 /* TyphoonAssembly+TyphoonAssemblyFriend.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "TyphoonAssembly+TyphoonAssemblyFriend.h"; path = "Source/Factory/Assembly/TyphoonAssembly+TyphoonAssemblyFriend.h"; sourceTree = "<group>"; };
 		EAB53CD08E7B3859B1E97C2ACD91D381 /* TyphoonInjectionByDictionary.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonInjectionByDictionary.m; path = Source/Definition/Injections/TyphoonInjectionByDictionary.m; sourceTree = "<group>"; };
 		EACC753811AB948C6D7E2FBD763C476D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
@@ -1428,8 +1417,8 @@
 		EBE875E2E064D067B0EF31171A3A698D /* TyphoonInjectionDefinition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonInjectionDefinition.h; path = Source/Definition/Internal/TyphoonInjectionDefinition.h; sourceTree = "<group>"; };
 		EC9D7123EE36298F1EB8597444B6CB02 /* FastCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FastCoder.m; path = FastCoder/FastCoder.m; sourceTree = "<group>"; };
 		ECACA4CE02CA6100BFFF45515E381012 /* Aspects.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Aspects.xcconfig; sourceTree = "<group>"; };
-		ECF4A9541D6069E230840AAFF6923A04 /* SDImageCacheConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCacheConfig.h; path = SDWebImage/SDImageCacheConfig.h; sourceTree = "<group>"; };
 		ED11585BB2F26FAC5C61B793E2FEDDC9 /* BaseModel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = BaseModel.xcconfig; sourceTree = "<group>"; };
+		ED22440D8956F9B49E5DD43851A8B9FD /* UIImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		ED38E09B3EFACD38C6BCAEF467A836CB /* TyphoonInjectionByComponentFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonInjectionByComponentFactory.h; path = Source/Definition/Injections/TyphoonInjectionByComponentFactory.h; sourceTree = "<group>"; };
 		ED94F8E9880224AD55BFA52D3DCDBB5F /* TyphoonJsonStyleConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonJsonStyleConfiguration.h; path = Source/Configuration/ConfigPostProcessor/TyphoonConfiguration/TyphoonJsonStyleConfiguration.h; sourceTree = "<group>"; };
 		EE6704FAB2A33A0D5681F514E800E4F3 /* Pods-iOS Hub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-iOS Hub.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1457,10 +1446,8 @@
 		F5DCB4ADB6B669242FD6F535FD58ADAD /* libMTAnimation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMTAnimation.a; path = libMTAnimation.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F691FBA90D253899FB281E174DE802BA /* realm_coordinator.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = realm_coordinator.cpp; path = Realm/ObjectStore/src/impl/realm_coordinator.cpp; sourceTree = "<group>"; };
 		F6A943F607C162BE24CC52009E749DE0 /* TyphoonInjectionByObjectInstance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonInjectionByObjectInstance.h; path = Source/Definition/Injections/TyphoonInjectionByObjectInstance.h; sourceTree = "<group>"; };
-		F6DD12869214E727CEC7624B4427CBCF /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
 		F7093CE563088385C1E761C2D8702F63 /* FBKVOController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBKVOController.h; path = FBKVOController/FBKVOController.h; sourceTree = "<group>"; };
 		F7AADE434CE2BD2DC507E2A5DA7EED5C /* TyphoonInjections.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonInjections.m; path = Source/Definition/Injections/TyphoonInjections.m; sourceTree = "<group>"; };
-		F7B9F52B5A612DFDF0C1106DEEB2D68F /* SDWebImageDownloader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloader.m; path = SDWebImage/SDWebImageDownloader.m; sourceTree = "<group>"; };
 		F89584B070C406765D348D4BE8B2B58D /* TyphoonInjectionByType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonInjectionByType.h; path = Source/Definition/Injections/TyphoonInjectionByType.h; sourceTree = "<group>"; };
 		F8D03BBA7EC9069C8AA1C525B3B22879 /* results_notifier.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = results_notifier.cpp; path = Realm/ObjectStore/src/impl/results_notifier.cpp; sourceTree = "<group>"; };
 		F9E69BDD28A7DF00761120B27AA8FFAC /* OCMBlockCaller.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = OCMBlockCaller.m; path = Source/OCMock/OCMBlockCaller.m; sourceTree = "<group>"; };
@@ -1471,6 +1458,7 @@
 		FB12EF556531AD0973DEA0A618C5DB5A /* transact_log_handler.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = transact_log_handler.cpp; path = Realm/ObjectStore/src/impl/transact_log_handler.cpp; sourceTree = "<group>"; };
 		FCC49F47892DB58D5FED14E9C64B9E5A /* keychain_helper.cpp */ = {isa = PBXFileReference; includeInIndex = 1; name = keychain_helper.cpp; path = Realm/ObjectStore/src/impl/apple/keychain_helper.cpp; sourceTree = "<group>"; };
 		FD1080BED4296D0C53D65893D942AC5F /* TyphoonViewControllerInjector.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TyphoonViewControllerInjector.h; path = Source/ios/Configuration/TyphoonViewControllerInjector.h; sourceTree = "<group>"; };
+		FD47C577CA3E631CA56368147BC696A5 /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/SDWebImageManager.m; sourceTree = "<group>"; };
 		FD4A78E1136AD79551A4404F900CE68B /* libextobjc-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "libextobjc-prefix.pch"; sourceTree = "<group>"; };
 		FD8A086B3F94792AFB084E1CC4FEC8C3 /* TyphoonColorConversionUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TyphoonColorConversionUtils.m; path = Source/TypeConversion/Helpers/TyphoonColorConversionUtils.m; sourceTree = "<group>"; };
 		FDB43905E05BEE669F960A94290043C1 /* TyphoonOptionMatcher+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "TyphoonOptionMatcher+Internal.h"; path = "Source/Configuration/DefinitionOptionConfiguration/Matcher/TyphoonOptionMatcher+Internal.h"; sourceTree = "<group>"; };
@@ -2002,6 +1990,16 @@
 			path = SAMKeychain;
 			sourceTree = "<group>";
 		};
+		49842494880CF549468FB6829F863B44 /* SDWebImage */ = {
+			isa = PBXGroup;
+			children = (
+				F167B782A14EB74AD63405DCE515B8E6 /* Core */,
+				A815645B48C6EBCF7BDE4B33B72D6CD5 /* Support Files */,
+			);
+			name = SDWebImage;
+			path = SDWebImage;
+			sourceTree = "<group>";
+		};
 		4A00AF366907AFDB80D7C55C4603AFC2 /* FastCoding */ = {
 			isa = PBXGroup;
 			children = (
@@ -2044,16 +2042,6 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/TyphoonRestClient";
-			sourceTree = "<group>";
-		};
-		58CA216F21FB3781225C39E88E6CD591 /* SDWebImage */ = {
-			isa = PBXGroup;
-			children = (
-				C4F5A886A14C017A5823EBF53AA30CAF /* Core */,
-				D60DF4385AA05EA278B11D70EFE29550 /* Support Files */,
-			);
-			name = SDWebImage;
-			path = SDWebImage;
 			sourceTree = "<group>";
 		};
 		5EAB153FFCBD9E405BB8AB7C5C3CE20F /* IntrospectionUtils */ = {
@@ -2267,6 +2255,17 @@
 			path = "../Target Support Files/TPDWeakProxy";
 			sourceTree = "<group>";
 		};
+		A815645B48C6EBCF7BDE4B33B72D6CD5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2193A5C8C9F7AE36F112938A53FBCAC0 /* SDWebImage.xcconfig */,
+				E947024FB5A78EB208412E531F7D5313 /* SDWebImage-dummy.m */,
+				512C3727AEB078DA8D4EDB53BA6743E4 /* SDWebImage-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SDWebImage";
+			sourceTree = "<group>";
+		};
 		B0A4BA377139C7E2F8DB7851EC4BD5D7 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -2293,7 +2292,7 @@
 				25050BA922537FABEF9713256D638195 /* PINCache */,
 				30D8975403E5C961871DD01A576C1625 /* Realm */,
 				4818BF5841C9CAA62C3911EADA7FDEF2 /* SAMKeychain */,
-				58CA216F21FB3781225C39E88E6CD591 /* SDWebImage */,
+				49842494880CF549468FB6829F863B44 /* SDWebImage */,
 				F4D386F163B3DE7858DD887FF00066DA /* TPDWeakProxy */,
 				BE19F7A423989915673C20CBD48CCA6B /* Typhoon */,
 				3FC837FB4B3EB4B04804E2F62D9085B0 /* TyphoonRestClient */,
@@ -2570,48 +2569,6 @@
 			path = "../Target Support Files/KVOController";
 			sourceTree = "<group>";
 		};
-		C4F5A886A14C017A5823EBF53AA30CAF /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				22B0E0750079404BCA26B79C93734B6C /* NSData+ImageContentType.h */,
-				25D6F61C69AA13D702F23D89D2123BC9 /* NSData+ImageContentType.m */,
-				7F00257649FC8684E304C2CE45860E5E /* NSImage+WebCache.h */,
-				61376966961329A7E592866BF645E93F /* NSImage+WebCache.m */,
-				57DCC1CD41FECC69D2BCD85FB1702AD7 /* SDImageCache.h */,
-				ABDB7D853E0A0F90BED63E9443B74FD1 /* SDImageCache.m */,
-				ECF4A9541D6069E230840AAFF6923A04 /* SDImageCacheConfig.h */,
-				CD410395FB7D5D5C6D322C6D085719B4 /* SDImageCacheConfig.m */,
-				735E8BB8F08289BBD7982852FE2EDC0C /* SDWebImageCompat.h */,
-				85F0EF6DA00C9AC68F130F04C02D264C /* SDWebImageCompat.m */,
-				CD28370379B4E019299F2799027FC1A3 /* SDWebImageDecoder.h */,
-				17D8AAD9C69F4FC8C6AB2DF3974F44D0 /* SDWebImageDecoder.m */,
-				D1D178E16DBF55FBE87EC2C31843BA4D /* SDWebImageDownloader.h */,
-				F7B9F52B5A612DFDF0C1106DEEB2D68F /* SDWebImageDownloader.m */,
-				858B72A4F8976F85BA11C0A8DFC687C7 /* SDWebImageDownloaderOperation.h */,
-				A3AD3F4C95D66216C3C3136DCD29D347 /* SDWebImageDownloaderOperation.m */,
-				4D32E66301E3DF9AC4CC1BC11D811398 /* SDWebImageManager.h */,
-				8042222128FD5689AC7B5ABF7159439B /* SDWebImageManager.m */,
-				253FF86DF2C283323D843E97EBF8B0C9 /* SDWebImageOperation.h */,
-				3E081A91828A6CD49D84FDA4B5C67B2F /* SDWebImagePrefetcher.h */,
-				8ECB1F85AA9BA44AD45D6542FFD3ED49 /* SDWebImagePrefetcher.m */,
-				5276B772910C71ECF4FB7EAFADDC29DC /* UIButton+WebCache.h */,
-				AF983927AF6B617AFDC515BCF58BB44B /* UIButton+WebCache.m */,
-				D8ED0236BFCDBD063A2198E860F061A5 /* UIImage+GIF.h */,
-				E149E3DC7947DE5C65884B8E7FE81FE1 /* UIImage+GIF.m */,
-				766EC95B0F5BEFAF5656C9CF93CC846C /* UIImage+MultiFormat.h */,
-				D7E82060AAF40FA54364990848F73FDC /* UIImage+MultiFormat.m */,
-				5349202112058540D82A6C3ED962A7DB /* UIImageView+HighlightedWebCache.h */,
-				F6DD12869214E727CEC7624B4427CBCF /* UIImageView+HighlightedWebCache.m */,
-				27C66A3DEA85CE4EB99C608B8EA8EAC3 /* UIImageView+WebCache.h */,
-				6ADF62592B1327752830C317FB7F262B /* UIImageView+WebCache.m */,
-				1442C60367E8ADE1062B480FCA427BDD /* UIView+WebCache.h */,
-				8CABC2E7D0ED56B925581A33FDA711FD /* UIView+WebCache.m */,
-				A61B13564013E8A8878094B4DB76BD34 /* UIView+WebCacheOperation.h */,
-				5FFF834C5898FED5C62978D1A1231FAD /* UIView+WebCacheOperation.m */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
 		CF4A4CCADA379D85AFA5D1B64D1C320D /* DeallocNotifier */ = {
 			isa = PBXGroup;
 			children = (
@@ -2626,17 +2583,6 @@
 				8FE2193D9E69469FE6EEF0E34E72D111 /* AFNetworkReachabilityManager.m */,
 			);
 			name = Reachability;
-			sourceTree = "<group>";
-		};
-		D60DF4385AA05EA278B11D70EFE29550 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				22E4B5C0DFE0C447D5C35676A538FB50 /* SDWebImage.xcconfig */,
-				51576BCB474D3CF8F22A269E140ADD54 /* SDWebImage-dummy.m */,
-				7D5AB970DA767DED3F133CCF60EF88ED /* SDWebImage-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SDWebImage";
 			sourceTree = "<group>";
 		};
 		D7773341132040907B567FEDE7B3FDD6 /* no-arc */ = {
@@ -2738,6 +2684,42 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/OCMock";
+			sourceTree = "<group>";
+		};
+		F167B782A14EB74AD63405DCE515B8E6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B72FA9BCFB90E977020A6AECA3A28AF6 /* NSData+ImageContentType.h */,
+				3B777DA530C7FB544A1ECED0C0B5F301 /* NSData+ImageContentType.m */,
+				2CC1B5BD25AE5B9860C550EF8A11C4CB /* SDImageCache.h */,
+				22CB286040198BB793AF5D99EF2ED4E4 /* SDImageCache.m */,
+				B1C83341C40210E3EC27DBBBFFEC3DD1 /* SDWebImageCompat.h */,
+				8C1B43B1625A1282B674C785F0787628 /* SDWebImageCompat.m */,
+				9C28B867A13DB8CFD80B4BD1E30C5EE4 /* SDWebImageDecoder.h */,
+				E05A60871C57841298DE7E3BE9ECBB52 /* SDWebImageDecoder.m */,
+				46943E374A9E78988D35E8BAFCF07E0C /* SDWebImageDownloader.h */,
+				C32F767C4C9C6338C25704CDC45C4BAF /* SDWebImageDownloader.m */,
+				81B33BA4D319DEDAA4D2018306ECAEB8 /* SDWebImageDownloaderOperation.h */,
+				83AA284DB0D1123E251E6966051179F8 /* SDWebImageDownloaderOperation.m */,
+				E4C831CF27FEE2ABEF82515DDDFFAF0E /* SDWebImageManager.h */,
+				FD47C577CA3E631CA56368147BC696A5 /* SDWebImageManager.m */,
+				26116E33826B7EF86CF86D1F04D64A4E /* SDWebImageOperation.h */,
+				50553BE96424740B0FE217CCD0577C7E /* SDWebImagePrefetcher.h */,
+				00DBDE209AE5BCFDE1FD3B3A2382C90B /* SDWebImagePrefetcher.m */,
+				C4C5771D5ECFEC5FAE5DEA36EF05B35B /* UIButton+WebCache.h */,
+				C6239ED17610DA76895407B6AE8A8EA6 /* UIButton+WebCache.m */,
+				3DBA9A71AC4DB33D31D9F7121BFD44D9 /* UIImage+GIF.h */,
+				063BFB54D061338D999672171574C879 /* UIImage+GIF.m */,
+				E97C2467A1705B94CBB00593061B0EFD /* UIImage+MultiFormat.h */,
+				AAC7B798966C656892A4EF71DD40D47A /* UIImage+MultiFormat.m */,
+				20C3DDEB5AF2DC8115B264A87695E16C /* UIImageView+HighlightedWebCache.h */,
+				211EDE7519448A199C27112B106FAA2F /* UIImageView+HighlightedWebCache.m */,
+				ED22440D8956F9B49E5DD43851A8B9FD /* UIImageView+WebCache.h */,
+				1F7FC740D4BEE70BD8FE757EAAB5F56E /* UIImageView+WebCache.m */,
+				4E800F96EC8365F5937A1527385E360B /* UIView+WebCacheOperation.h */,
+				B3A26872C33A5AC143227FB222B48115 /* UIView+WebCacheOperation.m */,
+			);
+			name = Core;
 			sourceTree = "<group>";
 		};
 		F1E5274E81D77AE8067F146EDA0B2265 /* Pods-iOS HubTests */ = {
@@ -2951,31 +2933,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1E451E3C7AF3C662A2BF9D086DFCC920 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4B16909B6C97D0F8D1DE072DE8C6406F /* NSData+ImageContentType.h in Headers */,
-				6200440547ACA9ACDA9A83323AEE85ED /* NSImage+WebCache.h in Headers */,
-				4C2D1D86F2E4DF2CA362B86DAAB2D2EE /* SDImageCache.h in Headers */,
-				FC8DA3E7927A29CC05132082353F8BCB /* SDImageCacheConfig.h in Headers */,
-				28D25F39CCC4C79691C8EA89420F03F0 /* SDWebImageCompat.h in Headers */,
-				2B5E191265F2E8C4AE4D943FA947D896 /* SDWebImageDecoder.h in Headers */,
-				8BD11BF326D028F9338EE61B549A2011 /* SDWebImageDownloader.h in Headers */,
-				39FFCB7275ACE67359D718E7D2FBD5F1 /* SDWebImageDownloaderOperation.h in Headers */,
-				C0B40835542125229B9E228C92B6D071 /* SDWebImageManager.h in Headers */,
-				1D47B789C7E0C730592337F95F2276C5 /* SDWebImageOperation.h in Headers */,
-				2BEFAB38794C118E21822DC5C79AA04B /* SDWebImagePrefetcher.h in Headers */,
-				1117310F95569F14848A6F572D20F476 /* UIButton+WebCache.h in Headers */,
-				A39FDD06A26815866D94DD7812C85889 /* UIImage+GIF.h in Headers */,
-				10CF9CAA8BAC3AA3E32887305A084DF4 /* UIImage+MultiFormat.h in Headers */,
-				88E2E7F097DBBD6A5FF9504C99BFAD5F /* UIImageView+HighlightedWebCache.h in Headers */,
-				9D1CB563953D925EE170D3A325F1C13E /* UIImageView+WebCache.h in Headers */,
-				2A3B5B56071C2835CB1337D77234A438 /* UIView+WebCache.h in Headers */,
-				3AED62062CA6333F9D07B072417843D5 /* UIView+WebCacheOperation.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		30A126B9E5D13E16D7BB8BECB92A1C79 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -2992,6 +2949,28 @@
 				B9D3215155772C882CA3E2BCDEB5270D /* MTMatrixInterpolation.h in Headers */,
 				FB90EBAB1A6275332551B929C89431E1 /* MTTimingFunctions.h in Headers */,
 				68139B966121728F8121BE0E82750792 /* UIView+MTAnimation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E093DE19E9F53F3C17D4C0A720773E8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				355C4FDBB06ACA1EEF3D2B85E898AC8F /* NSData+ImageContentType.h in Headers */,
+				B5DEEA5DDE37B1B085974618A6BE013B /* SDImageCache.h in Headers */,
+				CB0897624BBC1E7735AA2A2781ABB2EC /* SDWebImageCompat.h in Headers */,
+				B426881B2F61614429247B183826F04B /* SDWebImageDecoder.h in Headers */,
+				2415BD28D87E36DF6CD7AAAFB7142EBD /* SDWebImageDownloader.h in Headers */,
+				2487042658E78C523608EA03F8D60072 /* SDWebImageDownloaderOperation.h in Headers */,
+				D4C38EA2B664A2F509052EE6CD3347C5 /* SDWebImageManager.h in Headers */,
+				1D5B6609ABE1CBA51391E3499D877913 /* SDWebImageOperation.h in Headers */,
+				44D87221AE111FD16F57BF64A873933A /* SDWebImagePrefetcher.h in Headers */,
+				B21299A86E4305967B3480976F1D7CAE /* UIButton+WebCache.h in Headers */,
+				293F92D976D75F6312306A77EE9D377C /* UIImage+GIF.h in Headers */,
+				95B5F3E5D54294E27C11AF8CE535AAA1 /* UIImage+MultiFormat.h in Headers */,
+				ADB7D3A0C74917DE5202AAC35B5E396A /* UIImageView+HighlightedWebCache.h in Headers */,
+				EA5B3433BF73A4618B3C21344178FC31 /* UIImageView+WebCache.h in Headers */,
+				C5D2C01C782044BDA74ACA03E397CB6A /* UIView+WebCacheOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3365,9 +3344,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8216ED23B4F833095B4339B08C701B5D /* Build configuration list for PBXNativeTarget "SDWebImage" */;
 			buildPhases = (
-				67F514B7B49D43C817BFF25C294AF7A8 /* Sources */,
+				069A3EC585C2423BA48ECF737EA3D610 /* Sources */,
 				A772838CB350217CF1299C1BD677A784 /* Frameworks */,
-				1E451E3C7AF3C662A2BF9D086DFCC920 /* Headers */,
+				3E093DE19E9F53F3C17D4C0A720773E8 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -3629,6 +3608,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		069A3EC585C2423BA48ECF737EA3D610 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3AE969E3C015F137AC041AD755A4C1E /* NSData+ImageContentType.m in Sources */,
+				053B0ABE4979081A074E07729A4A30E3 /* SDImageCache.m in Sources */,
+				82AB1848F6B17592D7755F58E6015634 /* SDWebImage-dummy.m in Sources */,
+				BE46F052FBDEDF6AD5C46AD092F49119 /* SDWebImageCompat.m in Sources */,
+				8B5DF688E8D2D6A64DF0DBE575402465 /* SDWebImageDecoder.m in Sources */,
+				CF0BE71D9E2C5D0DB49EAEC7DBA1B171 /* SDWebImageDownloader.m in Sources */,
+				457097DF70C1F3985926890188A27996 /* SDWebImageDownloaderOperation.m in Sources */,
+				0EA43C878C74C16928C4577E0AA8B4B9 /* SDWebImageManager.m in Sources */,
+				85891B4CD7885C9C460DC15E5CBC23B5 /* SDWebImagePrefetcher.m in Sources */,
+				1F9788240E7D37DB4DE5F04FDC0E2C12 /* UIButton+WebCache.m in Sources */,
+				34E8C4E099861400682BA26974489079 /* UIImage+GIF.m in Sources */,
+				B7FEF3988FE98D279B0FA63837C299F4 /* UIImage+MultiFormat.m in Sources */,
+				A06DE2BBFC26321043D3CBB418252048 /* UIImageView+HighlightedWebCache.m in Sources */,
+				90B751DA43AD9FB6F6F20D2011B3EAB1 /* UIImageView+WebCache.m in Sources */,
+				256521C4F32B8482F4A432999578FACD /* UIView+WebCacheOperation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		245D3B37990476181F0C81D747F3AAB7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3714,31 +3715,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F6D615E530E5424AF92B031C6375028 /* Pods-iOS Hub-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		67F514B7B49D43C817BFF25C294AF7A8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				99912A5B3A9097CDE5604C9008CCFE39 /* NSData+ImageContentType.m in Sources */,
-				BB0BE1E17D6923C4C50857FDFCC7ABAD /* NSImage+WebCache.m in Sources */,
-				6C3E42FFD9FC734362570C350F0F4B3E /* SDImageCache.m in Sources */,
-				702C0E1DB02F7237DC7E5161C6B2B841 /* SDImageCacheConfig.m in Sources */,
-				AD927E2C95D8642AA185D6B26E120151 /* SDWebImage-dummy.m in Sources */,
-				EF55BF481333C646850E53F96CB9E8A7 /* SDWebImageCompat.m in Sources */,
-				F70D8872B7692950124D7E01DF04F030 /* SDWebImageDecoder.m in Sources */,
-				A27514B66DDC87DF02F8496407F43F72 /* SDWebImageDownloader.m in Sources */,
-				D5DE3A46B067228708B3947FA2A5D2CA /* SDWebImageDownloaderOperation.m in Sources */,
-				F1F255B1069E4DB6C6A71B7577BF5678 /* SDWebImageManager.m in Sources */,
-				CF1CE5A7027EAE8714B9C7A976075E3B /* SDWebImagePrefetcher.m in Sources */,
-				204CB32E7661ECA01F4180835D5A3FBB /* UIButton+WebCache.m in Sources */,
-				7D84912ABFD8556C6C388913BF70A8DB /* UIImage+GIF.m in Sources */,
-				416DEE5C2AD5EFB87B89A19233D2276A /* UIImage+MultiFormat.m in Sources */,
-				8BEC029D7F31749C0ADE981F2056819B /* UIImageView+HighlightedWebCache.m in Sources */,
-				451256100D23809A8BB5B630063AE327 /* UIImageView+WebCache.m in Sources */,
-				892529A6AF3F7009BE3F64DBDCB3E6D6 /* UIView+WebCache.m in Sources */,
-				E708941369778A237C3446C55DAE70E8 /* UIView+WebCacheOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4559,7 +4535,7 @@
 		};
 		78122794D4CB6DB09A72C640BB97D5C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22E4B5C0DFE0C447D5C35676A538FB50 /* SDWebImage.xcconfig */;
+			baseConfigurationReference = 2193A5C8C9F7AE36F112938A53FBCAC0 /* SDWebImage.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -4628,7 +4604,7 @@
 		};
 		7CC5F62BC9AB9D6F130655D1ED989C82 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 22E4B5C0DFE0C447D5C35676A538FB50 /* SDWebImage.xcconfig */;
+			baseConfigurationReference = 2193A5C8C9F7AE36F112938A53FBCAC0 /* SDWebImage.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
