@@ -48,9 +48,7 @@
         sdOptions |= SDWebImageDownloaderIgnoreCachedResponse;
     }
 
-    [_manager.imageDownloader downloadImageWithURL:url options:sdOptions progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL *targetURL) {
-        // progression tracking code
-    } completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+    [_manager.imageDownloader downloadImageWithURL:url options:sdOptions progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
         SafetyCall(completion, image, error);
     }];
 }
