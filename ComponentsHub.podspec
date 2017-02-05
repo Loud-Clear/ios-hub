@@ -6,7 +6,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ComponentsHub"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "A short description of ComponentsHub."
   s.description  = "Shared components for iOS projects"
 
