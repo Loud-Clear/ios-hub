@@ -121,6 +121,7 @@ Pod::Spec.new do |s|
       subspec.source_files   = 'Components/RealmAddons/**/*.{h,m}'
       subspec.dependency 'Realm'
       subspec.dependency 'ComponentsHub/Observation'
+      subspec.dependency 'ComponentsHub/NotificationUtils'
   end
 
 # TODO: remove (use SingletonStorage instead)
