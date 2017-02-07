@@ -18,6 +18,8 @@
 
 + (NSArray *)serializedProperties;
 
+- (void)beforeAddOrUpdate:(RLMRealm *)realm;
+
 @end
 
 

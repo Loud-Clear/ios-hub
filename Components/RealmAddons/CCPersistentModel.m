@@ -29,6 +29,11 @@
     return @[ ];
 }
 
+- (void)beforeAddOrUpdate:(RLMRealm *)realm
+{
+
+}
+
 + (instancetype)createInDefaultRealmWithValue:(id)value
 {
     return (id)[super createInDefaultRealmWithValue:[self processedValueFromValue:value]];

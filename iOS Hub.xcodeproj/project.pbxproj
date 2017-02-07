@@ -22,6 +22,7 @@
 		2DBA1496B0331E84A3BC0825 /* CCTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */; };
 		2DBA14A5AF44ACAFAB0DC56A /* CCPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */; };
 		2DBA150A27435C502199776A /* CCTableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A0BF4F3E60B3D6DBF90 /* CCTableViewItem.m */; };
+		2DBA155F41E35FF8F220F36C /* CCDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1BC5EBB5E3345A3D7090 /* CCDatabaseManager.m */; };
 		2DBA15EFE90B20AF3823885A /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA10CE13525A2D6ABA0D3E /* CCTableViewCell.m */; };
 		2DBA1661CA7311CCA9DF8446 /* CCAssemblyCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA180B909823C1F490ECA4 /* CCAssemblyCollector.m */; };
 		2DBA16C75C30F18D2EE8F51F /* CCRestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1F8C007E342704E24574 /* CCRestClient.m */; };
@@ -158,6 +159,7 @@
 		2DBA16E1A9A5FA6C8C0E733C /* CCAssemblyCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAssemblyCollector.h; sourceTree = "<group>"; };
 		2DBA1744188395C568EB9F02 /* CCTableViewCellStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCellStyle.m; sourceTree = "<group>"; };
 		2DBA178A8B7FF15B9230FFFB /* CCRoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRoundButton.h; sourceTree = "<group>"; };
+		2DBA17D4609ED9199EA15414 /* CCDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDatabaseManager.h; sourceTree = "<group>"; };
 		2DBA180B909823C1F490ECA4 /* CCAssemblyCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAssemblyCollector.m; sourceTree = "<group>"; };
 		2DBA182480085DCFC1641EDF /* NSObject+TyphoonDefaultFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TyphoonDefaultFactory.h"; sourceTree = "<group>"; };
 		2DBA1831D47B187461EFB352 /* CCMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMapping.h; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		2DBA1B86C33AECE39AF41BD4 /* CCRestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRestClient.h; sourceTree = "<group>"; };
 		2DBA1BA28B947E4C31A07BB5 /* CCAdditionalAsserts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAdditionalAsserts.m; sourceTree = "<group>"; };
 		2DBA1BB9C2ABBC636856FD47 /* TyphoonRestClientStub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TyphoonRestClientStub.m; sourceTree = "<group>"; };
+		2DBA1BC5EBB5E3345A3D7090 /* CCDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDatabaseManager.m; sourceTree = "<group>"; };
 		2DBA1C2A008AB29C60FE97FF /* CCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRequest.h; sourceTree = "<group>"; };
 		2DBA1CAAAFA689B2C4121909 /* CCRoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRoundButton.m; sourceTree = "<group>"; };
 		2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCellFactory.m; sourceTree = "<group>"; };
@@ -522,6 +525,15 @@
 				2DBA1393C3600DC6CA973A8D /* PostProcessor */,
 			);
 			path = Form;
+			sourceTree = "<group>";
+		};
+		2DBA18A6EB526D152F6DC92C /* DatabaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA17D4609ED9199EA15414 /* CCDatabaseManager.h */,
+				2DBA1BC5EBB5E3345A3D7090 /* CCDatabaseManager.m */,
+			);
+			path = DatabaseManager;
 			sourceTree = "<group>";
 		};
 		2DBA1952040853CFFD6D9DDF /* Table */ = {
@@ -1275,6 +1287,7 @@
 				FA3486A41DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.h */,
 				FA3486A51DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m */,
 				2DBA1643F909F504AB6B52DC /* Results */,
+				2DBA18A6EB526D152F6DC92C /* DatabaseManager */,
 			);
 			path = RealmAddons;
 			sourceTree = "<group>";
@@ -1635,6 +1648,7 @@
 				3182134A94B7183D5BC763D7 /* CCValueTransformerToString.m in Sources */,
 				318214A87C965A20875198C7 /* CCValueTransformerUnixTime.m in Sources */,
 				31821318859B945CDF64A6CB /* CCValueTransformerDateIso8601.m in Sources */,
+				2DBA155F41E35FF8F220F36C /* CCDatabaseManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
