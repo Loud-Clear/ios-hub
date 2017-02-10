@@ -28,6 +28,8 @@
 #import "TRCSerializerString.h"
 #import "TRCSerializerMultipart.h"
 #import "TyphoonRestClientErrors.h"
+#import "TRCPreProcessor.h"
+
 #import "TRCProxyProgressHandler.h"
 
 @implementation NSOperationQueue (BlockWithPriority)
@@ -90,6 +92,7 @@ static inline void TRCCompleteWithError(void(^completion)(id, NSError *), NSErro
     NSMutableDictionary *_requestSerializers;
     NSMutableDictionary *_validationErrorPrinters;
 
+    NSMutableOrderedSet *_preProcessors;
     NSMutableOrderedSet *_postProcessors;
     NSMutableDictionary *_trcValueTransformerTypesRegistry;
 
@@ -108,6 +111,7 @@ static inline void TRCCompleteWithError(void(^completion)(id, NSError *), NSErro
         _responseSerializers = [NSMutableDictionary new];
         _requestSerializers = [NSMutableDictionary new];
         _validationErrorPrinters = [NSMutableDictionary new];
+        _preProcessors = [NSMutableOrderedSet new];
         _postProcessors = [NSMutableOrderedSet new];
         _trcValueTransformerTypesRegistry = [NSMutableDictionary new];
 
@@ -214,7 +218,17 @@ static inline void TRCCompleteWithError(void(^completion)(id, NSError *), NSErro
                 [self handleResponse:responseObject withError:networkError info:responseInfo forRequest:request completion:^(id result, NSError *handleError) {
                     if (completion) {
                         [callbackQueue addOperationWithBlock:^{
-                            completion(result, handleError);
+                            id finalResult = result;
+                            NSError *finalError = handleError;
+
+                            if (finalResult && !finalError) {
+                                finalResult = [self postProcessResponseObject:finalResult forRequest:request postProcessError:&finalError queueType:TRCQueueTypeCallback];
+                            }
+
+                            if (finalError) {
+                                finalError = [self postProcessError:finalError forRequest:request queueType:TRCQueueTypeCallback];
+                            }
+                            completion(finalResult, finalError);
                         }];
                     }
                 }];
@@ -449,6 +463,7 @@ static inline void TRCCompleteWithError(void(^completion)(id, NSError *), NSErro
     id response = nil;
 
     NSParameterAssert(completion);
+
     if (error || [self isErrorInResponse:responseObject responseInfo:responseInfo]) {
         //Parse response for error description if needed:
         error = [self errorFromNetworkError:error withResponse:responseObject request:request responseInfo:responseInfo];
@@ -459,18 +474,24 @@ static inline void TRCCompleteWithError(void(^completion)(id, NSError *), NSErro
         }
     }
     else {
-        NSError *validationOrConversionError = nil;
-        TRCSchema *scheme = [_schemeFactory schemeForResponseWithRequest:request];
-        TRCTransformationOptions options = [self transformationOptionsFromObject:request usingSelector:@selector(responseTransformationOptions)];
-        response = [self validateThenConvertObject:responseObject withScheme:scheme options:options error:&validationOrConversionError];
-        if (!validationOrConversionError) {
-            response = [self parseResponse:response withRequest:request responseInfo:responseInfo error:&validationOrConversionError];
+        NSError *preprocessParseError = nil;
+        responseObject = [self preProcessResponseObject:responseObject forRequest:request preProcessError:&preprocessParseError];
+        error = preprocessParseError;
+
+        if (!error) {
+            NSError *validationOrConversionError = nil;
+            TRCSchema *scheme = [_schemeFactory schemeForResponseWithRequest:request];
+            TRCTransformationOptions options = [self transformationOptionsFromObject:request usingSelector:@selector(responseTransformationOptions)];
+            response = [self validateThenConvertObject:responseObject withScheme:scheme options:options error:&validationOrConversionError];
+            if (!validationOrConversionError) {
+                response = [self parseResponse:response withRequest:request responseInfo:responseInfo error:&validationOrConversionError];
+            }
+            error = validationOrConversionError;
         }
-        error = validationOrConversionError;
     }
 
     if (error) {
-        error = [self postProcessError:error forRequest:request];
+        error = [self postProcessError:error forRequest:request queueType:TRCQueueTypeWork];
         completion(nil, error);
     } else {
         completion(response, nil);
@@ -488,7 +509,7 @@ static inline void TRCCompleteWithError(void(^completion)(id, NSError *), NSErro
     }
 
     if (!parsingError) {
-        result = [self postProcessResponseObject:result forRequest:request postProcessError:&parsingError];
+        result = [self postProcessResponseObject:result forRequest:request postProcessError:&parsingError queueType:TRCQueueTypeWork];
     }
 
     if (parsingError && error) {
@@ -760,6 +781,36 @@ static inline void TRCCompleteWithError(void(^completion)(id, NSError *), NSErro
 }
 
 //-------------------------------------------------------------------------------------------
+#pragma mark - PreProcessors
+//-------------------------------------------------------------------------------------------
+
+- (void)registerPreProcessor:(id<TRCPreProcessor>)preProcessor
+{
+    NSAssert(preProcessor, @"PreProcessor can't be nil");
+    [_preProcessors addObject:preProcessor];
+}
+
+- (id)preProcessResponseObject:(id)responseObject forRequest:(id<TRCRequest>)request preProcessError:(NSError **)preProcessError
+{
+    id result = responseObject;
+
+    for (id<TRCPreProcessor> preProcessor in _preProcessors) {
+        if ([preProcessor respondsToSelector:@selector(preProcessResponseObject:forRequest:preProcessError:)]) {
+            NSError *error = nil;
+            result = [preProcessor preProcessResponseObject:result forRequest:request preProcessError:&error];
+            if (error) {
+                if (preProcessError) {
+                    *preProcessError = error;
+                }
+                return nil;
+            }
+        }
+    }
+
+    return result;
+}
+
+//-------------------------------------------------------------------------------------------
 #pragma mark - PostProcessors
 //-------------------------------------------------------------------------------------------
 
@@ -769,11 +820,16 @@ static inline void TRCCompleteWithError(void(^completion)(id, NSError *), NSErro
     [_postProcessors addObject:postProcessor];
 }
 
-- (id)postProcessResponseObject:(id)responseObject forRequest:(id<TRCRequest>)request postProcessError:(NSError **)postProcessError
+- (id)postProcessResponseObject:(id)responseObject forRequest:(id<TRCRequest>)request postProcessError:(NSError **)postProcessError queueType:(TRCQueueType)type
 {
     id result = responseObject;
 
     for (id<TRCPostProcessor> postProcessor in _postProcessors) {
+
+        if (![self shouldUsePostProcessor:postProcessor forQueueType:type]) {
+            continue;
+        }
+
         if ([postProcessor respondsToSelector:@selector(postProcessResponseObject:forRequest:postProcessError:)]) {
             NSError *error = nil;
             result = [postProcessor postProcessResponseObject:result forRequest:request postProcessError:&error];
@@ -789,17 +845,31 @@ static inline void TRCCompleteWithError(void(^completion)(id, NSError *), NSErro
     return result;
 }
 
-- (NSError *)postProcessError:(NSError *)error forRequest:(id<TRCRequest>)request
+- (NSError *)postProcessError:(NSError *)error forRequest:(id<TRCRequest>)request queueType:(TRCQueueType)type
 {
     NSError *result = error;
 
     for (id<TRCPostProcessor> postProcessor in _postProcessors) {
+
+        if (![self shouldUsePostProcessor:postProcessor forQueueType:type]) {
+            continue;
+        }
+
         if ([postProcessor respondsToSelector:@selector(postProcessError:forRequest:)]) {
             result = [postProcessor postProcessError:result forRequest:request];
         }
     }
 
     return result;
+}
+
+- (BOOL)shouldUsePostProcessor:(id<TRCPostProcessor>)postProcessor forQueueType:(TRCQueueType)type
+{
+    TRCQueueType postProcessorType = TRCQueueTypeWork;
+    if ([postProcessor respondsToSelector:@selector(queueType)]) {
+        postProcessorType = [postProcessor queueType];
+    }
+    return postProcessorType == type;
 }
 
 //-------------------------------------------------------------------------------------------
@@ -944,6 +1014,7 @@ static inline void TRCCompleteWithError(void(^completion)(id, NSError *), NSErro
 
 
 @end
+
 
 @implementation TyphoonRestClient (Extensions)
 
