@@ -112,6 +112,9 @@
 		FA7247921E0BD70E009A9CF6 /* CCAssemblyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA13B72D6D5F55C68D69E4 /* CCAssemblyTests.m */; };
 		FA7247931E0BD70E009A9CF6 /* CCAdditionalAsserts.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1BA28B947E4C31A07BB5 /* CCAdditionalAsserts.m */; };
 		FA7247951E0BD712009A9CF6 /* TyphoonRestClientStub.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1BB9C2ABBC636856FD47 /* TyphoonRestClientStub.m */; };
+		FA80D2651E4E3DE500420049 /* CCRealmPostProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = FA80D2641E4E3DE500420049 /* CCRealmPostProcessor.m */; };
+		FA80D2691E4E41AC00420049 /* _CCRealmSavePostProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = FA80D2681E4E41AC00420049 /* _CCRealmSavePostProcessor.m */; };
+		FA80D26D1E4E456600420049 /* CCPersistentModelValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA80D26C1E4E456600420049 /* CCPersistentModelValueTransformer.m */; };
 		FA8C585E1DE2CCAC00AEBCB1 /* UIViewController+CCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C58591DE2CCAC00AEBCB1 /* UIViewController+CCTransition.m */; };
 		FA8C585F1DE2CCAC00AEBCB1 /* UIViewController+CCTransitionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C585B1DE2CCAC00AEBCB1 /* UIViewController+CCTransitionHandler.m */; };
 		FA8C58601DE2CCAC00AEBCB1 /* UIViewController+CCWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C585D1DE2CCAC00AEBCB1 /* UIViewController+CCWorkflow.m */; };
@@ -350,6 +353,12 @@
 		FA3486AF1DDF1F6E00B02A01 /* CCCollectionSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCollectionSerialization.m; sourceTree = "<group>"; };
 		FA3486B11DDF1F9300B02A01 /* CCDatabaseJSONSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CCDatabaseJSONSerialization.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		FA7247901E0BD685009A9CF6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		FA80D2631E4E3DE500420049 /* CCRealmPostProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRealmPostProcessor.h; sourceTree = "<group>"; };
+		FA80D2641E4E3DE500420049 /* CCRealmPostProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRealmPostProcessor.m; sourceTree = "<group>"; };
+		FA80D2671E4E41AC00420049 /* _CCRealmSavePostProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _CCRealmSavePostProcessor.h; sourceTree = "<group>"; };
+		FA80D2681E4E41AC00420049 /* _CCRealmSavePostProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _CCRealmSavePostProcessor.m; sourceTree = "<group>"; };
+		FA80D26B1E4E456600420049 /* CCPersistentModelValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPersistentModelValueTransformer.h; sourceTree = "<group>"; };
+		FA80D26C1E4E456600420049 /* CCPersistentModelValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPersistentModelValueTransformer.m; sourceTree = "<group>"; };
 		FA8C58581DE2CCAC00AEBCB1 /* UIViewController+CCTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CCTransition.h"; sourceTree = "<group>"; };
 		FA8C58591DE2CCAC00AEBCB1 /* UIViewController+CCTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CCTransition.m"; sourceTree = "<group>"; };
 		FA8C585A1DE2CCAC00AEBCB1 /* UIViewController+CCTransitionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CCTransitionHandler.h"; sourceTree = "<group>"; };
@@ -493,8 +502,8 @@
 		2DBA1643F909F504AB6B52DC /* Results */ = {
 			isa = PBXGroup;
 			children = (
-				2DBA1B77D0950507FD1807A3 /* CCResults.m */,
 				2DBA183F86F3CB4DA7AF3460 /* CCResults.h */,
+				2DBA1B77D0950507FD1807A3 /* CCResults.m */,
 			);
 			path = Results;
 			sourceTree = "<group>";
@@ -622,8 +631,8 @@
 		2DBA1BD7B99A6323D30CFA33 /* ValueTransformer */ = {
 			isa = PBXGroup;
 			children = (
-				2DBA1AC19FCA554F2463E844 /* CCValueTransformer.m */,
 				2DBA114BB93F562759A0F303 /* CCValueTransformer.h */,
+				2DBA1AC19FCA554F2463E844 /* CCValueTransformer.m */,
 			);
 			path = ValueTransformer;
 			sourceTree = "<group>";
@@ -1243,6 +1252,7 @@
 				2DBA1A9D1EAF3071F418C9CB /* TestUtils */,
 				2DBA1F8C6ADE36243C4EDE4F /* NetworkAddons */,
 				318213D715745D5A1A8ED5CF /* TRCAddons */,
+				FA80D2621E4E3DE500420049 /* TRCRealm */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1318,6 +1328,35 @@
 				FA3486AF1DDF1F6E00B02A01 /* CCCollectionSerialization.m */,
 			);
 			path = Serialization;
+			sourceTree = "<group>";
+		};
+		FA80D2621E4E3DE500420049 /* TRCRealm */ = {
+			isa = PBXGroup;
+			children = (
+				FA80D26A1E4E456600420049 /* PersistentModelValueTransformer */,
+				FA80D2661E4E419200420049 /* Private */,
+				FA80D2631E4E3DE500420049 /* CCRealmPostProcessor.h */,
+				FA80D2641E4E3DE500420049 /* CCRealmPostProcessor.m */,
+			);
+			path = TRCRealm;
+			sourceTree = "<group>";
+		};
+		FA80D2661E4E419200420049 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				FA80D2671E4E41AC00420049 /* _CCRealmSavePostProcessor.h */,
+				FA80D2681E4E41AC00420049 /* _CCRealmSavePostProcessor.m */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		FA80D26A1E4E456600420049 /* PersistentModelValueTransformer */ = {
+			isa = PBXGroup;
+			children = (
+				FA80D26B1E4E456600420049 /* CCPersistentModelValueTransformer.h */,
+				FA80D26C1E4E456600420049 /* CCPersistentModelValueTransformer.m */,
+			);
+			path = PersistentModelValueTransformer;
 			sourceTree = "<group>";
 		};
 		FA8C58571DE2CCAC00AEBCB1 /* ССTransitionHandlerImplementation */ = {
@@ -1566,6 +1605,7 @@
 				FA019A4A1DE05CED00364871 /* CCNavigatorRoute.m in Sources */,
 				FA019A0D1DE05BEB00364871 /* UIApplication+TopmostViewController.m in Sources */,
 				FA34866F1DDF0B8600B02A01 /* ViewController.m in Sources */,
+				FA80D2651E4E3DE500420049 /* CCRealmPostProcessor.m in Sources */,
 				FA019A561DE05D8000364871 /* CCURLWorkflow.m in Sources */,
 				FA34866C1DDF0B8600B02A01 /* AppDelegate.m in Sources */,
 				FA019A551DE05D8000364871 /* CCGeneralWorkflow.m in Sources */,
@@ -1645,7 +1685,9 @@
 				31821BE48C128AC08D118C7E /* CCFormValidationPhone.m in Sources */,
 				318216D3DB63BC45092B0C6F /* CCValueTransformerUrl.m in Sources */,
 				318219F5A32C302C8B70EB15 /* CCValueTransformerToNumber.m in Sources */,
+				FA80D26D1E4E456600420049 /* CCPersistentModelValueTransformer.m in Sources */,
 				3182134A94B7183D5BC763D7 /* CCValueTransformerToString.m in Sources */,
+				FA80D2691E4E41AC00420049 /* _CCRealmSavePostProcessor.m in Sources */,
 				318214A87C965A20875198C7 /* CCValueTransformerUnixTime.m in Sources */,
 				31821318859B945CDF64A6CB /* CCValueTransformerDateIso8601.m in Sources */,
 				2DBA155F41E35FF8F220F36C /* CCDatabaseManager.m in Sources */,

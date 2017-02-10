@@ -156,7 +156,14 @@ Pod::Spec.new do |s|
     subspec.source_files   = 'Components/TRCAddons/**/*.{h,m}'
     subspec.dependency 'TyphoonRestClient'
   end
-
+  
+  s.subspec 'TRCRealm' do |subspec|
+      subspec.source_files   = 'Components/TRCRealm/**/*.{h,m}'
+      subspec.dependency 'TyphoonRestClient'
+      subspec.dependency 'ComponentsHub/RealmAddons'
+      subspec.dependency 'ComponentsHub/MutableCollections'
+  end
+  
   s.subspec 'TyphoonAddons' do |subspec|
       subspec.source_files   = 'Components/TyphoonAddons/**/*.{h,m}'
       subspec.dependency 'Typhoon'
