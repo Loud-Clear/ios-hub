@@ -10,12 +10,14 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import "CCGeneralPresenter.h"
-
+#import "CCMacroses.h"
 
 @implementation CCGeneralPresenter
 {
     BOOL _isViewReady;
     BOOL _isPresenterReady;
+    
+    BOOL _isModuleSetupCalled;
 }
 
 - (void)didConfigureModule
@@ -27,13 +29,34 @@
 - (void)didTriggerViewReadyEvent
 {
     _isViewReady = YES;
-    [self trySetupModule];
+    [self trySetupModuleWithTimeout:0];
 }
 
 - (void)trySetupModule
 {
     if (_isViewReady && _isPresenterReady) {
+        [self callSetupModuleIfNeeded];
+    }
+}
+
+- (void)trySetupModuleWithTimeout:(NSTimeInterval)timeout
+{
+    if (_isViewReady && _isPresenterReady) {
+        [self callSetupModuleIfNeeded];
+    } else {
+        SafetyCallAfter(timeout, ^{
+            if (!_isModuleSetupCalled) {
+                [self callSetupModuleIfNeeded];
+            }
+        });
+    }
+}
+
+- (void)callSetupModuleIfNeeded
+{
+    if (!_isModuleSetupCalled) {
         [self setupModule];
+        _isModuleSetupCalled = YES;
     }
 }
 

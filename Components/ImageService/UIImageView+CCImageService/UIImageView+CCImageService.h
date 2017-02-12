@@ -27,4 +27,8 @@ typedef void(^CCImageCompletition)(UIImage *image, NSError *error);
 
 - (void)cc_setImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload completion:(CCImageCompletition)completion;
 - (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload completion:(CCImageCompletition)completion;
+
+- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url
+                   forceReload:(BOOL)forceReload disableAnimation:(BOOL)disableAnimation
+                    completion:(CCImageCompletition)completion;
 @end
