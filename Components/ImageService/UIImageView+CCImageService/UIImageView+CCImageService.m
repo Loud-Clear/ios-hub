@@ -48,16 +48,27 @@
 
 - (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload completion:(CCImageCompletition)completion
 {
+    [self cc_setPlaceholderImage:placeholderImage andThenSetImageFromURL:url
+                     forceReload:forceReload disableAnimation:NO
+                      completion:completion];
+}
+
+- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload disableAnimation:(BOOL)disableAnimation completion:(CCImageCompletition)completion
+{
     id<CCImageService> imageService = [[TyphoonComponentFactory factoryForResolvingUI] componentForType:@protocol(CCImageService)];
-    
-    [self cc_setImageFromURL:url imageService:imageService placeholderImage:placeholderImage forceReload:forceReload completion:completion];
+
+    [self cc_setImageFromURL:url imageService:imageService placeholderImage:placeholderImage forceReload:forceReload
+            disableAnimation:disableAnimation
+                  completion:completion];
 }
 
 //-------------------------------------------------------------------------------------------
 #pragma mark - Private Methods
 //-------------------------------------------------------------------------------------------
 
-- (void)cc_setImageFromURL:(NSURL *)url imageService:(id <CCImageService>)imageService placeholderImage:(UIImage *)placeholderImage forceReload:(BOOL)forceReload completion:(CCImageCompletition)completion
+- (void)cc_setImageFromURL:(NSURL *)url imageService:(id<CCImageService>)imageService
+          placeholderImage:(UIImage *)placeholderImage forceReload:(BOOL)forceReload
+          disableAnimation:(BOOL)disableAnimation completion:(CCImageCompletition)completion
 {
     NSParameterAssert(imageService);
 
@@ -96,18 +107,20 @@
             return;
         }
 
-        if (CFAbsoluteTimeGetCurrent() - loadStartTime > 0.2)
-        {
-            [UIView transitionWithView:self duration:0.2 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        SafetyCallOnMain(^{
+            if (CFAbsoluteTimeGetCurrent() - loadStartTime > 0.2 && !disableAnimation)
+            {
+                [UIView transitionWithView:self duration:0.2 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+                    self.image = image;
+                } completion:^(BOOL finished) {
+                    SafetyCall(completion, image, error);
+                }];
+            }
+            else {
                 self.image = image;
-            } completion:^(BOOL finished) {
                 SafetyCall(completion, image, error);
-            }];
-        }
-        else {
-            self.image = image;
-            SafetyCall(completion, image, error);
-        }
+            }
+        });
     }];
 }
 
