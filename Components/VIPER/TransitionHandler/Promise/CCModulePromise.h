@@ -9,13 +9,13 @@
 #import "CCGeneralModuleInput.h"
 #import "CCGeneralModuleOutput.h"
 
-typedef id(^ССModuleLinkBlock)(id moduleInput);
+typedef id(^CCModuleLinkBlock)(id moduleInput);
 
 @protocol CCModulePromise <NSObject>
 
 /**
  * Deprecated - use thenChainToModule:usingBlock: which will also check that module conforms to expected protocol.
  */
-- (void)thenChainUsingBlock:(ССModuleLinkBlock)linkBlock;
+- (void)thenChainUsingBlock:(CCModuleLinkBlock)linkBlock;
 
 @end

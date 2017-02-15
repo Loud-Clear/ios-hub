@@ -13,14 +13,14 @@
 
 @protocol CCModulePromise;
 
-@interface UIViewController (ССTransition)
+@interface UIViewController (CCTransition)
 
 - (id<CCModulePromise>)openViewController:(UIViewController *)controller;
 
-- (id<CCModulePromise>)openViewController:(UIViewController *)controller transitionBlock:(ССTransitionBlock)block;
+- (id<CCModulePromise>)openViewController:(UIViewController *)controller transitionBlock:(CCTransitionBlock)block;
 
 - (id<CCModulePromise>)openViewController:(UIViewController *)controller segueClass:(Class)segueClass;
 
-- (id<CCModulePromise>)openViewController:(UIViewController *)controller transition:(ССTransitionStyle)style;
+- (id<CCModulePromise>)openViewController:(UIViewController *)controller transition:(CCTransitionStyle)style;
 
 @end

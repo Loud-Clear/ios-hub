@@ -20,7 +20,7 @@
 
 @property (nonatomic, strong) TyphoonComponentFactory *factory;
 
-- (id<CCModule>)moduleForURL:(NSURL *)url thenChainUsingBlock:(ССModuleLinkBlock)block;
+- (id<CCModule>)moduleForURL:(NSURL *)url thenChainUsingBlock:(CCModuleLinkBlock)block;
 
 - (id<CCModule>)moduleForURL:(NSURL *)url;
 

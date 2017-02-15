@@ -1,5 +1,5 @@
 //
-//  ССUserDefaultsStorageTests.m
+//  CCUserDefaultsStorageTests.m
 //  DreamTeam
 //
 //  Created by Aleksey Garbarev on 20/05/16.
@@ -12,9 +12,9 @@
 
 static NSString *kProfileKey = @"profile";
 
-NSString *kССProfileKeyFirstName = @"firstName";
+NSString *kCCProfileKeyFirstName = @"firstName";
 
-@interface ССProfile : NSObject
+@interface CCProfile : NSObject
 
 @property (nonatomic, strong) NSString *firstName;
 
@@ -22,11 +22,11 @@ NSString *kССProfileKeyFirstName = @"firstName";
 
 @end
 
-@implementation ССProfile
+@implementation CCProfile
 
 + (instancetype)profileFromUserData:(NSDictionary *)dictionary
 {
-    ССProfile *profile = [ССProfile new];
+    CCProfile *profile = [CCProfile new];
     [dictionary enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         [profile setValue:obj forKey:key];
     }];
@@ -36,14 +36,14 @@ NSString *kССProfileKeyFirstName = @"firstName";
 
 @end
 
-@interface ССUserDefaultsStorageTests : XCTestCase
+@interface CCUserDefaultsStorageTests : XCTestCase
 
 @property (nonatomic, strong) CCUserDefaultsStorage *storage;
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
 
 @end
 
-@implementation ССUserDefaultsStorageTests
+@implementation CCUserDefaultsStorageTests
 
 - (void)setUp
 {
@@ -62,7 +62,7 @@ NSString *kССProfileKeyFirstName = @"firstName";
     }
     self.userDefaults = OCMPartialMock([NSUserDefaults standardUserDefaults]);
 
-    self.storage = OCMPartialMock([[CCUserDefaultsStorage alloc] initWithClass:[ССProfile class] key:kProfileKey]);
+    self.storage = OCMPartialMock([[CCUserDefaultsStorage alloc] initWithClass:[CCProfile class] key:kProfileKey]);
     self.storage.userDefaults = self.userDefaults;
 }
 
@@ -79,8 +79,8 @@ NSString *kССProfileKeyFirstName = @"firstName";
 
 - (void)test_save_profile
 {
-    ССProfile *profile = [ССProfile profileFromUserData:@{
-            kССProfileKeyFirstName: @"alex"
+    CCProfile *profile = [CCProfile profileFromUserData:@{
+            kCCProfileKeyFirstName: @"alex"
     }];
 
     [self.storage saveObject:profile];
@@ -88,14 +88,14 @@ NSString *kССProfileKeyFirstName = @"firstName";
     OCMVerify([_userDefaults synchronize]);
 
 
-    ССProfile *loadedProfile = self.storage.getObject;
+    CCProfile *loadedProfile = self.storage.getObject;
     XCTAssertEqualObjects(loadedProfile.firstName, @"alex");
 }
 
 - (void)test_load_profile_after_recreation
 {
-    ССProfile *profile = [ССProfile profileFromUserData:@{
-            kССProfileKeyFirstName: @"alex"
+    CCProfile *profile = [CCProfile profileFromUserData:@{
+            kCCProfileKeyFirstName: @"alex"
     }];
 
     [self.storage saveObject:profile];
@@ -104,15 +104,15 @@ NSString *kССProfileKeyFirstName = @"firstName";
 
     [self createStorage];
 
-    ССProfile *loadedProfile = self.storage.getObject;
+    CCProfile *loadedProfile = self.storage.getObject;
     XCTAssertEqualObjects(loadedProfile.firstName, @"alex");
     OCMVerify([_userDefaults objectForKey:kProfileKey]);
 }
 
 - (void)test_removes_profile_on_nil
 {
-    ССProfile *profile = [ССProfile profileFromUserData:@{
-            kССProfileKeyFirstName: @"alex"
+    CCProfile *profile = [CCProfile profileFromUserData:@{
+            kCCProfileKeyFirstName: @"alex"
     }];
 
     [self.storage saveObject:profile];
@@ -145,8 +145,8 @@ NSString *kССProfileKeyFirstName = @"firstName";
 
 - (void)test_profile_saved_on_second_save_call
 {
-    ССProfile *profile = [ССProfile profileFromUserData:@{
-            kССProfileKeyFirstName: @"alex"
+    CCProfile *profile = [CCProfile profileFromUserData:@{
+            kCCProfileKeyFirstName: @"alex"
     }];
 
     [self.storage saveObject:profile];

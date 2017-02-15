@@ -9,8 +9,13 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import "CCTransitionHandler.h"
+#import "CCModule.h"
 
-@interface UIViewController (ССTransitionHandler) <CCTransitionHandler>
+@interface UIViewController (CCModule)
+
+- (UIViewController *)asViewController;
+
+- (UIView *)asView;
 
 @end
+

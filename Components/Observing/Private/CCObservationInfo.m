@@ -9,10 +9,10 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import "ССObservationInfo.h"
+#import "CCObservationInfo.h"
 #import "CCMacroses.h"
 
-@implementation ССObservationInfo {
+@implementation CCObservationInfo {
     BOOL _notificationScheduled;
 }
 

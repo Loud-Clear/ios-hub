@@ -25,13 +25,13 @@
 static void(*originalPrepareForSegueMethodImp)(id, SEL, UIStoryboardSegue *, id);
 static void(*originalViewWillDissappear)(id, SEL, BOOL);
 
-@protocol ССTraditionalViperViewWithOutput<NSObject>
+@protocol CCTraditionalViperViewWithOutput<NSObject>
 - (id)output;
 @end
 
-static void ССViperPrepareForSegueSender(id self, SEL selector, UIStoryboardSegue *segue, id sender);
+static void CCViperPrepareForSegueSender(id self, SEL selector, UIStoryboardSegue *segue, id sender);
 
-@implementation UIViewController (ССTransitionHandler)
+@implementation UIViewController (CCTransitionHandler)
 
 //-------------------------------------------------------------------------------------------
 #pragma mark - Interface methods
@@ -49,10 +49,10 @@ static void ССViperPrepareForSegueSender(id self, SEL selector, UIStoryboardSe
 
 - (id<CCModulePromise>)openModuleUsingURL:(NSURL *)url
 {
-    return [self openModuleUsingURL:url transition:ССTransitionStyleAutomatic];
+    return [self openModuleUsingURL:url transition:CCTransitionStyleAutomatic];
 }
 
-- (id<CCModulePromise>)openModuleUsingURL:(NSURL *)url transitionBlock:(ССTransitionBlock)transitionBlock
+- (id<CCModulePromise>)openModuleUsingURL:(NSURL *)url transitionBlock:(CCTransitionBlock)transitionBlock
 {
     id<CCModulePromise> openModulePromise = [self openViewController:[self viewControllerFromURL:url] transitionBlock:transitionBlock];
     return [self promiseByWorkflowLinkingInPromise:openModulePromise];
@@ -64,7 +64,7 @@ static void ССViperPrepareForSegueSender(id self, SEL selector, UIStoryboardSe
     return [self promiseByWorkflowLinkingInPromise:openModulePromise];
 }
 
-- (id<CCModulePromise>)openModuleUsingURL:(NSURL *)url transition:(ССTransitionStyle)style
+- (id<CCModulePromise>)openModuleUsingURL:(NSURL *)url transition:(CCTransitionStyle)style
 {
     id<CCModulePromise> openModulePromise = [self openViewController:[self viewControllerFromURL:url] transition:style];
     return [self promiseByWorkflowLinkingInPromise:openModulePromise];
@@ -88,7 +88,7 @@ static void ССViperPrepareForSegueSender(id self, SEL selector, UIStoryboardSe
     }
 }
 
-- (id<CCModulePromise>)openWorkflow:(id<CCWorkflow>)workflow transition:(ССTransitionStyle)style
+- (id<CCModulePromise>)openWorkflow:(id<CCWorkflow>)workflow transition:(CCTransitionStyle)style
 {
     id<CCModulePromise> openModulePromise = [self openViewController:[workflow initialViewController] transition:style];
     return [self promiseByWorkflowLinkingInPromise:openModulePromise];
@@ -114,7 +114,7 @@ static void ССViperPrepareForSegueSender(id self, SEL selector, UIStoryboardSe
     CCNavigator *navigator = [[TyphoonComponentFactory factoryForResolvingUI] componentForType:[CCNavigator class]];
 
     [CCDisplayManager animateChange:^{
-        [ССTransitionHandler performWithoutAnimation:^{
+        [CCTransitionHandler performWithoutAnimation:^{
             [UIView performWithoutAnimation:^{
                 [navigator navigateToURL:url fromController:self context:context];
             }];
@@ -136,7 +136,7 @@ static void ССViperPrepareForSegueSender(id self, SEL selector, UIStoryboardSe
 {
     id result = GetAssociatedObject(@selector(moduleInput));
     if (!result && [self respondsToSelector:@selector(output)]) {
-        result = [(id<ССTraditionalViperViewWithOutput>)self output];
+        result = [(id<CCTraditionalViperViewWithOutput>)self output];
     }
     if (!result && [self isKindOfClass:[UINavigationController class]]) {
         UINavigationController *navigation = (id)self;
@@ -165,14 +165,14 @@ static void ССViperPrepareForSegueSender(id self, SEL selector, UIStoryboardSe
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        IMP reamplerPrepareForSegueImp = (IMP)ССViperPrepareForSegueSender;
+        IMP reamplerPrepareForSegueImp = (IMP)CCViperPrepareForSegueSender;
 
         Method prepareForSegueMethod = class_getInstanceMethod([self class], @selector(prepareForSegue:sender:));
         originalPrepareForSegueMethodImp = (void (*)(id, SEL, UIStoryboardSegue *, id))method_setImplementation(prepareForSegueMethod, reamplerPrepareForSegueImp);
     });
 }
 
-static void ССViperPrepareForSegueSender(id self, SEL selector, UIStoryboardSegue *segue, id sender)
+static void CCViperPrepareForSegueSender(id self, SEL selector, UIStoryboardSegue *segue, id sender)
 {
     originalPrepareForSegueMethodImp(self, selector, segue, sender);
 
@@ -189,14 +189,14 @@ static void ССViperPrepareForSegueSender(id self, SEL selector, UIStoryboardSe
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        IMP reimplViewWillDissappear = (IMP)ССViperViewWillDissappear;
+        IMP reimplViewWillDissappear = (IMP)CCViperViewWillDissappear;
         
         Method viewWillDisappearMethod = class_getInstanceMethod([self class], @selector(viewWillDisappear:));
         originalViewWillDissappear = (void (*)(id, SEL, BOOL))method_setImplementation(viewWillDisappearMethod, reimplViewWillDissappear);
     });
 }
 
-static void ССViperViewWillDissappear(id<CCWorkflow> self, SEL selector, BOOL animated)
+static void CCViperViewWillDissappear(id<CCWorkflow> self, SEL selector, BOOL animated)
 {
     UIViewController *controller = (UIViewController*)self;
     
@@ -241,7 +241,7 @@ static void ССViperViewWillDissappear(id<CCWorkflow> self, SEL selector, BOOL 
     return [self openModuleUsingURL:[NSURL URLWithString:url]];
 }
 
-- (id<CCModulePromise>)openUrl:(NSString *)url transitionBlock:(ССTransitionBlock)block
+- (id<CCModulePromise>)openUrl:(NSString *)url transitionBlock:(CCTransitionBlock)block
 {
     return [self openModuleUsingURL:[NSURL URLWithString:url] transitionBlock:block];
 }
@@ -251,7 +251,7 @@ static void ССViperViewWillDissappear(id<CCWorkflow> self, SEL selector, BOOL 
     return [self openModuleUsingURL:[NSURL URLWithString:url] segueClass:segueClass];
 }
 
-- (id<CCModulePromise>)openUrl:(NSString *)url transition:(ССTransitionStyle)style
+- (id<CCModulePromise>)openUrl:(NSString *)url transition:(CCTransitionStyle)style
 {
     return [self openModuleUsingURL:[NSURL URLWithString:url] transition:style];
 }

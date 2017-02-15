@@ -19,7 +19,7 @@
 
 #define CCSelectorToString(sel) NSStringFromSelector(@selector(sel))
 
-#define ССSetPointer(pointer, ...) if ((pointer)) {*pointer = __VA_ARGS__;}
+#define CCSetPointer(pointer, ...) if ((pointer)) {*pointer = __VA_ARGS__;}
 
 #define MainQueue dispatch_get_main_queue()
 #define QueueHigh dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0)

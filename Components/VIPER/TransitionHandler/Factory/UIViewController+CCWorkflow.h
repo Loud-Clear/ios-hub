@@ -9,19 +9,12 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import "UIViewController+ССModule.h"
+#import <UIKit/UIKit.h>
 
-@implementation UIViewController (ССModule)
+@protocol CCWorkflow;
 
-- (UIViewController *)asViewController
-{
-    return self;
-}
+@interface UIViewController (CCWorkflow)
 
-- (UIView *)asView
-{
-    return self.view;
-}
-
+@property (nonatomic, strong) id<CCWorkflow> workflow;
 
 @end

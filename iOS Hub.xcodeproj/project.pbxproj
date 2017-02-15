@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		032ECE8A1E54177300A64E99 /* UIViewController+CCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 032ECE851E54177300A64E99 /* UIViewController+CCTransition.m */; };
+		032ECE8B1E54177300A64E99 /* UIViewController+CCTransitionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 032ECE871E54177300A64E99 /* UIViewController+CCTransitionHandler.m */; };
+		032ECE8C1E54177300A64E99 /* UIViewController+CCWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = 032ECE891E54177300A64E99 /* UIViewController+CCWorkflow.m */; };
 		2CD634281E16668F00A2BB15 /* CCEnvironmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD634241E16668F00A2BB15 /* CCEnvironmentTests.m */; };
 		2CD634291E16668F00A2BB15 /* Config.production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD634261E16668F00A2BB15 /* Config.production.plist */; };
 		2CD6342A1E16668F00A2BB15 /* Config.staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD634271E16668F00A2BB15 /* Config.staging.plist */; };
@@ -59,7 +62,7 @@
 		31821DE00394C89DB373BDBB /* UIImageView+CCImageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 318210851C76EEF688743320 /* UIImageView+CCImageService.m */; };
 		31821E8386BF16B46CC4E7EC /* NSString+SHA1.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821938B6E7A8EFF41D85C5 /* NSString+SHA1.m */; };
 		31821FA63240C60C64AD0DD5 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821684BA6B0564A134BC6E /* UIColor+Hex.m */; };
-		31821FEC66638DE3255FCF65 /* ССObservationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821961BB5A2B4154DC1D7D /* ССObservationInfo.m */; };
+		31821FEC66638DE3255FCF65 /* CCObservationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821961BB5A2B4154DC1D7D /* CCObservationInfo.m */; };
 		8D966B34D57C5313A65AFAEF /* libPods-iOS HubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E49612B7121FB28899A6715E /* libPods-iOS HubTests.a */; };
 		F3D62DA1DEE065A7AC3A4765 /* libPods-iOS Hub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 900BB96B6BF13BEBEA951A07 /* libPods-iOS Hub.a */; };
 		FA0199C41DDF279000364871 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FA0199C31DDF279000364871 /* Podfile */; };
@@ -69,7 +72,7 @@
 		FA019A031DE011DA00364871 /* CCLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A021DE011DA00364871 /* CCLogger.m */; };
 		FA019A081DE01C1800364871 /* CCUserDefaultsStorageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A071DE01C1800364871 /* CCUserDefaultsStorageTests.m */; };
 		FA019A0D1DE05BEB00364871 /* UIApplication+TopmostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A0C1DE05BEB00364871 /* UIApplication+TopmostViewController.m */; };
-		FA019A111DE05C3C00364871 /* ССNotificationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A101DE05C3C00364871 /* ССNotificationUtils.m */; };
+		FA019A111DE05C3C00364871 /* CCNotificationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A101DE05C3C00364871 /* CCNotificationUtils.m */; };
 		FA019A151DE05C7A00364871 /* CCMutableCollections.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A141DE05C7A00364871 /* CCMutableCollections.m */; };
 		FA019A461DE05CED00364871 /* CCModuleURLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A281DE05CED00364871 /* CCModuleURLParser.m */; };
 		FA019A471DE05CED00364871 /* CCNavigatorContext.m in Sources */ = {isa = PBXBuildFile; fileRef = FA019A2C1DE05CED00364871 /* CCNavigatorContext.m */; };
@@ -115,11 +118,8 @@
 		FA80D2651E4E3DE500420049 /* CCRealmPostProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = FA80D2641E4E3DE500420049 /* CCRealmPostProcessor.m */; };
 		FA80D2691E4E41AC00420049 /* _CCRealmSavePostProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = FA80D2681E4E41AC00420049 /* _CCRealmSavePostProcessor.m */; };
 		FA80D26D1E4E456600420049 /* CCPersistentModelValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA80D26C1E4E456600420049 /* CCPersistentModelValueTransformer.m */; };
-		FA8C585E1DE2CCAC00AEBCB1 /* UIViewController+CCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C58591DE2CCAC00AEBCB1 /* UIViewController+CCTransition.m */; };
-		FA8C585F1DE2CCAC00AEBCB1 /* UIViewController+CCTransitionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C585B1DE2CCAC00AEBCB1 /* UIViewController+CCTransitionHandler.m */; };
-		FA8C58601DE2CCAC00AEBCB1 /* UIViewController+CCWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C585D1DE2CCAC00AEBCB1 /* UIViewController+CCWorkflow.m */; };
 		FA8C58651DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C58621DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.m */; };
-		FA8C58661DE2CCDF00AEBCB1 /* UIViewController+ССModule.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C58641DE2CCDF00AEBCB1 /* UIViewController+ССModule.m */; };
+		FA8C58661DE2CCDF00AEBCB1 /* UIViewController+CCModule.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C58641DE2CCDF00AEBCB1 /* UIViewController+CCModule.m */; };
 		FACFEECD1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FACFEECB1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.m */; };
 		FAF38E541DF03FFB00F44BC0 /* CCTableFormItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF38E531DF03FFB00F44BC0 /* CCTableFormItem.m */; };
 		FAF38E571DF0400C00F44BC0 /* CCTableFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF38E561DF0400C00F44BC0 /* CCTableFormCell.m */; };
@@ -140,6 +140,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		032ECE841E54177300A64E99 /* UIViewController+CCTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+CCTransition.h"; path = "Components/VIPER/TransitionHandler/CCTransitionHandlerImplementation/UIViewController+CCTransition.h"; sourceTree = SOURCE_ROOT; };
+		032ECE851E54177300A64E99 /* UIViewController+CCTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+CCTransition.m"; path = "Components/VIPER/TransitionHandler/CCTransitionHandlerImplementation/UIViewController+CCTransition.m"; sourceTree = SOURCE_ROOT; };
+		032ECE861E54177300A64E99 /* UIViewController+CCTransitionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+CCTransitionHandler.h"; path = "Components/VIPER/TransitionHandler/CCTransitionHandlerImplementation/UIViewController+CCTransitionHandler.h"; sourceTree = SOURCE_ROOT; };
+		032ECE871E54177300A64E99 /* UIViewController+CCTransitionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+CCTransitionHandler.m"; path = "Components/VIPER/TransitionHandler/CCTransitionHandlerImplementation/UIViewController+CCTransitionHandler.m"; sourceTree = SOURCE_ROOT; };
+		032ECE881E54177300A64E99 /* UIViewController+CCWorkflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+CCWorkflow.h"; path = "Components/VIPER/TransitionHandler/CCTransitionHandlerImplementation/UIViewController+CCWorkflow.h"; sourceTree = SOURCE_ROOT; };
+		032ECE891E54177300A64E99 /* UIViewController+CCWorkflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+CCWorkflow.m"; path = "Components/VIPER/TransitionHandler/CCTransitionHandlerImplementation/UIViewController+CCWorkflow.m"; sourceTree = SOURCE_ROOT; };
 		2C2E96FE3DB2ACE797D0A8A2 /* Pods-iOS Hub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOS Hub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOS Hub/Pods-iOS Hub.debug.xcconfig"; sourceTree = "<group>"; };
 		2CD634241E16668F00A2BB15 /* CCEnvironmentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEnvironmentTests.m; sourceTree = "<group>"; };
 		2CD634261E16668F00A2BB15 /* Config.production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.production.plist; sourceTree = "<group>"; };
@@ -220,10 +226,10 @@
 		318217DB332BA8CE7F3F2D36 /* CCImageServiceCustomImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceCustomImpl.m; sourceTree = "<group>"; };
 		318217F950715FDFA5D44D71 /* CCImageLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageLog.h; sourceTree = "<group>"; };
 		31821823E7BC242804BDB8F3 /* CCValueTransformerUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerUrl.h; sourceTree = "<group>"; };
-		3182185416E43C8F980A4E9D /* ССObservationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ССObservationInfo.h"; sourceTree = "<group>"; };
+		3182185416E43C8F980A4E9D /* CCObservationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCObservationInfo.h; sourceTree = "<group>"; };
 		318218D66C8F58C1B2110611 /* UIImageView+CCImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CCImageService.h"; sourceTree = "<group>"; };
 		31821938B6E7A8EFF41D85C5 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
-		31821961BB5A2B4154DC1D7D /* ССObservationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ССObservationInfo.m"; sourceTree = "<group>"; };
+		31821961BB5A2B4154DC1D7D /* CCObservationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCObservationInfo.m; sourceTree = "<group>"; };
 		31821965F51A3CFF74B63A86 /* CCImageDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageDiskCache.m; sourceTree = "<group>"; };
 		318219AA360C9A8660034AC2 /* CCValueTransformerUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerUrl.m; sourceTree = "<group>"; };
 		31821A231FAFE37B2CDE194F /* CCTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTypedefs.h; sourceTree = "<group>"; };
@@ -261,8 +267,8 @@
 		FA019A071DE01C1800364871 /* CCUserDefaultsStorageTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CCUserDefaultsStorageTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		FA019A0B1DE05BEB00364871 /* UIApplication+TopmostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+TopmostViewController.h"; sourceTree = "<group>"; };
 		FA019A0C1DE05BEB00364871 /* UIApplication+TopmostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+TopmostViewController.m"; sourceTree = "<group>"; };
-		FA019A0F1DE05C3C00364871 /* ССNotificationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ССNotificationUtils.h"; sourceTree = "<group>"; };
-		FA019A101DE05C3C00364871 /* ССNotificationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ССNotificationUtils.m"; sourceTree = "<group>"; };
+		FA019A0F1DE05C3C00364871 /* CCNotificationUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCNotificationUtils.h; sourceTree = "<group>"; };
+		FA019A101DE05C3C00364871 /* CCNotificationUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCNotificationUtils.m; sourceTree = "<group>"; };
 		FA019A131DE05C7A00364871 /* CCMutableCollections.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMutableCollections.h; sourceTree = "<group>"; };
 		FA019A141DE05C7A00364871 /* CCMutableCollections.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMutableCollections.m; sourceTree = "<group>"; };
 		FA019A171DE05CED00364871 /* CCTransitionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = CCTransitionHandler.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -359,16 +365,10 @@
 		FA80D2681E4E41AC00420049 /* _CCRealmSavePostProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _CCRealmSavePostProcessor.m; sourceTree = "<group>"; };
 		FA80D26B1E4E456600420049 /* CCPersistentModelValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPersistentModelValueTransformer.h; sourceTree = "<group>"; };
 		FA80D26C1E4E456600420049 /* CCPersistentModelValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPersistentModelValueTransformer.m; sourceTree = "<group>"; };
-		FA8C58581DE2CCAC00AEBCB1 /* UIViewController+CCTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CCTransition.h"; sourceTree = "<group>"; };
-		FA8C58591DE2CCAC00AEBCB1 /* UIViewController+CCTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CCTransition.m"; sourceTree = "<group>"; };
-		FA8C585A1DE2CCAC00AEBCB1 /* UIViewController+CCTransitionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CCTransitionHandler.h"; sourceTree = "<group>"; };
-		FA8C585B1DE2CCAC00AEBCB1 /* UIViewController+CCTransitionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CCTransitionHandler.m"; sourceTree = "<group>"; };
-		FA8C585C1DE2CCAC00AEBCB1 /* UIViewController+CCWorkflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CCWorkflow.h"; sourceTree = "<group>"; };
-		FA8C585D1DE2CCAC00AEBCB1 /* UIViewController+CCWorkflow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CCWorkflow.m"; sourceTree = "<group>"; };
 		FA8C58611DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCModuleFactoryImplementation.h; sourceTree = "<group>"; };
 		FA8C58621DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCModuleFactoryImplementation.m; sourceTree = "<group>"; };
-		FA8C58631DE2CCDF00AEBCB1 /* UIViewController+ССModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ССModule.h"; sourceTree = "<group>"; };
-		FA8C58641DE2CCDF00AEBCB1 /* UIViewController+ССModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ССModule.m"; sourceTree = "<group>"; };
+		FA8C58631DE2CCDF00AEBCB1 /* UIViewController+CCModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CCModule.h"; sourceTree = "<group>"; };
+		FA8C58641DE2CCDF00AEBCB1 /* UIViewController+CCModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CCModule.m"; sourceTree = "<group>"; };
 		FACFEECA1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CCTableViewManagerAdditions.h"; sourceTree = "<group>"; };
 		FACFEECB1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CCTableViewManagerAdditions.m"; sourceTree = "<group>"; };
 		FACFEECE1DF0377D00496C45 /* CCPlaceholderTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCPlaceholderTextView.h; sourceTree = "<group>"; };
@@ -793,8 +793,8 @@
 		31821A8C6A2D9FE0366E3144 /* Private */ = {
 			isa = PBXGroup;
 			children = (
-				31821961BB5A2B4154DC1D7D /* ССObservationInfo.m */,
-				3182185416E43C8F980A4E9D /* ССObservationInfo.h */,
+				31821961BB5A2B4154DC1D7D /* CCObservationInfo.m */,
+				3182185416E43C8F980A4E9D /* CCObservationInfo.h */,
 			);
 			path = Private;
 			sourceTree = "<group>";
@@ -928,8 +928,8 @@
 		FA019A0E1DE05C3C00364871 /* NotificationUtils */ = {
 			isa = PBXGroup;
 			children = (
-				FA019A0F1DE05C3C00364871 /* ССNotificationUtils.h */,
-				FA019A101DE05C3C00364871 /* ССNotificationUtils.m */,
+				FA019A0F1DE05C3C00364871 /* CCNotificationUtils.h */,
+				FA019A101DE05C3C00364871 /* CCNotificationUtils.m */,
 			);
 			path = NotificationUtils;
 			sourceTree = "<group>";
@@ -959,7 +959,7 @@
 			isa = PBXGroup;
 			children = (
 				FA019A201DE05CED00364871 /* CCModuleFactory.h */,
-				FA8C58571DE2CCAC00AEBCB1 /* ССTransitionHandlerImplementation */,
+				FA8C58571DE2CCAC00AEBCB1 /* CCTransitionHandlerImplementation */,
 				FA019A211DE05CED00364871 /* Implementations */,
 				FA019A261DE05CED00364871 /* URLParser */,
 			);
@@ -971,8 +971,8 @@
 			children = (
 				FA8C58611DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.h */,
 				FA8C58621DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.m */,
-				FA8C58631DE2CCDF00AEBCB1 /* UIViewController+ССModule.h */,
-				FA8C58641DE2CCDF00AEBCB1 /* UIViewController+ССModule.m */,
+				FA8C58631DE2CCDF00AEBCB1 /* UIViewController+CCModule.h */,
+				FA8C58641DE2CCDF00AEBCB1 /* UIViewController+CCModule.m */,
 			);
 			path = Implementations;
 			sourceTree = "<group>";
@@ -1359,17 +1359,17 @@
 			path = PersistentModelValueTransformer;
 			sourceTree = "<group>";
 		};
-		FA8C58571DE2CCAC00AEBCB1 /* ССTransitionHandlerImplementation */ = {
+		FA8C58571DE2CCAC00AEBCB1 /* CCTransitionHandlerImplementation */ = {
 			isa = PBXGroup;
 			children = (
-				FA8C58581DE2CCAC00AEBCB1 /* UIViewController+CCTransition.h */,
-				FA8C58591DE2CCAC00AEBCB1 /* UIViewController+CCTransition.m */,
-				FA8C585A1DE2CCAC00AEBCB1 /* UIViewController+CCTransitionHandler.h */,
-				FA8C585B1DE2CCAC00AEBCB1 /* UIViewController+CCTransitionHandler.m */,
-				FA8C585C1DE2CCAC00AEBCB1 /* UIViewController+CCWorkflow.h */,
-				FA8C585D1DE2CCAC00AEBCB1 /* UIViewController+CCWorkflow.m */,
+				032ECE841E54177300A64E99 /* UIViewController+CCTransition.h */,
+				032ECE851E54177300A64E99 /* UIViewController+CCTransition.m */,
+				032ECE861E54177300A64E99 /* UIViewController+CCTransitionHandler.h */,
+				032ECE871E54177300A64E99 /* UIViewController+CCTransitionHandler.m */,
+				032ECE881E54177300A64E99 /* UIViewController+CCWorkflow.h */,
+				032ECE891E54177300A64E99 /* UIViewController+CCWorkflow.m */,
 			);
-			name = "ССTransitionHandlerImplementation";
+			name = CCTransitionHandlerImplementation;
 			path = "Components/VIPER/TransitionHandler/ССTransitionHandlerImplementation";
 			sourceTree = SOURCE_ROOT;
 		};
@@ -1612,17 +1612,18 @@
 				FA3486AB1DDF1E8A00B02A01 /* RLMObject+ThreadSafety.m in Sources */,
 				FA019A471DE05CED00364871 /* CCNavigatorContext.m in Sources */,
 				FA3486A91DDF1E8A00B02A01 /* CCSafeRLMObjectProxy.m in Sources */,
+				032ECE8A1E54177300A64E99 /* UIViewController+CCTransition.m in Sources */,
 				FA019A5A1DE060D700364871 /* CCMapCollections.m in Sources */,
-				FA019A111DE05C3C00364871 /* ССNotificationUtils.m in Sources */,
-				FA8C58661DE2CCDF00AEBCB1 /* UIViewController+ССModule.m in Sources */,
+				FA019A111DE05C3C00364871 /* CCNotificationUtils.m in Sources */,
+				032ECE8B1E54177300A64E99 /* UIViewController+CCTransitionHandler.m in Sources */,
+				032ECE8C1E54177300A64E99 /* UIViewController+CCWorkflow.m in Sources */,
+				FA8C58661DE2CCDF00AEBCB1 /* UIViewController+CCModule.m in Sources */,
 				FACFEECD1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.m in Sources */,
 				FA0199FF1DDF5BBA00364871 /* CCKeychainStorage.m in Sources */,
 				2CD6342F1E1666A800A2BB15 /* CCEnvironment.m in Sources */,
-				FA8C58601DE2CCAC00AEBCB1 /* UIViewController+CCWorkflow.m in Sources */,
 				FA019A4C1DE05CED00364871 /* UIViewController+URL.m in Sources */,
 				FA019A671DE0651A00364871 /* CCDisplayManager.m in Sources */,
 				FA3486691DDF0B8600B02A01 /* main.m in Sources */,
-				FA8C585F1DE2CCAC00AEBCB1 /* UIViewController+CCTransitionHandler.m in Sources */,
 				FA10FA371DFADD0A004E93C0 /* CCFormValidationEmail.m in Sources */,
 				FA8C58651DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.m in Sources */,
 				FA10FA391DFADD0A004E93C0 /* CCFormValidationExist.m in Sources */,
@@ -1637,7 +1638,6 @@
 				FA019A031DE011DA00364871 /* CCLogger.m in Sources */,
 				FA3486AC1DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m in Sources */,
 				FA019A151DE05C7A00364871 /* CCMutableCollections.m in Sources */,
-				FA8C585E1DE2CCAC00AEBCB1 /* UIViewController+CCTransition.m in Sources */,
 				FA019A461DE05CED00364871 /* CCModuleURLParser.m in Sources */,
 				FAF38E541DF03FFB00F44BC0 /* CCTableFormItem.m in Sources */,
 				FA3486A61DDF1E8A00B02A01 /* Realm+Arrays.m in Sources */,
@@ -1672,7 +1672,7 @@
 				2DBA1661CA7311CCA9DF8446 /* CCAssemblyCollector.m in Sources */,
 				2DBA1D856CF604FC011026DF /* CCResults.m in Sources */,
 				2DBA104DF5D2EA69E63A66D9 /* CCRoundButton.m in Sources */,
-				31821FEC66638DE3255FCF65 /* ССObservationInfo.m in Sources */,
+				31821FEC66638DE3255FCF65 /* CCObservationInfo.m in Sources */,
 				3182142F7E177F793AE8C546 /* NSObject+Observe.m in Sources */,
 				2DBA12487E297EE428A25271 /* CCRestClientRegistry.m in Sources */,
 				2DBA16C75C30F18D2EE8F51F /* CCRestClient.m in Sources */,

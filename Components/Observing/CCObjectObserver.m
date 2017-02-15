@@ -14,10 +14,10 @@
 #import "CCObjectObserver.h"
 #import "KVOController.h"
 #import "CCMacroses.h"
-#import "ССObservationInfo.h"
+#import "CCObservationInfo.h"
 
 
-@protocol ССObjectObserverDatabaseSerialization <NSObject>
+@protocol CCObjectObserverDatabaseSerialization <NSObject>
 
 - (BOOL)isSerializableKeyPath:(NSString *)key forInstance:(id)instance;
 
@@ -35,7 +35,7 @@
 
     NSMutableSet *_observedKeys;
 
-    NSMutableArray<ССObservationInfo *> *_observers;
+    NSMutableArray<CCObservationInfo *> *_observers;
 
     FBKVOController *_kvoController;
 }
@@ -147,7 +147,7 @@
 
 - (void)observeKeys:(NSArray *)keys withAction:(SEL)action
 {
-    ССObservationInfo *info = [ССObservationInfo new];
+    CCObservationInfo *info = [CCObservationInfo new];
     info.action = action;
     info.observedKeys = [NSSet setWithArray:keys];
     [self addObserverWithInfo:info];
@@ -155,7 +155,7 @@
 
 - (void)observeKeys:(NSArray *)keys withBlock:(void(^)())block
 {
-    ССObservationInfo *info = [ССObservationInfo new];
+    CCObservationInfo *info = [CCObservationInfo new];
     info.block = block;
     info.observedKeys = [NSSet setWithArray:keys];
     [self addObserverWithInfo:info];
@@ -163,7 +163,7 @@
 
 - (void)observeKeys:(NSArray *)keys withBlockChange:(void(^)(NSArray* keys, NSDictionary* change))block
 {
-	ССObservationInfo *info = [ССObservationInfo new];
+	CCObservationInfo *info = [CCObservationInfo new];
 	info.blockChange = block;
 	info.observedKeys = [NSSet setWithArray:keys];
 	[self addObserverWithInfo:info];
@@ -173,7 +173,7 @@
 {
     NSSet *keysAsSet = nil;
 
-    for (ССObservationInfo *info in [_observers reverseObjectEnumerator])
+    for (CCObservationInfo *info in [_observers reverseObjectEnumerator])
     {
         if (!keysAsSet) {
             keysAsSet = [NSSet setWithArray:keys];
@@ -212,7 +212,7 @@
 #pragma mark - Private Methods
 //-------------------------------------------------------------------------------------------
 
-- (void)addObserverWithInfo:(ССObservationInfo *)info
+- (void)addObserverWithInfo:(CCObservationInfo *)info
 {
     info.batchUpdateDelay = [info.observedKeys count] > 1 ? 0.1f : 0;
     [_observers addObject:info];
@@ -253,15 +253,15 @@
 - (void)didChangeObservedValueForKey:(NSString *)key change:(NSDictionary *)change
 {
     @weakify(self)
-    [self enumerateObserversForKey:key usingBlock:^(ССObservationInfo *info) {
+    [self enumerateObserversForKey:key usingBlock:^(CCObservationInfo *info) {
         @strongify(self)
         [info notifyChangeWithTarget:[self observer] key:key change:change];
     }];
 }
 
-- (void)enumerateObserversForKey:(NSString *)key usingBlock:(void(^)(ССObservationInfo *info))block
+- (void)enumerateObserversForKey:(NSString *)key usingBlock:(void(^)(CCObservationInfo *info))block
 {
-    for (ССObservationInfo *info in _observers) {
+    for (CCObservationInfo *info in _observers) {
         if ([info.observedKeys containsObject:key]) {
             SafetyCall(block, info);
         }
@@ -278,7 +278,7 @@
     return [self respondsToSelector:@selector(isSerializableKeyPath:forInstance:)];
 }
 
-- (id<ССObjectObserverDatabaseSerialization>)databaseAddon
+- (id<CCObjectObserverDatabaseSerialization>)databaseAddon
 {
     if ([self hasDatabaseAdditionals]) {
         return (id)self;

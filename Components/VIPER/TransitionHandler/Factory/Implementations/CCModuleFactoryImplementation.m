@@ -27,7 +27,7 @@
 #pragma mark - Interface Methods
 //-------------------------------------------------------------------------------------------
 
-- (id<CCModule>)moduleForURL:(NSURL *)url thenChainUsingBlock:(ССModuleLinkBlock)block
+- (id<CCModule>)moduleForURL:(NSURL *)url thenChainUsingBlock:(CCModuleLinkBlock)block
 {
     id<CCModule> module = [self moduleForURL:url withoutConfiguration:NO];
 
@@ -112,7 +112,7 @@
 {
     return [self moduleForURL:[NSURL URLWithString:urlString]];
 }
-- (id<CCModule>)moduleFor:(NSString *)urlString thenChainUsingBlock:(ССModuleLinkBlock)block
+- (id<CCModule>)moduleFor:(NSString *)urlString thenChainUsingBlock:(CCModuleLinkBlock)block
 {
     return [self moduleForURL:[NSURL URLWithString:urlString] thenChainUsingBlock:block];
 }
@@ -121,7 +121,7 @@
 #pragma mark - Private Methods
 //-------------------------------------------------------------------------------------------
 
-- (void)tryCallBlock:(ССModuleLinkBlock)block forModule:(id<CCModule>)module
+- (void)tryCallBlock:(CCModuleLinkBlock)block forModule:(id<CCModule>)module
 {
     id<CCGeneralModuleInput> moduleInput = [module moduleInput];
     if (!moduleInput) {

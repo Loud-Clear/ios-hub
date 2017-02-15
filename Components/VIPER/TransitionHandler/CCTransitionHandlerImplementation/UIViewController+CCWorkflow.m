@@ -14,7 +14,7 @@
 #import "CCWorkflow.h"
 #import "CCMacroses.h"
 
-@implementation UIViewController (ССWorkflow)
+@implementation UIViewController (CCWorkflow)
 
 static const char *kWorkflowKey;
 

@@ -17,7 +17,7 @@
 
 static BOOL kAnimationsEnabled = YES;
 
-@implementation ССTransitionHandler
+@implementation CCTransitionHandler
 
 + (void)performWithoutAnimation:(void(^)())transitions
 {
@@ -30,15 +30,15 @@ static BOOL kAnimationsEnabled = YES;
 @end
 
 
-@implementation UIViewController (ССTransition)
+@implementation UIViewController (CCTransition)
 
 
 - (id<CCModulePromise>)openViewController:(UIViewController *)controller
 {
-    return [self openViewController:controller transition:ССTransitionStyleAutomatic];
+    return [self openViewController:controller transition:CCTransitionStyleAutomatic];
 }
 
-- (id<CCModulePromise>)openViewController:(UIViewController *)controller transitionBlock:(ССTransitionBlock)block
+- (id<CCModulePromise>)openViewController:(UIViewController *)controller transitionBlock:(CCTransitionBlock)block
 {
     CCTransitionPromise *openModulePromise = [CCTransitionPromise new];
 
@@ -64,22 +64,22 @@ static BOOL kAnimationsEnabled = YES;
     }];
 }
 
-- (id<CCModulePromise>)openViewController:(UIViewController *)controller transition:(ССTransitionStyle)style
+- (id<CCModulePromise>)openViewController:(UIViewController *)controller transition:(CCTransitionStyle)style
 {
-    ССTransitionBlock block = nil;
+    CCTransitionBlock block = nil;
 
     TyphoonComponentFactory *sharedFactory = [TyphoonComponentFactory factoryForResolvingUI];
     CCDisplayManager *displayManager = [sharedFactory componentForType:[CCDisplayManager class]];
 
     switch (style) {
-        case ССTransitionStyleModal: {
+        case CCTransitionStyleModal: {
             block = ^(UIViewController *src, UIViewController *dst) {
                 [src presentViewController:dst animated:YES completion:nil];
             };
             break;
         }
-        case ССTransitionStylePushAsRoot:
-        case ССTransitionStylePush: {
+        case CCTransitionStylePushAsRoot:
+        case CCTransitionStylePush: {
             block = ^(UIViewController *src, UIViewController *dst) {
                 UINavigationController *navigationController = nil;
 
@@ -94,7 +94,7 @@ static BOOL kAnimationsEnabled = YES;
                 }
                 NSAssert(navigationController, @"Can't find navigationController to push");
 
-                if (style == ССTransitionStylePushAsRoot) {
+                if (style == CCTransitionStylePushAsRoot) {
                     [navigationController setViewControllers:@[dst] animated:kAnimationsEnabled];
                 } else {
                     [navigationController pushViewController:dst animated:kAnimationsEnabled];
@@ -102,13 +102,13 @@ static BOOL kAnimationsEnabled = YES;
             };
             break;
         }
-        case ССTransitionStyleReplaceRoot: {
+        case CCTransitionStyleReplaceRoot: {
             block = ^(UIViewController *src, UIViewController *dst) {
                 [displayManager replaceRootViewControllerWith:dst animation:CCDisplayManagerTransitionAnimationNone];
             };
             break;
         }
-        case ССTransitionStyleAutomatic: {
+        case CCTransitionStyleAutomatic: {
             block = ^(UIViewController *src, UIViewController *dst) {
                 BOOL canPush = (src.navigationController || [src isKindOfClass:[UINavigationController class]]) &&
                         ![dst isKindOfClass:[UINavigationController class]];

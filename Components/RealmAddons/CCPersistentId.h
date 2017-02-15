@@ -27,19 +27,19 @@
 
 @end
 
-@interface RLMRealm (ССPersistentId)
+@interface RLMRealm (CCPersistentId)
 
 - (RLMResults *)objects:(NSString *)className WithPersistentIds:(NSArray<CCPersistentId *> *)modelIds;
 
 @end
 
-@interface NSArray (ССPersistentId)
+@interface NSArray (CCPersistentId)
 
 - (NSArray<CCPersistentId *> *)persistentId;
 
 @end
 
-@interface CCPersistentModel (ССPersistentId)
+@interface CCPersistentModel (CCPersistentId)
 
 - (CCPersistentId *)persistentId;
 
