@@ -12,12 +12,12 @@
 #import <Foundation/Foundation.h>
 
 
-static NSString *ССModuleURLParserErrorDomain = @"ССModuleURLParserErrorDomain";
+static NSString *CCModuleURLParserErrorDomain = @"CCModuleURLParserErrorDomain";
 
-typedef NS_ENUM(NSInteger, ССModuleURLParserErrorCode) {
-    ССModuleURLParserErrorCodeUnknown = 0,
-    ССModuleURLParserErrorCodeBadScheme,
-    ССModuleURLParserErrorCodeBadUrl
+typedef NS_ENUM(NSInteger, CCModuleURLParserErrorCode) {
+    CCModuleURLParserErrorCodeUnknown = 0,
+    CCModuleURLParserErrorCodeBadScheme,
+    CCModuleURLParserErrorCodeBadUrl
 };
 
 

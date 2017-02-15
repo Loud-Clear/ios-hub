@@ -15,7 +15,7 @@
 #import "RLMRealm+NestedTransactions.h"
 
 #import "CCDatabaseManager.h"
-#import "ССNotificationUtils.h"
+#import "CCNotificationUtils.h"
 #import "CCPersistentModel.h"
 #import "CCPersistentId.h"
 #import <objc/runtime.h>

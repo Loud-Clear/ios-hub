@@ -48,7 +48,7 @@
     [CCDisplayManager animateChange:change onWindow:self.window withAnimtion:animation];
 }
 
-- (id <CCModulePromise>)openModuleWithURL:(NSURL *)url transition:(ССTransitionStyle)style
+- (id <CCModulePromise>)openModuleWithURL:(NSURL *)url transition:(CCTransitionStyle)style
 {
     return [_window.rootViewController openModuleUsingURL:url transition:style];
 }

@@ -22,7 +22,7 @@
 + (instancetype)forwardFrom:(NSString *)startUrl to:(NSString *)endUrl
 {
     CCNavigatorRoute *route = [CCNavigatorRoute new];
-    route.direction = ССNavigatorRouteDirectionForward;
+    route.direction = CCNavigatorRouteDirectionForward;
     route.startURL = [NSURL URLWithString:startUrl];
     route.endURL = [NSURL URLWithString:endUrl];
     return route;
@@ -54,7 +54,7 @@
 - (NSString *)description
 {
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
-    if (self.direction == ССNavigatorRouteDirectionForward) {
+    if (self.direction == CCNavigatorRouteDirectionForward) {
         [description appendFormat:@"%@ -> %@", self.startURL, self.endURL];
     } else {
         [description appendFormat:@"%@ <- %@", self.endURL, self.startURL];

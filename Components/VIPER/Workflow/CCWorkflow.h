@@ -13,13 +13,13 @@
 
 
 /**
- *  ССWorkflow is used to manage navigation between user-stories. You can put your navigation logic here and
+ *  CCWorkflow is used to manage navigation between user-stories. You can put your navigation logic here and
  *  switch dynamically which story to present to user.
  *
- *  Each ССWorkflow has initialViewController method, which produces first controller from story. Caller is responsible
+ *  Each CCWorkflow has initialViewController method, which produces first controller from story. Caller is responsible
  *  to present it, and also responsible to dismiss the story back.
  *
- *  In other words, you can think about ССWorkflow like about this kind of puzzle in your navigation system:
+ *  In other words, you can think about CCWorkflow like about this kind of puzzle in your navigation system:
  *
  *                      ;,,,,,,,,;     ;,,,,,,,,;
  *                      ;,,,,,,,,,'   ;,,,,,,,,,;

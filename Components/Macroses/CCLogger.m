@@ -8,7 +8,7 @@
 
 #import "CCLogger.h"
 
-@protocol ССLumberjackClass <NSObject>
+@protocol CCLumberjackClass <NSObject>
 
 - (void)log:(BOOL)asynchronous
     message:(NSString *)message
@@ -75,7 +75,7 @@
     return NSClassFromString(@"DDLog") != nil;
 }
 
-+ (id<ССLumberjackClass>)lumberjack
++ (id<CCLumberjackClass>)lumberjack
 {
     return (id)NSClassFromString(@"DDLog");
 }

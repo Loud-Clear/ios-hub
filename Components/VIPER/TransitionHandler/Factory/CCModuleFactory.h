@@ -20,7 +20,7 @@
  * Possible URL values:
  *
  * app:///<controller class>.class
- * - Returns module with specified class for viewController (Example: 'app:///ССWelcomeViewController.class')
+ * - Returns module with specified class for viewController (Example: 'app:///CCWelcomeViewController.class')
  *
  * app:///<storyboard name>.storyboard
  * - Returns module with initial viewController from specified storyboard (Example: 'app:///Entry.storyboard')
@@ -40,21 +40,21 @@
  * - Returns module with internal UIWebView to present URL
  *
  * Optionally you can pass query parameters (as usual URL), then they'll be passed as NSDictionary and injected
- * into moduleInput's setInputParameters method (@see ССGeneralModuleInput for reference)
+ * into moduleInput's setInputParameters method (@see CCGeneralModuleInput for reference)
  *
- * Query parameters usually useful when you want to use URL as link inside label (@see ССLinkLabel), or inside WebPage,
+ * Query parameters usually useful when you want to use URL as link inside label (@see CCLinkLabel), or inside WebPage,
  * or you want to store URL to disk.
- * In other cases it's better to pass module parameters inside ССModuleLinkBlock, using moduleInput
+ * In other cases it's better to pass module parameters inside CCModuleLinkBlock, using moduleInput
  * */
 
 - (id<CCModule>)moduleForURL:(NSURL *)url;
 
-- (id<CCModule>)moduleForURL:(NSURL *)url thenChainUsingBlock:(ССModuleLinkBlock)block;
+- (id<CCModule>)moduleForURL:(NSURL *)url thenChainUsingBlock:(CCModuleLinkBlock)block;
 
 
 /** Shorthands */
 
 - (id<CCModule>)moduleFor:(NSString *)urlString;
-- (id<CCModule>)moduleFor:(NSString *)urlString thenChainUsingBlock:(ССModuleLinkBlock)block;
+- (id<CCModule>)moduleFor:(NSString *)urlString thenChainUsingBlock:(CCModuleLinkBlock)block;
 
 @end

@@ -89,7 +89,7 @@ CCNavigatorStack *StackForController(UIViewController *viewController)
         return YES;
     }
 
-    NSArray<CCNavigatorRoute *> *routes = [self routesToUrl:targetUrl withDirection:ССNavigatorRouteDirectionForward];
+    NSArray<CCNavigatorRoute *> *routes = [self routesToUrl:targetUrl withDirection:CCNavigatorRouteDirectionForward];
 
     for (CCNavigatorRoute *route in routes) {
         if (CCSameUrls(route.startURL, sourceURL)) {
@@ -107,7 +107,7 @@ CCNavigatorStack *StackForController(UIViewController *viewController)
     return NO;
 }
 
-- (NSArray<CCNavigatorRoute *> *)routesToUrl:(NSURL *)targetUrl withDirection:(ССNavigatorRouteDirection)direction
+- (NSArray<CCNavigatorRoute *> *)routesToUrl:(NSURL *)targetUrl withDirection:(CCNavigatorRouteDirection)direction
 {
     NSMutableArray *routesToTarget = [NSMutableArray new];
 
@@ -128,7 +128,7 @@ CCNavigatorStack *StackForController(UIViewController *viewController)
     CCNavigatorRoute *foundRoute = nil;
     do {
         for (CCNavigatorRoute *route in self.routes) {
-            if (route.direction == ССNavigatorRouteDirectionBack && CCSameUrls(route.endURL, targetUrl)) {
+            if (route.direction == CCNavigatorRouteDirectionBack && CCSameUrls(route.endURL, targetUrl)) {
                 foundRoute = route;
                 [backPath insertObject:route atIndex:0];
                 break;

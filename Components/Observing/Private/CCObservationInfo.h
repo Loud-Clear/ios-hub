@@ -12,7 +12,7 @@
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface ССObservationInfo : NSObject
+@interface CCObservationInfo : NSObject
 
 @property (nonatomic, copy) void(^block)();
 @property (nonatomic, copy) void(^blockChange)(NSArray* keys, NSDictionary *change);

@@ -9,12 +9,8 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <UIKit/UIKit.h>
+#import "CCTransitionHandler.h"
 
-@protocol CCWorkflow;
-
-@interface UIViewController (ССWorkflow)
-
-@property (nonatomic, strong) id<CCWorkflow> workflow;
+@interface UIViewController (CCTransitionHandler) <CCTransitionHandler>
 
 @end

@@ -18,7 +18,7 @@
 
 /**
  * Provides ability to setup Module by configuring it's input.
- * return type conforms protocol for your ModuleInput (and usually it conforms ССGeneralModuleInput)
+ * return type conforms protocol for your ModuleInput (and usually it conforms CCGeneralModuleInput)
  * */
 - (id)moduleInput;
 

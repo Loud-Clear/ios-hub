@@ -18,15 +18,15 @@
 @protocol CCWorkflow;
 @class CCNavigatorContext;
 
-typedef void(^ССTransitionBlock)(UIViewController *source, UIViewController *destination);
+typedef void(^CCTransitionBlock)(UIViewController *source, UIViewController *destination);
 
-typedef NS_ENUM(NSInteger, ССTransitionStyle)
+typedef NS_ENUM(NSInteger, CCTransitionStyle)
 {
-    ССTransitionStyleAutomatic = 0, //Either push or modal
-    ССTransitionStyleModal,
-    ССTransitionStylePush,
-    ССTransitionStylePushAsRoot,
-    ССTransitionStyleReplaceRoot
+    CCTransitionStyleAutomatic = 0, //Either push or modal
+    CCTransitionStyleModal,
+    CCTransitionStylePush,
+    CCTransitionStylePushAsRoot,
+    CCTransitionStyleReplaceRoot
 };
 
 
@@ -45,7 +45,7 @@ typedef NS_ENUM(NSInteger, ССTransitionStyle)
  * Possible URL values:
  *
  * app:///<controller class>.class
- * - Returns module with specified class for viewController (Example: 'app:///ССWelcomeViewController.class')
+ * - Returns module with specified class for viewController (Example: 'app:///CCWelcomeViewController.class')
  *
  * app:///<storyboard name>.storyboard
  * - Returns module with initial viewController from specified storyboard (Example: 'app:///Entry.storyboard')
@@ -65,19 +65,19 @@ typedef NS_ENUM(NSInteger, ССTransitionStyle)
  * - Returns module with internal UIWebView to present URL
  *
  * Optionally you can pass query parameters (as usual URL), then they'll be passed as NSDictionary and injected
- * into moduleInput's setInputParameters method (@see ССGeneralModuleInput for reference)
+ * into moduleInput's setInputParameters method (@see CCGeneralModuleInput for reference)
  *
- * Query parameters usually useful when you want to use URL as link inside label (@see ССLinkLabel), or inside WebPage,
+ * Query parameters usually useful when you want to use URL as link inside label (@see CCLinkLabel), or inside WebPage,
  * or you want to store URL to disk.
- * In other cases it's better to pass module parameters inside ССModuleLinkBlock, using moduleInput
+ * In other cases it's better to pass module parameters inside CCModuleLinkBlock, using moduleInput
  * */
 - (id<CCModulePromise>)openModuleUsingURL:(NSURL *)url;
 
-- (id<CCModulePromise>)openModuleUsingURL:(NSURL *)url transitionBlock:(ССTransitionBlock)block;
+- (id<CCModulePromise>)openModuleUsingURL:(NSURL *)url transitionBlock:(CCTransitionBlock)block;
 
 - (id<CCModulePromise>)openModuleUsingURL:(NSURL *)url segueClass:(Class)segueClass;
 
-- (id<CCModulePromise>)openModuleUsingURL:(NSURL *)url transition:(ССTransitionStyle)style;
+- (id<CCModulePromise>)openModuleUsingURL:(NSURL *)url transition:(CCTransitionStyle)style;
 
 /**
  * Method removes/closes module
@@ -97,7 +97,7 @@ typedef NS_ENUM(NSInteger, ССTransitionStyle)
  * Workflow support
  * */
 
-- (id<CCModulePromise>)openWorkflow:(id<CCWorkflow>)workflow transition:(ССTransitionStyle)style;
+- (id<CCModulePromise>)openWorkflow:(id<CCWorkflow>)workflow transition:(CCTransitionStyle)style;
 
 - (void)completeCurrentWorkflow;
 
@@ -113,17 +113,17 @@ typedef NS_ENUM(NSInteger, ССTransitionStyle)
 
 - (id<CCModulePromise>)openUrl:(NSString *)url;
 
-- (id<CCModulePromise>)openUrl:(NSString *)url transitionBlock:(ССTransitionBlock)block;
+- (id<CCModulePromise>)openUrl:(NSString *)url transitionBlock:(CCTransitionBlock)block;
 
 - (id<CCModulePromise>)openUrl:(NSString *)url segueClass:(Class)segueClass;
 
-- (id<CCModulePromise>)openUrl:(NSString *)url transition:(ССTransitionStyle)style;
+- (id<CCModulePromise>)openUrl:(NSString *)url transition:(CCTransitionStyle)style;
 
 - (id<CCModulePromise>)openSegue:(NSString *)segueIdentifier;
 
 @end
 
-@interface ССTransitionHandler : NSObject
+@interface CCTransitionHandler : NSObject
 
 + (void)performWithoutAnimation:(void(^)())transitions;
 

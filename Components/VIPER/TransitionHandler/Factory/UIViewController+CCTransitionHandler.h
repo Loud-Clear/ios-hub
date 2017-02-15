@@ -9,24 +9,8 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <Realm/Realm.h>
+#import "CCTransitionHandler.h"
 
-NSMutableSet *CCPrimaryKeysFromCollection(id<NSFastEnumeration> collection, NSString *primaryKey);
-
-@interface RLMResults (Array)
-
-- (NSArray *)allObjects;
-
-- (NSMutableSet *)primaryKeysSet;
-
-@end
-
-@interface RLMArray (Array)
-
-+ (id)arrayWithArray:(NSArray *)array objectsClass:(Class)clazz;
-
-- (NSArray *)allObjects;
-
-- (NSMutableSet *)primaryKeysSet;
+@interface UIViewController (CCTransitionHandler) <CCTransitionHandler>
 
 @end

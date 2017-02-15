@@ -90,7 +90,7 @@ static NSURL *kCCWebBrowserURL;
         return result;
     } else {
         if (error) {
-            *error = [NSError errorWithDomain:ССModuleURLParserErrorDomain code:ССModuleURLParserErrorCodeBadScheme
+            *error = [NSError errorWithDomain:CCModuleURLParserErrorDomain code:CCModuleURLParserErrorCodeBadScheme
                                      userInfo:@{
                                              NSLocalizedDescriptionKey : [NSString stringWithFormat:@"Can't parse URL with protocol '%@'",
                                                                                                     [url scheme]]
@@ -142,7 +142,7 @@ static NSURL *kCCWebBrowserURL;
         }
     } else {
         if (error) {
-            *error = [NSError errorWithDomain:ССModuleURLParserErrorDomain code:ССModuleURLParserErrorCodeBadUrl
+            *error = [NSError errorWithDomain:CCModuleURLParserErrorDomain code:CCModuleURLParserErrorCodeBadUrl
                                     userInfo:@{
                                             NSLocalizedDescriptionKey : @"Can't find components in URL"
                                     }];
@@ -153,7 +153,7 @@ static NSURL *kCCWebBrowserURL;
             result.controllerName = [components[1] stringByDeletingPathExtension];
         } else if (error) {
             NSString *errorText = [NSString stringWithFormat:@"Can't find storyboard for controller %@", components[1]];
-            *error = [NSError errorWithDomain:ССModuleURLParserErrorDomain code:ССModuleURLParserErrorCodeBadUrl
+            *error = [NSError errorWithDomain:CCModuleURLParserErrorDomain code:CCModuleURLParserErrorCodeBadUrl
                                      userInfo:@{
                                              NSLocalizedDescriptionKey : errorText
                                      }];

@@ -1,5 +1,5 @@
 //
-//  ССDatabaseSerialization.h
+//  CCDatabaseSerialization.h
 //  iOS Hub
 //
 //  Created by Aleksey Garbarev on 18/11/2016.

@@ -13,7 +13,7 @@
 #import "RLMObject.h"
 #import "CCMacroses.h"
 
-@interface RealmTransaction : NSObject <ССRealmTransaction>
+@interface RealmTransaction : NSObject <CCRealmTransaction>
 @property (nonatomic, weak) RLMRealm *realm;
 @end
 
@@ -58,7 +58,7 @@
     }
 }
 
-- (id<ССRealmTransaction>)beginWriteTransactionIfNeeded
+- (id<CCRealmTransaction>)beginWriteTransactionIfNeeded
 {
     RealmTransaction *transaction = [RealmTransaction new];
 

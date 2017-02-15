@@ -13,16 +13,16 @@
 
 @class CCNavigatorContext;
 
-typedef NS_ENUM(NSInteger, ССNavigatorRouteDirection) {
-    ССNavigatorRouteDirectionForward,
-    ССNavigatorRouteDirectionBack
+typedef NS_ENUM(NSInteger, CCNavigatorRouteDirection) {
+    CCNavigatorRouteDirectionForward,
+    CCNavigatorRouteDirectionBack
 };
 
 @interface CCNavigatorRoute : NSObject
 
 @property (nonatomic, strong) NSURL *startURL;
 @property (nonatomic, strong) NSURL *endURL;
-@property (nonatomic) ССNavigatorRouteDirection direction;
+@property (nonatomic) CCNavigatorRouteDirection direction;
 
 + (instancetype)forwardFrom:(NSString *)startUrl to:(NSString *)endUrl;
 

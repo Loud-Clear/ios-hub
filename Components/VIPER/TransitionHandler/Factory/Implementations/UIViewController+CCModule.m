@@ -9,28 +9,19 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import "RLMRealm.h"
-#import "RLMObject.h"
+#import "UIViewController+CCModule.h"
 
-@protocol CCRealmTransaction;
+@implementation UIViewController (CCModule)
 
-@interface RLMObject (Transactions)
+- (UIViewController *)asViewController
+{
+    return self;
+}
 
-- (void)transactionIfNeeded:(void(^)())block;
+- (UIView *)asView
+{
+    return self.view;
+}
 
-@end
-
-@interface RLMRealm (NestedTransactions)
-
-- (void)transactionIfNeeded:(void(^)())block;
-
-- (id<CCRealmTransaction>)beginWriteTransactionIfNeeded;
-
-@end
-
-@protocol CCRealmTransaction <NSObject>
-
-- (void)commit;
-- (void)cancel;
 
 @end

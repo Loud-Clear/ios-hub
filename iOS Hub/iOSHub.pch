@@ -6,7 +6,7 @@
 //  Copyright © 2016 Loud & Clear. All rights reserved.
 //
 
-//#import "ССMacroses.h"
+//#import "CCMacroses.h"
 //#import <CocoaLumberjack/CocoaLumberjack.h>
 //
 //static const DDLogLevel ddLogLevel = DDLogLevelVerbose;

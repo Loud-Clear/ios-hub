@@ -31,7 +31,7 @@
 
 - (void)replaceRootViewControllerWith:(UIViewController *)viewController animation:(CCDisplayManagerTransitionAnimation)animation;
 
-- (id<CCModulePromise>)openModuleWithURL:(NSURL *)url transition:(ССTransitionStyle)style;
+- (id<CCModulePromise>)openModuleWithURL:(NSURL *)url transition:(CCTransitionStyle)style;
 
 + (void)animateChange:(void (^)())change onWindow:(UIWindow *)window
          withAnimtion:(CCDisplayManagerTransitionAnimation)animation;

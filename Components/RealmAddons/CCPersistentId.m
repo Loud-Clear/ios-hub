@@ -42,7 +42,7 @@
 
 @end
 
-@implementation RLMRealm (ССPersistentId)
+@implementation RLMRealm (CCPersistentId)
 
 - (RLMResults *)objects:(NSString *)className WithPersistentIds:(NSArray<CCPersistentId *> *)modelIds
 {
@@ -56,7 +56,7 @@
 
 @end
 
-@implementation NSArray (ССPersistentId)
+@implementation NSArray (CCPersistentId)
 
 - (NSArray<CCPersistentId *> *)persistentId
 {
@@ -69,7 +69,7 @@
 
 @end
 
-@implementation CCPersistentModel (ССPersistentId)
+@implementation CCPersistentModel (CCPersistentId)
 
 - (CCPersistentId *)persistentId
 {

@@ -14,7 +14,7 @@
 
 @interface CCTransitionPromise()
 
-@property (nonatomic, copy) ССModuleLinkBlock linkBlock;
+@property (nonatomic, copy) CCModuleLinkBlock linkBlock;
 @property (nonatomic) BOOL linkBlockWasSet;
 @property (nonatomic) BOOL moduleInputWasSet;
 
@@ -46,7 +46,7 @@
     [_postLinkBlocks addObject:postLinkBlock];
 }
 
-- (void)thenChainUsingBlock:(ССModuleLinkBlock)linkBlock
+- (void)thenChainUsingBlock:(CCModuleLinkBlock)linkBlock
 {
     self.linkBlock = linkBlock;
     self.linkBlockWasSet = YES;

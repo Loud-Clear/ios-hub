@@ -13,7 +13,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <UIKit/UIKit.h>
 
-#define __ССObjectObserver__
+#define __CCObjectObserver__
 
 @interface CCObjectObserver : NSObject
 

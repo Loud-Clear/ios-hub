@@ -30,12 +30,12 @@
     NSError *error = nil;
     [CCModuleURLParser parseURL:url error:&error];
     XCTAssertNotNil(error);
-    XCTAssertEqual(error.code, ССModuleURLParserErrorCodeBadScheme);
+    XCTAssertEqual(error.code, CCModuleURLParserErrorCodeBadScheme);
 
     NSURL *url2 = [NSURL URLWithString:@"file:///123123"];
     [CCModuleURLParser parseURL:url2 error:&error];
     XCTAssertNotNil(error);
-    XCTAssertEqual(error.code, ССModuleURLParserErrorCodeBadScheme);
+    XCTAssertEqual(error.code, CCModuleURLParserErrorCodeBadScheme);
 }
 
 - (void)test_web_scheme
@@ -116,7 +116,7 @@
     NSError *error = nil;
     [CCModuleURLParser parseURL:url error:&error];
     XCTAssertNotNil(error);
-    XCTAssertEqual(error.code, ССModuleURLParserErrorCodeBadScheme);
+    XCTAssertEqual(error.code, CCModuleURLParserErrorCodeBadScheme);
 }
 
 - (void)test_controller_with_sub_controller_error

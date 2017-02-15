@@ -1,4 +1,4 @@
-#import "ССNotificationUtils.h"
+#import "CCNotificationUtils.h"
 #import <NSObject+DeallocNotification.h>
 #import "CCMacroses.h"
 #import <objc/runtime.h>
@@ -20,7 +20,7 @@
         NSNumber *isUnregisterListening = GetAssociatedObjectFromObject(self, "unregister_notifications");
         if (!isUnregisterListening) {
             __weak __typeof(self) weakSelf = self;
-            [self setDeallocNotificationWithKey:"ССNotificationUtils" andBlock:^{
+            [self setDeallocNotificationWithKey:"CCNotificationUtils" andBlock:^{
                 [weakSelf unregisterForNotifications];
             }];
             SetAssociatedObjectToObject(self, "unregister_notifications", @YES);
