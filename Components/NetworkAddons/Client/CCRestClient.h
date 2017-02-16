@@ -19,6 +19,9 @@
 @property (nonatomic) BOOL logging;
 @property (nonatomic) TRCConnectionProxy *sessionInjectingConnection;
 
+@property (nonatomic) BOOL shouldLogUploadProgress;
+@property (nonatomic) BOOL shouldLogDownloadProgress;
+
 + (NSURLSessionConfiguration *)urlSessionConfiguration;
 
 - (void)setupClient;

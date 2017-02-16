@@ -42,13 +42,13 @@
 - (void)getImageForUrl:(NSURL *)url
                options:(CCGetImageOptions)options completion:(CCImageServiceGetImageBlock)completion
 {
-    SDWebImageDownloaderOptions sdOptions = 0;
+    SDWebImageOptions sdOptions = 0;
     
     if (options & CCGetImageForceLoad) {
-        sdOptions |= SDWebImageDownloaderIgnoreCachedResponse;
+        sdOptions |= SDWebImageRefreshCached;
     }
-
-    [_manager.imageDownloader downloadImageWithURL:url options:sdOptions progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+    
+    [_manager downloadImageWithURL:url options:sdOptions progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
         SafetyCall(completion, image, error);
     }];
 }
