@@ -11,10 +11,12 @@
 
 #import "CCRestClient.h"
 #import "CCRestClientRegistry.h"
+#import "CCConnectionLogger.h"
 
 
 @implementation CCRestClient {
     TRCConnectionNSURLSession *_rawConnection;
+    __weak CCConnectionLogger *_logger;
 }
 
 - (void)setupClient
@@ -37,10 +39,11 @@
     connection = self.sessionInjectingConnection;
 
     if (self.logging) {
-        TRCConnectionLogger *logger = [[TRCConnectionLogger alloc] initWithConnection:connection];
-        logger.shouldLogUploadProgress = NO;
-        logger.shouldLogDownloadProgress = NO;
+        CCConnectionLogger *logger = [[CCConnectionLogger alloc] initWithConnection:connection];
+        logger.shouldLogUploadProgress = self.shouldLogUploadProgress;
+        logger.shouldLogDownloadProgress = self.shouldLogDownloadProgress;
         connection = logger;
+        _logger = logger;
     }
 
     self.connection = connection;
@@ -64,6 +67,18 @@
 - (void)registerComponents
 {
     [[CCRestClientRegistry defaultRegistry] registerAllWithRestClient:self];
+}
+
+- (void)setShouldLogDownloadProgress:(BOOL)shouldLogDownloadProgress
+{
+    _logger.shouldLogDownloadProgress = shouldLogDownloadProgress;
+    _shouldLogDownloadProgress = shouldLogDownloadProgress;
+}
+
+- (void)setShouldLogUploadProgress:(BOOL)shouldLogUploadProgress
+{
+    _logger.shouldLogUploadProgress = shouldLogUploadProgress;
+    _shouldLogUploadProgress = shouldLogUploadProgress;
 }
 
 @end

@@ -20,6 +20,7 @@
 		2DBA10792476FFCE7EA2F536 /* CCGeneralPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D805B9B1600C55FC061 /* CCGeneralPresenter.m */; };
 		2DBA110602B26C1D6E0D315C /* CCTableViewCellStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1744188395C568EB9F02 /* CCTableViewCellStyle.m */; };
 		2DBA111D60273B678C48AC89 /* NSObject+TyphoonDefaultFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1DB313FABCD5F870A3CB /* NSObject+TyphoonDefaultFactory.m */; };
+		2DBA122113039CF9B42BF88D /* CCConnectionLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA11AD0D332E59D6BB30DE /* CCConnectionLogger.m */; };
 		2DBA12487E297EE428A25271 /* CCRestClientRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA190516A51B8C496633B7 /* CCRestClientRegistry.m */; };
 		2DBA12519CA7A0DE2C008423 /* CCMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1345FC7E35EE8C2CC474 /* CCMapping.m */; };
 		2DBA1496B0331E84A3BC0825 /* CCTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */; };
@@ -152,9 +153,11 @@
 		2CD634271E16668F00A2BB15 /* Config.staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.staging.plist; sourceTree = "<group>"; };
 		2CD6342C1E1666A100A2BB15 /* CCEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEnvironment.h; sourceTree = "<group>"; };
 		2CD6342D1E1666A100A2BB15 /* CCEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEnvironment.m; sourceTree = "<group>"; };
+		2DBA105EDBBCED84C609D01F /* CCConnectionLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCConnectionLogger.h; sourceTree = "<group>"; };
 		2DBA10CE13525A2D6ABA0D3E /* CCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCell.m; sourceTree = "<group>"; };
 		2DBA114BB93F562759A0F303 /* CCValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformer.h; sourceTree = "<group>"; };
 		2DBA1155E8073B5D351A6EA1 /* CCTableViewManager+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCTableViewManager+Internal.h"; sourceTree = "<group>"; };
+		2DBA11AD0D332E59D6BB30DE /* CCConnectionLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCConnectionLogger.m; sourceTree = "<group>"; };
 		2DBA11BBC34D8545A219EAC2 /* CCTableViewCellStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCellStyle.h; sourceTree = "<group>"; };
 		2DBA1221C2F7AA7F1BAA5FEB /* CCTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewManager.m; sourceTree = "<group>"; };
 		2DBA1262DA2075C83CCB1A8B /* CCTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCellFactory.h; sourceTree = "<group>"; };
@@ -453,6 +456,7 @@
 				2DBA14003267E44EC67824D2 /* Mapper */,
 				2DBA125039850DEAD7585F07 /* Request */,
 				2DBA1BD7B99A6323D30CFA33 /* ValueTransformer */,
+				2DBA1E652C3496BE52632949 /* Logger */,
 			);
 			path = BaseClasses;
 			sourceTree = "<group>";
@@ -658,6 +662,15 @@
 				2DBA1F8C007E342704E24574 /* CCRestClient.m */,
 			);
 			path = Client;
+			sourceTree = "<group>";
+		};
+		2DBA1E652C3496BE52632949 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA105EDBBCED84C609D01F /* CCConnectionLogger.h */,
+				2DBA11AD0D332E59D6BB30DE /* CCConnectionLogger.m */,
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 		2DBA1F8C6ADE36243C4EDE4F /* NetworkAddons */ = {
@@ -1691,6 +1704,7 @@
 				318214A87C965A20875198C7 /* CCValueTransformerUnixTime.m in Sources */,
 				31821318859B945CDF64A6CB /* CCValueTransformerDateIso8601.m in Sources */,
 				2DBA155F41E35FF8F220F36C /* CCDatabaseManager.m in Sources */,
+				2DBA122113039CF9B42BF88D /* CCConnectionLogger.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
