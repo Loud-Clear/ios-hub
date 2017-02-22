@@ -66,7 +66,7 @@
  @param delegate The delegate (CCTableViewManagerDelegate) object for the table view manager.
  @return The pointer to the instance, or nil if initialization failed.
  */
-- (id)initWithTableView:(UITableView *)tableView delegate:(id<CCTableViewManagerDelegate>)delegate;
+- (instancetype)initWithTableView:(UITableView *)tableView delegate:(id<CCTableViewManagerDelegate>)delegate;
 
 /**
  Initialize a table view manager object for a specific `UITableView`.
@@ -74,7 +74,13 @@
  @param tableView The UITableView that needs to be managed.
  @return The pointer to the instance, or `nil` if initialization failed.
  */
-- (id)initWithTableView:(UITableView *)tableView;
+- (instancetype)initWithTableView:(UITableView *)tableView;
+
+/**
+ Initialize a table view manager and create a default `UITableView` which can be accessed using `tableView` property.
+ @return The pointer to the instance, or `nil` if initialization failed.
+ */
+- (instancetype)init;
 
 ///-------------------------------------------
 /// @name Managing the Delegate
