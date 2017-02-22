@@ -28,6 +28,7 @@
 #import "CCTableViewManager.h"
 #import "CCTableViewCellFactory.h"
 
+
 @implementation CCTableViewItem
 
 + (instancetype)item
@@ -40,12 +41,12 @@
     return [[self alloc] initWithTitle:title];
 }
 
-+ (instancetype)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(CCTableViewItem *item))selectionHandler
++ (instancetype)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void (^)(CCTableViewItem *item))selectionHandler
 {
     return [[self alloc] initWithTitle:title accessoryType:accessoryType selectionHandler:selectionHandler accessoryButtonTapHandler:nil];
 }
 
-+ (instancetype)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(CCTableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^__nullable)(CCTableViewItem *item))accessoryButtonTapHandler
++ (instancetype)itemWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void (^)(CCTableViewItem *item))selectionHandler accessoryButtonTapHandler:(void (^ __nullable)(CCTableViewItem *item))accessoryButtonTapHandler
 {
     return [[self alloc] initWithTitle:title accessoryType:accessoryType selectionHandler:selectionHandler accessoryButtonTapHandler:accessoryButtonTapHandler];
 }
@@ -53,42 +54,45 @@
 - (id)initWithTitle:(NSString *)title
 {
     self = [self init];
-    if (!self)
+    if (!self) {
         return nil;
-    
+    }
+
     self.title = title;
-    
+
     return self;
 }
 
-- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^)(CCTableViewItem *item))selectionHandler
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void (^)(CCTableViewItem *item))selectionHandler
 {
     return [self initWithTitle:title accessoryType:accessoryType selectionHandler:selectionHandler accessoryButtonTapHandler:nil];
 }
 
-- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void(^__nullable)(CCTableViewItem *item))selectionHandler accessoryButtonTapHandler:(void(^__nullable)(CCTableViewItem *item))accessoryButtonTapHandler
+- (id)initWithTitle:(NSString *)title accessoryType:(UITableViewCellAccessoryType)accessoryType selectionHandler:(void (^ __nullable)(CCTableViewItem *item))selectionHandler accessoryButtonTapHandler:(void (^ __nullable)(CCTableViewItem *item))accessoryButtonTapHandler
 {
     self = [self init];
-    if (!self)
+    if (!self) {
         return nil;
-    
+    }
+
     self.title = title;
     self.accessoryType = accessoryType;
     self.selectionHandler = selectionHandler;
     self.accessoryButtonTapHandler = accessoryButtonTapHandler;
-    
+
     return self;
 }
 
 - (id)init
 {
     self = [super init];
-    if (!self)
+    if (!self) {
         return nil;
-    
+    }
+
     self.enabled = YES;
     self.selectionStyle = UITableViewCellSelectionStyleBlue;
-    
+
     return self;
 }
 
@@ -136,7 +140,7 @@
     return [CCTableViewCellFactory withCellClass:[CCTableViewCell class] reusable:YES];
 }
 
-- (NSString * __nullable)cellReusableIdentifier
+- (NSString *__nullable)cellReusableIdentifier
 {
     return nil;
 }
