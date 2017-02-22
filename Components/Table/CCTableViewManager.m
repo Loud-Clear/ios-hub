@@ -32,11 +32,12 @@
 /**
  The array of pairs of items / cell classes.
  */
-@property (strong, readwrite, nonatomic) NSMutableDictionary *registeredXIBs;
-@property (strong, readwrite, nonatomic) NSMutableArray *mutableSections;
-@property (assign, readonly, nonatomic) CGFloat defaultTableViewSectionHeight;
-
+@property (nonatomic) NSMutableDictionary *registeredXIBs;
+@property (nonatomic) NSMutableArray<CCTableViewSection *> *mutableSections;
+@property (nonatomic) CGFloat defaultTableViewSectionHeight;
+@property (nonatomic) CCTableViewSection *defaultSection;
 @end
+
 
 @implementation CCTableViewManager
 
@@ -70,11 +71,11 @@
     
     self.tableView = tableView;
 
-    self.mutableSections = [[NSMutableArray alloc] init];
-    self.registeredClasses = [[NSMutableDictionary alloc] init];
-    self.registeredXIBs = [[NSMutableDictionary alloc] init];
-    self.style = [[CCTableViewCellStyle alloc] init];
-    
+    self.mutableSections = [NSMutableArray new];
+    self.registeredClasses = [NSMutableDictionary new];
+    self.registeredXIBs = [NSMutableDictionary new];
+    self.style = [CCTableViewCellStyle new];
+
     return self;
 }
 
@@ -127,9 +128,22 @@
     return clazz;
 }
 
-- (NSArray *)sections
+- (NSArray<CCTableViewSection *> *)sections
 {
     return self.mutableSections;
+}
+
+- (CCTableViewSection *)defaultSection
+{
+    if (!_defaultSection) {
+        if ([self.sections count] != 0) {
+            return nil;
+        }
+        _defaultSection = [CCTableViewSection new];
+        [self addSection:_defaultSection];
+    }
+
+    return _defaultSection;
 }
 
 - (CGFloat)defaultTableViewSectionHeight
@@ -900,6 +914,8 @@
 
 - (void)addSection:(CCTableViewSection *)section
 {
+    [self removeDefaultSectionIfNeeded];
+
     [self gotNewSections:@[section]];
     [self.mutableSections addObject:section];
     [self sectionsSetChanged];
@@ -907,6 +923,11 @@
 
 - (void)addSectionsFromArray:(NSArray *)array
 {
+    if ([self.mutableSections count] == 1 && ([self.mutableSections firstObject] == _defaultSection)) {
+        _defaultSection = nil;
+        [self.mutableSections removeAllObjects];
+    }
+
     [self gotNewSections:array];
     [self.mutableSections addObjectsFromArray:array];
     [self sectionsSetChanged];
@@ -1085,6 +1106,18 @@
 - (void)didLoadCell:(CCTableViewCell *)cell
 {
 
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Private Methods
+//-------------------------------------------------------------------------------------------
+
+- (void)removeDefaultSectionIfNeeded
+{
+    if ([self.mutableSections count] == 1 && ([self.mutableSections firstObject] == _defaultSection)) {
+        _defaultSection = nil;
+        [self.mutableSections removeAllObjects];
+    }
 }
 
 @end

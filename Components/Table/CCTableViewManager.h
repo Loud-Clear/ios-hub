@@ -48,7 +48,13 @@
 /**
  The array of sections. See CCTableViewSection reference for details.
  */
-@property (strong, readonly, nonatomic) NSArray *sections;
+@property (strong, readonly, nonatomic) NSArray<CCTableViewSection *> *sections;
+
+/**
+ Default section, which will be created and added to `sections` when you will try to access it.
+ Note that if you will use `addSection:` or `addSectionsFromArray:` methods later, it will be removed from `sections`.
+ */
+@property (strong, readonly, nonatomic) CCTableViewSection *defaultSection;
 
 /**
  The `UITableView` that needs to be managed using this `CCTableViewManager`.
