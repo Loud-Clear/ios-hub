@@ -27,16 +27,18 @@
 #import "CCTableViewItem.h"
 #import "CCTableViewCellFactory.h"
 
+
 @interface CCTableViewManager ()
 
 /**
  The array of pairs of items / cell classes.
  */
-@property (strong, readwrite, nonatomic) NSMutableDictionary *registeredXIBs;
-@property (strong, readwrite, nonatomic) NSMutableArray *mutableSections;
-@property (assign, readonly, nonatomic) CGFloat defaultTableViewSectionHeight;
-
+@property (nonatomic) NSMutableDictionary *registeredXIBs;
+@property (nonatomic) NSMutableArray<CCTableViewSection *> *mutableSections;
+@property (nonatomic) CGFloat defaultTableViewSectionHeight;
+@property (nonatomic) CCTableViewSection *defaultSection;
 @end
+
 
 @implementation CCTableViewManager
 
@@ -48,40 +50,41 @@
     self.tableView.dataSource = nil;
 }
 
-- (id)init
-{
-    @throw [NSException exceptionWithName:NSGenericException reason:@"init not supported, use initWithTableView: instead." userInfo:nil];
-    return nil;
-}
-
-- (id)initWithTableView:(UITableView *)tableView delegate:(id<CCTableViewManagerDelegate>)delegate
+- (instancetype)initWithTableView:(UITableView *)tableView delegate:(id<CCTableViewManagerDelegate>)delegate
 {
     self = [self initWithTableView:tableView];
-    if (!self)
+    if (!self) {
         return nil;
-    
+    }
+
     self.delegate = delegate;
-    
+
     return self;
 }
 
-- (id)initWithTableView:(UITableView *)tableView
+- (instancetype)initWithTableView:(UITableView *)tableView
 {
     self = [super init];
-    if (!self)
+    if (!self) {
         return nil;
-    
+    }
+
     tableView.delegate = self;
     tableView.dataSource = self;
-    
+
     self.tableView = tableView;
 
-    self.mutableSections = [[NSMutableArray alloc] init];
-    self.registeredClasses = [[NSMutableDictionary alloc] init];
-    self.registeredXIBs = [[NSMutableDictionary alloc] init];
-    self.style = [[CCTableViewCellStyle alloc] init];
-    
+    self.mutableSections = [NSMutableArray new];
+    self.registeredClasses = [NSMutableDictionary new];
+    self.registeredXIBs = [NSMutableDictionary new];
+    self.style = [CCTableViewCellStyle new];
+
     return self;
+}
+
+- (instancetype)init
+{
+    return [self initWithTableView:[UITableView new]];
 }
 
 - (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier
@@ -93,27 +96,28 @@
 {
     NSAssert(NSClassFromString(objectClass), ([NSString stringWithFormat:@"Item class '%@' does not exist.", objectClass]));
     NSAssert(NSClassFromString(identifier), ([NSString stringWithFormat:@"Cell class '%@' does not exist.", identifier]));
-    self.registeredClasses[(id <NSCopying>)NSClassFromString(objectClass)] = NSClassFromString(identifier);
-    
+    self.registeredClasses[(id<NSCopying>) NSClassFromString(objectClass)] = NSClassFromString(identifier);
+
     // Perform check if a XIB exists with the same name as the cell class
     //
-    if (!bundle)
+    if (!bundle) {
         bundle = [NSBundle mainBundle];
-    
+    }
+
     if ([bundle pathForResource:identifier ofType:@"nib"]) {
         self.registeredXIBs[identifier] = objectClass;
         [self.tableView registerNib:[UINib nibWithNibName:identifier bundle:bundle] forCellReuseIdentifier:objectClass];
     }
 }
 
-- (id)objectAtKeyedSubscript:(id <NSCopying>)key
+- (id)objectAtKeyedSubscript:(id<NSCopying>)key
 {
     return self.registeredClasses[key];
 }
 
-- (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key
+- (void)setObject:(id)obj forKeyedSubscript:(id<NSCopying>)key
 {
-    [self registerClass:(NSString *)key forCellWithReuseIdentifier:obj];
+    [self registerClass:(NSString *) key forCellWithReuseIdentifier:obj];
 }
 
 - (Class)classForCellAtIndexPath:(NSIndexPath *)indexPath
@@ -122,15 +126,28 @@
     NSObject *item = section.items[indexPath.row];
     Class clazz = self.registeredClasses[item.class];
     if (!clazz && [item isKindOfClass:[CCTableViewItem class]]) {
-        CCTableViewCellFactory *cellConfig = [(CCTableViewItem *)item cellFactoryForCurrentItem];
+        CCTableViewCellFactory *cellConfig = [(CCTableViewItem *) item cellFactoryForCurrentItem];
         clazz = [cellConfig cellClass];
     }
     return clazz;
 }
 
-- (NSArray *)sections
+- (NSArray<CCTableViewSection *> *)sections
 {
     return self.mutableSections;
+}
+
+- (CCTableViewSection *)defaultSection
+{
+    if (!_defaultSection) {
+        if ([self.sections count] != 0) {
+            return nil;
+        }
+        _defaultSection = [CCTableViewSection new];
+        [self addSection:_defaultSection];
+    }
+
+    return _defaultSection;
 }
 
 - (CGFloat)defaultTableViewSectionHeight
@@ -151,7 +168,7 @@
     if (self.mutableSections.count <= sectionIndex) {
         return 0;
     }
-    return ((CCTableViewSection *)self.mutableSections[sectionIndex]).items.count;
+    return ((CCTableViewSection *) self.mutableSections[sectionIndex]).items.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -182,23 +199,24 @@
     }
 
     [self loadCellIfNeeded:cell table:tableView indexPath:indexPath];
-    
+
     cell.rowIndex = indexPath.row;
     cell.sectionIndex = indexPath.section;
     cell.parentTableView = tableView;
     cell.section = section;
     cell.item = item;
     cell.detailTextLabel.text = nil;
-    
-    if ([item isKindOfClass:[CCTableViewItem class]])
-        cell.detailTextLabel.text = ((CCTableViewItem *)item).detailLabelText;
-    
+
+    if ([item isKindOfClass:[CCTableViewItem class]]) {
+        cell.detailTextLabel.text = ((CCTableViewItem *) item).detailLabelText;
+    }
+
     [cell cellWillAppear];
 
     if ([cell isKindOfClass:[CCTableViewCell class]]) {
         [self willAppearCell:cell];
     }
-    
+
     return cell;
 }
 
@@ -207,8 +225,9 @@
     if ([cell isKindOfClass:[CCTableViewCell class]] && [cell respondsToSelector:@selector(loaded)] && !cell.loaded) {
         cell.tableViewManager = self;
 
-        if ([self.delegate conformsToProtocol:@protocol(CCTableViewManagerDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willLoadCell:forRowAtIndexPath:)])
+        if ([self.delegate conformsToProtocol:@protocol(CCTableViewManagerDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willLoadCell:forRowAtIndexPath:)]) {
             [self.delegate tableView:tableView willLoadCell:cell forRowAtIndexPath:indexPath];
+        }
 
         [cell cellDidLoad];
 
@@ -216,8 +235,9 @@
 
         // CCTableViewManagerDelegate
         //
-        if ([self.delegate conformsToProtocol:@protocol(CCTableViewManagerDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didLoadCell:forRowAtIndexPath:)])
+        if ([self.delegate conformsToProtocol:@protocol(CCTableViewManagerDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didLoadCell:forRowAtIndexPath:)]) {
             [self.delegate tableView:tableView didLoadCell:cell forRowAtIndexPath:indexPath];
+        }
 
     }
 }
@@ -236,7 +256,7 @@
             [titles addObject:section.indexTitle ? section.indexTitle : @""];
         }
     }
-    
+
     return titles;
 }
 
@@ -263,12 +283,13 @@
     CCTableViewSection *sourceSection = self.mutableSections[sourceIndexPath.section];
     CCTableViewItem *item = sourceSection.items[sourceIndexPath.row];
     [sourceSection removeItemAtIndex:sourceIndexPath.row];
-    
+
     CCTableViewSection *destinationSection = self.mutableSections[destinationIndexPath.section];
     [destinationSection insertItem:item atIndex:destinationIndexPath.row];
-    
-    if (item.moveCompletionHandler)
+
+    if (item.moveCompletionHandler) {
         item.moveCompletionHandler(item, sourceIndexPath, destinationIndexPath);
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
@@ -305,32 +326,34 @@
             item.deletionHandlerWithCompletion(item, ^{
                 [section removeItemAtIndex:indexPath.row];
                 [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-                
+
                 for (NSInteger i = indexPath.row; i < section.items.count; i++) {
                     CCTableViewItem *afterItem = [[section items] objectAtIndex:i];
-                    CCTableViewCell *cell = (CCTableViewCell *)[tableView cellForRowAtIndexPath:afterItem.indexPath];
+                    CCTableViewCell *cell = (CCTableViewCell *) [tableView cellForRowAtIndexPath:afterItem.indexPath];
                     cell.rowIndex--;
                 }
             });
         } else {
-            if (item.deletionHandler)
+            if (item.deletionHandler) {
                 item.deletionHandler(item);
+            }
             [section removeItemAtIndex:indexPath.row];
             [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-            
+
             for (NSInteger i = indexPath.row; i < section.items.count; i++) {
                 CCTableViewItem *afterItem = [[section items] objectAtIndex:i];
-                CCTableViewCell *cell = (CCTableViewCell *)[tableView cellForRowAtIndexPath:afterItem.indexPath];
+                CCTableViewCell *cell = (CCTableViewCell *) [tableView cellForRowAtIndexPath:afterItem.indexPath];
                 cell.rowIndex--;
             }
         }
     }
-    
+
     if (editingStyle == UITableViewCellEditingStyleInsert) {
         CCTableViewSection *section = self.mutableSections[indexPath.section];
         CCTableViewItem *item = section.items[indexPath.row];
-        if (item.insertionHandler)
+        if (item.insertionHandler) {
             item.insertionHandler(item);
+        }
     }
 }
 
@@ -343,51 +366,58 @@
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)]) {
         [self.delegate tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willDisplayHeaderView:forSection:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willDisplayHeaderView:forSection:)]) {
         [self.delegate tableView:tableView willDisplayHeaderView:view forSection:section];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willDisplayFooterView:forSection:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willDisplayFooterView:forSection:)]) {
         [self.delegate tableView:tableView willDisplayFooterView:view forSection:section];
+    }
 }
 
-- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([cell isKindOfClass:[CCTableViewCell class]])
-        [(CCTableViewCell *)cell cellDidDisappear];
-    
+    if ([cell isKindOfClass:[CCTableViewCell class]]) {
+        [(CCTableViewCell *) cell cellDidDisappear];
+    }
+
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didEndDisplayingCell:forRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didEndDisplayingCell:forRowAtIndexPath:)]) {
         [self.delegate tableView:tableView didEndDisplayingCell:cell forRowAtIndexPath:indexPath];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didEndDisplayingHeaderView:forSection:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didEndDisplayingHeaderView:forSection:)]) {
         [self.delegate tableView:tableView didEndDisplayingHeaderView:view forSection:section];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didEndDisplayingFooterView:(UIView *)view forSection:(NSInteger)section
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didEndDisplayingFooterView:forSection:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didEndDisplayingFooterView:forSection:)]) {
         [self.delegate tableView:tableView didEndDisplayingFooterView:view forSection:section];
+    }
 }
 
 // Variable height support
@@ -396,12 +426,13 @@
 {
     CCTableViewSection *section = self.mutableSections[indexPath.section];
     id item = section.items[indexPath.row];
-    
+
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
         return [self.delegate tableView:tableView heightForRowAtIndexPath:indexPath];
-    
+    }
+
     return [[self classForCellAtIndexPath:indexPath] heightWithItem:item tableViewManager:self];
 }
 
@@ -411,11 +442,11 @@
         return UITableViewAutomaticDimension;
     }
     CCTableViewSection *section = self.mutableSections[sectionIndex];
-    
+
     if (section.headerHeight != CCTableViewSectionHeaderHeightAutomatic) {
         return section.headerHeight;
     }
-    
+
     if (section.headerView) {
         return section.headerView.frame.size.height;
     } else if (section.headerTitle.length) {
@@ -424,25 +455,26 @@
         } else {
             CGFloat headerHeight = 0;
             CGFloat headerWidth = CGRectGetWidth(CGRectIntegral(tableView.bounds)) - 40.0f; // 40 = 20pt horizontal padding on each side
-        
+
             CGSize headerRect = CGSizeMake(headerWidth, CCTableViewSectionHeaderHeightAutomatic);
-        
+
             CGRect headerFrame = [section.headerTitle boundingRectWithSize:headerRect
-                                                                   options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
-                                                                attributes:@{ NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline] }
+                                                                   options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
+                                                                attributes:@{NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]}
                                                                    context:nil];
-            
+
             headerHeight = headerFrame.size.height;
-        
+
             return headerHeight + 20.0f;
         }
     }
-    
+
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:heightForHeaderInSection:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:heightForHeaderInSection:)]) {
         return [self.delegate tableView:tableView heightForHeaderInSection:sectionIndex];
-    
+    }
+
     return UITableViewAutomaticDimension;
 }
 
@@ -452,11 +484,11 @@
         return UITableViewAutomaticDimension;
     }
     CCTableViewSection *section = self.mutableSections[sectionIndex];
-    
+
     if (section.footerHeight != CCTableViewSectionFooterHeightAutomatic) {
         return section.footerHeight;
     }
-    
+
     if (section.footerView) {
         return section.footerView.frame.size.height;
     } else if (section.footerTitle.length) {
@@ -465,25 +497,26 @@
         } else {
             CGFloat footerHeight = 0;
             CGFloat footerWidth = CGRectGetWidth(CGRectIntegral(tableView.bounds)) - 40.0f; // 40 = 20pt horizontal padding on each side
-        
+
             CGSize footerRect = CGSizeMake(footerWidth, CCTableViewSectionFooterHeightAutomatic);
-        
+
             CGRect footerFrame = [section.footerTitle boundingRectWithSize:footerRect
-                                                                   options:(NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading)
-                                                                attributes:@{ NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote] }
+                                                                   options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
+                                                                attributes:@{NSFontAttributeName: [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote]}
                                                                    context:nil];
-            
+
             footerHeight = footerFrame.size.height;
 
             return footerHeight + 10.0f;
         }
     }
-    
+
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:heightForFooterInSection:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:heightForFooterInSection:)]) {
         return [self.delegate tableView:tableView heightForFooterInSection:sectionIndex];
-    
+    }
+
     return UITableViewAutomaticDimension;
 }
 
@@ -497,12 +530,13 @@
     CCTableViewSection *section = self.mutableSections[indexPath.section];
 
     id item = section.items[indexPath.row];
-    
+
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForRowAtIndexPath:)]) {
         return [self.delegate tableView:tableView estimatedHeightForRowAtIndexPath:indexPath];
-    
+    }
+
     CGFloat height = [[self classForCellAtIndexPath:indexPath] heightWithItem:item tableViewManager:self];
 
     return height ? height : UITableViewAutomaticDimension;
@@ -516,12 +550,13 @@
         return nil;
     }
     CCTableViewSection *section = self.mutableSections[sectionIndex];
-    
+
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:viewForHeaderInSection:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:viewForHeaderInSection:)]) {
         return [self.delegate tableView:tableView viewForHeaderInSection:sectionIndex];
-    
+    }
+
     return section.headerView;
 }
 
@@ -531,12 +566,13 @@
         return nil;
     }
     CCTableViewSection *section = self.mutableSections[sectionIndex];
-    
+
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:viewForFooterInSection:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:viewForFooterInSection:)]) {
         return [self.delegate tableView:tableView viewForFooterInSection:sectionIndex];
-    
+    }
+
     return section.footerView;
 }
 
@@ -547,15 +583,17 @@
     CCTableViewSection *section = self.mutableSections[indexPath.section];
     id item = section.items[indexPath.row];
     if ([item respondsToSelector:@selector(setAccessoryButtonTapHandler:)]) {
-        CCTableViewItem *actionItem = (CCTableViewItem *)item;
-        if (actionItem.accessoryButtonTapHandler)
+        CCTableViewItem *actionItem = (CCTableViewItem *) item;
+        if (actionItem.accessoryButtonTapHandler) {
             actionItem.accessoryButtonTapHandler(item);
+        }
     }
-    
+
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:accessoryButtonTappedForRowWithIndexPath:)]) {
         [self.delegate tableView:tableView accessoryButtonTappedForRowWithIndexPath:indexPath];
+    }
 }
 
 // Selection
@@ -564,9 +602,10 @@
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:shouldHighlightRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:shouldHighlightRowAtIndexPath:)]) {
         return [self.delegate tableView:tableView shouldHighlightRowAtIndexPath:indexPath];
-    
+    }
+
     return YES;
 }
 
@@ -574,25 +613,28 @@
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didHighlightRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didHighlightRowAtIndexPath:)]) {
         [self.delegate tableView:tableView didHighlightRowAtIndexPath:indexPath];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didUnhighlightRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didUnhighlightRowAtIndexPath:)]) {
         [self.delegate tableView:tableView didUnhighlightRowAtIndexPath:indexPath];
+    }
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willSelectRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willSelectRowAtIndexPath:)]) {
         return [self.delegate tableView:tableView willSelectRowAtIndexPath:indexPath];
-    
+    }
+
     return indexPath;
 }
 
@@ -600,9 +642,10 @@
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willDeselectRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willDeselectRowAtIndexPath:)]) {
         return [self.delegate tableView:tableView willDeselectRowAtIndexPath:indexPath];
-    
+    }
+
     return indexPath;
 }
 
@@ -611,23 +654,26 @@
     CCTableViewSection *section = self.mutableSections[indexPath.section];
     id item = section.items[indexPath.row];
     if ([item respondsToSelector:@selector(setSelectionHandler:)]) {
-        CCTableViewItem *actionItem = (CCTableViewItem *)item;
-        if (actionItem.selectionHandler)
+        CCTableViewItem *actionItem = (CCTableViewItem *) item;
+        if (actionItem.selectionHandler) {
             actionItem.selectionHandler(item);
+        }
     }
-    
+
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
         [self.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didDeselectRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didDeselectRowAtIndexPath:)]) {
         [self.delegate tableView:tableView didDeselectRowAtIndexPath:indexPath];
+    }
 }
 
 // Editing
@@ -636,15 +682,17 @@
 {
     CCTableViewSection *section = self.mutableSections[indexPath.section];
     CCTableViewItem *item = section.items[indexPath.row];
-    
-    if (![item isKindOfClass:[CCTableViewItem class]])
+
+    if (![item isKindOfClass:[CCTableViewItem class]]) {
         return UITableViewCellEditingStyleNone;
-    
+    }
+
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:editingStyleForRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:editingStyleForRowAtIndexPath:)]) {
         return [self.delegate tableView:tableView editingStyleForRowAtIndexPath:indexPath];
-    
+    }
+
     return item.editingStyle;
 }
 
@@ -652,9 +700,10 @@
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:titleForDeleteConfirmationButtonForRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:titleForDeleteConfirmationButtonForRowAtIndexPath:)]) {
         return [self.delegate tableView:tableView titleForDeleteConfirmationButtonForRowAtIndexPath:indexPath];
-    
+    }
+
     return NSLocalizedString(@"Delete", @"Delete");
 }
 
@@ -662,26 +711,29 @@
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:shouldIndentWhileEditingRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:shouldIndentWhileEditingRowAtIndexPath:)]) {
         return [self.delegate tableView:tableView shouldIndentWhileEditingRowAtIndexPath:indexPath];
-    
+    }
+
     return YES;
 }
 
-- (void)tableView:(UITableView*)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView willBeginEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willBeginEditingRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:willBeginEditingRowAtIndexPath:)]) {
         [self.delegate tableView:tableView willBeginEditingRowAtIndexPath:indexPath];
+    }
 }
 
-- (void)tableView:(UITableView*)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didEndEditingRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:didEndEditingRowAtIndexPath:)]) {
         [self.delegate tableView:tableView didEndEditingRowAtIndexPath:indexPath];
+    }
 }
 
 // Moving/reordering
@@ -692,15 +744,17 @@
     CCTableViewItem *item = sourceSection.items[sourceIndexPath.row];
     if (item.moveHandler) {
         BOOL allowed = item.moveHandler(item, sourceIndexPath, proposedDestinationIndexPath);
-        if (!allowed)
+        if (!allowed) {
             return sourceIndexPath;
+        }
     }
-    
+
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:targetIndexPathForMoveFromRowAtIndexPath:toProposedIndexPath:)]) {
         return [self.delegate tableView:tableView targetIndexPathForMoveFromRowAtIndexPath:sourceIndexPath toProposedIndexPath:proposedDestinationIndexPath];
-    
+    }
+
     return proposedDestinationIndexPath;
 }
 
@@ -710,9 +764,10 @@
 {
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:indentationLevelForRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:indentationLevelForRowAtIndexPath:)]) {
         return [self.delegate tableView:tableView indentationLevelForRowAtIndexPath:indexPath];
-    
+    }
+
     return 0;
 }
 
@@ -724,16 +779,18 @@
     id anItem = section.items[indexPath.row];
     if ([anItem respondsToSelector:@selector(setCopyHandler:)]) {
         CCTableViewItem *item = anItem;
-        if (item.copyHandler || item.pasteHandler)
+        if (item.copyHandler || item.pasteHandler) {
             return YES;
+        }
     }
-    
+
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:shouldShowMenuForRowAtIndexPath:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:shouldShowMenuForRowAtIndexPath:)]) {
         return [self.delegate tableView:tableView shouldShowMenuForRowAtIndexPath:indexPath];
-    
-	return NO;
+    }
+
+    return NO;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
@@ -742,48 +799,56 @@
     id anItem = section.items[indexPath.row];
     if ([anItem respondsToSelector:@selector(setCopyHandler:)]) {
         CCTableViewItem *item = anItem;
-        if (item.copyHandler && action == @selector(copy:))
+        if (item.copyHandler && action == @selector(copy:)) {
             return YES;
-        
-        if (item.pasteHandler && action == @selector(paste:))
+        }
+
+        if (item.pasteHandler && action == @selector(paste:)) {
             return YES;
-        
-        if (item.cutHandler && action == @selector(cut:))
+        }
+
+        if (item.cutHandler && action == @selector(cut:)) {
             return YES;
+        }
     }
-    
+
     // Forward to UITableViewDelegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:canPerformAction:forRowAtIndexPath:withSender:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:canPerformAction:forRowAtIndexPath:withSender:)]) {
         return [self.delegate tableView:tableView canPerformAction:action forRowAtIndexPath:indexPath withSender:sender];
-	
-	return NO;
+    }
+
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView performAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
     CCTableViewSection *section = self.mutableSections[indexPath.section];
     CCTableViewItem *item = section.items[indexPath.row];
-    
-	if (action == @selector(copy:)) {
-		if (item.copyHandler)
+
+    if (action == @selector(copy:)) {
+        if (item.copyHandler) {
             item.copyHandler(item);
-	}
-    
+        }
+    }
+
     if (action == @selector(paste:)) {
-		if (item.pasteHandler)
+        if (item.pasteHandler) {
             item.pasteHandler(item);
-	}
-    
+        }
+    }
+
     if (action == @selector(cut:)) {
-		if (item.cutHandler)
+        if (item.cutHandler) {
             item.cutHandler(item);
-	}
-    
+        }
+    }
+
     // Forward to UITableView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:performAction:forRowAtIndexPath:withSender:)])
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:performAction:forRowAtIndexPath:withSender:)]) {
         [self.delegate tableView:tableView performAction:action forRowAtIndexPath:indexPath withSender:sender];
+    }
 }
 
 #pragma mark -
@@ -793,73 +858,82 @@
 {
     // Forward to UIScrollView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidScroll:)])
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidScroll:)]) {
         [self.delegate scrollViewDidScroll:self.tableView];
+    }
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView
 {
     // Forward to UIScrollView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidZoom:)])
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidZoom:)]) {
         [self.delegate scrollViewDidZoom:self.tableView];
+    }
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     // Forward to UIScrollView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)])
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewWillBeginDragging:)]) {
         [self.delegate scrollViewWillBeginDragging:self.tableView];
+    }
 }
 
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
     // Forward to UIScrollView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewWillEndDragging:withVelocity:targetContentOffset:)])
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewWillEndDragging:withVelocity:targetContentOffset:)]) {
         [self.delegate scrollViewWillEndDragging:self.tableView withVelocity:velocity targetContentOffset:targetContentOffset];
+    }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
 {
     // Forward to UIScrollView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)])
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidEndDragging:willDecelerate:)]) {
         [self.delegate scrollViewDidEndDragging:self.tableView willDecelerate:decelerate];
+    }
 }
 
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
 {
     // Forward to UIScrollView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewWillBeginDecelerating:)])
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewWillBeginDecelerating:)]) {
         [self.delegate scrollViewWillBeginDecelerating:self.tableView];
+    }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     // Forward to UIScrollView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)])
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)]) {
         [self.delegate scrollViewDidEndDecelerating:self.tableView];
+    }
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
     // Forward to UIScrollView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidEndScrollingAnimation:)])
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidEndScrollingAnimation:)]) {
         [self.delegate scrollViewDidEndScrollingAnimation:self.tableView];
+    }
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
     // Forward to UIScrollView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(viewForZoomingInScrollView:)])
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(viewForZoomingInScrollView:)]) {
         return [self.delegate viewForZoomingInScrollView:self.tableView];
-    
+    }
+
     return nil;
 }
 
@@ -867,24 +941,27 @@
 {
     // Forward to UIScrollView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewWillBeginZooming:withView:)])
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewWillBeginZooming:withView:)]) {
         [self.delegate scrollViewWillBeginZooming:self.tableView withView:view];
+    }
 }
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
 {
     // Forward to UIScrollView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidEndZooming:withView:atScale:)])
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidEndZooming:withView:atScale:)]) {
         [self.delegate scrollViewDidEndZooming:self.tableView withView:view atScale:scale];
+    }
 }
 
 - (BOOL)scrollViewShouldScrollToTop:(UIScrollView *)scrollView
 {
     // Forward to UIScrollView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewShouldScrollToTop:)])
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewShouldScrollToTop:)]) {
         return [self.delegate scrollViewShouldScrollToTop:self.tableView];
+    }
     return YES;
 }
 
@@ -892,8 +969,9 @@
 {
     // Forward to UIScrollView delegate
     //
-    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidScrollToTop:)])
+    if ([self.delegate conformsToProtocol:@protocol(UIScrollViewDelegate)] && [self.delegate respondsToSelector:@selector(scrollViewDidScrollToTop:)]) {
         [self.delegate scrollViewDidScrollToTop:self.tableView];
+    }
 }
 
 #pragma mark -
@@ -901,6 +979,8 @@
 
 - (void)addSection:(CCTableViewSection *)section
 {
+    [self removeDefaultSectionIfNeeded];
+
     [self gotNewSections:@[section]];
     [self.mutableSections addObject:section];
     [self sectionsSetChanged];
@@ -908,6 +988,11 @@
 
 - (void)addSectionsFromArray:(NSArray *)array
 {
+    if ([self.mutableSections count] == 1 && ([self.mutableSections firstObject] == _defaultSection)) {
+        _defaultSection = nil;
+        [self.mutableSections removeAllObjects];
+    }
+
     [self gotNewSections:array];
     [self.mutableSections addObjectsFromArray:array];
     [self sectionsSetChanged];
@@ -1086,6 +1171,18 @@
 - (void)didLoadCell:(CCTableViewCell *)cell
 {
 
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Private Methods
+//-------------------------------------------------------------------------------------------
+
+- (void)removeDefaultSectionIfNeeded
+{
+    if ([self.mutableSections count] == 1 && ([self.mutableSections firstObject] == _defaultSection)) {
+        _defaultSection = nil;
+        [self.mutableSections removeAllObjects];
+    }
 }
 
 @end

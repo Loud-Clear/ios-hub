@@ -30,6 +30,7 @@
 #import "CCTableViewItem.h"
 #import "CCTableViewManager+Internal.h"
 
+
 CGFloat const CCTableViewSectionHeaderHeightAutomatic = DBL_MAX;
 CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 
@@ -51,7 +52,7 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 
 + (instancetype)sectionWithHeaderTitle:(NSString *)headerTitle
 {
-    return [[self alloc ] initWithHeaderTitle:headerTitle];
+    return [[self alloc] initWithHeaderTitle:headerTitle];
 }
 
 + (instancetype)sectionWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle
@@ -72,14 +73,15 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 - (id)init
 {
     self = [super init];
-    if (!self)
+    if (!self) {
         return nil;
-    
+    }
+
     _mutableItems = [[NSMutableArray alloc] init];
     _headerHeight = CCTableViewSectionHeaderHeightAutomatic;
     _footerHeight = CCTableViewSectionFooterHeightAutomatic;
     _cellTitlePadding = 5;
-    
+
     return self;
 }
 
@@ -91,12 +93,13 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 - (id)initWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle
 {
     self = [self init];
-    if (!self)
+    if (!self) {
         return nil;
-    
+    }
+
     self.headerTitle = headerTitle;
     self.footerTitle = footerTitle;
-    
+
     return self;
 }
 
@@ -108,12 +111,13 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 - (id)initWithHeaderView:(UIView *)headerView footerView:(UIView *)footerView
 {
     self = [self init];
-    if (!self)
+    if (!self) {
         return nil;
-    
+    }
+
     self.headerView = headerView;
     self.footerView = footerView;
-    
+
     return self;
 }
 
@@ -154,7 +158,7 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 - (void)addItem:(id)item
 {
     [self gotNewItems:@[item]];
-    
+
     [self.mutableItems addObject:item];
 
     [self didChangeItemsSet];
@@ -163,7 +167,7 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 - (void)addItemsFromArray:(NSArray *)array
 {
     [self gotNewItems:array];
-    
+
     [self.mutableItems addObjectsFromArray:array];
 
     [self didChangeItemsSet];
@@ -172,7 +176,7 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 - (void)insertItem:(id)item atIndex:(NSUInteger)index
 {
     [self gotNewItems:@[item]];
-    
+
     [self.mutableItems insertObject:item atIndex:index];
 
     [self didChangeItemsSet];
@@ -181,7 +185,7 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 - (void)insertItems:(NSArray *)items atIndexes:(NSIndexSet *)indexes
 {
     [self gotNewItems:items];
-    
+
     [self.mutableItems insertObjects:items atIndexes:indexes];
 
     [self didChangeItemsSet];
@@ -260,7 +264,7 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 - (void)replaceItemAtIndex:(NSUInteger)index withItem:(id)item
 {
     [self gotNewItems:@[item]];
-    
+
     [self.mutableItems replaceObjectAtIndex:index withObject:item];
 
     [self didChangeItemsSet];
@@ -275,7 +279,7 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray range:(NSRange)otherRange
 {
     [self gotNewItems:otherArray];
-    
+
     [self.mutableItems replaceObjectsInRange:range withObjectsFromArray:otherArray range:otherRange];
 
     [self didChangeItemsSet];
@@ -284,7 +288,7 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 - (void)replaceItemsInRange:(NSRange)range withItemsFromArray:(NSArray *)otherArray
 {
     [self gotNewItems:otherArray];
-    
+
     [self.mutableItems replaceObjectsInRange:range withObjectsFromArray:otherArray];
 
     [self didChangeItemsSet];
@@ -293,7 +297,7 @@ CGFloat const CCTableViewSectionFooterHeightAutomatic = DBL_MAX;
 - (void)replaceItemsAtIndexes:(NSIndexSet *)indexes withItems:(NSArray *)items
 {
     [self gotNewItems:items];
-    
+
     [self.mutableItems replaceObjectsAtIndexes:indexes withObjects:items];
 
     [self didChangeItemsSet];

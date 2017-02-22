@@ -48,7 +48,13 @@
 /**
  The array of sections. See CCTableViewSection reference for details.
  */
-@property (strong, readonly, nonatomic) NSArray *sections;
+@property (strong, readonly, nonatomic) NSArray<CCTableViewSection *> *sections;
+
+/**
+ Default section, which will be created and added to `sections` when you will try to access it.
+ Note that if you will use `addSection:` or `addSectionsFromArray:` methods later, it will be removed from `sections`.
+ */
+@property (strong, readonly, nonatomic) CCTableViewSection *defaultSection;
 
 /**
  The `UITableView` that needs to be managed using this `CCTableViewManager`.
@@ -66,7 +72,7 @@
  @param delegate The delegate (CCTableViewManagerDelegate) object for the table view manager.
  @return The pointer to the instance, or nil if initialization failed.
  */
-- (id)initWithTableView:(UITableView *)tableView delegate:(id<CCTableViewManagerDelegate>)delegate;
+- (instancetype)initWithTableView:(UITableView *)tableView delegate:(id<CCTableViewManagerDelegate>)delegate;
 
 /**
  Initialize a table view manager object for a specific `UITableView`.
@@ -74,7 +80,13 @@
  @param tableView The UITableView that needs to be managed.
  @return The pointer to the instance, or `nil` if initialization failed.
  */
-- (id)initWithTableView:(UITableView *)tableView;
+- (instancetype)initWithTableView:(UITableView *)tableView;
+
+/**
+ Initialize a table view manager and create a default `UITableView` which can be accessed using `tableView` property.
+ @return The pointer to the instance, or `nil` if initialization failed.
+ */
+- (instancetype)init;
 
 ///-------------------------------------------
 /// @name Managing the Delegate

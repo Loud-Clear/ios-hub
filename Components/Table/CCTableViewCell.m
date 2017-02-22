@@ -27,6 +27,7 @@
 #import "CCTableViewManager.h"
 #import "CCTableViewItem.h"
 
+
 @interface CCTableViewCell ()
 
 @property (assign, readwrite, nonatomic) BOOL loaded;
@@ -47,7 +48,7 @@
     if ([item isKindOfClass:[CCTableViewItem class]]) {
         return item.section.style.cellHeight;
     }
-    
+
     return tableViewManager.style.cellHeight;
 }
 
@@ -79,11 +80,11 @@
 {
     self.loaded = YES;
     self.selectionStyle = self.tableViewManager.style.defaultCellSelectionStyle;
-    
+
     if ([self.tableViewManager.style hasCustomBackgroundImage]) {
         [self addBackgroundImage];
     }
-    
+
     if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
         [self addSelectedBackgroundImage];
     }
@@ -92,13 +93,13 @@
 - (void)cellWillAppear
 {
     self.selectionStyle = self.section.style.defaultCellSelectionStyle;
-    
+
     if ([self.item isKindOfClass:[NSString class]]) {
-        self.textLabel.text = (NSString *)self.item;
+        self.textLabel.text = (NSString *) self.item;
         self.textLabel.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     } else if ([self.item isKindOfClass:[CCTableViewItem class]]) {
-        CCTableViewItem *item = (CCTableViewItem *)self.item;
+        CCTableViewItem *item = (CCTableViewItem *) self.item;
         self.textLabel.text = item.title;
         self.textLabel.backgroundColor = [UIColor clearColor];
         self.accessoryType = item.accessoryType;
@@ -110,8 +111,9 @@
         self.imageView.image = item.image;
         self.imageView.highlightedImage = item.highlightedImage;
     }
-    if (self.textLabel.text.length == 0)
+    if (self.textLabel.text.length == 0) {
         self.textLabel.text = @" ";
+    }
 }
 
 - (void)cellDidDisappear
@@ -122,14 +124,14 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
+
     // Set content frame
     //
     CGRect contentFrame = self.contentView.bounds;
     contentFrame.origin.x = contentFrame.origin.x + self.section.style.contentViewMargin;
     contentFrame.size.width = contentFrame.size.width - self.section.style.contentViewMargin * 2;
     self.contentView.bounds = contentFrame;
-    
+
     // iOS 7 textLabel margin fix
     //
     if (self.section.style.contentViewMargin > 0) {
@@ -140,7 +142,7 @@
             self.textLabel.frame = CGRectMake(self.section.style.contentViewMargin, self.textLabel.frame.origin.y, self.textLabel.frame.size.width, self.textLabel.frame.size.height);
         }
     }
-    
+
     if ([self.section.style hasCustomBackgroundImage]) {
         self.backgroundColor = [UIColor clearColor];
         if (!self.backgroundImageView) {
@@ -148,14 +150,14 @@
         }
         self.backgroundImageView.image = [self.section.style backgroundImageForCellType:self.type];
     }
-    
+
     if ([self.section.style hasCustomSelectedBackgroundImage]) {
         if (!self.selectedBackgroundImageView) {
             [self addSelectedBackgroundImage];
         }
         self.selectedBackgroundImageView.image = [self.section.style selectedBackgroundImageForCellType:self.type];
     }
-    
+
     // Set background frame
     //
     CGRect backgroundFrame = self.backgroundImageView.frame;
@@ -170,12 +172,13 @@
 {
     CGFloat cellOffset = 10.0;
     CGFloat fieldOffset = 10.0;
-    
-    if (self.section.style.contentViewMargin <= 0)
+
+    if (self.section.style.contentViewMargin <= 0) {
         cellOffset += 5.0;
-    
+    }
+
     UIFont *font = self.textLabel.font;
-    
+
     CGRect frame = CGRectMake(0, self.textLabel.frame.origin.y, 0, self.textLabel.frame.size.height);
     if (self.asItem.title.length > 0) {
         frame.origin.x = [self.section maximumTitleWidthWithFont:font] + cellOffset + fieldOffset;
@@ -188,24 +191,28 @@
         frame.origin.x = frame.origin.x - diff;
         frame.size.width = minimumWidth;
     }
-    
+
     view.frame = frame;
 }
 
 - (CCTableViewCellType)type
 {
-    if (self.rowIndex == 0 && self.section.items.count == 1)
+    if (self.rowIndex == 0 && self.section.items.count == 1) {
         return CCTableViewCellTypeSingle;
-    
-    if (self.rowIndex == 0 && self.section.items.count > 1)
+    }
+
+    if (self.rowIndex == 0 && self.section.items.count > 1) {
         return CCTableViewCellTypeFirst;
-    
-    if (self.rowIndex > 0 && self.rowIndex < self.section.items.count - 1 && self.section.items.count > 2)
+    }
+
+    if (self.rowIndex > 0 && self.rowIndex < self.section.items.count - 1 && self.section.items.count > 2) {
         return CCTableViewCellTypeMiddle;
-    
-    if (self.rowIndex == self.section.items.count - 1 && self.section.items.count > 1)
+    }
+
+    if (self.rowIndex == self.section.items.count - 1 && self.section.items.count > 1) {
         return CCTableViewCellTypeLast;
-    
+    }
+
     return CCTableViewCellTypeAny;
 }
 

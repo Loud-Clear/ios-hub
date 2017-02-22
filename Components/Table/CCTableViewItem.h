@@ -35,7 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy, nullable) NSString *title;
 @property (nonatomic, copy, nullable) NSString *detailLabelText;
-@property (nonatomic,) NSTextAlignment textAlignment;
+@property (nonatomic) NSTextAlignment textAlignment;
 
 @property (nonatomic, strong, nullable) UIImage *image;
 @property (nonatomic, strong, nullable) UIImage *highlightedImage;
