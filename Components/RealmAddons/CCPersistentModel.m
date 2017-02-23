@@ -16,7 +16,6 @@
 #import "TyphoonTypeDescriptor.h"
 #import "CCCollectionSerialization.h"
 #import "CCMacroses.h"
-#import "OCMArg.h"
 
 @interface CCPersistentModelCachedValue : NSObject
 @property (nonatomic, strong) id deserializedValue;
