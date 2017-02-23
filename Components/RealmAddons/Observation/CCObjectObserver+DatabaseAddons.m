@@ -57,30 +57,31 @@
 {
     TyphoonTypeDescriptor *type = nil;
     NSArray *pathComponents = [objectKey componentsSeparatedByString:@"."];
+    NSString *propertyName = nil;
 
     if ([pathComponents count] > 1) {
         NSArray *pathToPrevious = [pathComponents subarrayWithRange:NSMakeRange(0, [pathComponents count] - 1)];
         NSString *keyPathToPrevious = [pathToPrevious componentsJoinedByString:@"."];
         id parentInstance = [instance valueForKeyPath:keyPathToPrevious];
-        type = [TyphoonIntrospectionUtils typeForPropertyNamed:[pathComponents lastObject] inClass:[parentInstance class]];
+        propertyName = [pathComponents lastObject];
+        type = [TyphoonIntrospectionUtils typeForPropertyNamed:propertyName inClass:[parentInstance class]];
     }
     else if ([pathComponents count] == 1) {
-        type = [TyphoonIntrospectionUtils typeForPropertyNamed:objectKey inClass:[instance class]];
+        propertyName = objectKey;
+        type = [TyphoonIntrospectionUtils typeForPropertyNamed:propertyName inClass:[instance class]];
     }
 
     NSMutableDictionary *result = [dictionary mutableCopy];
 
-    result[NSKeyValueChangeOldKey] = [self deserializeString:dictionary[NSKeyValueChangeOldKey] toType:type];
-    result[NSKeyValueChangeNewKey] = [self deserializeString:dictionary[NSKeyValueChangeNewKey] toType:type];
+    result[NSKeyValueChangeOldKey] = [self deserializeString:dictionary[NSKeyValueChangeOldKey] forProperty:propertyName toType:type onInstance:instance];
+    result[NSKeyValueChangeNewKey] = [self deserializeString:dictionary[NSKeyValueChangeNewKey] forProperty:propertyName toType:type onInstance:instance];
 
     return result;
 }
 
-- (id)deserializeString:(NSString *)string toType:(TyphoonTypeDescriptor *)type
+- (id)deserializeString:(id)value forProperty:(NSString *)name toType:(TyphoonTypeDescriptor *)type onInstance:(CCPersistentModel *)instance
 {
-    NSData *jsonData = [string dataUsingEncoding:NSUTF8StringEncoding];
-    id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-    return [(id<CCDatabaseJSONSerialization>)[type.typeBeingDescribed alloc] initWithJSONObject:jsonObject];
+    return [instance deserializeValue:value forPropertyName:name type:type];
 }
 
 @end
