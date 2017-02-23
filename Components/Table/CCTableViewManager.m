@@ -50,6 +50,12 @@
     self.tableView.dataSource = nil;
 }
 
+- (id)init
+{
+    @throw [NSException exceptionWithName:NSGenericException reason:@"init not supported, use initWithTableView: instead." userInfo:nil];
+    return nil;
+}
+
 - (instancetype)initWithTableView:(UITableView *)tableView delegate:(id<CCTableViewManagerDelegate>)delegate
 {
     self = [self initWithTableView:tableView];
@@ -80,11 +86,6 @@
     self.style = [CCTableViewCellStyle new];
 
     return self;
-}
-
-- (instancetype)init
-{
-    return [self initWithTableView:[UITableView new]];
 }
 
 - (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier
