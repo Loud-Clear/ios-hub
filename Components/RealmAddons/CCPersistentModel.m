@@ -17,6 +17,24 @@
 #import "CCCollectionSerialization.h"
 #import "CCMacroses.h"
 
+@interface CCPersistentModelCachedValue : NSObject
+@property (nonatomic, strong) id deserializedValue;
+@property (nonatomic) NSUInteger serializedValueHash;
+- (instancetype)initWithDeserializedValue:(id)value serializedValueHash:(NSUInteger)hash;
+@end
+
+@implementation CCPersistentModelCachedValue
+- (instancetype)initWithDeserializedValue:(id)value serializedValueHash:(NSUInteger)hash
+{
+    self = [super init];
+    if (self) {
+        self.deserializedValue = value;
+        self.serializedValueHash = hash;
+    }
+    return self;
+}
+@end
+
 @implementation CCPersistentModel
 
 + (NSArray<NSString *> *)ignoredProperties
@@ -113,7 +131,7 @@ static void CCDefaultPropertySetter(id self, SEL _cmd, NSString *newName)
 
 NSString *CCDataPropertyNameFromName(NSString *propertyName)
 {
-    return [NSString stringWithFormat:@"json_%@", propertyName];
+    return [NSString stringWithFormat:@"s_%@", propertyName];
 }
 
 static NSString *CCGetterNameFromPropertyName(NSString *propertyName)
@@ -130,7 +148,44 @@ static NSString *CCSetterNameFromPropertyName(NSString *propertyName)
 }
 
 //-------------------------------------------------------------------------------------------
-#pragma mark -
+#pragma mark - Property serialization overrides
+//-------------------------------------------------------------------------------------------
+
+- (id)deserializeValue:(id)serializedValue forPropertyName:(NSString *)name type:(TyphoonTypeDescriptor *)type
+{
+    if (!serializedValue) {
+        return nil;
+    }
+
+    NSAssert([serializedValue isKindOfClass:[NSString class]], @"Default serialization uses JSON strings");
+
+    NSString *jsonString = serializedValue;
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    if (jsonData) {
+        id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
+        return [(id<CCDatabaseJSONSerialization>)[type.typeBeingDescribed alloc] initWithJSONObject:jsonObject];
+    }
+    return nil;
+}
+
+- (id)serializeValue:(id)value forPropertyName:(NSString *)name type:(TyphoonTypeDescriptor *)type
+{
+    if (!value) {
+        return nil;
+    }
+
+    id jsonObject = [value serializeToJSONObject];
+    id jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject options:0 error:nil];
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+}
+
++ (Class)classForStorageForProperty:(NSString *)name
+{
+    return [NSString class];
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Getter/Setter for serialized properties
 //-------------------------------------------------------------------------------------------
 
 static id CCObjectPropertyGetter(id self, SEL _cmd)
@@ -138,54 +193,55 @@ static id CCObjectPropertyGetter(id self, SEL _cmd)
     NSString *propertyName = CCPropertyNameFromGetter(NSStringFromSelector(_cmd));
     SEL key = NSSelectorFromString(CCIvarNameFromProperty(propertyName));
 
-    id ivar = GetAssociatedObjectFromObject(self, key);
-    if (!ivar) {
+    //Getting value from storage
+    NSString *dataPropertyName = CCDataPropertyNameFromName(propertyName);
+    NSString *getterSelectorName = CCGetterNameFromPropertyName(dataPropertyName);
+    SEL getterSelector = NSSelectorFromString(getterSelectorName);
+    Method getter = class_getInstanceMethod([self class], getterSelector);
+    NSString *(*getterImpl)(id, SEL) = (NSString *(*)(id, SEL))method_getImplementation(getter);
+    id valueFromStorage = getterImpl(self, getterSelector);
+
+    NSUInteger valueFromStorageHash = [valueFromStorage hash];
+    CCPersistentModelCachedValue *cachedValue = GetAssociatedObjectFromObject(self, key);
+
+    if (!cachedValue || [cachedValue hash] != valueFromStorageHash) {
 
         TyphoonTypeDescriptor *type = [TyphoonIntrospectionUtils typeForPropertyNamed:propertyName inClass:[self class]];
-        NSCParameterAssert(IsClass(type.classOrProtocol));
-
-        //Getting value from storage
-        NSString *dataPropertyName = CCDataPropertyNameFromName(propertyName);
-        NSString *getterSelectorName = CCGetterNameFromPropertyName(dataPropertyName);
-        SEL getterSelector = NSSelectorFromString(getterSelectorName);
-        Method getter = class_getInstanceMethod([self class], getterSelector);
-        NSString *(*getterImpl)(id, SEL) = (NSString *(*)(id, SEL))method_getImplementation(getter);
-        NSString *jsonString = getterImpl(self, getterSelector);
 
         //De-serialize value and cache
-        NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-        if (jsonData) {
-            id jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:nil];
-            ivar = [(id<CCDatabaseJSONSerialization>)[type.typeBeingDescribed alloc] initWithJSONObject:jsonObject];
-            SetAssociatedObject(key, ivar);
-        }
+        id unwrappedValue = [self deserializeValue:valueFromStorage forPropertyName:propertyName type:type];
+
+        cachedValue = [[CCPersistentModelCachedValue alloc]
+                initWithDeserializedValue:unwrappedValue serializedValueHash:valueFromStorageHash];
+
+        SetAssociatedObject(key, cachedValue);
     }
-    return ivar;
+    return cachedValue.deserializedValue;
 }
 
 static void CCObjectPropertySetter(id self, SEL _cmd, id newObject)
 {
-    if (!newObject) {
-        return;
-    }
-
     NSString *propertyName = CCPropertyNameFromSetter(NSStringFromSelector(_cmd));
     SEL key = NSSelectorFromString(CCIvarNameFromProperty(propertyName));
 
-    SetAssociatedObject(key, newObject);
+    TyphoonTypeDescriptor *type = [TyphoonIntrospectionUtils typeForPropertyNamed:propertyName inClass:[self class]];
 
-    id jsonObject = [newObject serializeToJSONObject];
-    id jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject options:0 error:nil];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-
+    //Serializing
+    id serializedValue = [self serializeValue:newObject forPropertyName:propertyName type:type];
 
     NSString *dataPropertyName = CCDataPropertyNameFromName(propertyName);
     NSString *setterSelectorName = CCSetterNameFromPropertyName(dataPropertyName);
     SEL setterSelector = NSSelectorFromString(setterSelectorName);
     Method setter = class_getInstanceMethod([self class], setterSelector);
-    void(*setterImpl)(id, SEL, NSString *) = (void(*)(id, SEL, NSString *))method_getImplementation(setter);
+    void(*setterImpl)(id, SEL, id) = (void(*)(id, SEL, id))method_getImplementation(setter);
 
-    setterImpl(self, setterSelector, jsonString);
+    setterImpl(self, setterSelector, serializedValue);
+
+    //Saving to memory cache
+    CCPersistentModelCachedValue *cachedValue = [[CCPersistentModelCachedValue alloc]
+            initWithDeserializedValue:newObject serializedValueHash:[serializedValue hash]];
+
+    SetAssociatedObject(key, cachedValue);
 }
 
 //-------------------------------------------------------------------------------------------
@@ -209,7 +265,10 @@ static void CCObjectPropertySetter(id self, SEL _cmd, id newObject)
 {
     NSString *alteredName = CCDataPropertyNameFromName(propertyName);
 
-    objc_property_attribute_t type = { "T", "@\"NSString\"" };
+    NSString *storageClass = NSStringFromClass([self classForStorageForProperty:propertyName]);
+    NSString *typeString = [NSString stringWithFormat:@"@\"%@\"", storageClass];
+
+    objc_property_attribute_t type = { "T", [typeString cStringUsingEncoding:NSUTF8StringEncoding] };
     objc_property_attribute_t attrs[] = { type };
     class_addProperty(self, [alteredName cStringUsingEncoding:NSUTF8StringEncoding], attrs, 1);
 

@@ -15,6 +15,5 @@
 
 2017-02-22
 
-- `CCTableViewManager` now has `init` method which will create default table view (in `.tableView` property).
 - `CCTableViewManager` now has `.defaultSection` property which will create and add a default section when accessed first time.
 
