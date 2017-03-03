@@ -55,6 +55,7 @@ static id ReplaceObjectsInResponse(id responseObject, Class clazzToReplace, id(^
         [self.databaseManager.currentDatabase transactionIfNeeded:^{
             [self.databaseManager.currentDatabase addOrUpdateObject:model];
         }];
+        [self.databaseManager.currentDatabase refresh];
     } else {
         //TODO: Update database with dictionary of Non-null properties
     }

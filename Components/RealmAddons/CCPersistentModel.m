@@ -207,7 +207,6 @@ static id CCObjectPropertyGetter(id self, SEL _cmd)
     if (!cachedValue || [cachedValue hash] != valueFromStorageHash) {
 
         TyphoonTypeDescriptor *type = [TyphoonIntrospectionUtils typeForPropertyNamed:propertyName inClass:[self class]];
-        NSCParameterAssert(IsClass(type.classOrProtocol));
 
         //De-serialize value and cache
         id unwrappedValue = [self deserializeValue:valueFromStorage forPropertyName:propertyName type:type];
