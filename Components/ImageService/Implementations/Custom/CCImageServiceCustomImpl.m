@@ -177,7 +177,7 @@
     [self getImageForUrl:remoteUrl options:options completion:^(UIImage *image, NSError *error) {
         NSString *localPath = nil;
         if (image) {
-            localPath = [[_diskCache localUrlForRemoteUrl:remoteUrl] absoluteString];
+            localPath = [[_diskCache localUrlForRemoteUrl:remoteUrl] path];
         }
         SafetyCall(completion, localPath, error);
     }];
