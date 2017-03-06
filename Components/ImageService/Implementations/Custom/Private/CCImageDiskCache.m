@@ -73,6 +73,13 @@ static NSString * const kErrorDomain = @"CCImageDiskCache";
     }];
 }
 
+- (NSURL *)localUrlForRemoteUrl:(NSURL *)remoteUrl
+{
+    NSString *hash = [[self class] hashForUrl:remoteUrl];
+    NSURL *baseDirUrl = [[self class] baseUrlPathForHash:hash];
+    return [[self class] urlPathOfImageDataFileForHash:hash withBaseDirUrl:baseDirUrl];
+}
+
 - (void) getImageAtUrl:(NSURL *)url completion:(CCImageDiskCacheGetImageBlock)completion
 {
     NSParameterAssert(url);

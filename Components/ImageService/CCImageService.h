@@ -25,6 +25,8 @@ typedef NS_OPTIONS(NSUInteger, CCGetImageOptions) {
 
 - (void)getImageForUrl:(NSURL *)url completion:(CCImageServiceGetImageBlock)completion;
 
+- (void)getImagePathForUrl:(NSURL *)remoteUrl options:(CCGetImageOptions)options completion:(void(^)(NSString *imageLocalPath, NSError *error))completion;
+
 
 @optional
 

@@ -24,6 +24,8 @@ typedef void (^CCImageDiskCacheSaveImageBlock)(NSError *error);
 - (void) getModificationDateForImageAtUrl:(NSURL *)url completion:(CCImageDiskCacheGetImageModificationDateBlock)completion;
 - (void) getImageAtUrl:(NSURL *)url completion:(CCImageDiskCacheGetImageBlock)completion;
 
+- (NSURL *)localUrlForRemoteUrl:(NSURL *)remoteUrl;
+
 - (void) saveImageData:(NSData *)data forUrl:(NSURL *)url withLastModificationDate:(NSDate *)modificationDate completion:(CCImageDiskCacheSaveImageBlock)completion;
 
 @end
