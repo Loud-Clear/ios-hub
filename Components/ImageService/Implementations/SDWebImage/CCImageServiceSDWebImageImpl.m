@@ -53,6 +53,17 @@
     }];
 }
 
+- (void)getImagePathForUrl:(NSURL *)remoteUrl options:(CCGetImageOptions)options  completion:(void(^)(NSString *imageLocalPath, NSError *error))completion
+{
+    [self getImageForUrl:remoteUrl options:options completion:^(UIImage *image, NSError *error) {
+        NSString *path = nil;
+        if (image) {
+            path = [_manager.imageCache defaultCachePathForKey:[remoteUrl absoluteString]];
+        }
+        SafetyCall(completion, path, error);
+    }];
+}
+
 - (void)removeImageUrlFromCache:(NSURL *)url
 {
     [_manager.imageCache removeImageForKey:[url absoluteString] withCompletion:nil];
