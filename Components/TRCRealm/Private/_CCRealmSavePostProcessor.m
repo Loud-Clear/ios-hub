@@ -20,13 +20,19 @@ static id ReplaceObjectsInResponse(id responseObject, Class clazzToReplace, id(^
     if ([responseObject isKindOfClass:[NSArray class]]) {
         NSMutableArray *mutableArray = [NSMutableArray new];
         for (id object in responseObject) {
-            [mutableArray addObject:ReplaceObjectsInResponse(object, clazzToReplace, block)];
+            id objectToReplace = ReplaceObjectsInResponse(object, clazzToReplace, block);
+            if (objectToReplace) {
+                [mutableArray addObject:objectToReplace];
+            }
         }
         responseObject = mutableArray;
     } else if ([responseObject isKindOfClass:[NSDictionary class]]) {
         NSMutableDictionary *mutableDictionary = [responseObject mutableDictionary];
         for (NSString *key in [mutableDictionary allKeys]) {
-            mutableDictionary[key] = ReplaceObjectsInResponse(mutableDictionary[key], clazzToReplace, block);
+            id objectToReplace = ReplaceObjectsInResponse(mutableDictionary[key], clazzToReplace, block);
+            if (objectToReplace) {
+                mutableDictionary[key] = objectToReplace;
+            }
         }
         responseObject = mutableDictionary;
     } else if ([responseObject isKindOfClass:clazzToReplace]) {
