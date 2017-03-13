@@ -87,6 +87,7 @@ static id ReplaceObjectsInResponse(id responseObject, Class clazzToReplace, id(^
 
 - (CCPersistentModel *)loadModelFromId:(CCPersistentId *)persistentId
 {
+    [self.databaseManager.currentDatabase refresh];
     return [self.databaseManager objectFromId:persistentId];
 }
 
