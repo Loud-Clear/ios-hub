@@ -45,9 +45,15 @@ static id ReplaceObjectsInResponse(id responseObject, Class clazzToReplace, id(^
 
 - (id)postProcessResponseObject:(id)responseObject forRequest:(id<TRCRequest>)request postProcessError:(NSError **)error
 {
-    return ReplaceObjectsInResponse(responseObject, [CCPersistentModel class], ^id(id object) {
-        return [self savedIdFromModel:object withMode:CCSaveModeInsertOrReplace];
-    });
+    CFAbsoluteTime timeToSave = CFAbsoluteTimeGetCurrent();
+    __block id result = nil;
+    [self.databaseManager.currentDatabase transactionIfNeeded:^{
+        result = ReplaceObjectsInResponse(responseObject, [CCPersistentModel class], ^id(id object) {
+            return [self savedIdFromModel:object withMode:CCSaveModeInsertOrReplace];
+        });
+    }];
+    [self.databaseManager.currentDatabase refresh];
+    return result;
 }
 
 - (TRCQueueType)queueType
@@ -58,10 +64,7 @@ static id ReplaceObjectsInResponse(id responseObject, Class clazzToReplace, id(^
 - (CCPersistentId *)savedIdFromModel:(CCPersistentModel *)model withMode:(CCSaveMode)mode
 {
     if (mode == CCSaveModeInsertOrReplace) {
-        [self.databaseManager.currentDatabase transactionIfNeeded:^{
-            [self.databaseManager.currentDatabase addOrUpdateObject:model];
-        }];
-        [self.databaseManager.currentDatabase refresh];
+        [self.databaseManager.currentDatabase addOrUpdateObject:model];
     } else {
         //TODO: Update database with dictionary of Non-null properties
     }
@@ -75,9 +78,11 @@ static id ReplaceObjectsInResponse(id responseObject, Class clazzToReplace, id(^
 
 - (id)postProcessResponseObject:(id)responseObject forRequest:(id<TRCRequest>)request postProcessError:(NSError **)error
 {
-    return ReplaceObjectsInResponse(responseObject, [CCPersistentId class], ^id(id object) {
+    [self.databaseManager.currentDatabase refresh];
+    id result = ReplaceObjectsInResponse(responseObject, [CCPersistentId class], ^id(id object) {
         return [self loadModelFromId:object];
     });
+    return result;
 }
 
 - (TRCQueueType)queueType
