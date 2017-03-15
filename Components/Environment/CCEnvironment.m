@@ -80,7 +80,7 @@
 
 + (CCEnvironment *)environmentFromName:(NSString *)name
 {
-    CCUserDefaultsStorage *storage = [CCUserDefaultsStorage withClass:[self class] key:name];
+    CCUserDefaultsStorage *storage = [CCUserDefaultsStorage withClass:self key:name];
     CCEnvironment *object = [storage getObject];
 
     if (!object) {
@@ -128,7 +128,7 @@
     return [[self alloc] initCurrent];
 }
 
-+ (NSArray<CCEnvironment *> *)availableEnvironments
++ (NSArray<__kindof CCEnvironment *> *)availableEnvironments
 {
     NSMutableArray<CCEnvironment *> *envs = [NSMutableArray new];
 
@@ -169,10 +169,15 @@
 
 + (void)reset
 {
-    NSArray<NSString *> *names = [[self class] environmentFilenames];
+    if ([self isEqual:[CCEnvironment class]]) {
+        DDLogWarn(@"[%@ reset]: must likely you wanted to call +reset on your subclass, not base %@ class.", NSStringFromClass([CCEnvironment class]), NSStringFromClass([CCEnvironment class]));
+        NSAssert(NO, nil);
+    }
+
+    NSArray<NSString *> *names = [self environmentFilenames];
 
     for (NSString *name in names) {
-        CCUserDefaultsStorage *storage = [CCUserDefaultsStorage withClass:[self class] key:name];
+        CCUserDefaultsStorage *storage = [CCUserDefaultsStorage withClass:self key:name];
         [storage deleteInstanceFromDisk];
     }
 }

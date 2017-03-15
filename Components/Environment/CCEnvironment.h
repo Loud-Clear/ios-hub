@@ -38,7 +38,7 @@
 
 + (instancetype)currentEnvironment;
 
-+ (NSArray<CCEnvironment *> *)availableEnvironments;
++ (NSArray<__kindof CCEnvironment *> *)availableEnvironments;
 
 - (void)useEnvironment:(CCEnvironment *)environment;
 
@@ -46,6 +46,8 @@
 
 /// Resets all environments to default values (provided from plist files). Be sure not to have instance of `currentEnvironment`
 /// at moment of calling to avoid overwriting just-resetted values with previous values.
+///
+/// Note! Remember to call it using your class, i.e. call [XXEnvironment reset] (where XXEnvironment is your subclass), not [CCEnvironment reset].
 + (void)reset;
 
 @property (nonatomic, readonly) NSString *filename;
