@@ -71,6 +71,19 @@
     [self.cc_observer observeKeys:@[key] withAction:action];
 }
 
+- (void)observe:(id)object key:(NSString *)key block:(dispatch_block_t)block
+{
+    [self.cc_observer unobserveKeys:@[key]];
+
+    if (!self.cc_observer) {
+        CCObjectObserver *observer = [[CCObjectObserver alloc] initWithObject:object observer:self];
+        [observer liveUntilObjectDies:self];
+        self.cc_observer = (id)[[TPDWeakProxy alloc] initWithObject:observer];
+    }
+
+    [self.cc_observer observeKeys:@[key] withBlock:block];
+}
+
 //-------------------------------------------------------------------------------------------
 #pragma mark - Private Methods
 //-------------------------------------------------------------------------------------------
