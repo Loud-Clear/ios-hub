@@ -36,6 +36,9 @@
                 DDLogWarn(@"Found more than one definition for class: %@", self);
                 break;
         }
+    } else {
+        DDLogWarn(@"Typhoon is not initialized yet, postpone calling this method after Typhoon is initialized. Falling back to simply creating new instance of %@.", NSStringFromClass([self class]));
+        result = [self new];
     }
 
     return result;
