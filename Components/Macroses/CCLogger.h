@@ -9,6 +9,20 @@
 #import <Foundation/Foundation.h>
 
 
+/**
+ * You may add the following to your Podfile to change default log level for CoreComponents:
+ * (change CCLOGGER_LEVEL_INFO to appropriate level)
+ *
+ *  post_install do |installer|
+ *    installer.pods_project.targets.each do |target|
+ *      target.build_configurations.each do |config|
+ *        config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)']
+ *        config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << 'CCLOGGER_LEVEL_INFO'
+ *      end
+ *    end
+ *  end
+ */
+
 #ifndef DDLogInfo
 
 #define LOG_ASYNC_ENABLED YES
