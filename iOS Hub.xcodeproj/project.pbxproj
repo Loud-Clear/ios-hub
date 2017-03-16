@@ -47,7 +47,6 @@
 		3182149406362581145D7446 /* CCFormValidationOr.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182102ACDFFB44E79A3B388 /* CCFormValidationOr.m */; };
 		318214A87C965A20875198C7 /* CCValueTransformerUnixTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 318216AF963411977C7849F9 /* CCValueTransformerUnixTime.m */; };
 		3182157BF56C83C5B2E2718A /* CCImageGetContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 318213B5F30917FF9E1B38FC /* CCImageGetContext.m */; };
-		318216D3DB63BC45092B0C6F /* CCValueTransformerUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 318219AA360C9A8660034AC2 /* CCValueTransformerUrl.m */; };
 		31821777B18A4A6A68DFF62E /* CCFormValidationAnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821D6608238549600585FD /* CCFormValidationAnd.m */; };
 		318217A32FB1966F17BA9ECC /* CCImageServiceCustomImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 318217DB332BA8CE7F3F2D36 /* CCImageServiceCustomImpl.m */; };
 		318217E21EBCEB304575DEE4 /* CCFormValidationOr.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182102ACDFFB44E79A3B388 /* CCFormValidationOr.m */; };
@@ -228,13 +227,11 @@
 		318217DAD8ECE0719A1E9775 /* CCDispatchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDispatchGroup.h; sourceTree = "<group>"; };
 		318217DB332BA8CE7F3F2D36 /* CCImageServiceCustomImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceCustomImpl.m; sourceTree = "<group>"; };
 		318217F950715FDFA5D44D71 /* CCImageLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageLog.h; sourceTree = "<group>"; };
-		31821823E7BC242804BDB8F3 /* CCValueTransformerUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerUrl.h; sourceTree = "<group>"; };
 		3182185416E43C8F980A4E9D /* CCObservationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCObservationInfo.h; sourceTree = "<group>"; };
 		318218D66C8F58C1B2110611 /* UIImageView+CCImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CCImageService.h"; sourceTree = "<group>"; };
 		31821938B6E7A8EFF41D85C5 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
 		31821961BB5A2B4154DC1D7D /* CCObservationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCObservationInfo.m; sourceTree = "<group>"; };
 		31821965F51A3CFF74B63A86 /* CCImageDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageDiskCache.m; sourceTree = "<group>"; };
-		318219AA360C9A8660034AC2 /* CCValueTransformerUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerUrl.m; sourceTree = "<group>"; };
 		31821A231FAFE37B2CDE194F /* CCTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTypedefs.h; sourceTree = "<group>"; };
 		31821A33CDD8344AF9AE47B8 /* NSObject+Observe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Observe.m"; sourceTree = "<group>"; };
 		31821A3EB6892FC38F41DF67 /* CCValueTransformerDateIso8601.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerDateIso8601.h; sourceTree = "<group>"; };
@@ -692,15 +689,6 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
-		3182130FCC581B1E39BF402B /* Url */ = {
-			isa = PBXGroup;
-			children = (
-				31821823E7BC242804BDB8F3 /* CCValueTransformerUrl.h */,
-				318219AA360C9A8660034AC2 /* CCValueTransformerUrl.m */,
-			);
-			path = Url;
-			sourceTree = "<group>";
-		};
 		3182131EE990E63A19AE1F03 /* ImageService */ = {
 			isa = PBXGroup;
 			children = (
@@ -722,7 +710,6 @@
 		318215190F9356F2A45A3724 /* ValueTransformers */ = {
 			isa = PBXGroup;
 			children = (
-				3182130FCC581B1E39BF402B /* Url */,
 				318219D576E1AFF4DA665C3A /* ToNumber */,
 				3182153CA7F335D98D2F05D6 /* ToString */,
 				31821D7027958EFF19D0C241 /* UnixTime */,
@@ -1696,7 +1683,6 @@
 				31821777B18A4A6A68DFF62E /* CCFormValidationAnd.m in Sources */,
 				3182149406362581145D7446 /* CCFormValidationOr.m in Sources */,
 				31821BE48C128AC08D118C7E /* CCFormValidationPhone.m in Sources */,
-				318216D3DB63BC45092B0C6F /* CCValueTransformerUrl.m in Sources */,
 				318219F5A32C302C8B70EB15 /* CCValueTransformerToNumber.m in Sources */,
 				FA80D26D1E4E456600420049 /* CCPersistentModelValueTransformer.m in Sources */,
 				3182134A94B7183D5BC763D7 /* CCValueTransformerToString.m in Sources */,
