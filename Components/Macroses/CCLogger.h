@@ -38,7 +38,7 @@
 #endif
 
 #ifndef LOG_LEVEL_DEF
-#   define LOG_LEVEL_DEF DDLogFlagError // Errors only
+#   define LOG_LEVEL_DEF DDLogLevelWarning // Errors & warnings
 #endif
 
 #define LOG_MACRO(isAsynchronous, lvl, flg, ctx, atag, fnct, frmt, ...) \
