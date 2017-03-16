@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 #ifndef DDLogInfo
 
 #define LOG_ASYNC_ENABLED YES
@@ -18,7 +19,27 @@
 #define DDLogFlagDebug     (1 << 3)
 #define DDLogFlagVerbose   (1 << 4)
 
-#define LOG_LEVEL_DEF DDLogFlagError // Errors only
+#define DDLogLevelOff       0
+#define DDLogLevelError     (DDLogFlagError)
+#define DDLogLevelWarning   (DDLogLevelError   | DDLogFlagWarning)
+#define DDLogLevelInfo      (DDLogLevelWarning | DDLogFlagInfo)
+#define DDLogLevelDebug     (DDLogLevelInfo    | DDLogFlagDebug)
+#define DDLogLevelVerbose   (DDLogLevelDebug   | DDLogFlagVerbose)
+#define DDLogLevelAll       NSUIntegerMax
+
+#ifdef DEBUG
+#   ifdef CCLOGGER_LEVEL_ERROR
+#       define LOG_LEVEL_DEF DDLogLevelError
+#   elif defined(CCLOGGER_LEVEL_WARNING)
+#       define LOG_LEVEL_DEF DDLogLevelWarning
+#   elif defined(CCLOGGER_LEVEL_INFO)
+#       define LOG_LEVEL_DEF DDLogLevelInfo
+#   endif
+#endif
+
+#ifndef LOG_LEVEL_DEF
+#   define LOG_LEVEL_DEF DDLogFlagError // Errors only
+#endif
 
 #define LOG_MACRO(isAsynchronous, lvl, flg, ctx, atag, fnct, frmt, ...) \
         [CCLogger log : isAsynchronous                                     \
@@ -52,6 +73,6 @@ do { if(lvl & flg) LOG_MACRO(async, lvl, flg, ctx, tag, fnct, frmt, ##__VA_ARGS_
    function:(const char *)function
        line:(NSUInteger)line
         tag:(id)tag
-     format:(NSString *)format, ... NS_FORMAT_FUNCTION(9,10);
+     format:(NSString *)format, ... NS_FORMAT_FUNCTION(9, 10);
 
 @end
