@@ -73,14 +73,16 @@
 {
     if (self.storyboard) {
         NSString *storyboardId = GetAssociatedObject("storyboardId");
-        return [NSURL URLWithString:[NSString stringWithFormat:@"app:///%@/%@", self.storyboard.dt_name, storyboardId]];
-    } else {
-        NSString *moduleName = [CCModuleURLParser moduleNameFromViewControllerClassName:NSStringFromClass([self class])];
-        if (moduleName) {
-            return [NSURL URLWithString:[NSString stringWithFormat:@"app:///%@.module", moduleName]];
-        } else {
-            return [NSURL URLWithString:[NSString stringWithFormat:@"app:///%@.class", NSStringFromClass([self class])]];
+        if (storyboardId) {
+            return [NSURL URLWithString:[NSString stringWithFormat:@"app:///%@/%@", self.storyboard.dt_name,
+                                                                   storyboardId]];
         }
+    }
+    NSString *moduleName = [CCModuleURLParser moduleNameFromViewControllerClassName:NSStringFromClass([self class])];
+    if (moduleName) {
+        return [NSURL URLWithString:[NSString stringWithFormat:@"app:///%@.module", moduleName]];
+    } else {
+        return [NSURL URLWithString:[NSString stringWithFormat:@"app:///%@.class", NSStringFromClass([self class])]];
     }
 }
 

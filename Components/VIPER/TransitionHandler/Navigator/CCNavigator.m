@@ -56,9 +56,15 @@ CCNavigatorStack *StackForController(UIViewController *viewController)
 
     NSURL *rootUrl = [[path firstObject] startURL];
 
+    if ([path count] == 0) {
+        rootUrl = url;
+    }
+
     UIViewController *rootController = [self controllerAfterNavigationBackToURL:rootUrl fromViewController:controller context:context];
 
-    [self performPath:path fromViewController:rootController context:context];
+    if ([path count] > 0) {
+        [self performPath:path fromViewController:rootController context:context];
+    }
 }
 
 //TODO: Implement Dijkstra's algorithm to find shortest route
