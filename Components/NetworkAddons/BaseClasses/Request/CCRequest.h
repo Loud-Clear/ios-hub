@@ -14,6 +14,11 @@
 extern NSString *kCCRequestRequiresSessionCustomFlagKey;
 extern NSString *kCCRequestDisableLoggingCustomFlagKey;
 
+typedef NS_ENUM(NSInteger, CCSaveMode) {
+    CCSaveModeNone = 0,
+    CCSaveModeInsertOrReplace = 1,
+    CCSaveModeInsertOrUpdate  = 2,
+};
 
 @interface CCRequest : NSObject <TRCRequest>
 
@@ -21,5 +26,7 @@ extern NSString *kCCRequestDisableLoggingCustomFlagKey;
 - (BOOL)requiresSession;
 - (BOOL)disableLogging;
 - (BOOL)disableCache;
+
+- (CCSaveMode)saveMode;
 
 @end

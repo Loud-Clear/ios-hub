@@ -35,6 +35,11 @@ NSString *kCCRequestDisableLoggingCustomFlagKey = @"disableLogging";
     return NO;
 }
 
+- (CCSaveMode)saveMode
+{
+    return CCSaveModeInsertOrReplace;
+}
+
 //-------------------------------------------------------------------------------------------
 #pragma mark - Required Methods
 //-------------------------------------------------------------------------------------------

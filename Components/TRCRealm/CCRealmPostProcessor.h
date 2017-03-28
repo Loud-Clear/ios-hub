@@ -24,14 +24,3 @@
 + (void)registerWithRestClient:(TyphoonRestClient *)restClient typhoonFactory:(TyphoonComponentFactory *)factory;
 
 @end
-
-//-------------------------------------------------------------------------------------------
-#pragma mark - Request params
-//-------------------------------------------------------------------------------------------
-
-typedef NS_ENUM(NSInteger, CCSaveMode) {
-    CCSaveModeInsertOrReplace = 0,
-    CCSaveModeInsertOrUpdate  = 1,
-};
-
-//TODO: Find a way to specify per-request CCSaveMode for post-processor

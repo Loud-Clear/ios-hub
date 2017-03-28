@@ -14,6 +14,7 @@
 #import "CCMutableCollections.h"
 #import "RLMRealm+NestedTransactions.h"
 #import "_CCRealmSavePostProcessor.h"
+#import "CCRequest.h"
 
 static id ReplaceObjectsInResponse(id responseObject, Class clazzToReplace, id(^block)(id))
 {
@@ -41,19 +42,33 @@ static id ReplaceObjectsInResponse(id responseObject, Class clazzToReplace, id(^
     return responseObject;
 }
 
+static CCSaveMode SaveModeForRequest(id request)
+{
+    CCSaveMode saveMode = CCSaveModeInsertOrReplace;
+    if ([request isKindOfClass:[CCRequest class]] && [request respondsToSelector:@selector(saveMode)]) {
+        saveMode = [request saveMode];
+    }
+    return saveMode;
+}
+
 @implementation _CCRealmSavePostProcessor
 
 - (id)postProcessResponseObject:(id)responseObject forRequest:(id<TRCRequest>)request postProcessError:(NSError **)error
 {
-    CFAbsoluteTime timeToSave = CFAbsoluteTimeGetCurrent();
-    __block id result = nil;
-    [self.databaseManager.currentDatabase transactionIfNeeded:^{
-        result = ReplaceObjectsInResponse(responseObject, [CCPersistentModel class], ^id(id object) {
-            return [self savedIdFromModel:object withMode:CCSaveModeInsertOrReplace];
-        });
-    }];
-    [self.databaseManager.currentDatabase refresh];
-    return result;
+    CCSaveMode saveMode = SaveModeForRequest(request);
+
+    if (saveMode == CCSaveModeNone) {
+        return responseObject;
+    } else {
+        __block id result = nil;
+        [self.databaseManager.currentDatabase transactionIfNeeded:^{
+            result = ReplaceObjectsInResponse(responseObject, [CCPersistentModel class], ^id(id object) {
+                return [self savedIdFromModel:object withMode:saveMode];
+            });
+        }];
+        [self.databaseManager.currentDatabase refresh];
+        return result;
+    }
 }
 
 - (TRCQueueType)queueType
@@ -78,11 +93,17 @@ static id ReplaceObjectsInResponse(id responseObject, Class clazzToReplace, id(^
 
 - (id)postProcessResponseObject:(id)responseObject forRequest:(id<TRCRequest>)request postProcessError:(NSError **)error
 {
-    [self.databaseManager.currentDatabase refresh];
-    id result = ReplaceObjectsInResponse(responseObject, [CCPersistentId class], ^id(id object) {
-        return [self loadModelFromId:object];
-    });
-    return result;
+    CCSaveMode saveMode = SaveModeForRequest(request);
+
+    if (saveMode == CCSaveModeNone) {
+        return responseObject;
+    } else {
+        [self.databaseManager.currentDatabase refresh];
+        id result = ReplaceObjectsInResponse(responseObject, [CCPersistentId class], ^id(id object) {
+            return [self loadModelFromId:object];
+        });
+        return result;
+    }
 }
 
 - (TRCQueueType)queueType

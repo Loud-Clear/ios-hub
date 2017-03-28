@@ -162,6 +162,7 @@ Pod::Spec.new do |s|
       subspec.dependency 'TyphoonRestClient'
       subspec.dependency 'ComponentsHub/RealmAddons'
       subspec.dependency 'ComponentsHub/MutableCollections'
+      subspec.dependency 'ComponentsHub/NetworkAddons'
   end
   
   s.subspec 'TyphoonAddons' do |subspec|
