@@ -15,6 +15,8 @@
 #import "UIImageView+CCImageService.h"
 #import "CCMacroses.h"
 
+NSErrorDomain const CCImageServiceErrorDomain = @"CCImageServiceErrorDomain";
+
 @implementation UIImageView (CCImageService)
 
 //-------------------------------------------------------------------------------------------
@@ -77,10 +79,14 @@
             self.image = placeholderImage;
         }
         self.cc_imageUrl = nil;
+        
+        NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorFileDoesNotExist userInfo:nil];
+        SafetyCall(completion, nil, error);
         return;
     }
 
     if (!forceReload && [url isEqual:self.cc_imageUrl]) {
+        SafetyCall(completion, self.image, nil);
         return;
     }
 
@@ -104,6 +110,10 @@
         }
 
         if (self.cc_imageUrl && ![self.cc_imageUrl isEqual:url]) {
+            if (!error) {
+                error = [NSError errorWithDomain:CCImageServiceErrorDomain code:CCImageServiceImageOutdated userInfo:nil];
+            }
+            SafetyCall(completion, image, error);
             return;
         }
 

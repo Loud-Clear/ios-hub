@@ -11,6 +11,14 @@
 
 #import <UIKit/UIKit.h>
 
+extern NSErrorDomain const CCImageServiceErrorDomain;
+
+NS_ENUM(NSInteger)
+{
+    CCImageServiceImageOutdated = -1,
+};
+
+
 @protocol CCImageService;
 
 typedef void(^CCImageCompletition)(UIImage *image, NSError *error);
