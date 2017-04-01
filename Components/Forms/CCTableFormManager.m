@@ -23,20 +23,21 @@
 #import "CCTableViewManager+Internal.h"
 #import "CCMacroses.h"
 
-@interface CCTableFormItem()
+
+@interface CCTableFormItem ()
 @property (weak, nonatomic) id<CCFormOutput> output;
 @end
 
-@interface CCTableFormCell()
+@interface CCTableFormCell ()
 @property (weak, nonatomic) id<CCFormOutput> output;
 @end
 
-@interface CCTableFormManager() <CCFormOutput, CCFormRuleRegistry>
-
+@interface CCTableFormManager () <CCFormOutput, CCFormRuleRegistry>
 @end
 
 
-@implementation CCTableFormManager {
+@implementation CCTableFormManager
+{
     NSMutableArray *_fieldObservers;
 
     NSMutableDictionary *_onEditingChangeRules;
@@ -113,7 +114,7 @@
 
     [self enumerateFormItemsWithBlock:^(CCTableFormItem *item, BOOL *stop) {
         NSString *name = item.name;
-        id value = item.value ?: [NSNull null];
+        id value = item.value ? : [NSNull null];
         if (name && value) {
             data[name] = value;
         }
@@ -219,7 +220,9 @@
 {
     NSArray *errors = [self validationErrorsFromData:[self formRawData]];
 
-    [self didFailWithValidationErrors:errors];
+    if ([errors count] != 0) {
+        [self didFailWithValidationErrors:errors];
+    }
 
     return [errors count] == 0;
 }
@@ -235,6 +238,11 @@
         [self setValidationErrors:errorMessages];
 
     }
+}
+
+- (void)submit
+{
+    [self onSubmit];
 }
 
 //-------------------------------------------------------------------------------------------
@@ -364,13 +372,13 @@
 #pragma mark - Utils
 //-------------------------------------------------------------------------------------------
 
-- (void)enumerateFormItemsWithBlock:(void(^)(CCTableFormItem *item, BOOL *stop))block
+- (void)enumerateFormItemsWithBlock:(void (^)(CCTableFormItem *item, BOOL *stop))block
 {
     BOOL stop = NO;
     for (CCTableViewSection *section in self.sections) {
         for (CCTableViewItem *item in section.items) {
             if ([item isKindOfClass:[CCTableFormItem class]]) {
-                SafetyCall(block, (id)item, &stop);
+                SafetyCall(block, (id) item, &stop);
                 if (stop) {
                     break;
                 }
@@ -422,13 +430,12 @@
     [super didLoadCell:cell];
 
     if ([cell isKindOfClass:[CCTableFormCell class]]) {
-        ((CCTableFormCell *)cell).output = self;
-
+        ((CCTableFormCell *) cell).output = self;
     }
 }
 
 //-------------------------------------------------------------------------------------------
-#pragma mark - Form Output
+#pragma mark - <CCFormOutput>
 //-------------------------------------------------------------------------------------------
 
 - (void)onSubmit
@@ -441,6 +448,5 @@
         [self.formDelegate formManager:self didSumbitWithData:[self formData]];
     }
 }
-
 
 @end

@@ -57,6 +57,8 @@
 // Returns YES if validated, and NO on failed validation
 - (BOOL)validate;
 
+- (void)submit;
+
 // Fields manipulations
 
 - (id)fieldForName:(NSString *)name;
