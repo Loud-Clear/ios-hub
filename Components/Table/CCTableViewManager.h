@@ -41,9 +41,9 @@
  */
 @interface CCTableViewManager : NSObject <UITableViewDelegate, UITableViewDataSource>
 
-///-----------------------------
-/// @name Managing Table View and Sections
-///-----------------------------
+//-----------------------------
+#pragma mark - Managing Table View and Sections
+//-----------------------------
 
 /**
  The array of sections. See CCTableViewSection reference for details.
@@ -61,9 +61,9 @@
  */
 @property (weak, readwrite, nonatomic) UITableView *tableView;
 
-///-----------------------------
-/// @name Creating and Initializing a CCTableViewManager
-///-----------------------------
+//-----------------------------
+#pragma mark - Creating and Initializing a CCTableViewManager
+//-----------------------------
 
 /**
  Initialize a table view manager object for a specific `UITableView` and specify the delegate object.
@@ -88,18 +88,18 @@
  */
 - (instancetype)init;
 
-///-------------------------------------------
-/// @name Managing the Delegate
-///-------------------------------------------
+//-------------------------------------------
+#pragma mark - Managing the Delegate
+//-------------------------------------------
 
 /**
  The object that acts as the delegate of the receiving table view.
  */
 @property (weak, readwrite, nonatomic) id<CCTableViewManagerDelegate> delegate;
 
-///-----------------------------
-/// @name Managing Custom Cells
-///-----------------------------
+//-----------------------------
+#pragma mark - Managing Custom Cells
+//-----------------------------
 
 /**
  The array of pairs of items / cell classes.
@@ -146,18 +146,27 @@
  */
 - (void)setObject:(id)obj forKeyedSubscript:(id <NSCopying>)key DEPRECATED_ATTRIBUTE;
 
-///-----------------------------
-/// @name Setting Style
-///-----------------------------
+//-----------------------------
+#pragma mark - Setting Style
+//-----------------------------
 
 /**
  The object that provides styling for `UITableView`. See CCTableViewCellStyle reference for details.
  */
 @property (strong, readwrite, nonatomic) CCTableViewCellStyle *style;
 
-///-----------------------------
-/// @name Adding sections
-///-----------------------------
+//-----------------------------
+#pragma mark - Options
+//-----------------------------
+
+/**
+ * Default is YES.
+ */
+@property (nonatomic) BOOL supportsEstimatedHeight;
+
+//-----------------------------
+#pragma mark - Adding sections
+//-----------------------------
 
 /**
  Inserts a given section at the end of the table view.
@@ -189,9 +198,9 @@
  */
 - (void)insertSections:(NSArray *)sections atIndexes:(NSIndexSet *)indexes;
 
-///-----------------------------
-/// @name Removing Sections
-///-----------------------------
+//-----------------------------
+#pragma mark - Removing Sections
+//-----------------------------
 
 /**
  Removes all occurrences in the table view of a given section.
@@ -264,7 +273,7 @@
 - (void)removeSectionsAtIndexes:(NSIndexSet *)indexes;
 
 ///-----------------------------
-/// @name Replacing Sections
+#pragma mark - Replacing Sections
 ///-----------------------------
 
 /**
@@ -308,7 +317,7 @@
 - (void)replaceSectionsInRange:(NSRange)range withSectionsFromArray:(NSArray *)otherArray;
 
 ///-----------------------------
-/// @name Rearranging Sections
+#pragma mark - Rearranging Sections
 ///-----------------------------
 
 /**
