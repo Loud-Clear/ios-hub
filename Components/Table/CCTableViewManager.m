@@ -84,7 +84,6 @@
     self.registeredClasses = [NSMutableDictionary new];
     self.registeredXIBs = [NSMutableDictionary new];
     self.style = [CCTableViewCellStyle new];
-    self.supportsEstimatedHeight = YES;
 
     return self;
 }
@@ -164,7 +163,7 @@
 - (BOOL)respondsToSelector:(SEL)selector
 {
     if (selector == @selector(tableView:estimatedHeightForRowAtIndexPath:)) {
-        return _supportsEstimatedHeight;
+        return !_estimatedHeightSupportDisabled;
     }
     return [super respondsToSelector:selector];
 }
@@ -535,7 +534,7 @@
 }
 
 // Estimated height support
-// NOTE: this method may not be called if supportsEstimatedHeight set to NO.
+// NOTE: this method may not be called if estimatedHeightSupportDisabled set to YES.
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

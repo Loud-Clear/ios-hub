@@ -160,9 +160,9 @@
 //-----------------------------
 
 /**
- * Default is YES.
+ * Default is NO.
  */
-@property (nonatomic) BOOL supportsEstimatedHeight;
+@property (nonatomic) BOOL estimatedHeightSupportDisabled;
 
 //-----------------------------
 #pragma mark - Adding sections
