@@ -343,6 +343,14 @@
  */
 - (void)sortSectionsUsingSelector:(SEL)comparator;
 
+///-------------------------------------------------------------------------------------------
+#pragma mark - Items Managing
+///-------------------------------------------------------------------------------------------
+
+- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath;
+
+- (id)itemAtIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 
