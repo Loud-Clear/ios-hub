@@ -15,6 +15,7 @@
 
 @interface CCConnectionLogger : TRCConnectionProxy
 
+// You can use custom logger. Default is CCConnectionLoggerCCWriter, which uses DDLogInfo macro
 @property(nonatomic, strong) id<TRCConnectionLoggerWriter> writer;
 
 @property(nonatomic) BOOL shouldLogUploadProgress;

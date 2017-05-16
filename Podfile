@@ -24,6 +24,9 @@ target 'iOS Hub' do
   pod 'AFNetworking'
   pod 'TPDWeakProxy'
 
+  pod 'CocoaLumberjack'
+  pod 'BugfenderSDK/ObjC', '~> 1.4'
+
   pod 'TyphoonRestClient'
 
   pod 'BaseModel'

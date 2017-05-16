@@ -15,7 +15,7 @@
 
 @implementation CCConnectionLogger
 {
-    dispatch_queue_t printing_queue;
+    dispatch_queue_t _printing_queue;
 }
 
 - (instancetype)initWithConnection:(id<TRCConnection>)connection
@@ -38,11 +38,13 @@
 
 - (void)setupLogger
 {
-    printing_queue = dispatch_queue_create("CCLoggingConnection", DISPATCH_QUEUE_SERIAL);
-    dispatch_set_target_queue(printing_queue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0));
+    _printing_queue = dispatch_queue_create("CCLoggingConnection", DISPATCH_QUEUE_SERIAL);
+    dispatch_set_target_queue(_printing_queue, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0));
 
     self.shouldLogBinaryDataAsBase64 = NO;
     self.shouldLogHeaders = YES;
+
+    self.writer = [CCConnectionLoggerCCWriter new];
 }
 
 
@@ -228,7 +230,7 @@
 
 - (void)printString:(NSString *)string
 {
-    dispatch_async(printing_queue, ^{
+    dispatch_async(_printing_queue, ^{
         if (self.writer) {
             [self.writer writeLogString:string];
         } else {
@@ -278,8 +280,6 @@
     free(buf);
     return result;
 }
-
-
 
 @end
 
