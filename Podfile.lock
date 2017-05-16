@@ -16,6 +16,13 @@ PODS:
     - AFNetworking/NSURLSession
   - Aspects (1.4.1)
   - BaseModel (2.6.3)
+  - BugfenderSDK/ObjC (1.4.3)
+  - CocoaLumberjack (3.2.0):
+    - CocoaLumberjack/Default (= 3.2.0)
+    - CocoaLumberjack/Extensions (= 3.2.0)
+  - CocoaLumberjack/Default (3.2.0)
+  - CocoaLumberjack/Extensions (3.2.0):
+    - CocoaLumberjack/Default
   - CTObjectiveCRuntimeAdditions (0.0.1)
   - FastCoding (3.2.1)
   - KVOController (1.2.0)
@@ -25,9 +32,9 @@ PODS:
   - MTAnimation (1.2.2)
   - OCMock (3.4)
   - PINCache (2.3)
-  - Realm (2.4.4):
-    - Realm/Headers (= 2.4.4)
-  - Realm/Headers (2.4.4)
+  - Realm (2.7.0):
+    - Realm/Headers (= 2.7.0)
+  - Realm/Headers (2.7.0)
   - SAMKeychain (1.5.2)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
@@ -41,12 +48,14 @@ PODS:
   - Typhoon/IntrospectionUtils (4.0.2)
   - Typhoon/no-arc (4.0.2):
     - Typhoon/IntrospectionUtils
-  - TyphoonRestClient (1.5.0)
+  - TyphoonRestClient (1.5.1)
 
 DEPENDENCIES:
   - AFNetworking
   - Aspects (from `https://github.com/steipete/Aspects.git`, tag `1.4.2`)
   - BaseModel
+  - BugfenderSDK/ObjC (~> 1.4)
+  - CocoaLumberjack
   - CTObjectiveCRuntimeAdditions
   - FastCoding
   - KVOController
@@ -75,6 +84,8 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
   BaseModel: 4c9965bea266250b90e78bc1a1948d74e81d9e89
+  BugfenderSDK: 7c410a86de5f8d971a945d1c349167d94613a1f3
+  CocoaLumberjack: 9b4aed7073d242f29cc2f62068d995faf67f703a
   CTObjectiveCRuntimeAdditions: e4164f82d489d542447a1ae35b27965b356c4738
   FastCoding: ed46c83ba23d048aafa0251972a1e1fc1cfc58ed
   KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
@@ -82,13 +93,13 @@ SPEC CHECKSUMS:
   MTAnimation: 1079f4ff38c0282779ced010d7363a8f893fd3ee
   OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
-  Realm: 5a280a1f5a9a3c267bebf4f41ee47911137703d7
+  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   TPDWeakProxy: 39bf1d2675b75a1e87c38d4cd426110c21934842
   Typhoon: 05db9d33d798b90c202bf3f754275c03efe93297
-  TyphoonRestClient: f3b4e2b003062647e0be27985887fb8a69a1a0cc
+  TyphoonRestClient: 6b824f9e4c1e3fbcd0887c80ee486df45ceb1ade
 
-PODFILE CHECKSUM: b42ae2caedd82641af5f7e6c65d33c1a278d818f
+PODFILE CHECKSUM: '012548fe68d84619f668efa566aae193957fb2e4'
 
 COCOAPODS: 1.1.1

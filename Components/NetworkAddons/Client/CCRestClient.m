@@ -39,7 +39,7 @@
     connection = self.sessionInjectingConnection;
 
     if (self.logging) {
-        CCConnectionLogger *logger = [[CCConnectionLogger alloc] initWithConnection:connection];
+        CCConnectionLogger *logger = [self connectionLoggerForConnection:connection];
         logger.shouldLogUploadProgress = self.shouldLogUploadProgress;
         logger.shouldLogDownloadProgress = self.shouldLogDownloadProgress;
         connection = logger;
@@ -47,6 +47,11 @@
     }
 
     self.connection = connection;
+}
+
+- (CCConnectionLogger *)connectionLoggerForConnection:(id<TRCConnection>)connection
+{
+    return [[CCConnectionLogger alloc] initWithConnection:connection];
 }
 
 - (void)setBaseUrl:(NSURL *)baseUrl

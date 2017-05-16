@@ -12,6 +12,8 @@
 #import <Foundation/Foundation.h>
 #import "TyphoonRestClient.h"
 
+@class CCConnectionLogger;
+
 
 @interface CCRestClient : TyphoonRestClient
 
@@ -25,5 +27,9 @@
 + (NSURLSessionConfiguration *)urlSessionConfiguration;
 
 - (void)setupClient;
+
+/** Methods to override */
+
+- (CCConnectionLogger *)connectionLoggerForConnection:(id<TRCConnection>)connection;
 
 @end
