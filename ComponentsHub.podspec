@@ -92,6 +92,10 @@ Pod::Spec.new do |s|
       subspec.source_files   = 'Components/Macroses/**/*.{h,m}'
       subspec.dependency 'libextobjc/EXTScope'
   end
+ 
+  s.subspec 'ManualLayout' do |subspec|
+      subspec.source_files   = 'Components/ManualLayout/**/*.{h,m}'
+  end
 
   s.subspec 'MapCollections' do |subspec|
       subspec.source_files   = 'Components/MapCollections/**/*.{h,m}'
