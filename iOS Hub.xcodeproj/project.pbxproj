@@ -123,6 +123,12 @@
 		FA80D26D1E4E456600420049 /* CCPersistentModelValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA80D26C1E4E456600420049 /* CCPersistentModelValueTransformer.m */; };
 		FA8C58651DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C58621DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.m */; };
 		FA8C58661DE2CCDF00AEBCB1 /* UIViewController+CCModule.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C58641DE2CCDF00AEBCB1 /* UIViewController+CCModule.m */; };
+		FAB831F91ECC33820036A53A /* CCScreenSizes.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB831EE1ECC33820036A53A /* CCScreenSizes.m */; };
+		FAB831FA1ECC33820036A53A /* CCUIRound.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB831F01ECC33820036A53A /* CCUIRound.m */; };
+		FAB831FB1ECC33820036A53A /* UILabel+Dimensions.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB831F21ECC33820036A53A /* UILabel+Dimensions.m */; };
+		FAB831FC1ECC33820036A53A /* UILabel+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB831F41ECC33820036A53A /* UILabel+Positioning.m */; };
+		FAB831FD1ECC33820036A53A /* UILabel+SizeToFitMultiline.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB831F61ECC33820036A53A /* UILabel+SizeToFitMultiline.m */; };
+		FAB831FE1ECC33820036A53A /* UIView+Positioning.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB831F81ECC33820036A53A /* UIView+Positioning.m */; };
 		FACFEECD1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = FACFEECB1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.m */; };
 		FAF38E541DF03FFB00F44BC0 /* CCTableFormItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF38E531DF03FFB00F44BC0 /* CCTableFormItem.m */; };
 		FAF38E571DF0400C00F44BC0 /* CCTableFormCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF38E561DF0400C00F44BC0 /* CCTableFormCell.m */; };
@@ -378,6 +384,18 @@
 		FA8C58621DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCModuleFactoryImplementation.m; sourceTree = "<group>"; };
 		FA8C58631DE2CCDF00AEBCB1 /* UIViewController+CCModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CCModule.h"; sourceTree = "<group>"; };
 		FA8C58641DE2CCDF00AEBCB1 /* UIViewController+CCModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CCModule.m"; sourceTree = "<group>"; };
+		FAB831ED1ECC33820036A53A /* CCScreenSizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScreenSizes.h; sourceTree = "<group>"; };
+		FAB831EE1ECC33820036A53A /* CCScreenSizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCScreenSizes.m; sourceTree = "<group>"; };
+		FAB831EF1ECC33820036A53A /* CCUIRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCUIRound.h; sourceTree = "<group>"; };
+		FAB831F01ECC33820036A53A /* CCUIRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCUIRound.m; sourceTree = "<group>"; };
+		FAB831F11ECC33820036A53A /* UILabel+Dimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Dimensions.h"; sourceTree = "<group>"; };
+		FAB831F21ECC33820036A53A /* UILabel+Dimensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Dimensions.m"; sourceTree = "<group>"; };
+		FAB831F31ECC33820036A53A /* UILabel+Positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Positioning.h"; sourceTree = "<group>"; };
+		FAB831F41ECC33820036A53A /* UILabel+Positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Positioning.m"; sourceTree = "<group>"; };
+		FAB831F51ECC33820036A53A /* UILabel+SizeToFitMultiline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+SizeToFitMultiline.h"; sourceTree = "<group>"; };
+		FAB831F61ECC33820036A53A /* UILabel+SizeToFitMultiline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+SizeToFitMultiline.m"; sourceTree = "<group>"; };
+		FAB831F71ECC33820036A53A /* UIView+Positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Positioning.h"; sourceTree = "<group>"; };
+		FAB831F81ECC33820036A53A /* UIView+Positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Positioning.m"; sourceTree = "<group>"; };
 		FACFEECA1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CCTableViewManagerAdditions.h"; sourceTree = "<group>"; };
 		FACFEECB1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CCTableViewManagerAdditions.m"; sourceTree = "<group>"; };
 		FACFEECE1DF0377D00496C45 /* CCPlaceholderTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCPlaceholderTextView.h; sourceTree = "<group>"; };
@@ -1263,6 +1281,7 @@
 				FA0199F71DDF5BBA00364871 /* SingletoneStorage */,
 				FA3486951DDF1E8A00B02A01 /* RealmAddons */,
 				FA3486911DDF13A300B02A01 /* Macroses */,
+				FAB831EC1ECC33820036A53A /* ManualLayout */,
 				FA34868D1DDF0BF000B02A01 /* Observing */,
 				2DBA1952040853CFFD6D9DDF /* Table */,
 				2DBA1B0E0CDF3DC5E092DC78 /* Forms */,
@@ -1395,6 +1414,25 @@
 			name = CCTransitionHandlerImplementation;
 			path = "Components/VIPER/TransitionHandler/ССTransitionHandlerImplementation";
 			sourceTree = SOURCE_ROOT;
+		};
+		FAB831EC1ECC33820036A53A /* ManualLayout */ = {
+			isa = PBXGroup;
+			children = (
+				FAB831ED1ECC33820036A53A /* CCScreenSizes.h */,
+				FAB831EE1ECC33820036A53A /* CCScreenSizes.m */,
+				FAB831EF1ECC33820036A53A /* CCUIRound.h */,
+				FAB831F01ECC33820036A53A /* CCUIRound.m */,
+				FAB831F11ECC33820036A53A /* UILabel+Dimensions.h */,
+				FAB831F21ECC33820036A53A /* UILabel+Dimensions.m */,
+				FAB831F31ECC33820036A53A /* UILabel+Positioning.h */,
+				FAB831F41ECC33820036A53A /* UILabel+Positioning.m */,
+				FAB831F51ECC33820036A53A /* UILabel+SizeToFitMultiline.h */,
+				FAB831F61ECC33820036A53A /* UILabel+SizeToFitMultiline.m */,
+				FAB831F71ECC33820036A53A /* UIView+Positioning.h */,
+				FAB831F81ECC33820036A53A /* UIView+Positioning.m */,
+			);
+			path = ManualLayout;
+			sourceTree = "<group>";
 		};
 		FAF38E581DF0461000F44BC0 /* Resources */ = {
 			isa = PBXGroup;
@@ -1623,6 +1661,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3486901DDF0BF000B02A01 /* CCObjectObserver.m in Sources */,
+				FAB831FE1ECC33820036A53A /* UIView+Positioning.m in Sources */,
 				FA019A481DE05CED00364871 /* CCNavigator.m in Sources */,
 				FA3486A71DDF1E8A00B02A01 /* CCPersistentId.m in Sources */,
 				FA019A4A1DE05CED00364871 /* CCNavigatorRoute.m in Sources */,
@@ -1636,11 +1675,13 @@
 				FA019A471DE05CED00364871 /* CCNavigatorContext.m in Sources */,
 				FA3486A91DDF1E8A00B02A01 /* CCSafeRLMObjectProxy.m in Sources */,
 				032ECE8A1E54177300A64E99 /* UIViewController+CCTransition.m in Sources */,
+				FAB831FC1ECC33820036A53A /* UILabel+Positioning.m in Sources */,
 				FA019A5A1DE060D700364871 /* CCMapCollections.m in Sources */,
 				FA019A111DE05C3C00364871 /* CCNotificationUtils.m in Sources */,
 				032ECE8B1E54177300A64E99 /* UIViewController+CCTransitionHandler.m in Sources */,
 				032ECE8C1E54177300A64E99 /* UIViewController+CCWorkflow.m in Sources */,
 				FA8C58661DE2CCDF00AEBCB1 /* UIViewController+CCModule.m in Sources */,
+				FAB831FB1ECC33820036A53A /* UILabel+Dimensions.m in Sources */,
 				FACFEECD1DF0353B00496C45 /* NSString+CCTableViewManagerAdditions.m in Sources */,
 				FA0199FF1DDF5BBA00364871 /* CCKeychainStorage.m in Sources */,
 				2CD6342F1E1666A800A2BB15 /* CCEnvironment.m in Sources */,
@@ -1652,6 +1693,7 @@
 				FA10FA391DFADD0A004E93C0 /* CCFormValidationExist.m in Sources */,
 				FA019A4E1DE05CED00364871 /* CCURLPlaceholderViewController.m in Sources */,
 				FA019A4D1DE05CED00364871 /* CCTransitionPromise.m in Sources */,
+				FAB831F91ECC33820036A53A /* CCScreenSizes.m in Sources */,
 				FA3486AA1DDF1E8A00B02A01 /* CCObjectObserver+DatabaseAddons.m in Sources */,
 				FA10FA351DFADD0A004E93C0 /* CCFormValidationBoolean.m in Sources */,
 				FA3486B01DDF1F6E00B02A01 /* CCCollectionSerialization.m in Sources */,
@@ -1667,6 +1709,7 @@
 				2DBA150A27435C502199776A /* CCTableViewItem.m in Sources */,
 				2DBA110602B26C1D6E0D315C /* CCTableViewCellStyle.m in Sources */,
 				2DBA1EDF3A27D4288D1F4A26 /* CCTableViewManager.m in Sources */,
+				FAB831FD1ECC33820036A53A /* UILabel+SizeToFitMultiline.m in Sources */,
 				2DBA15EFE90B20AF3823885A /* CCTableViewCell.m in Sources */,
 				2DBA14A5AF44ACAFAB0DC56A /* CCPlaceholderTextView.m in Sources */,
 				FA10FA381DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.m in Sources */,
@@ -1693,6 +1736,7 @@
 				31821E8386BF16B46CC4E7EC /* NSString+SHA1.m in Sources */,
 				31821DE00394C89DB373BDBB /* UIImageView+CCImageService.m in Sources */,
 				2DBA1661CA7311CCA9DF8446 /* CCAssemblyCollector.m in Sources */,
+				FAB831FA1ECC33820036A53A /* CCUIRound.m in Sources */,
 				2DBA1D856CF604FC011026DF /* CCResults.m in Sources */,
 				2DBA104DF5D2EA69E63A66D9 /* CCRoundButton.m in Sources */,
 				31821FEC66638DE3255FCF65 /* CCObservationInfo.m in Sources */,
