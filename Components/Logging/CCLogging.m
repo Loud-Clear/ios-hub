@@ -31,6 +31,7 @@
     if (appId.length > 0) {
         [Bugfender activateLogger:appId];
         [Bugfender enableUIEventLogging];
+        [Bugfender setPrintToConsole:NO];
 
         [DDLog addLogger:[self bugfenderLogger]];
     }
