@@ -14,8 +14,8 @@
 @interface NSObject (CCObserve)
 
 /// Will subscribe to changes of specified key, and automatically unsubscribe when self dies.
-// TODO: write detailed tests for this magic.
 - (void)observe:(id)object key:(NSString *)key action:(SEL)action;
 - (void)observe:(id)object key:(NSString *)key block:(dispatch_block_t)block;
+- (void)unobserve:(id)object key:(NSString *)key;
 
 @end

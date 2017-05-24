@@ -17,41 +17,10 @@
 #import "TPDWeakProxy.h"
 #import "Typhoon/NSObject+DeallocNotification.h"
 
-@interface CCObjectObserver (SelfLink)
-@property (nonatomic) id cc_selfLink;
-
-@end
-
-@implementation CCObjectObserver (SelfLink)
-
-- (void)setCc_selfLink:(id)selfLink
-{
-    SetAssociatedObject(@selector(cc_selfLink), selfLink);
-}
-
-- (id)cc_selfLink
-{
-    return GetAssociatedObject(@selector(cc_selfLink));
-}
-
-- (void)liveUntilObjectDies:(id)object
-{
-    self.cc_selfLink = self;
-
-    @weakify(self);
-    [object setDeallocNotificationInBlock:^{
-        @strongify(self);
-        [self stopAndInvalidate];
-        self.cc_selfLink = nil;
-    }];
-}
-
-@end
-
 
 @interface NSObject (CCObserver)
 
-@property (nonatomic) CCObjectObserver *cc_observer;
+@property (nonatomic, readonly) NSMutableDictionary<NSValue *, id> *cc_observers;
 
 @end
 
@@ -60,42 +29,55 @@
 
 - (void)observe:(id)object key:(NSString *)key action:(SEL)action
 {
-    [self.cc_observer unobserveKeys:@[key]];
-
-    if (!self.cc_observer) {
-        CCObjectObserver *observer = [[CCObjectObserver alloc] initWithObject:object observer:self];
-        [observer liveUntilObjectDies:self];
-        self.cc_observer = (id)[[TPDWeakProxy alloc] initWithObject:observer];
-    }
-
-    [self.cc_observer observeKeys:@[key] withAction:action];
+    CCObjectObserver *observer = [self observerForObject:observer];
+    [observer unobserveKeys:@[key]];
+    [observer observeKeys:@[key] withAction:action];
 }
 
 - (void)observe:(id)object key:(NSString *)key block:(dispatch_block_t)block
 {
-    [self.cc_observer unobserveKeys:@[key]];
+    CCObjectObserver *observer = [self observerForObject:observer];
+    [observer unobserveKeys:@[key]];
+    [observer observeKeys:@[key] withBlock:block];
+}
 
-    if (!self.cc_observer) {
-        CCObjectObserver *observer = [[CCObjectObserver alloc] initWithObject:object observer:self];
-        [observer liveUntilObjectDies:self];
-        self.cc_observer = (id)[[TPDWeakProxy alloc] initWithObject:observer];
+- (void)unobserve:(id)object key:(NSString *)key
+{
+    CCObjectObserver *observer = self.cc_observers[object];
+
+    if (!observer) {
+        return;
     }
 
-    [self.cc_observer observeKeys:@[key] withBlock:block];
+    [observer unobserve:object key:key];
 }
 
 //-------------------------------------------------------------------------------------------
 #pragma mark - Private Methods
 //-------------------------------------------------------------------------------------------
 
-- (void)setCc_observer:(CCObjectObserver *)observer
+- (NSMapTable<id, id> *)cc_observers
 {
-    SetAssociatedObject(@selector(cc_observer), observer);
+    NSMapTable<id, id> *observers = GetAssociatedObject(@selector(cc_observers));
+
+    if (!observers) {
+        observers = [NSMapTable weakToStrongObjectsMapTable];
+        SetAssociatedObject(@selector(cc_observers), observers);
+    }
+
+    return observers;
 }
 
-- (CCObjectObserver *)cc_observer
+- (CCObjectObserver *)observerForObject:(id)object
 {
-    return GetAssociatedObject(@selector(cc_observer));
+    CCObjectObserver *observer = [self.cc_observers objectForKey:object];
+
+    if (!observer) {
+        observer = [[CCObjectObserver alloc] initWithObject:object observer:self];
+        [self.cc_observers setObject:observer forKey:object];
+    }
+
+    return observer;
 }
 
 @end
