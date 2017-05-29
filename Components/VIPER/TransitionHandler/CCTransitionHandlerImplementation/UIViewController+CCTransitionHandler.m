@@ -128,6 +128,11 @@ static void CCViperPrepareForSegueSender(id self, SEL selector, UIStoryboardSegu
     return url && [navigator canNavigateToURL:url fromController:self];
 }
 
+- (id<CCWorkflow>)currentWorkFlow
+{
+    return self.workflow;
+}
+
 //-------------------------------------------------------------------------------------------
 #pragma mark - ModuleInput
 //-------------------------------------------------------------------------------------------

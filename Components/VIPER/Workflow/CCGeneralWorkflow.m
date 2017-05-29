@@ -13,6 +13,10 @@
 #import "CCGeneralWorkflow.h"
 #import "CCMacroses.h"
 
+NSString *const CCGeneralWorkflowWillStartNotification = @"CCGeneralWorkflowWillStartNotification";
+NSString *const CCGeneralWorkflowDidFinishNotification = @"CCGeneralWorkflowDidFinishNotification";
+
+
 @implementation CCGeneralWorkflow
 {
     id _target;
@@ -20,10 +24,10 @@
 
     id _failureTarget;
     SEL _failureAction;
-    
+
     id _backoutTarget;
     SEL _backoutAction;
-    
+
     __weak UIViewController *_initialViewController;
 }
 
@@ -45,7 +49,9 @@
 
 
 - (UIViewController *)initialViewController
-{	
+{
+    [self workflowWillStart];
+
     UIViewController *initial = [self newInitialViewController];
     _initialViewController = initial;
     return initial;
@@ -74,6 +80,7 @@
     SuppressPerformSelectorLeakWarning(
             [_target performSelector:_action withObject:lastController];
     );
+    [self workflowDidFinish];
 }
 
 - (void)completeWithLastViewController:(UIViewController *)lastViewController context:(id)context
@@ -81,6 +88,7 @@
     SuppressPerformSelectorLeakWarning(
             [_target performSelector:_action withObject:lastViewController withObject:context];
     );
+    [self workflowDidFinish];
 }
 
 - (void)failWithLastViewController:(UIViewController *)lastController error:(NSError *)error
@@ -88,6 +96,7 @@
     SuppressPerformSelectorLeakWarning(
             [_failureTarget performSelector:_failureAction withObject:lastController withObject:error];
     );
+    [self workflowDidFinish];
 }
 
 - (void)backoutFromInitialViewController:(UIViewController *)lastController
@@ -95,9 +104,23 @@
     if (lastController == _initialViewController)
     {
         SuppressPerformSelectorLeakWarning(
-            [_backoutTarget performSelector:_backoutAction withObject:lastController];
+                [_backoutTarget performSelector:_backoutAction withObject:lastController];
         );
-	}
+    }
+    [self workflowDidFinish];
 }
+
+// Workflow lifecycle
+
+- (void)workflowWillStart
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:CCGeneralWorkflowWillStartNotification object:self];
+}
+
+- (void)workflowDidFinish
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:CCGeneralWorkflowDidFinishNotification object:self];
+}
+
 
 @end
