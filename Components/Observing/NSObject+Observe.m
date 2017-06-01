@@ -18,9 +18,9 @@
 #import "Typhoon/NSObject+DeallocNotification.h"
 
 
-@interface NSObject (CCObserver)
+@interface NSObject ()
 
-@property (nonatomic, readonly) NSMapTable<NSValue *, id> *cc_observers;
+@property (nonatomic, readonly) NSMapTable<id, id> *cc_observers;
 
 @end
 
