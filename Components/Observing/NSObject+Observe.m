@@ -50,6 +50,10 @@
     }
 
     [observer unobserve:object key:key];
+
+    if ([observer observationsCount] == 0) {
+        [self.cc_observers removeObjectForKey:object];
+    }
 }
 
 //-------------------------------------------------------------------------------------------
