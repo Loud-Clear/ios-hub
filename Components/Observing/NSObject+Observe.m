@@ -20,7 +20,7 @@
 
 @interface NSObject (CCObserver)
 
-@property (nonatomic, readonly) NSMutableDictionary<NSValue *, id> *cc_observers;
+@property (nonatomic, readonly) NSMapTable<NSValue *, id> *cc_observers;
 
 @end
 
@@ -43,7 +43,7 @@
 
 - (void)unobserve:(id)object key:(NSString *)key
 {
-    CCObjectObserver *observer = self.cc_observers[object];
+    CCObjectObserver *observer = [self.cc_observers objectForKey:object];
 
     if (!observer) {
         return;
