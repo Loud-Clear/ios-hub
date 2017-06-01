@@ -84,7 +84,6 @@
     self.registeredClasses = [NSMutableDictionary new];
     self.registeredXIBs = [NSMutableDictionary new];
     self.style = [CCTableViewCellStyle new];
-    self.supportsEstimatedHeight = YES;
 
     return self;
 }
@@ -164,7 +163,7 @@
 - (BOOL)respondsToSelector:(SEL)selector
 {
     if (selector == @selector(tableView:estimatedHeightForRowAtIndexPath:)) {
-        return _supportsEstimatedHeight;
+        return !_estimatedHeightSupportDisabled;
     }
     return [super respondsToSelector:selector];
 }
@@ -338,27 +337,13 @@
         CCTableViewItem *item = section.items[indexPath.row];
         if (item.deletionHandlerWithCompletion) {
             item.deletionHandlerWithCompletion(item, ^{
-                [section removeItemAtIndex:indexPath.row];
-                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-
-                for (NSInteger i = indexPath.row; i < section.items.count; i++) {
-                    CCTableViewItem *afterItem = [[section items] objectAtIndex:i];
-                    CCTableViewCell *cell = (CCTableViewCell *) [tableView cellForRowAtIndexPath:afterItem.indexPath];
-                    cell.rowIndex--;
-                }
+                [self deleteRowAtIndexPath:indexPath];
             });
         } else {
             if (item.deletionHandler) {
                 item.deletionHandler(item);
             }
-            [section removeItemAtIndex:indexPath.row];
-            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-
-            for (NSInteger i = indexPath.row; i < section.items.count; i++) {
-                CCTableViewItem *afterItem = [[section items] objectAtIndex:i];
-                CCTableViewCell *cell = (CCTableViewCell *) [tableView cellForRowAtIndexPath:afterItem.indexPath];
-                cell.rowIndex--;
-            }
+            [self deleteRowAtIndexPath:indexPath];
         }
     }
 
@@ -535,7 +520,7 @@
 }
 
 // Estimated height support
-// NOTE: this method may not be called if supportsEstimatedHeight set to NO.
+// NOTE: this method may not be called if estimatedHeightSupportDisabled set to YES.
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -720,6 +705,16 @@
     }
 
     return NSLocalizedString(@"Delete", @"Delete");
+}
+
+- (nullable NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView
+                           editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.delegate conformsToProtocol:@protocol(UITableViewDelegate)] && [self.delegate respondsToSelector:@selector(tableView:editActionsForRowAtIndexPath:)]) {
+        return [self.delegate tableView:tableView editActionsForRowAtIndexPath:indexPath];
+    }
+
+    return nil;
 }
 
 - (BOOL)tableView:(UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
@@ -1186,6 +1181,45 @@
 - (void)didLoadCell:(CCTableViewCell *)cell
 {
 
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Items Managment
+//-------------------------------------------------------------------------------------------
+
+- (id)itemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.sections count] > indexPath.section && indexPath.section >= 0) {
+        CCTableViewSection *section = self.sections[(NSUInteger)indexPath.section];
+        if ([section.items count] > indexPath.row && indexPath.row >= 0) {
+            return section.items[(NSUInteger)indexPath.row];
+        }
+    }
+    return nil;
+}
+
+- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.sections count] > indexPath.section) {
+
+        CCTableViewSection *section = self.sections[(NSUInteger)indexPath.section];
+
+        [section removeItemAtIndex:(NSUInteger)indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+        [self updateVisibleCellRowIndexes];
+    }
+}
+
+- (void)updateVisibleCellRowIndexes
+{
+    for (UITableViewCell *cell in [self.tableView visibleCells]) {
+        if ([cell isKindOfClass:[CCTableViewCell class]]) {
+            CCTableViewCell *customCell = (id)cell;
+            CCTableViewItem *item = customCell.item;
+            customCell.rowIndex = item.indexPath.row;
+        }
+    }
 }
 
 //-------------------------------------------------------------------------------------------

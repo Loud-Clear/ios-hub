@@ -82,9 +82,19 @@ Pod::Spec.new do |s|
       subspec.dependency 'ComponentsHub/Macroses'
   end
 
+  s.subspec 'Logging' do |subspec|
+      subspec.source_files   = 'Components/Logging/**/*.{h,m}'
+      subspec.dependency 'BugfenderSDK/ObjC', '~> 1.4'
+      subspec.dependency 'CocoaLumberjack'
+  end
+
   s.subspec 'Macroses' do |subspec|
       subspec.source_files   = 'Components/Macroses/**/*.{h,m}'
       subspec.dependency 'libextobjc/EXTScope'
+  end
+ 
+  s.subspec 'ManualLayout' do |subspec|
+      subspec.source_files   = 'Components/ManualLayout/**/*.{h,m}'
   end
 
   s.subspec 'MapCollections' do |subspec|

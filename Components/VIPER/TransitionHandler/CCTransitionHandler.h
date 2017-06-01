@@ -105,6 +105,7 @@ typedef NS_ENUM(NSInteger, CCTransitionStyle)
 
 - (void)completeCurrentWorkflowWithFailure:(NSError *)error;
 
+- (id<CCWorkflow>)currentWorkFlow;
 
 /**
  *  Shorthands

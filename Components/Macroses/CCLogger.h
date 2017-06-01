@@ -52,7 +52,7 @@
 #endif
 
 #ifndef LOG_LEVEL_DEF
-#   define LOG_LEVEL_DEF DDLogLevelWarning // Errors & warnings
+#   define LOG_LEVEL_DEF DDLogLevelInfo 
 #endif
 
 #define LOG_MACRO(isAsynchronous, lvl, flg, ctx, atag, fnct, frmt, ...) \

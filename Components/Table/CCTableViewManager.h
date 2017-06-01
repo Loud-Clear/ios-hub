@@ -160,9 +160,9 @@
 //-----------------------------
 
 /**
- * Default is YES.
+ * Default is NO.
  */
-@property (nonatomic) BOOL supportsEstimatedHeight;
+@property (nonatomic) BOOL estimatedHeightSupportDisabled;
 
 //-----------------------------
 #pragma mark - Adding sections
@@ -342,6 +342,14 @@
  @param comparator A selector that specifies the comparison method to use to compare sections in the table view.
  */
 - (void)sortSectionsUsingSelector:(SEL)comparator;
+
+///-------------------------------------------------------------------------------------------
+#pragma mark - Items Managing
+///-------------------------------------------------------------------------------------------
+
+- (void)deleteRowAtIndexPath:(NSIndexPath *)indexPath;
+
+- (id)itemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

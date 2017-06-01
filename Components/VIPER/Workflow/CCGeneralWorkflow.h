@@ -12,6 +12,9 @@
 #import "CCWorkflow.h"
 #import "CCModuleFactory.h"
 
+extern NSString * const CCGeneralWorkflowWillStartNotification;
+extern NSString * const CCGeneralWorkflowDidFinishNotification;
+
 @interface CCGeneralWorkflow : NSObject <CCWorkflow>
 
 @property (nonatomic, strong, readonly) id<CCModuleFactory> moduleFactory;

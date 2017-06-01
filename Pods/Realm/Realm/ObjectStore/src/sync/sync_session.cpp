@@ -153,7 +153,8 @@ struct sync_session_states::WaitingForAccessToken : public SyncSession::State {
         if (session.m_session_has_been_bound) {
             session.m_session->refresh(std::move(access_token));
         } else {
-            session.m_session->bind(*session.m_server_url, std::move(access_token));
+            session.m_session->bind(*session.m_server_url, std::move(access_token),
+                                    session.m_config.client_validate_ssl, session.m_config.ssl_trust_certificate_path);
             session.m_session_has_been_bound = true;
         }
 
@@ -413,6 +414,7 @@ void SyncSession::handle_error(SyncError error)
             // Connection level errors
             case ProtocolError::connection_closed:
             case ProtocolError::other_error:
+            case ProtocolError::pong_timeout:
                 // Not real errors, don't need to be reported to the binding.
                 return;
             case ProtocolError::unknown_message:
@@ -423,6 +425,7 @@ void SyncSession::handle_error(SyncError error)
             case ProtocolError::reuse_of_session_ident:
             case ProtocolError::bound_in_other_session:
             case ProtocolError::bad_message_order:
+            case ProtocolError::malformed_http_request:
                 break;
             // Session errors
             case ProtocolError::session_closed:
@@ -500,6 +503,7 @@ void SyncSession::handle_error(SyncError error)
             case ClientError::bad_request_ident:
             case ClientError::bad_error_code:
             case ClientError::bad_compression:
+            case ClientError::bad_client_version:
                 // Don't do anything special for these errors.
                 // Future functionality may require special-case handling for existing
                 // errors, or newly introduced error codes.
@@ -585,6 +589,7 @@ void SyncSession::create_sync_session()
     REALM_ASSERT(!m_session);
     sync::Session::Config session_config;
     session_config.changeset_cooker = m_config.transformer;
+    session_config.encryption_key = m_config.realm_encryption_key;
     m_session = std::make_unique<sync::Session>(m_client.client, m_realm_path, session_config);
 
     // The next time we get a token, call `bind()` instead of `refresh()`.

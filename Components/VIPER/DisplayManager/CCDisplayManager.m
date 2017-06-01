@@ -28,10 +28,15 @@
 {
     NSParameterAssert(self.initialWorkflow);
 
+    [self setupWindow:window factory:factory viewController:[self.initialWorkflow initialViewController]];
+}
+
+- (void)setupWindow:(UIWindow *)window factory:(TyphoonComponentFactory *)factory viewController:(UIViewController *)viewController
+{
     _window = window;
     _factory = factory;
 
-    _window.rootViewController = [self.initialWorkflow initialViewController];
+    _window.rootViewController = viewController;
     [_window makeKeyAndVisible];
 }
 
