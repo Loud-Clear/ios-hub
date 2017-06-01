@@ -29,6 +29,9 @@
 
 - (void)setupWindow:(UIWindow *)window factory:(TyphoonComponentFactory *)factory;
 
+- (void)setupWindow:(UIWindow *)window factory:(TyphoonComponentFactory *)factory
+     viewController:(UIViewController *)viewController;
+
 - (void)replaceRootViewControllerWith:(UIViewController *)viewController animation:(CCDisplayManagerTransitionAnimation)animation;
 
 - (id<CCModulePromise>)openModuleWithURL:(NSURL *)url transition:(CCTransitionStyle)style;
