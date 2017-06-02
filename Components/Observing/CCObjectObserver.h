@@ -40,4 +40,6 @@
 
 - (void)stopAndInvalidate;
 
+- (NSUInteger)observationsCount;
+
 @end
