@@ -29,14 +29,14 @@
 
 - (void)observe:(id)object key:(NSString *)key action:(SEL)action
 {
-    CCObjectObserver *observer = [self observerForObject:observer];
+    CCObjectObserver *observer = [self observerForObject:object];
     [observer unobserveKeys:@[key]];
     [observer observeKeys:@[key] withAction:action];
 }
 
 - (void)observe:(id)object key:(NSString *)key block:(dispatch_block_t)block
 {
-    CCObjectObserver *observer = [self observerForObject:observer];
+    CCObjectObserver *observer = [self observerForObject:object];
     [observer unobserveKeys:@[key]];
     [observer observeKeys:@[key] withBlock:block];
 }
