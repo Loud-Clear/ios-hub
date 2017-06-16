@@ -1,5 +1,7 @@
 # iOS-hub
 
+See available pods in [ComponentsHub.podspec](https://github.com/Loud-Clear/ios-hub/blob/master/ComponentsHub.podspec)
+
 ## Useful shared iOS components:
 
 - [gena](https://github.com/alexgarbarev/gena): everyone knows gena.  
@@ -13,7 +15,12 @@
 
 ## News
 
+2017-06
+
+- `Observation`: Bug fixes in NSObject+Observe.
+
+
 2017-02-22
 
-- `CCTableViewManager` now has `.defaultSection` property which will create and add a default section when accessed first time.
+- `Table`: `CCTableViewManager` now has `.defaultSection` property which will create and add a default section when accessed first time.
 
