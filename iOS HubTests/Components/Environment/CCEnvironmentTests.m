@@ -45,13 +45,14 @@
 - (void)setUp
 {
     [super setUp];
-    [TestEnvironment reset];
+    [TestEnvironment setCurrentEnvironment:[[TestEnvironment availableEnvironments] firstObject]];
+    [TestEnvironment resetAll];
 }
 
 - (void)tearDown
 {
     [super tearDown];
-    [TestEnvironment reset];
+    [TestEnvironment resetAll];
 }
 
 //-------------------------------------------------------------------------------------------
@@ -79,11 +80,11 @@
     NSArray<TestEnvironment *> *envs = (id)[TestEnvironment availableEnvironments];
     TestEnvironment *env = [TestEnvironment currentEnvironment];
 
-    [env useEnvironment:envs[1]];
+    [TestEnvironment setCurrentEnvironment:envs[1]];
 
     XCTAssertEqualObjects(env.title, @"UAT");
 
-    [env useEnvironment:envs[0]];
+    [TestEnvironment setCurrentEnvironment:envs[0]];
 
     XCTAssertEqualObjects(env.title, @"Prod");
 }
@@ -97,6 +98,12 @@
 
     TestEnvironment *env = [TestEnvironment currentEnvironment];
     XCTAssertEqualObjects(env.title, @"New title");
+
+    TestEnvironment *another = [[TestEnvironment availableEnvironments] firstObject];
+    another.title = @"New Title 2";
+
+    XCTAssertEqualObjects(env.title, @"New Title 2");
+
 
     env.title = @"Prod";
 }
@@ -112,7 +119,7 @@
         observed = YES;
     }];
 
-    [env useEnvironment:envs[1]];
+    [TestEnvironment setCurrentEnvironment:envs[1]];
 
     XCTAssertTrue(observed);
 }
@@ -127,11 +134,33 @@
         env.title = @"Foo";
     }
 
-    [TestEnvironment reset];
+    [TestEnvironment resetAll];
 
     TestEnvironment *env = [TestEnvironment currentEnvironment];
 
     XCTAssertEqualObjects(env.title, initialTitle);
+}
+
+- (void)test_duplicating
+{
+    TestEnvironment *current = [TestEnvironment currentEnvironment];
+
+
+    XCTAssertEqual([[TestEnvironment availableEnvironments] count], 2);
+
+    TestEnvironment *copy = [TestEnvironment duplicate:current];
+
+    XCTAssertEqual([[TestEnvironment availableEnvironments] count], 3);
+
+    XCTAssertTrue([copy.title isEqualToString:current.title]);
+
+    copy.title = @"123";
+
+    XCTAssertFalse([copy.title isEqualToString:current.title]);
+
+    [copy delete];
+
+    XCTAssertEqual([[TestEnvironment availableEnvironments] count], 2);
 }
 
 

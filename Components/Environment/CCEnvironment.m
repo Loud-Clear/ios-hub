@@ -9,88 +9,76 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#import <objc/runtime.h>
 #import "CCEnvironment.h"
 #import "CCUserDefaultsStorage.h"
 #import "CCLogger.h"
 #import "CCMacroses.h"
+#import "CCEnvironmentStorage.h"
+#import "CCMacroses.h"
+#import "CCCurrentEnvironmentStorage.h"
+#import "CCNotificationUtils.h"
 
 @interface CCEnvironment ()
 @property (nonatomic) NSString *filename;
 @end
 
+static const char *kCCEnvironmentStorageKey = "_storage";
 
 @implementation CCEnvironment {
-    BOOL _initializing;
-    CCUserDefaultsStorage *_nameStorage;
     BOOL _batchSaveInProgress;
     BOOL _observing;
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Class Methods
+//-------------------------------------------------------------------------------------------
+
++ (CCEnvironmentStorage *)storage
+{
+    @synchronized (self) {
+        CCEnvironmentStorage *result = GetAssociatedObjectFromObject(self, kCCEnvironmentStorageKey);
+        if (!result) {
+            result = [[CCEnvironmentStorage alloc] initWithEnvironmentClass:self];
+            SetAssociatedObjectToObject(self, kCCEnvironmentStorageKey, result);
+        }
+        return result;
+    }
+}
+
++ (instancetype)currentEnvironment
+{
+    return self.storage.currentStorage.current;
+}
+
++ (void)setCurrentEnvironment:(__kindof CCEnvironment *)environment
+{
+    self.storage.currentStorage.current = environment;
+}
+
++ (void)resetAll
+{
+    for (__kindof CCEnvironment *environment in [self.storage availableEnvironments]) {
+        if ([self.storage canResetEnvironment:environment]) {
+            [self.storage resetEnvironment:environment];
+        } else {
+            [self.storage deleteEnvironment:environment];
+        }
+    }
 }
 
 //-------------------------------------------------------------------------------------------
 #pragma mark - Initialization & Destruction
 //-------------------------------------------------------------------------------------------
 
-- (instancetype)initCurrent
+- (void)connectToStorage
 {
-    if (!(self = [super init])) {
-        return nil;
-    }
-
-    if (_initializing) {
-        return self;
-    }
-
-    _initializing = YES;
-
-    _nameStorage = [CCUserDefaultsStorage withClass:[NSString class] key:@"EnvironmentName"];
-    NSString *name = [_nameStorage getObject];
-    BOOL nameWasNil = NO;
-
-    if (!name) {
-        nameWasNil = YES;
-        name = [[[self class] environmentFilenames] firstObject];
-    }
-    if (!name) {
-        DDLogError(@"0 environments found!");
-        return self;
-    }
-
-    CCEnvironment *object = [[self class]environmentFromName:name];
-    if (!object) {
-        return nil;
-    }
-
-    if (nameWasNil) {
-        [_nameStorage saveObject:name];
-    }
-
-    [self useEnvironment:object];
-
     [self setupObserving];
-
-    _initializing = NO;
-
-    return self;
 }
 
 - (void)dealloc
 {
     [self stopObserving];
-}
-
-+ (CCEnvironment *)environmentFromName:(NSString *)name
-{
-    CCUserDefaultsStorage *storage = [CCUserDefaultsStorage withClass:self key:name];
-    CCEnvironment *object = [storage getObject];
-
-    if (!object) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:nil];
-        object = [self instanceWithContentsOfFile:path];
-    }
-
-    object.filename = name;
-
-    return object;
 }
 
 - (void)setupObserving
@@ -104,6 +92,8 @@
     for (NSString *propertyName in [[self class] allPropertyKeys]) {
         [self addObserver:self forKeyPath:propertyName options:NSKeyValueObservingOptionNew context:NULL];
     }
+
+    [self registerForNotification:CCEnvironmentStorageDidSaveNotification selector:@selector(didSaveStorage:)];
 }
 
 - (void)stopObserving
@@ -123,64 +113,50 @@
 #pragma mark - Interface Methods
 //-------------------------------------------------------------------------------------------
 
-+ (instancetype)currentEnvironment
-{
-    return [[self alloc] initCurrent];
-}
-
 + (NSArray<__kindof CCEnvironment *> *)availableEnvironments
 {
-    NSMutableArray<CCEnvironment *> *envs = [NSMutableArray new];
-
-    for (NSString *filename in [self environmentFilenames]) {
-        CCEnvironment *env = [self environmentFromName:filename];
-        if (env) {
-            [envs addObject:env];
-        }
-    }
-
-    return envs;
+    return [self.storage availableEnvironments];
 }
 
-- (void)useEnvironment:(CCEnvironment *)environment
++ (instancetype)duplicate:(__kindof CCEnvironment *)environment
 {
-    if (!environment.filename) {
-        NSAssert(NO, nil);
-        return;
-    }
-
-    [self batchSave:^{
-        for (NSString *key in [[self class] allPropertyKeys]) {
-            id value = [environment valueForKey:key];
-            [self setValue:value forKey:key];
-        }
-        [_nameStorage saveObject:environment.filename];
-    }];
+    return [self.storage createEnvironmentByDuplicating:environment];
 }
+
 
 - (void)batchSave:(dispatch_block_t)saveBlock
 {
-    _batchSaveInProgress = YES;
-    SafetyCall(saveBlock);
-    _batchSaveInProgress = NO;
-
+    [self withoutSave:saveBlock];
     [self performSave];
 }
 
-+ (void)reset
+- (void)withoutSave:(void(^)())block
 {
-    if ([self isEqual:[CCEnvironment class]]) {
-        DDLogWarn(@"[%@ reset]: must likely you wanted to call +reset on your subclass, not base %@ class.", NSStringFromClass([CCEnvironment class]), NSStringFromClass([CCEnvironment class]));
-        NSAssert(NO, nil);
-    }
-
-    NSArray<NSString *> *names = [self environmentFilenames];
-
-    for (NSString *name in names) {
-        CCUserDefaultsStorage *storage = [CCUserDefaultsStorage withClass:self key:name];
-        [storage deleteInstanceFromDisk];
-    }
+    _batchSaveInProgress = YES;
+    SafetyCall(block);
+    _batchSaveInProgress = NO;
 }
+
+- (BOOL)canReset
+{
+    return [[self storage] canResetEnvironment:self];
+}
+
+- (void)reset
+{
+    [[self storage] resetEnvironment:self];
+}
+
+- (BOOL)canDelete
+{
+    return ![self canReset];
+}
+
+- (void)delete
+{
+    [[self storage] deleteEnvironment:self];
+}
+
 
 //-------------------------------------------------------------------------------------------
 #pragma mark - Overridden Methods
@@ -194,6 +170,42 @@
 //-------------------------------------------------------------------------------------------
 #pragma mark - Private Methods
 //-------------------------------------------------------------------------------------------
+
+- (CCEnvironmentStorage *)storage
+{
+    return [(__kindof CCEnvironment *)[self class] storage];
+}
+
+- (NSString *)name
+{
+    return _name ?: self.filename;
+}
+
+- (void)copyPropertiesFrom:(CCEnvironment *)anotherEnvironment
+{
+    for (NSString *key in [[self class] allPropertyKeys]) {
+        id value = [anotherEnvironment valueForKey:key];
+        if (value) {
+            [self setValue:value forKey:key];
+        } else {
+            [self setNilValueForKey:key];
+        }
+    }
+}
+
+- (void)didSaveStorage:(NSNotification *)notification
+{
+    __kindof CCEnvironment *savedEnvironment = notification.object;
+
+    BOOL shouldReloadProperties = [self isMemberOfClass:savedEnvironment.class] &&
+            [savedEnvironment.filename isEqualToString:self.filename];
+
+    if (shouldReloadProperties) {
+        [self withoutSave:^{
+           [self copyPropertiesFrom:savedEnvironment];
+        }];
+    }
+}
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
@@ -209,14 +221,20 @@
 
 - (void)performSave
 {
-    NSString *name = [_nameStorage getObject];
-    if (!name) {
-        NSAssert(NO, nil);
-        return;
-    }
+    [[self storage] saveEnvironment:self];
+}
 
-    CCUserDefaultsStorage *storage = [CCUserDefaultsStorage withClass:[self class] key:[_nameStorage getObject]];
-    [storage saveObject:self];
+//-------------------------------------------------------------------------------------------
+#pragma mark - Copying
+//-------------------------------------------------------------------------------------------
+
+- (id)copyWithZone:(nullable NSZone *)zone
+{
+    __kindof CCEnvironment *copy = (__kindof CCEnvironment *)[[self class] new];
+
+    [copy copyPropertiesFrom:self];
+
+    return copy;
 }
 
 @end
