@@ -37,9 +37,11 @@
 @interface CCEnvironment : BaseModel <NSCopying>
 
 + (instancetype)currentEnvironment;
-+ (void)setCurrentEnvironment:(CCEnvironment *)environment;
++ (void)setCurrentEnvironment:(__kindof CCEnvironment *)environment;
 
 + (NSArray<__kindof CCEnvironment *> *)availableEnvironments;
+
++ (instancetype)duplicate:(__kindof CCEnvironment *)environment;
 
 + (void)resetAll;
 
@@ -50,6 +52,12 @@
 
 /// Resets all environments to default values (provided from plist files).
 - (void)reset;
+
+/**
+ * Delete duplicated environment
+ * */
+- (BOOL)canDelete;
+- (void)delete;
 
 /**
  * Plist filename

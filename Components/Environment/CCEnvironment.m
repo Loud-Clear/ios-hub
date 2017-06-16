@@ -51,7 +51,7 @@ static const char *kCCEnvironmentStorageKey = "_storage";
     return self.storage.currentStorage.current;
 }
 
-+ (void)setCurrentEnvironment:(CCEnvironment *)environment
++ (void)setCurrentEnvironment:(__kindof CCEnvironment *)environment
 {
     self.storage.currentStorage.current = environment;
 }
@@ -61,6 +61,8 @@ static const char *kCCEnvironmentStorageKey = "_storage";
     for (__kindof CCEnvironment *environment in [self.storage availableEnvironments]) {
         if ([self.storage canResetEnvironment:environment]) {
             [self.storage resetEnvironment:environment];
+        } else {
+            [self.storage deleteEnvironment:environment];
         }
     }
 }
@@ -116,6 +118,12 @@ static const char *kCCEnvironmentStorageKey = "_storage";
     return [self.storage availableEnvironments];
 }
 
++ (instancetype)duplicate:(__kindof CCEnvironment *)environment
+{
+    return [self.storage createEnvironmentByDuplicating:environment];
+}
+
+
 - (void)batchSave:(dispatch_block_t)saveBlock
 {
     [self withoutSave:saveBlock];
@@ -138,6 +146,17 @@ static const char *kCCEnvironmentStorageKey = "_storage";
 {
     [[self storage] resetEnvironment:self];
 }
+
+- (BOOL)canDelete
+{
+    return ![self canReset];
+}
+
+- (void)delete
+{
+    [[self storage] deleteEnvironment:self];
+}
+
 
 //-------------------------------------------------------------------------------------------
 #pragma mark - Overridden Methods

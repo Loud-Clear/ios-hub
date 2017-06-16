@@ -16,6 +16,7 @@
 
 
 extern NSString *CCEnvironmentStorageDidSaveNotification; // Associated object is CCEnvironment which was saved to UserDefaults
+extern NSString *CCEnvironmentStorageDidDeleteNotification; // Associated object is CCEnvironment which was saved to UserDefaults
 
 @interface CCEnvironmentStorage : NSObject
 
@@ -43,5 +44,7 @@ extern NSString *CCEnvironmentStorageDidSaveNotification; // Associated object i
 - (void)saveEnvironment:(__kindof CCEnvironment *)environment;
 
 - (void)resetEnvironment:(__kindof CCEnvironment *)environment;
+
+- (void)deleteEnvironment:(__kindof CCEnvironment *)environment;
 
 @end

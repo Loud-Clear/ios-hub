@@ -99,6 +99,12 @@
     TestEnvironment *env = [TestEnvironment currentEnvironment];
     XCTAssertEqualObjects(env.title, @"New title");
 
+    TestEnvironment *another = [[TestEnvironment availableEnvironments] firstObject];
+    another.title = @"New Title 2";
+
+    XCTAssertEqualObjects(env.title, @"New Title 2");
+
+
     env.title = @"Prod";
 }
 
@@ -133,6 +139,28 @@
     TestEnvironment *env = [TestEnvironment currentEnvironment];
 
     XCTAssertEqualObjects(env.title, initialTitle);
+}
+
+- (void)test_duplicating
+{
+    TestEnvironment *current = [TestEnvironment currentEnvironment];
+
+
+    XCTAssertEqual([[TestEnvironment availableEnvironments] count], 2);
+
+    TestEnvironment *copy = [TestEnvironment duplicate:current];
+
+    XCTAssertEqual([[TestEnvironment availableEnvironments] count], 3);
+
+    XCTAssertTrue([copy.title isEqualToString:current.title]);
+
+    copy.title = @"123";
+
+    XCTAssertFalse([copy.title isEqualToString:current.title]);
+
+    [copy delete];
+
+    XCTAssertEqual([[TestEnvironment availableEnvironments] count], 2);
 }
 
 

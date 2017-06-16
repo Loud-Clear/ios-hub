@@ -20,12 +20,15 @@
 static NSString *CCEnvironmentTransientPrefix = @"__transient_";
 
 NSString *CCEnvironmentStorageDidSaveNotification = @"CCEnvironmentStorageDidSaveNotification";
+NSString *CCEnvironmentStorageDidDeleteNotification = @"CCEnvironmentStorageDidDeleteNotification";
 
 
 @interface CCOrderedDictionary<KeyType, ObjectType> : NSObject
 
 @property (nonatomic, strong) NSMutableOrderedSet *orderedKeys;
 @property (nonatomic, strong) NSMutableDictionary *dictionary;
+
+- (void)removeObjectForKey:(NSString *)key;
 
 - (NSArray *)allValues;
 @end
@@ -53,6 +56,13 @@ NSString *CCEnvironmentStorageDidSaveNotification = @"CCEnvironmentStorageDidSav
 {
     self.dictionary[key] = obj;
     [self.orderedKeys addObject:key];
+
+}
+
+- (void)removeObjectForKey:(NSString *)key
+{
+    [self.dictionary removeObjectForKey:key];
+    [self.orderedKeys removeObject:key];
 }
 
 - (void)enumerateKeysAndObjectsUsingBlock:(void (^)(id key, id obj, BOOL *stop))block
@@ -142,6 +152,19 @@ NSString *CCEnvironmentStorageDidSaveNotification = @"CCEnvironmentStorageDidSav
     [environment batchSave:^{
         [environment copyPropertiesFrom:original];
     }];
+}
+
+- (void)deleteEnvironment:(__kindof CCEnvironment *)environment
+{
+    NSAssert(![self canResetEnvironment:environment], @"We can delete only duplicated (not plist based) environments");
+
+    CCOrderedDictionary *userDefaults = [_userDefaultsStorage getObject];
+    [userDefaults removeObjectForKey:environment.filename];
+    [_userDefaultsStorage saveCurrentObject];
+
+    [_environmentsPerName removeObjectForKey:environment.filename];
+
+    [NSNotificationCenter postNotification:CCEnvironmentStorageDidDeleteNotification withObject:environment];
 }
 
 - (__kindof CCEnvironment *)createEnvironmentByDuplicating:(__kindof CCEnvironment *)environment
