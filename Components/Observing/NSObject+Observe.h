@@ -16,6 +16,8 @@
 /// Will subscribe to changes of specified key, and automatically unsubscribe when self dies.
 - (void)observe:(id)object key:(NSString *)key action:(SEL)action;
 - (void)observe:(id)object key:(NSString *)key block:(dispatch_block_t)block;
+
 - (void)unobserve:(id)object key:(NSString *)key;
+- (void)unobserveKey:(NSString *)key;
 
 @end

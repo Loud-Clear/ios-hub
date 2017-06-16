@@ -43,15 +43,44 @@
 
 - (void)unobserve:(id)object key:(NSString *)key
 {
+    if (!key) {
+        NSParameterAssert(key);
+        return;
+    }
+
     CCObjectObserver *observer = [self.cc_observers objectForKey:object];
 
     if (!observer) {
         return;
     }
 
-    [observer unobserve:object key:key];
+    [observer unobserveKeys:@[key]];
 
     if ([observer observationsCount] == 0) {
+        [self.cc_observers removeObjectForKey:object];
+    }
+}
+
+- (void)unobserveKey:(NSString *)key
+{
+    if (!key) {
+        NSParameterAssert(key);
+        return;
+    }
+
+    NSMutableSet *observersKeysToDelete = [NSMutableSet new];
+
+    for (id object in self.cc_observers)
+    {
+        CCObjectObserver *observer = [self.cc_observers objectForKey:object];
+        [observer unobserveKeys:@[key]];
+
+        if ([observer observationsCount] == 0) {
+            [observersKeysToDelete addObject:object];
+        }
+    }
+
+    for (id object in observersKeysToDelete) {
         [self.cc_observers removeObjectForKey:object];
     }
 }
