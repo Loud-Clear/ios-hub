@@ -34,23 +34,35 @@
      and avoid multiple writes to disk after each change, call `batchSave:` and perform changes in block.
 */
 
-@interface CCEnvironment : BaseModel
+@interface CCEnvironment : BaseModel <NSCopying>
 
 + (instancetype)currentEnvironment;
++ (void)setCurrentEnvironment:(CCEnvironment *)environment;
 
 + (NSArray<__kindof CCEnvironment *> *)availableEnvironments;
 
-- (void)useEnvironment:(CCEnvironment *)environment;
++ (void)resetAll;
 
 - (void)batchSave:(dispatch_block_t)saveBlock;
 
-/// Resets all environments to default values (provided from plist files). Be sure not to have instance of `currentEnvironment`
-/// at moment of calling to avoid overwriting just-resetted values with previous values.
-///
-/// Note! Remember to call it using your class, i.e. call [XXEnvironment reset] (where XXEnvironment is your subclass), not [CCEnvironment reset].
-+ (void)reset;
+/// Checks whatever Environment has default values in plist, or it's transient (created by user at runtime)
+- (BOOL)canReset;
 
+/// Resets all environments to default values (provided from plist files).
+- (void)reset;
+
+/**
+ * Plist filename
+ * */
 @property (nonatomic, readonly) NSString *filename;
+
+/**
+ * Use 'name' property for display purpose. User can edit this field.
+ * This can be useful in case of creating new environments (by duplicating existing ones) at runtime
+ *
+ * By default, it points to 'filename'
+ * */
+@property (nonatomic, strong) NSString *name;
 
 
 /// Override this method in your subclass:
