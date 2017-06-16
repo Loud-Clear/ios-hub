@@ -21,9 +21,79 @@ static NSString *CCEnvironmentTransientPrefix = @"__transient_";
 
 NSString *CCEnvironmentStorageDidSaveNotification = @"CCEnvironmentStorageDidSaveNotification";
 
+
+@interface CCOrderedDictionary<KeyType, ObjectType> : NSObject
+
+@property (nonatomic, strong) NSMutableOrderedSet *orderedKeys;
+@property (nonatomic, strong) NSMutableDictionary *dictionary;
+
+- (NSArray *)allValues;
+@end
+
+@implementation CCOrderedDictionary
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.orderedKeys = [NSMutableOrderedSet new];
+        self.dictionary = [NSMutableDictionary new];
+    }
+
+    return self;
+}
+
+- (void)setObject:(id)anObject forKey:(id)aKey
+{
+    self.dictionary[aKey] = anObject;
+    [self.orderedKeys addObject:aKey];
+}
+
+- (void)setObject:(id)obj forKeyedSubscript:(id)key
+{
+    self.dictionary[key] = obj;
+    [self.orderedKeys addObject:key];
+}
+
+- (void)enumerateKeysAndObjectsUsingBlock:(void (^)(id key, id obj, BOOL *stop))block
+{
+    for (id key in self.orderedKeys) {
+        id object = self.dictionary[key];
+        BOOL stop = NO;
+        SafetyCall(block, key, object, &stop);
+        if (stop) {
+            break;
+        }
+    }
+}
+
+- (id)objectForKey:(NSString *)key
+{
+    return self.dictionary[key];
+}
+
+- (id)objectForKeyedSubscript:(id)key
+{
+    return self.dictionary[key];
+}
+
+- (NSArray *)allValues
+{
+    NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:self.dictionary.count];
+
+    for (id key in self.orderedKeys) {
+        [result addObject:self.dictionary[key]];
+    }
+
+    return result;
+}
+
+@end
+
+
 @implementation CCEnvironmentStorage
 {
-    NSMapTable<NSString *, __kindof CCEnvironment *> *_environmentsPerName;
+    CCOrderedDictionary<NSString *, __kindof CCEnvironment *> *_environmentsPerName;
     CCUserDefaultsStorage *_userDefaultsStorage;
 }
 
@@ -35,7 +105,7 @@ NSString *CCEnvironmentStorageDidSaveNotification = @"CCEnvironmentStorageDidSav
 {
     self = [super init];
     if (self) {
-        _environmentsPerName = [NSMapTable strongToStrongObjectsMapTable];
+        _environmentsPerName = [CCOrderedDictionary new];
         self.environmentClass = clazz;
 
         [self setupUserDefaultsStorage];
@@ -50,15 +120,7 @@ NSString *CCEnvironmentStorageDidSaveNotification = @"CCEnvironmentStorageDidSav
 
 - (NSArray<__kindof CCEnvironment *> *)availableEnvironments
 {
-    NSMutableArray *environments = [NSMutableArray new];
-
-    NSEnumerator *keyEnumerator = [_environmentsPerName keyEnumerator];
-    NSString *key = nil;
-    while ((key = [keyEnumerator nextObject])) {
-        [environments addObject:[_environmentsPerName objectForKey:key]];
-    }
-
-    return environments;
+    return [_environmentsPerName allValues];
 }
 
 - (__kindof CCEnvironment *)environmentWithName:(NSString *)name
@@ -105,10 +167,10 @@ NSString *CCEnvironmentStorageDidSaveNotification = @"CCEnvironmentStorageDidSav
 - (void)setupUserDefaultsStorage
 {
     NSString *userDefaultsKey = [NSString stringWithFormat:@"cc_environment_%@", NSStringFromClass(self.environmentClass)];
-    _userDefaultsStorage = [[CCUserDefaultsStorage alloc] initWithClass:[NSMutableDictionary class] key:userDefaultsKey];
+    _userDefaultsStorage = [[CCUserDefaultsStorage alloc] initWithClass:[CCOrderedDictionary class] key:userDefaultsKey];
 
     if (![_userDefaultsStorage getObject]) {
-        [_userDefaultsStorage saveObject:[NSMutableDictionary new]];
+        [_userDefaultsStorage saveObject:[CCOrderedDictionary new]];
     }
 }
 
@@ -118,7 +180,7 @@ NSString *CCEnvironmentStorageDidSaveNotification = @"CCEnvironmentStorageDidSav
 
 - (void)loadFromPlistToUserDefaultsWhereEmpty
 {
-    NSMutableDictionary *allEnvironments = [_userDefaultsStorage getObject];
+    CCOrderedDictionary *allEnvironments = [_userDefaultsStorage getObject];
 
     for (NSString *filename in [self.environmentClass environmentFilenames]) {
         if (!allEnvironments[filename]) {
@@ -149,7 +211,7 @@ NSString *CCEnvironmentStorageDidSaveNotification = @"CCEnvironmentStorageDidSav
 
 - (void)loadUserDefaultsToMemory
 {
-    NSDictionary *environmentsInUserDefaults = [_userDefaultsStorage getObject];
+    CCOrderedDictionary *environmentsInUserDefaults = [_userDefaultsStorage getObject];
 
     [environmentsInUserDefaults enumerateKeysAndObjectsUsingBlock:^(NSString *name, __kindof CCEnvironment *environment, BOOL *stop) {
         [environment connectToStorage];
@@ -159,11 +221,11 @@ NSString *CCEnvironmentStorageDidSaveNotification = @"CCEnvironmentStorageDidSav
 
 - (void)saveEnvironment:(__kindof CCEnvironment *)environment
 {
-    NSMutableDictionary *environmentsInUserDefaults = [_userDefaultsStorage getObject];
+    CCOrderedDictionary *environmentsInUserDefaults = [_userDefaultsStorage getObject];
     environmentsInUserDefaults[environment.filename] = environment;
     [_userDefaultsStorage saveCurrentObject];
 
-    [NSNotificationCenter postNotificationToMainThread:CCEnvironmentStorageDidSaveNotification withObject:environment];
+    [NSNotificationCenter postNotification:CCEnvironmentStorageDidSaveNotification withObject:environment];
 }
 
 @end

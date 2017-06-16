@@ -45,13 +45,14 @@
 - (void)setUp
 {
     [super setUp];
-    [TestEnvironment reset];
+    [TestEnvironment setCurrentEnvironment:[[TestEnvironment availableEnvironments] firstObject]];
+    [TestEnvironment resetAll];
 }
 
 - (void)tearDown
 {
     [super tearDown];
-    [TestEnvironment reset];
+    [TestEnvironment resetAll];
 }
 
 //-------------------------------------------------------------------------------------------
@@ -79,11 +80,11 @@
     NSArray<TestEnvironment *> *envs = (id)[TestEnvironment availableEnvironments];
     TestEnvironment *env = [TestEnvironment currentEnvironment];
 
-    [env useEnvironment:envs[1]];
+    [TestEnvironment setCurrentEnvironment:envs[1]];
 
     XCTAssertEqualObjects(env.title, @"UAT");
 
-    [env useEnvironment:envs[0]];
+    [TestEnvironment setCurrentEnvironment:envs[0]];
 
     XCTAssertEqualObjects(env.title, @"Prod");
 }
@@ -112,7 +113,7 @@
         observed = YES;
     }];
 
-    [env useEnvironment:envs[1]];
+    [TestEnvironment setCurrentEnvironment:envs[1]];
 
     XCTAssertTrue(observed);
 }
@@ -127,7 +128,7 @@
         env.title = @"Foo";
     }
 
-    [TestEnvironment reset];
+    [TestEnvironment resetAll];
 
     TestEnvironment *env = [TestEnvironment currentEnvironment];
 
