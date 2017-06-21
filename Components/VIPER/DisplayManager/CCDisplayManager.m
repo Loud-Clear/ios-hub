@@ -16,6 +16,7 @@
 #import "MTTimingFunctions.h"
 #import <UIView+MTAnimation.h>
 #import "CCMacroses.h"
+#import "CCModule.h"
 
 
 @implementation CCDisplayManager
@@ -56,6 +57,11 @@
 - (id <CCModulePromise>)openModuleWithURL:(NSURL *)url transition:(CCTransitionStyle)style
 {
     return [_window.rootViewController openModuleUsingURL:url transition:style];
+}
+
+- (id<CCModulePromise>)openModule:(id<CCModule>)module transition:(CCTransitionStyle)style
+{
+    return [self.rootViewController openModule:module transition:style];
 }
 
 + (void)animateChange:(void (^)())change onWindow:(UIWindow *)window withAnimtion:(CCDisplayManagerTransitionAnimation)animation
@@ -150,5 +156,11 @@
 {
     return [UIScreen mainScreen].bounds;
 }
+
+- (UIViewController *)rootViewController
+{
+    return self.window.rootViewController;
+}
+
 
 @end
