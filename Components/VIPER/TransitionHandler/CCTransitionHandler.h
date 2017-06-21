@@ -16,7 +16,6 @@
 
 @protocol CCGeneralModuleInput;
 @protocol CCWorkflow;
-@protocol CCModule;
 @class CCNavigatorContext;
 
 typedef void(^CCTransitionBlock)(UIViewController *source, UIViewController *destination);
@@ -79,8 +78,6 @@ typedef NS_ENUM(NSInteger, CCTransitionStyle)
 - (id<CCModulePromise>)openModuleUsingURL:(NSURL *)url segueClass:(Class)segueClass;
 
 - (id<CCModulePromise>)openModuleUsingURL:(NSURL *)url transition:(CCTransitionStyle)style;
-
-- (id<CCModulePromise>)openModule:(id<CCModule>)module transition:(CCTransitionStyle)style;
 
 /**
  * Method removes/closes module
