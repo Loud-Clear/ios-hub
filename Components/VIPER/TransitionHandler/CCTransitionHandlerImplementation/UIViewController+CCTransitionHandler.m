@@ -70,6 +70,12 @@ static void CCViperPrepareForSegueSender(id self, SEL selector, UIStoryboardSegu
     return [self promiseByWorkflowLinkingInPromise:openModulePromise];
 }
 
+- (id<CCModulePromise>)openModule:(id<CCModule>)module transition:(CCTransitionStyle)style
+{
+    id<CCModulePromise> openModulePromise = [self openViewController:[module asViewController] transition:style];
+    return [self promiseByWorkflowLinkingInPromise:openModulePromise];
+}
+
 - (void)closeCurrentModule:(BOOL)animated
 {
     BOOL isInNavigationStack = [self.parentViewController isKindOfClass:[UINavigationController class]];

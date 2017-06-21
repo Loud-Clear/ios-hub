@@ -16,6 +16,7 @@
 @class TyphoonComponentFactory;
 @protocol CCModulePromise;
 @protocol CCWorkflow;
+@protocol CCModule;
 
 /**
  * Display Manager handles initial window state, and also aimed to switch workflow (storyboards) like
@@ -35,6 +36,7 @@
 - (void)replaceRootViewControllerWith:(UIViewController *)viewController animation:(CCDisplayManagerTransitionAnimation)animation;
 
 - (id<CCModulePromise>)openModuleWithURL:(NSURL *)url transition:(CCTransitionStyle)style;
+- (id<CCModulePromise>)openModule:(id<CCModule>)module transition:(CCTransitionStyle)style;
 
 + (void)animateChange:(void (^)())change onWindow:(UIWindow *)window
          withAnimtion:(CCDisplayManagerTransitionAnimation)animation;
@@ -42,5 +44,7 @@
 - (CGSize)screenSize;
 - (CGRect)screenBounds;
 - (CGRect)windowFrame;
+
+- (UIViewController *)rootViewController;
 
 @end
