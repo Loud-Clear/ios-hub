@@ -1,6 +1,6 @@
 # iOS-hub
 
-See available pods in [ComponentsHub.podspec](https://github.com/Loud-Clear/ios-hub/blob/master/ComponentsHub.podspec)
+See available pods in [ComponentsHub.podspec](https://github.com/Loud-Clear/ios-hub/blob/master/ComponentsHub.podspec).
 
 ## Useful shared iOS components:
 
@@ -12,6 +12,16 @@ See available pods in [ComponentsHub.podspec](https://github.com/Loud-Clear/ios-
 
 - [xc-resave](https://github.com/alexgarbarev/xc-resave):  
 `brew install alexgarbarev/core/xc-resave`
+
+- [xc-resave](https://github.com/alexgarbarev/xc-resave):  
+`brew install alexgarbarev/core/xc-resave`
+
+- [viperModuleRename](https://github.com/ivanzoid/viperModuleRename): rename a VIPER module  
+`brew install ivanzoid/tap/viper-module-rename`
+
+- [prefixChange](https://github.com/ivanzoid/prefixChange): change prefix for a class  
+`brew install ivanzoid/tap/prefixChange`
+
 
 ## News
 
