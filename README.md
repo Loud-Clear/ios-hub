@@ -13,9 +13,6 @@ See available pods in [ComponentsHub.podspec](https://github.com/Loud-Clear/ios-
 - [xc-resave](https://github.com/alexgarbarev/xc-resave):  
 `brew install alexgarbarev/core/xc-resave`
 
-- [xc-resave](https://github.com/alexgarbarev/xc-resave):  
-`brew install alexgarbarev/core/xc-resave`
-
 - [viperModuleRename](https://github.com/ivanzoid/viperModuleRename): rename a VIPER module  
 `brew install ivanzoid/tap/viper-module-rename`
 
