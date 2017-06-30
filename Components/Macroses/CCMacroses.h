@@ -12,6 +12,7 @@
 #import "EXTScope.h"
 #import "CCLogger.h"
 
+
 #define SafetyCall(block, ...) if((block)) { (block)(__VA_ARGS__); }
 #define SafetyCallAfter(seconds, block, ...) if((block)) { dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)( seconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{(block)(__VA_ARGS__);});}
 #define SafetyCallOn(queue, block, ...) if((block)) { dispatch_async(queue, ^{ (block)(__VA_ARGS__); }); }
@@ -61,6 +62,11 @@
 #define RadiansToDegrees(radians) (CGFloat) ((radians) * (180.0 / M_PI))
 #define DegreesToRadians(degrees) (CGFloat) ((degrees) / 180.0 * M_PI)
 #define NSValueFromPrimitive(primitive) ([NSValue value:&primitive withObjCType:@encode(typeof(primitive))])
-#define IOS_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
+#define CCIOSVersionGreaterThan(versionString)           ([UIDevice.currentDevice.systemVersion compare:versionString options:NSNumericSearch] == NSOrderedDescending)
+#define CCIOSVersionGreaterThanOrEqualTo(versionString)  ([UIDevice.currentDevice.systemVersion compare:versionString options:NSNumericSearch] != NSOrderedAscending)
+#define CCIOSVersionLessThan(versionString)              ([UIDevice.currentDevice.systemVersion compare:versionString options:NSNumericSearch] == NSOrderedAscending)
+#define CCIOSVersionLessThanOrEqualTo(versionString)     ([UIDevice.currentDevice.systemVersion compare:versionString options:NSNumericSearch] != NSOrderedDescending)
+
+#define IOS_GREATER_THAN_OR_EQUAL_TO(v) CCIOSVersionGreaterThanOrEqualTo(v)
 
