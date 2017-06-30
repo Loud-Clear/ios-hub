@@ -68,5 +68,4 @@
 #define CCIOSVersionLessThan(version)              ([UIDevice.currentDevice.systemVersion compare:@ #version options:NSNumericSearch] == NSOrderedAscending)
 #define CCIOSVersionLessThanOrEqualTo(version)     ([UIDevice.currentDevice.systemVersion compare:@ #version options:NSNumericSearch] != NSOrderedDescending)
 
-#define IOS_GREATER_THAN_OR_EQUAL_TO(v) CCIOSVersionGreaterThanOrEqualTo(v)
-
+#define IOS_GREATER_THAN_OR_EQUAL_TO(v) ([UIDevice.currentDevice.systemVersion compare:v options:NSNumericSearch] != NSOrderedAscending)
