@@ -22,6 +22,11 @@ See available pods in [ComponentsHub.podspec](https://github.com/Loud-Clear/ios-
 
 ## News
 
+2017-06-30
+
+- Added `RemoteNotificationService` component.
+- 'Macroses': Added macroses for checking iOS version.
+
 2017-06
 
 - `Observation`: Bug fixes in NSObject+Observe.
