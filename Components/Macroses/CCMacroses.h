@@ -63,10 +63,9 @@
 #define DegreesToRadians(degrees) (CGFloat) ((degrees) / 180.0 * M_PI)
 #define NSValueFromPrimitive(primitive) ([NSValue value:&primitive withObjCType:@encode(typeof(primitive))])
 
-#define CCIOSVersionGreaterThan(versionString)           ([UIDevice.currentDevice.systemVersion compare:versionString options:NSNumericSearch] == NSOrderedDescending)
-#define CCIOSVersionGreaterThanOrEqualTo(versionString)  ([UIDevice.currentDevice.systemVersion compare:versionString options:NSNumericSearch] != NSOrderedAscending)
-#define CCIOSVersionLessThan(versionString)              ([UIDevice.currentDevice.systemVersion compare:versionString options:NSNumericSearch] == NSOrderedAscending)
-#define CCIOSVersionLessThanOrEqualTo(versionString)     ([UIDevice.currentDevice.systemVersion compare:versionString options:NSNumericSearch] != NSOrderedDescending)
+#define CCIOSVersionGreaterThan(version)           ([UIDevice.currentDevice.systemVersion compare:@ #version options:NSNumericSearch] == NSOrderedDescending)
+#define CCIOSVersionGreaterThanOrEqualTo(version)  ([UIDevice.currentDevice.systemVersion compare:@ #version options:NSNumericSearch] != NSOrderedAscending)
+#define CCIOSVersionLessThan(version)              ([UIDevice.currentDevice.systemVersion compare:@ #version options:NSNumericSearch] == NSOrderedAscending)
+#define CCIOSVersionLessThanOrEqualTo(version)     ([UIDevice.currentDevice.systemVersion compare:@ #version options:NSNumericSearch] != NSOrderedDescending)
 
-#define IOS_GREATER_THAN_OR_EQUAL_TO(v) CCIOSVersionGreaterThanOrEqualTo(v)
-
+#define IOS_GREATER_THAN_OR_EQUAL_TO(v) ([UIDevice.currentDevice.systemVersion compare:v options:NSNumericSearch] != NSOrderedAscending)
