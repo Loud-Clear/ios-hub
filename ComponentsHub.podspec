@@ -134,7 +134,7 @@ Pod::Spec.new do |s|
       subspec.dependency 'ComponentsHub/NotificationUtils'
   end
 
-# TODO: remove (use SingletonStorage instead)
+cc# TODO: remove (use SingletonStorage instead)
   s.subspec 'SingletoneStorage' do |subspec|
       subspec.source_files   = 'Components/SingletoneStorage/**/*.{h,m}'
       subspec.dependency 'FastCoding'
