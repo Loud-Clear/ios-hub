@@ -10,6 +10,7 @@
 		032ECE8A1E54177300A64E99 /* UIViewController+CCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 032ECE851E54177300A64E99 /* UIViewController+CCTransition.m */; };
 		032ECE8B1E54177300A64E99 /* UIViewController+CCTransitionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 032ECE871E54177300A64E99 /* UIViewController+CCTransitionHandler.m */; };
 		032ECE8C1E54177300A64E99 /* UIViewController+CCWorkflow.m in Sources */ = {isa = PBXBuildFile; fileRef = 032ECE891E54177300A64E99 /* UIViewController+CCWorkflow.m */; };
+		2C44C1EE1F0651670028396F /* CCMacrosesTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821D286980132DB10E0BD4 /* CCMacrosesTest.m */; };
 		2CD634281E16668F00A2BB15 /* CCEnvironmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD634241E16668F00A2BB15 /* CCEnvironmentTests.m */; };
 		2CD634291E16668F00A2BB15 /* Config.production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD634261E16668F00A2BB15 /* Config.production.plist */; };
 		2CD6342A1E16668F00A2BB15 /* Config.staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD634271E16668F00A2BB15 /* Config.staging.plist */; };
@@ -273,6 +274,7 @@
 		31821C74E489CA353FDD23D4 /* NSObject+Observe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Observe.h"; sourceTree = "<group>"; };
 		31821CB9BC97EFBDDA081066 /* CCValueTransformerDateIso8601.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerDateIso8601.m; sourceTree = "<group>"; };
 		31821CFA1CF8D33D17D5009F /* CCValueTransformerToNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerToNumber.h; sourceTree = "<group>"; };
+		31821D286980132DB10E0BD4 /* CCMacrosesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMacrosesTest.m; sourceTree = "<group>"; };
 		31821D6608238549600585FD /* CCFormValidationAnd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationAnd.m; sourceTree = "<group>"; };
 		31821E82412E289DB954A0BA /* CCValueTransformerToNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerToNumber.m; sourceTree = "<group>"; };
 		31821E84B9AA69201F38A8CF /* CCImageServiceSDWebImageImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceSDWebImageImpl.m; sourceTree = "<group>"; };
@@ -531,13 +533,6 @@
 			path = RoundButton;
 			sourceTree = "<group>";
 		};
-		2DBA13FE77D6A0FCCBFE1481 /* Table */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Table;
-			sourceTree = "<group>";
-		};
 		2DBA14003267E44EC67824D2 /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -700,8 +695,8 @@
 				FA019A681DE07DD000364871 /* VIPER */,
 				FA019A051DE01C1800364871 /* SingletoneStorage */,
 				2DBA1A8D148689C93749F6C3 /* Observing */,
-				2DBA13FE77D6A0FCCBFE1481 /* Table */,
 				2DBA183A7E5A12409BCAFF5F /* Form */,
+				3182143320C09606E80A15E5 /* Macroses */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -784,6 +779,14 @@
 				318215190F9356F2A45A3724 /* ValueTransformers */,
 			);
 			path = TRCAddons;
+			sourceTree = "<group>";
+		};
+		3182143320C09606E80A15E5 /* Macroses */ = {
+			isa = PBXGroup;
+			children = (
+				31821D286980132DB10E0BD4 /* CCMacrosesTest.m */,
+			);
+			path = Macroses;
 			sourceTree = "<group>";
 		};
 		318215190F9356F2A45A3724 /* ValueTransformers */ = {
@@ -1824,6 +1827,7 @@
 				318217E21EBCEB304575DEE4 /* CCFormValidationOr.m in Sources */,
 				318219A994EC9A03A4C8DEEA /* CCFormValidationPhone.m in Sources */,
 				31821C7145C60F1D254C97DD /* CCFormValidationAndTests.m in Sources */,
+				2C44C1EE1F0651670028396F /* CCMacrosesTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
