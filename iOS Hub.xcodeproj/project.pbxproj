@@ -51,7 +51,9 @@
 		3182142F7E177F793AE8C546 /* NSObject+Observe.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821A33CDD8344AF9AE47B8 /* NSObject+Observe.m */; };
 		3182149406362581145D7446 /* CCFormValidationOr.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182102ACDFFB44E79A3B388 /* CCFormValidationOr.m */; };
 		318214A87C965A20875198C7 /* CCValueTransformerUnixTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 318216AF963411977C7849F9 /* CCValueTransformerUnixTime.m */; };
+		318215770FB79DE0B018A90D /* CCRemoteNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 318217D31E7C91BEEC68DE81 /* CCRemoteNotification.m */; };
 		3182157BF56C83C5B2E2718A /* CCImageGetContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 318213B5F30917FF9E1B38FC /* CCImageGetContext.m */; };
+		318217476F8DEED9BFCE692A /* CCRemoteNotificationsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 318210FF45F362C561AA0A10 /* CCRemoteNotificationsService.m */; };
 		31821777B18A4A6A68DFF62E /* CCFormValidationAnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821D6608238549600585FD /* CCFormValidationAnd.m */; };
 		318217A32FB1966F17BA9ECC /* CCImageServiceCustomImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 318217DB332BA8CE7F3F2D36 /* CCImageServiceCustomImpl.m */; };
 		318217E21EBCEB304575DEE4 /* CCFormValidationOr.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182102ACDFFB44E79A3B388 /* CCFormValidationOr.m */; };
@@ -231,6 +233,7 @@
 		31821053083AF35F8221E0FB /* CCImageGetContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageGetContext.h; sourceTree = "<group>"; };
 		318210851C76EEF688743320 /* UIImageView+CCImageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CCImageService.m"; sourceTree = "<group>"; };
 		318210AE1FA79B4C5C8E09E1 /* CCFormValidationAnd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationAnd.h; sourceTree = "<group>"; };
+		318210FF45F362C561AA0A10 /* CCRemoteNotificationsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRemoteNotificationsService.m; sourceTree = "<group>"; };
 		3182116647E16C7DCA962C98 /* CCImageServiceSDWebImageImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageServiceSDWebImageImpl.h; sourceTree = "<group>"; };
 		318211A750D20BF72B5D6E58 /* CCFormValidationOr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationOr.h; sourceTree = "<group>"; };
 		318212E32A3F573EBDC2389B /* CCDispatchUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDispatchUtils.h; sourceTree = "<group>"; };
@@ -246,6 +249,7 @@
 		318216AF963411977C7849F9 /* CCValueTransformerUnixTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerUnixTime.m; sourceTree = "<group>"; };
 		318217617BD471F71A9F058B /* CCImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageDownloader.h; sourceTree = "<group>"; };
 		318217B2896E64AA18E36425 /* CCFormValidationPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationPhone.h; sourceTree = "<group>"; };
+		318217D31E7C91BEEC68DE81 /* CCRemoteNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRemoteNotification.m; sourceTree = "<group>"; };
 		318217DAD8ECE0719A1E9775 /* CCDispatchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDispatchGroup.h; sourceTree = "<group>"; };
 		318217DB332BA8CE7F3F2D36 /* CCImageServiceCustomImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceCustomImpl.m; sourceTree = "<group>"; };
 		318217F950715FDFA5D44D71 /* CCImageLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageLog.h; sourceTree = "<group>"; };
@@ -254,9 +258,12 @@
 		31821938B6E7A8EFF41D85C5 /* NSString+SHA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SHA1.m"; sourceTree = "<group>"; };
 		31821961BB5A2B4154DC1D7D /* CCObservationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCObservationInfo.m; sourceTree = "<group>"; };
 		31821965F51A3CFF74B63A86 /* CCImageDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageDiskCache.m; sourceTree = "<group>"; };
+		31821A0EE8C795F97545CE8F /* CCRemoteNotificationsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRemoteNotificationsService.h; sourceTree = "<group>"; };
 		31821A231FAFE37B2CDE194F /* CCTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTypedefs.h; sourceTree = "<group>"; };
 		31821A33CDD8344AF9AE47B8 /* NSObject+Observe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Observe.m"; sourceTree = "<group>"; };
 		31821A3EB6892FC38F41DF67 /* CCValueTransformerDateIso8601.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerDateIso8601.h; sourceTree = "<group>"; };
+		31821A450651FC208B0F7355 /* CCRemoteNotificationsServiceInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRemoteNotificationsServiceInput.h; sourceTree = "<group>"; };
+		31821A6591EFEBB7DA471424 /* CCRemoteNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRemoteNotification.h; sourceTree = "<group>"; };
 		31821A6F657201DACCAE87D9 /* CCImageServiceAFNetworkingImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceAFNetworkingImpl.m; sourceTree = "<group>"; };
 		31821AD048458F6B4C112EC6 /* CCDispatchQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDispatchQueue.h; sourceTree = "<group>"; };
 		31821B2F840857DC85C7B958 /* CCFormValidationAndTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationAndTests.m; sourceTree = "<group>"; };
@@ -747,6 +754,18 @@
 				318217DB332BA8CE7F3F2D36 /* CCImageServiceCustomImpl.m */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		31821136C16B2283D3D2EAB2 /* RemoteNotificationsService */ = {
+			isa = PBXGroup;
+			children = (
+				31821A6591EFEBB7DA471424 /* CCRemoteNotification.h */,
+				318217D31E7C91BEEC68DE81 /* CCRemoteNotification.m */,
+				31821A0EE8C795F97545CE8F /* CCRemoteNotificationsService.h */,
+				318210FF45F362C561AA0A10 /* CCRemoteNotificationsService.m */,
+				31821A450651FC208B0F7355 /* CCRemoteNotificationsServiceInput.h */,
+			);
+			path = RemoteNotificationsService;
 			sourceTree = "<group>";
 		};
 		3182131EE990E63A19AE1F03 /* ImageService */ = {
@@ -1315,6 +1334,7 @@
 				318213D715745D5A1A8ED5CF /* TRCAddons */,
 				FA80D2621E4E3DE500420049 /* TRCRealm */,
 				2DBA11780849141764623693 /* Logging */,
+				31821136C16B2283D3D2EAB2 /* RemoteNotificationsService */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1783,6 +1803,8 @@
 				2DBA147D50393277A871EE38 /* CCLogging.m in Sources */,
 				2DBA1FFC6F490C963B43F58D /* CCCurrentEnvironmentStorage.m in Sources */,
 				2DBA1640D44031F280BD9C0B /* CCEnvironmentStorage.m in Sources */,
+				318215770FB79DE0B018A90D /* CCRemoteNotification.m in Sources */,
+				318217476F8DEED9BFCE692A /* CCRemoteNotificationsService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

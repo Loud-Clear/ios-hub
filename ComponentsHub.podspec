@@ -134,6 +134,13 @@ Pod::Spec.new do |s|
       subspec.dependency 'ComponentsHub/NotificationUtils'
   end
 
+  s.subspec 'RemoteNotificationsService' do |subspec|
+      subspec.source_files   = 'Components/RemoteNotificationsService/**/*.{h,m}'
+      subspec.dependency 'ComponentsHub/SingletonStorage'
+      subspec.dependency 'ComponentsHub/NotificationUtils'
+      subspec.dependency 'ComponentsHub/Macroses'
+  end
+
 # TODO: remove (use SingletonStorage instead)
   s.subspec 'SingletoneStorage' do |subspec|
       subspec.source_files   = 'Components/SingletoneStorage/**/*.{h,m}'
