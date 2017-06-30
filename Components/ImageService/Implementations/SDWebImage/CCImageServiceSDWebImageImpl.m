@@ -26,6 +26,7 @@
     if ((self = [super init]))
     {
         _manager = [SDWebImageManager sharedManager];
+        _manager.imageCache.shouldDecompressImages = NO;
     }
     return self;
 }
