@@ -15,7 +15,7 @@
 #import "CCRemoteNotification.h"
 #import "CCNotificationUtils.h"
 #import <UserNotifications/UserNotifications.h>
-
+#import "CCMacroses.h"
 
 NSString *const CCRemoteNotificationServiceNotificationDidReceiveToken = @"CCRemoteNotificationServiceNotificationDidReceiveToken";
 NSString *const CCRemoteNotificationServiceNotificationDidReceiveNotification  = @"CCRemoteNotificationServiceNotificationDidReceiveNotification";
