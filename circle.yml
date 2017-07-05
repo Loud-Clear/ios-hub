@@ -11,4 +11,4 @@
   test:
     override:
       - bundle exec fastlane scan --scheme "iOS Hub"
-      - ditto fastlane/test_output/report.junit $CIRCLE_TEST_REPORTS/junit/test-results.xml
+      - ditto test_output/report.junit $CIRCLE_TEST_REPORTS/junit/test-results.xml
