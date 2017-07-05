@@ -1,0 +1,14 @@
+  machine:
+    xcode:
+      version: "8.3.3"
+
+  dependencies:
+    override:
+      - bundle check --path=vendor/bundle || bundle install --path=vendor/bundle --jobs=4 --retry=3 --without development
+    cache_directories:
+      - vendor/bundle
+
+  test:
+    override:
+      - bundle exec fastlane scan --scheme "iOS Hub"
+      - ditto fastlane/test_output/report.junit $CIRCLE_TEST_REPORTS/junit/test-results.xml
