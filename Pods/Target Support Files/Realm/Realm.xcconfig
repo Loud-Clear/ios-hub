@@ -2,12 +2,14 @@ APPLICATION_EXTENSION_API_ONLY = YES
 CLANG_CXX_LANGUAGE_STANDARD = c++14
 CONFIGURATION_BUILD_DIR = $PODS_CONFIGURATION_BUILD_DIR/Realm
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Realm" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/Aspects" "${PODS_ROOT}/Headers/Public/BaseModel" "${PODS_ROOT}/Headers/Public/BugfenderSDK" "${PODS_ROOT}/Headers/Public/CTObjectiveCRuntimeAdditions" "${PODS_ROOT}/Headers/Public/CocoaLumberjack" "${PODS_ROOT}/Headers/Public/FastCoding" "${PODS_ROOT}/Headers/Public/KVOController" "${PODS_ROOT}/Headers/Public/MTAnimation" "${PODS_ROOT}/Headers/Public/OCMock" "${PODS_ROOT}/Headers/Public/PINCache" "${PODS_ROOT}/Headers/Public/Realm" "${PODS_ROOT}/Headers/Public/SAMKeychain" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/TPDWeakProxy" "${PODS_ROOT}/Headers/Public/Typhoon" "${PODS_ROOT}/Headers/Public/TyphoonRestClient" "${PODS_ROOT}/Headers/Public/libextobjc" "${PODS_ROOT}/Realm/include/core"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Realm" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/Aspects" "${PODS_ROOT}/Headers/Public/BaseModel" "${PODS_ROOT}/Headers/Public/BugfenderSDK" "${PODS_ROOT}/Headers/Public/CTObjectiveCRuntimeAdditions" "${PODS_ROOT}/Headers/Public/CocoaLumberjack" "${PODS_ROOT}/Headers/Public/FastCoding" "${PODS_ROOT}/Headers/Public/KVOController" "${PODS_ROOT}/Headers/Public/MTAnimation" "${PODS_ROOT}/Headers/Public/OCMock" "${PODS_ROOT}/Headers/Public/PINCache" "${PODS_ROOT}/Headers/Public/PureLayout" "${PODS_ROOT}/Headers/Public/Realm" "${PODS_ROOT}/Headers/Public/SAMKeychain" "${PODS_ROOT}/Headers/Public/SDWebImage" "${PODS_ROOT}/Headers/Public/TPDWeakProxy" "${PODS_ROOT}/Headers/Public/TPKeyboardAvoiding" "${PODS_ROOT}/Headers/Public/Typhoon" "${PODS_ROOT}/Headers/Public/TyphoonRestClient" "${PODS_ROOT}/Headers/Public/libextobjc"
 LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Realm/core"
+OTHER_CPLUSPLUSFLAGS = -isystem "${PODS_ROOT}/Realm/include/core"
 OTHER_LDFLAGS = -l"c++" -l"realmcore-ios" -l"z"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}
+PODS_TARGET_SRCROOT = ${PODS_ROOT}/Realm
 PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.${PRODUCT_NAME:rfc1034identifier}
 SKIP_INSTALL = YES
 USER_HEADER_SEARCH_PATHS = "${PODS_ROOT}/Realm/include" "${PODS_ROOT}/Realm/include/Realm"

@@ -54,6 +54,15 @@ Pod::Spec.new do |s|
       subspec.dependency 'ComponentsHub/Macroses'
   end
 
+    s.subspec 'EnvironmentUI' do |subspec|
+        subspec.source_files   = 'Components/EnvironmentUI/**/*.{h,m}'
+        subspec.dependency 'ComponentsHub/Environment'
+        subspec.dependency 'ComponentsHub/Forms'
+        subspec.dependency 'PureLayout'
+        subspec.dependency 'TPKeyboardAvoiding'
+        subspec.dependency 'Typhoon/IntrospectionUtils'
+    end
+
   s.subspec 'ImageService-Common' do |subspec|
       subspec.source_files   = 'Components/ImageService/CCImageService.h', 'Components/ImageService/UIImageView+CCImageService/*.{h,m}'
       subspec.dependency 'ComponentsHub/Macroses'

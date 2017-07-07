@@ -28,6 +28,12 @@
     NSMutableDictionary *_formats;
 
     NSString *_moduleName;
+
+    NSSet<NSString *> *_cachedFilenames;
+    BOOL _shouldRecacheFilenames;
+
+    NSMutableDictionary *_cachedRequestSchemaData;
+    NSMutableDictionary *_cachedResponseSchemaData;
 }
 
 - (instancetype)init
@@ -49,40 +55,41 @@
 - (TRCSchema *)schemeForErrorHandler:(id<TRCErrorHandler>)parser
 {
     return [self schemeForObject:parser nameSelector:@selector(errorValidationSchemaName) suffix:@"response"
-                   excludeSuffix:nil isRequest:NO];
+                       isRequest:NO useCache:YES];
 }
 
 - (TRCSchema *)schemeForPathParametersWithRequest:(id<TRCRequest>)request
 {
     return [self schemeForObject:request nameSelector:@selector(pathParametersValidationSchemaName) suffix:@"path"
-                   excludeSuffix:nil isRequest:YES];
+                       isRequest:YES useCache:NO];
 }
 
 - (TRCSchema *)schemeForRequest:(id<TRCRequest>)request
 {
     return [self schemeForObject:request nameSelector:@selector(requestBodyValidationSchemaName) suffix:@"request"
-                   excludeSuffix:nil isRequest:YES];
+                       isRequest:YES useCache:NO];
 }
 
 - (TRCSchema *)schemeForResponseWithRequest:(id<TRCRequest>)request
 {
     return [self schemeForObject:request nameSelector:@selector(responseBodyValidationSchemaName) suffix:@"response"
-                   excludeSuffix:nil isRequest:NO];
+                       isRequest:NO useCache:NO];
 }
 
 - (id<TRCSchemaData>)requestSchemaDataForMapper:(id<TRCObjectMapper>)mapper
 {
     return [self schemeForObject:mapper nameSelector:@selector(requestValidationSchemaName) suffix:@[@"request", @""]
-                   excludeSuffix:@"response" isRequest:YES].data;
+                       isRequest:YES useCache:YES].data;
 }
 
 - (id<TRCSchemaData>)responseSchemaDataForMapper:(id<TRCObjectMapper>)mapper
 {
     return [self schemeForObject:mapper nameSelector:@selector(responseValidationSchemaName) suffix:@[@"response", @""]
-                   excludeSuffix:@"request" isRequest:NO].data;
+                       isRequest:NO useCache:YES].data;
 }
 
-- (TRCSchema *)schemeForObject:(id)object nameSelector:(SEL)sel suffix:(id)suffix excludeSuffix:(NSString *)excludeSuffix isRequest:(BOOL)request
+- (TRCSchema *)schemeForObject:(id)object nameSelector:(SEL)sel suffix:(id)suffix isRequest:(BOOL)request
+                      useCache:(BOOL)useCache
 {
     NSString *filePath = nil;
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
@@ -106,64 +113,70 @@
 
         if ([suffix isKindOfClass:[NSArray class]]) {
             for (NSString *suffixString in suffix) {
-                filePath = [self pathForSchemeWithClassName:className suffix:suffixString excludeSuffix:excludeSuffix];
+                filePath = [self pathForSchemeWithClassName:className suffix:suffixString];
                 if (filePath) {
                     break;
                 }
             }
         } else if ([suffix isKindOfClass:[NSString class]]) {
-            filePath = [self pathForSchemeWithClassName:className suffix:suffix excludeSuffix:excludeSuffix];
+            filePath = [self pathForSchemeWithClassName:className suffix:suffix];
         }
     }
 
     if (filePath) {
-        id<TRCSchemaData>schemaData = [self schemeDataFromFilePath:filePath isRequest:request];
+        id<TRCSchemaData>schemaData = [self schemeDataFromFilePath:filePath isRequest:request useCache:useCache];
         return [self schemeFromData:schemaData withName:[filePath lastPathComponent]];
     } else {
         return nil;
     }
 }
 
-- (NSString *)pathForSchemeWithClassName:(NSString *)className suffix:(NSString *)suffix excludeSuffix:(NSString *)excludeSuffix
+- (NSString *)pathForSchemeWithClassName:(NSString *)className suffix:(NSString *)suffix
 {
-    NSString *fileNamePrefix = suffix.length > 0 ? [NSString stringWithFormat:@"%@.%@", className, suffix] : className;
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    NSArray *allFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[bundle bundlePath] error:nil];
-    for (NSString *fileName in allFiles) {
-        if ([fileName hasPrefix:fileNamePrefix]) {
-            NSString *fullPath = [[bundle bundlePath] stringByAppendingPathComponent:fileName];
-            if (excludeSuffix) {
-                NSString *fileNameSuffix = [fileName stringByReplacingOccurrencesOfString:fileNamePrefix withString:@""];
-                if ([fileNameSuffix rangeOfString:excludeSuffix].location == NSNotFound) {
-                    return fullPath;
-                }
-            } else {
-                return fullPath;
-            }
+    NSString *fileName = suffix.length > 0 ? [NSString stringWithFormat:@"%@.%@", className, suffix] : className;
+
+    NSArray<NSString *> *formats = [_formats allKeys];
+    for (NSString *formatExtension in formats) {
+        NSString *fileNameToTest = [fileName stringByAppendingPathExtension:formatExtension];
+        if ([self isSchemaExistsWithFilename:fileNameToTest]) {
+            NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+            return [[bundle bundlePath] stringByAppendingPathComponent:fileNameToTest];
         }
     }
     return nil;
 }
 
-- (id<TRCSchemaData>)schemeDataFromFilePath:(NSString *)filePath isRequest:(BOOL)isRequest
+- (BOOL)isSchemaExistsWithFilename:(NSString *)filename
 {
-    id<TRCSchemaData> result = nil;
-    id<TRCSchemaFormat> format = [self formatForFileExtension:[filePath pathExtension]];
-    if (format) {
-        NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
-        if (data) {
-            NSError *error = nil;
-            if (isRequest) {
-                result = [format requestSchemaDataFromData:data dataProvider:self.owner error:&error];
-            } else {
-                result = [format responseSchemaDataFromData:data dataProvider:self.owner error:&error];
-            }
+    return [[self cachedFilenames] containsObject:filename];
+}
 
-            if (error) {
-                NSLog(@"Error: Can't load scheme at path: %@. Error: %@", filePath, error);
+- (id<TRCSchemaData>)schemeDataFromFilePath:(NSString *)filePath isRequest:(BOOL)isRequest useCache:(BOOL)useCache
+{
+    id<TRCSchemaData> result = [self cachedSchemeDataFromFilePath:filePath isRequest:isRequest];
+
+    if (!result) {
+        id<TRCSchemaFormat> format = [self formatForFileExtension:[filePath pathExtension]];
+        if (format) {
+            NSData *data = [[NSData alloc] initWithContentsOfFile:filePath];
+            if (data) {
+                NSError *error = nil;
+                if (isRequest) {
+                    result = [format requestSchemaDataFromData:data dataProvider:self.owner error:&error];
+                } else {
+                    result = [format responseSchemaDataFromData:data dataProvider:self.owner error:&error];
+                }
+
+                if (error) {
+                    NSLog(@"Error: Can't load scheme at path: %@. Error: %@", filePath, error);
+                }
             }
         }
+        if (useCache) {
+            [self cache:result fromFilePath:filePath isRequest:isRequest];
+        }
     }
+
     return result;
 }
 
@@ -171,7 +184,6 @@
 {
     TRCSchema *schema = [TRCSchema schemaWithData:data name:name];
     schema.converterRegistry = self.owner;
-    schema.options = self.owner.validationOptions;
     return schema;
 }
 
@@ -193,6 +205,8 @@
     } else {
         [_formats removeObjectForKey:extension];
     }
+
+    _shouldRecacheFilenames = YES;
 }
 
 - (id<TRCSchemaFormat>)formatForFileExtension:(NSString *)extension
@@ -203,5 +217,62 @@
         return nil;
     }
 }
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Filename cache
+//-------------------------------------------------------------------------------------------
+
+- (NSSet<NSString *> *)cachedFilenames
+{
+    if (!_cachedFilenames || _shouldRecacheFilenames) {
+        NSMutableSet *filenames = [NSMutableSet new];
+
+        NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+
+        NSArray *allFiles = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[bundle bundlePath] error:nil];
+
+        NSSet *supportedExtensions = [NSSet setWithArray:[_formats allKeys]];
+
+        for (NSString *file in allFiles) {
+            if ([supportedExtensions containsObject:[file pathExtension]]) {
+                [filenames addObject:file];
+            }
+        }
+
+        _cachedFilenames = filenames;
+        _shouldRecacheFilenames = NO;
+    }
+
+    return _cachedFilenames;
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Schema Data cache
+//-------------------------------------------------------------------------------------------
+
+- (id<TRCSchemaData>)cachedSchemeDataFromFilePath:(NSString *)filePath isRequest:(BOOL)isRequest
+{
+    if (isRequest) {
+        return _cachedRequestSchemaData[filePath];
+    } else {
+        return _cachedResponseSchemaData[filePath];
+    }
+}
+
+- (void)cache:(id<TRCSchemaData>)data fromFilePath:(NSString *)filePath isRequest:(BOOL)isRequest
+{
+    if (isRequest) {
+        if (!_cachedRequestSchemaData) {
+            _cachedRequestSchemaData = [NSMutableDictionary new];
+        }
+        _cachedRequestSchemaData[filePath] = data;
+    } else {
+        if (!_cachedResponseSchemaData) {
+            _cachedResponseSchemaData = [NSMutableDictionary new];
+        }
+        _cachedResponseSchemaData[filePath] = data;
+    }
+}
+
 
 @end

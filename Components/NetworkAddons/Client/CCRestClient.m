@@ -25,7 +25,7 @@
 
     [self setupConnection];
     [self registerComponents];
-}
+    }
 
 - (void)setupConnection
 {

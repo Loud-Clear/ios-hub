@@ -24,19 +24,26 @@
 		2DBA122113039CF9B42BF88D /* CCConnectionLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA11AD0D332E59D6BB30DE /* CCConnectionLogger.m */; };
 		2DBA12487E297EE428A25271 /* CCRestClientRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA190516A51B8C496633B7 /* CCRestClientRegistry.m */; };
 		2DBA12519CA7A0DE2C008423 /* CCMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1345FC7E35EE8C2CC474 /* CCMapping.m */; };
+		2DBA12788C89BEE736B04C9F /* CCEnvironmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA11090D20B2E382F61C62 /* CCEnvironmentCell.m */; };
+		2DBA12F39C15E0D5CAF0BDE6 /* CCEnvironmentFieldTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA15B9884A0F28FF6543E5 /* CCEnvironmentFieldTextCell.m */; };
+		2DBA13FC70E099CD3E2C7B90 /* CCEnvironment+SwitcherUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1DAA78F10D127DEBD3F1 /* CCEnvironment+SwitcherUI.m */; };
 		2DBA147D50393277A871EE38 /* CCLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1B1F0020312DCCBC377B /* CCLogging.m */; };
 		2DBA1496B0331E84A3BC0825 /* CCTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */; };
 		2DBA14A5AF44ACAFAB0DC56A /* CCPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */; };
+		2DBA14E98BEDB6ADB3D059FA /* CCEnvironmentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D8425668357C04DCDBC /* CCEnvironmentDetailViewController.m */; };
 		2DBA150A27435C502199776A /* CCTableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A0BF4F3E60B3D6DBF90 /* CCTableViewItem.m */; };
 		2DBA1554A2D01962B61EEC46 /* CCResendConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1FD3C39D406A1DEB1A52 /* CCResendConnection.m */; };
 		2DBA155F41E35FF8F220F36C /* CCDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1BC5EBB5E3345A3D7090 /* CCDatabaseManager.m */; };
+		2DBA15D0EE32BD383DDB5DFF /* CCEnvironmentField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA12CB976E9EED75135737 /* CCEnvironmentField.m */; };
 		2DBA15EFE90B20AF3823885A /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA10CE13525A2D6ABA0D3E /* CCTableViewCell.m */; };
 		2DBA1640D44031F280BD9C0B /* CCEnvironmentStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA181691B57044917AC0DC /* CCEnvironmentStorage.m */; };
 		2DBA1661CA7311CCA9DF8446 /* CCAssemblyCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA180B909823C1F490ECA4 /* CCAssemblyCollector.m */; };
 		2DBA167A74F0280967A631E9 /* CCBugfenderLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA142B03096C6977CE3377 /* CCBugfenderLogger.m */; };
+		2DBA169E765E5922FBEC6673 /* CCEnvironmentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA127270240B7BB4FC3237 /* CCEnvironmentItem.m */; };
 		2DBA16C1FD3CA92F05A9B482 /* CCValidationErrorToBugfenderPostProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA17E9154FF02E9A735322 /* CCValidationErrorToBugfenderPostProcessor.m */; };
 		2DBA16C75C30F18D2EE8F51F /* CCRestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1F8C007E342704E24574 /* CCRestClient.m */; };
 		2DBA1906F41097E3E0C40F4A /* CCFormValidationEmailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19C33C3C3F6910E65677 /* CCFormValidationEmailTests.m */; };
+		2DBA19D0DC6C469B89651B7E /* CCEnvironmentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA18DCA00C762E26329ECB /* CCEnvironmentListViewController.m */; };
 		2DBA19F176AF84C12662EE34 /* CCValueTransformerDateRFC3339.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA10C0578B9E75DDF9ED4B /* CCValueTransformerDateRFC3339.m */; };
 		2DBA19F6DDAD77FB23DE4945 /* CCValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1AC19FCA554F2463E844 /* CCValueTransformer.m */; };
 		2DBA1A367F25D703565E17AA /* CCFileAndLineNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1272A203185D86A7C935 /* CCFileAndLineNumberFormatter.m */; };
@@ -46,6 +53,8 @@
 		2DBA1E4F5C4C243A2B1922C8 /* CCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19DEC43E08772F519531 /* CCRequest.m */; };
 		2DBA1EDF3A27D4288D1F4A26 /* CCTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1221C2F7AA7F1BAA5FEB /* CCTableViewManager.m */; };
 		2DBA1F393CB43D39F39B63EE /* CCActionBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1F9A06CA7C69A3A989B5 /* CCActionBar.m */; };
+		2DBA1F652B622336EA36C25B /* CCEnvironmentFieldBool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA159EC32C50CA96A6D6E7 /* CCEnvironmentFieldBool.m */; };
+		2DBA1FED1F58500E4CCB399C /* CCEnvironment+PresentingName.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA174499E8D2947113FD92 /* CCEnvironment+PresentingName.m */; };
 		2DBA1FFC6F490C963B43F58D /* CCCurrentEnvironmentStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1E6631C36BE28EDF8FE2 /* CCCurrentEnvironmentStorage.m */; };
 		3182115962E5FF8E95036757 /* CCImageServiceSDWebImageImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821E84B9AA69201F38A8CF /* CCImageServiceSDWebImageImpl.m */; };
 		3182130E59B1DBB16CACEAF4 /* CCImageMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821B3855A95DFE6BD92120 /* CCImageMemoryCache.m */; };
@@ -171,7 +180,9 @@
 		2CD6342D1E1666A100A2BB15 /* CCEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEnvironment.m; sourceTree = "<group>"; };
 		2DBA105EDBBCED84C609D01F /* CCConnectionLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCConnectionLogger.h; sourceTree = "<group>"; };
 		2DBA10C0578B9E75DDF9ED4B /* CCValueTransformerDateRFC3339.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerDateRFC3339.m; sourceTree = "<group>"; };
+		2DBA10C44E5C6632A11BB8BE /* CCEnvironment+PresentingName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCEnvironment+PresentingName.h"; sourceTree = "<group>"; };
 		2DBA10CE13525A2D6ABA0D3E /* CCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCell.m; sourceTree = "<group>"; };
+		2DBA11090D20B2E382F61C62 /* CCEnvironmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEnvironmentCell.m; sourceTree = "<group>"; };
 		2DBA114BB93F562759A0F303 /* CCValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformer.h; sourceTree = "<group>"; };
 		2DBA1155E8073B5D351A6EA1 /* CCTableViewManager+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCTableViewManager+Internal.h"; sourceTree = "<group>"; };
 		2DBA11AD0D332E59D6BB30DE /* CCConnectionLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCConnectionLogger.m; sourceTree = "<group>"; };
@@ -179,17 +190,25 @@
 		2DBA1221C2F7AA7F1BAA5FEB /* CCTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewManager.m; sourceTree = "<group>"; };
 		2DBA123004C8009938E91664 /* CCValidationErrorToBugfenderPostProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValidationErrorToBugfenderPostProcessor.h; sourceTree = "<group>"; };
 		2DBA1262DA2075C83CCB1A8B /* CCTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCellFactory.h; sourceTree = "<group>"; };
+		2DBA127270240B7BB4FC3237 /* CCEnvironmentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEnvironmentItem.m; sourceTree = "<group>"; };
 		2DBA1272A203185D86A7C935 /* CCFileAndLineNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFileAndLineNumberFormatter.m; sourceTree = "<group>"; };
 		2DBA12AF504A133122C7CFCE /* NSBundle+CCTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+CCTableViewManager.h"; sourceTree = "<group>"; };
+		2DBA12CB976E9EED75135737 /* CCEnvironmentField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEnvironmentField.m; sourceTree = "<group>"; };
 		2DBA1345FC7E35EE8C2CC474 /* CCMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMapping.m; sourceTree = "<group>"; };
 		2DBA13B72D6D5F55C68D69E4 /* CCAssemblyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAssemblyTests.m; sourceTree = "<group>"; };
+		2DBA13FB1A93FCA7EDB3D58E /* CCEnvironment+SwitcherUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCEnvironment+SwitcherUI.h"; sourceTree = "<group>"; };
 		2DBA142B03096C6977CE3377 /* CCBugfenderLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBugfenderLogger.m; sourceTree = "<group>"; };
+		2DBA142C4602DA2EBF544E80 /* CCEnvironmentFieldBool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEnvironmentFieldBool.h; sourceTree = "<group>"; };
 		2DBA14E2ECC6208AA27CC903 /* CCTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCell.h; sourceTree = "<group>"; };
 		2DBA151B65B698B19EAC1734 /* CCTableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewSection.h; sourceTree = "<group>"; };
+		2DBA158224F246A55FB670C1 /* CCEnvironmentField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEnvironmentField.h; sourceTree = "<group>"; };
+		2DBA159EC32C50CA96A6D6E7 /* CCEnvironmentFieldBool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEnvironmentFieldBool.m; sourceTree = "<group>"; };
+		2DBA15B9884A0F28FF6543E5 /* CCEnvironmentFieldTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEnvironmentFieldTextCell.m; sourceTree = "<group>"; };
 		2DBA15EF14892BE9C0B9700E /* CCAdditionalAsserts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAdditionalAsserts.h; sourceTree = "<group>"; };
 		2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPlaceholderTextView.m; sourceTree = "<group>"; };
 		2DBA16E1A9A5FA6C8C0E733C /* CCAssemblyCollector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAssemblyCollector.h; sourceTree = "<group>"; };
 		2DBA1744188395C568EB9F02 /* CCTableViewCellStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCellStyle.m; sourceTree = "<group>"; };
+		2DBA174499E8D2947113FD92 /* CCEnvironment+PresentingName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCEnvironment+PresentingName.m"; sourceTree = "<group>"; };
 		2DBA178A8B7FF15B9230FFFB /* CCRoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRoundButton.h; sourceTree = "<group>"; };
 		2DBA17AECC6A749E19944C52 /* CCEnvironmentStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEnvironmentStorage.h; sourceTree = "<group>"; };
 		2DBA17D4609ED9199EA15414 /* CCDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDatabaseManager.h; sourceTree = "<group>"; };
@@ -202,6 +221,7 @@
 		2DBA183F86F3CB4DA7AF3460 /* CCResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCResults.h; sourceTree = "<group>"; };
 		2DBA186D3417EEA9EF0279CC /* CCEnvironment+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCEnvironment+Private.h"; sourceTree = "<group>"; };
 		2DBA18D2C58154E9915AD020 /* CCAssemblyTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAssemblyTests.h; sourceTree = "<group>"; };
+		2DBA18DCA00C762E26329ECB /* CCEnvironmentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEnvironmentListViewController.m; sourceTree = "<group>"; };
 		2DBA190516A51B8C496633B7 /* CCRestClientRegistry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRestClientRegistry.m; sourceTree = "<group>"; };
 		2DBA19536DC9041B2099840A /* CCTableViewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewItem.h; sourceTree = "<group>"; };
 		2DBA198F79C6F5CEA6B52F67 /* TyphoonRestClientStub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TyphoonRestClientStub.h; sourceTree = "<group>"; };
@@ -212,6 +232,7 @@
 		2DBA19FDB389A342F9CEA0C7 /* CCTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewSection.m; sourceTree = "<group>"; };
 		2DBA1A0BF4F3E60B3D6DBF90 /* CCTableViewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewItem.m; sourceTree = "<group>"; };
 		2DBA1AA854B22D32382F824D /* CCObjectObserverTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = CCObjectObserverTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2DBA1AAD2631756A5C30DD32 /* CCEnvironmentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEnvironmentItem.h; sourceTree = "<group>"; };
 		2DBA1AC19FCA554F2463E844 /* CCValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformer.m; sourceTree = "<group>"; };
 		2DBA1B1F0020312DCCBC377B /* CCLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLogging.m; sourceTree = "<group>"; };
 		2DBA1B4C5D0B4C1AFA0BBCA2 /* CCCurrentEnvironmentStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCurrentEnvironmentStorage.h; sourceTree = "<group>"; };
@@ -219,20 +240,26 @@
 		2DBA1B77D0950507FD1807A3 /* CCResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCResults.m; sourceTree = "<group>"; };
 		2DBA1B86C33AECE39AF41BD4 /* CCRestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRestClient.h; sourceTree = "<group>"; };
 		2DBA1BA28B947E4C31A07BB5 /* CCAdditionalAsserts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAdditionalAsserts.m; sourceTree = "<group>"; };
+		2DBA1BAC6BF8B33DAC4D5EBE /* CCEnvironmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEnvironmentCell.h; sourceTree = "<group>"; };
 		2DBA1BB9C2ABBC636856FD47 /* TyphoonRestClientStub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TyphoonRestClientStub.m; sourceTree = "<group>"; };
+		2DBA1BC20BAF459855B8AE2E /* CCEnvironmentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEnvironmentListViewController.h; sourceTree = "<group>"; };
 		2DBA1BC5EBB5E3345A3D7090 /* CCDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDatabaseManager.m; sourceTree = "<group>"; };
 		2DBA1C2A008AB29C60FE97FF /* CCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRequest.h; sourceTree = "<group>"; };
 		2DBA1CAAAFA689B2C4121909 /* CCRoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRoundButton.m; sourceTree = "<group>"; };
 		2DBA1CE7EF66981411B4DE0A /* CCValueTransformerDateRFC3339.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerDateRFC3339.h; sourceTree = "<group>"; };
 		2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCellFactory.m; sourceTree = "<group>"; };
 		2DBA1D805B9B1600C55FC061 /* CCGeneralPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCGeneralPresenter.m; sourceTree = "<group>"; };
+		2DBA1D8425668357C04DCDBC /* CCEnvironmentDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEnvironmentDetailViewController.m; sourceTree = "<group>"; };
 		2DBA1D929113A280E8F7F040 /* CCGeneralPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCGeneralPresenter.h; sourceTree = "<group>"; };
 		2DBA1D93E0513620DF602C84 /* NSBundle+CCTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+CCTableViewManager.m"; sourceTree = "<group>"; };
+		2DBA1D9A003B925C6D7EE371 /* CCEnvironmentFieldTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEnvironmentFieldTextCell.h; sourceTree = "<group>"; };
+		2DBA1DAA78F10D127DEBD3F1 /* CCEnvironment+SwitcherUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCEnvironment+SwitcherUI.m"; sourceTree = "<group>"; };
 		2DBA1DB10BE9FD9D42159592 /* CCActionBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCActionBar.h; sourceTree = "<group>"; };
 		2DBA1DB313FABCD5F870A3CB /* NSObject+TyphoonDefaultFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TyphoonDefaultFactory.m"; sourceTree = "<group>"; };
 		2DBA1DC77E4A881BA73473DA /* CCRestClientRegistry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRestClientRegistry.h; sourceTree = "<group>"; };
 		2DBA1E0EACF27E7F1C28C53F /* CCBugfenderLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBugfenderLogger.h; sourceTree = "<group>"; };
 		2DBA1E6631C36BE28EDF8FE2 /* CCCurrentEnvironmentStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCCurrentEnvironmentStorage.m; sourceTree = "<group>"; };
+		2DBA1E9C66BD496222446400 /* CCEnvironmentDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEnvironmentDetailViewController.h; sourceTree = "<group>"; };
 		2DBA1F32514A6E43782D4461 /* CCFileAndLineNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFileAndLineNumberFormatter.h; sourceTree = "<group>"; };
 		2DBA1F8C007E342704E24574 /* CCRestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRestClient.m; sourceTree = "<group>"; };
 		2DBA1F9A06CA7C69A3A989B5 /* CCActionBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCActionBar.m; sourceTree = "<group>"; };
@@ -478,7 +505,6 @@
 				2CD6342C1E1666A100A2BB15 /* CCEnvironment.h */,
 				2CD6342D1E1666A100A2BB15 /* CCEnvironment.m */,
 				2DBA1FD1E55E66F5BD13287F /* Storage */,
-				2DBA1D643F85B7FB437BE260 /* UI */,
 			);
 			path = Environment;
 			sourceTree = "<group>";
@@ -492,6 +518,16 @@
 			path = ValidationErrorBugfender;
 			sourceTree = "<group>";
 		};
+		2DBA1161EDDC7C7F259ADB89 /* CCEnvironmentDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1CC054DDDD5E46E9AE3E /* Fields */,
+				2DBA1E9C66BD496222446400 /* CCEnvironmentDetailViewController.h */,
+				2DBA1D8425668357C04DCDBC /* CCEnvironmentDetailViewController.m */,
+			);
+			path = CCEnvironmentDetailView;
+			sourceTree = "<group>";
+		};
 		2DBA11780849141764623693 /* Logging */ = {
 			isa = PBXGroup;
 			children = (
@@ -503,6 +539,18 @@
 				2DBA1823DA6A197E4CAF3A2F /* CCLogging.h */,
 			);
 			path = Logging;
+			sourceTree = "<group>";
+		};
+		2DBA1186D339AF186FD2BF38 /* CCEnvironmentListView */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1E39900202FF1869D3F4 /* Cells */,
+				2DBA10C44E5C6632A11BB8BE /* CCEnvironment+PresentingName.h */,
+				2DBA174499E8D2947113FD92 /* CCEnvironment+PresentingName.m */,
+				2DBA1BC20BAF459855B8AE2E /* CCEnvironmentListViewController.h */,
+				2DBA18DCA00C762E26329ECB /* CCEnvironmentListViewController.m */,
+			);
+			path = CCEnvironmentListView;
 			sourceTree = "<group>";
 		};
 		2DBA125039850DEAD7585F07 /* Request */ = {
@@ -621,6 +669,17 @@
 				2DBA1393C3600DC6CA973A8D /* PostProcessor */,
 			);
 			path = Form;
+			sourceTree = "<group>";
+		};
+		2DBA18938C2546023695279D /* EnvironmentUI */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1186D339AF186FD2BF38 /* CCEnvironmentListView */,
+				2DBA1161EDDC7C7F259ADB89 /* CCEnvironmentDetailView */,
+				2DBA1DAA78F10D127DEBD3F1 /* CCEnvironment+SwitcherUI.m */,
+				2DBA13FB1A93FCA7EDB3D58E /* CCEnvironment+SwitcherUI.h */,
+			);
+			path = EnvironmentUI;
 			sourceTree = "<group>";
 		};
 		2DBA18A6EB526D152F6DC92C /* DatabaseManager */ = {
@@ -746,11 +805,17 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		2DBA1D643F85B7FB437BE260 /* UI */ = {
+		2DBA1CC054DDDD5E46E9AE3E /* Fields */ = {
 			isa = PBXGroup;
 			children = (
+				2DBA158224F246A55FB670C1 /* CCEnvironmentField.h */,
+				2DBA12CB976E9EED75135737 /* CCEnvironmentField.m */,
+				2DBA142C4602DA2EBF544E80 /* CCEnvironmentFieldBool.h */,
+				2DBA159EC32C50CA96A6D6E7 /* CCEnvironmentFieldBool.m */,
+				2DBA1D9A003B925C6D7EE371 /* CCEnvironmentFieldTextCell.h */,
+				2DBA15B9884A0F28FF6543E5 /* CCEnvironmentFieldTextCell.m */,
 			);
-			path = UI;
+			path = Fields;
 			sourceTree = "<group>";
 		};
 		2DBA1D9884414D57B85D4616 /* Client */ = {
@@ -761,6 +826,17 @@
 				2DBA1F8C007E342704E24574 /* CCRestClient.m */,
 			);
 			path = Client;
+			sourceTree = "<group>";
+		};
+		2DBA1E39900202FF1869D3F4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1BAC6BF8B33DAC4D5EBE /* CCEnvironmentCell.h */,
+				2DBA11090D20B2E382F61C62 /* CCEnvironmentCell.m */,
+				2DBA1AAD2631756A5C30DD32 /* CCEnvironmentItem.h */,
+				2DBA127270240B7BB4FC3237 /* CCEnvironmentItem.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		2DBA1E652C3496BE52632949 /* Logger */ = {
@@ -1401,6 +1477,7 @@
 				FA80D2621E4E3DE500420049 /* TRCRealm */,
 				2DBA11780849141764623693 /* Logging */,
 				31821136C16B2283D3D2EAB2 /* RemoteNotificationsService */,
+				2DBA18938C2546023695279D /* EnvironmentUI */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1696,7 +1773,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C0C48CE965D813D130F3C7DE /* [CP] Embed Pods Frameworks */ = {
@@ -1741,7 +1818,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FBCBC52EC21616B3A53C5887 /* [CP] Copy Pods Resources */ = {
@@ -1874,6 +1951,15 @@
 				2DBA1554A2D01962B61EEC46 /* CCResendConnection.m in Sources */,
 				2DBA16C1FD3CA92F05A9B482 /* CCValidationErrorToBugfenderPostProcessor.m in Sources */,
 				2DBA19F176AF84C12662EE34 /* CCValueTransformerDateRFC3339.m in Sources */,
+				2DBA12788C89BEE736B04C9F /* CCEnvironmentCell.m in Sources */,
+				2DBA169E765E5922FBEC6673 /* CCEnvironmentItem.m in Sources */,
+				2DBA1FED1F58500E4CCB399C /* CCEnvironment+PresentingName.m in Sources */,
+				2DBA19D0DC6C469B89651B7E /* CCEnvironmentListViewController.m in Sources */,
+				2DBA15D0EE32BD383DDB5DFF /* CCEnvironmentField.m in Sources */,
+				2DBA1F652B622336EA36C25B /* CCEnvironmentFieldBool.m in Sources */,
+				2DBA12F39C15E0D5CAF0BDE6 /* CCEnvironmentFieldTextCell.m in Sources */,
+				2DBA14E98BEDB6ADB3D059FA /* CCEnvironmentDetailViewController.m in Sources */,
+				2DBA13FC70E099CD3E2C7B90 /* CCEnvironment+SwitcherUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
