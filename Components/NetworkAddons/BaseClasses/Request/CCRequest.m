@@ -10,6 +10,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import "CCRequest.h"
+#import "CCResendConnection.h"
 
 NSString *kCCRequestRequiresSessionCustomFlagKey = @"requiresSession";
 NSString *kCCRequestDisableLoggingCustomFlagKey = @"disableLogging";
@@ -31,6 +32,11 @@ NSString *kCCRequestDisableLoggingCustomFlagKey = @"disableLogging";
 }
 
 - (BOOL)disableCache
+{
+    return NO;
+}
+
+- (BOOL)shouldResend
 {
     return NO;
 }
@@ -106,6 +112,9 @@ NSString *kCCRequestDisableLoggingCustomFlagKey = @"disableLogging";
     }
     if ([self disableLogging]) {
         customProperties[kCCRequestDisableLoggingCustomFlagKey] = @YES;
+    }
+    if ([self shouldResend]) {
+        customProperties[CCResendConnectionShouldResend] = @YES;
     }
     return customProperties;
 }

@@ -28,13 +28,16 @@
 		2DBA1496B0331E84A3BC0825 /* CCTableViewCellFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */; };
 		2DBA14A5AF44ACAFAB0DC56A /* CCPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1665526DAF01066C27D3 /* CCPlaceholderTextView.m */; };
 		2DBA150A27435C502199776A /* CCTableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A0BF4F3E60B3D6DBF90 /* CCTableViewItem.m */; };
+		2DBA1554A2D01962B61EEC46 /* CCResendConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1FD3C39D406A1DEB1A52 /* CCResendConnection.m */; };
 		2DBA155F41E35FF8F220F36C /* CCDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1BC5EBB5E3345A3D7090 /* CCDatabaseManager.m */; };
 		2DBA15EFE90B20AF3823885A /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA10CE13525A2D6ABA0D3E /* CCTableViewCell.m */; };
 		2DBA1640D44031F280BD9C0B /* CCEnvironmentStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA181691B57044917AC0DC /* CCEnvironmentStorage.m */; };
 		2DBA1661CA7311CCA9DF8446 /* CCAssemblyCollector.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA180B909823C1F490ECA4 /* CCAssemblyCollector.m */; };
 		2DBA167A74F0280967A631E9 /* CCBugfenderLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA142B03096C6977CE3377 /* CCBugfenderLogger.m */; };
+		2DBA16C1FD3CA92F05A9B482 /* CCValidationErrorToBugfenderPostProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA17E9154FF02E9A735322 /* CCValidationErrorToBugfenderPostProcessor.m */; };
 		2DBA16C75C30F18D2EE8F51F /* CCRestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1F8C007E342704E24574 /* CCRestClient.m */; };
 		2DBA1906F41097E3E0C40F4A /* CCFormValidationEmailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19C33C3C3F6910E65677 /* CCFormValidationEmailTests.m */; };
+		2DBA19F176AF84C12662EE34 /* CCValueTransformerDateRFC3339.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA10C0578B9E75DDF9ED4B /* CCValueTransformerDateRFC3339.m */; };
 		2DBA19F6DDAD77FB23DE4945 /* CCValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1AC19FCA554F2463E844 /* CCValueTransformer.m */; };
 		2DBA1A367F25D703565E17AA /* CCFileAndLineNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1272A203185D86A7C935 /* CCFileAndLineNumberFormatter.m */; };
 		2DBA1A94FFA9489047EB821D /* CCTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19FDB389A342F9CEA0C7 /* CCTableViewSection.m */; };
@@ -167,12 +170,14 @@
 		2CD6342C1E1666A100A2BB15 /* CCEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEnvironment.h; sourceTree = "<group>"; };
 		2CD6342D1E1666A100A2BB15 /* CCEnvironment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEnvironment.m; sourceTree = "<group>"; };
 		2DBA105EDBBCED84C609D01F /* CCConnectionLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCConnectionLogger.h; sourceTree = "<group>"; };
+		2DBA10C0578B9E75DDF9ED4B /* CCValueTransformerDateRFC3339.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerDateRFC3339.m; sourceTree = "<group>"; };
 		2DBA10CE13525A2D6ABA0D3E /* CCTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCell.m; sourceTree = "<group>"; };
 		2DBA114BB93F562759A0F303 /* CCValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformer.h; sourceTree = "<group>"; };
 		2DBA1155E8073B5D351A6EA1 /* CCTableViewManager+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCTableViewManager+Internal.h"; sourceTree = "<group>"; };
 		2DBA11AD0D332E59D6BB30DE /* CCConnectionLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCConnectionLogger.m; sourceTree = "<group>"; };
 		2DBA11BBC34D8545A219EAC2 /* CCTableViewCellStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCellStyle.h; sourceTree = "<group>"; };
 		2DBA1221C2F7AA7F1BAA5FEB /* CCTableViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewManager.m; sourceTree = "<group>"; };
+		2DBA123004C8009938E91664 /* CCValidationErrorToBugfenderPostProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValidationErrorToBugfenderPostProcessor.h; sourceTree = "<group>"; };
 		2DBA1262DA2075C83CCB1A8B /* CCTableViewCellFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCTableViewCellFactory.h; sourceTree = "<group>"; };
 		2DBA1272A203185D86A7C935 /* CCFileAndLineNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFileAndLineNumberFormatter.m; sourceTree = "<group>"; };
 		2DBA12AF504A133122C7CFCE /* NSBundle+CCTableViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+CCTableViewManager.h"; sourceTree = "<group>"; };
@@ -188,6 +193,7 @@
 		2DBA178A8B7FF15B9230FFFB /* CCRoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRoundButton.h; sourceTree = "<group>"; };
 		2DBA17AECC6A749E19944C52 /* CCEnvironmentStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCEnvironmentStorage.h; sourceTree = "<group>"; };
 		2DBA17D4609ED9199EA15414 /* CCDatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDatabaseManager.h; sourceTree = "<group>"; };
+		2DBA17E9154FF02E9A735322 /* CCValidationErrorToBugfenderPostProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValidationErrorToBugfenderPostProcessor.m; sourceTree = "<group>"; };
 		2DBA180B909823C1F490ECA4 /* CCAssemblyCollector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAssemblyCollector.m; sourceTree = "<group>"; };
 		2DBA181691B57044917AC0DC /* CCEnvironmentStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEnvironmentStorage.m; sourceTree = "<group>"; };
 		2DBA1823DA6A197E4CAF3A2F /* CCLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLogging.h; sourceTree = "<group>"; };
@@ -209,6 +215,7 @@
 		2DBA1AC19FCA554F2463E844 /* CCValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformer.m; sourceTree = "<group>"; };
 		2DBA1B1F0020312DCCBC377B /* CCLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLogging.m; sourceTree = "<group>"; };
 		2DBA1B4C5D0B4C1AFA0BBCA2 /* CCCurrentEnvironmentStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCCurrentEnvironmentStorage.h; sourceTree = "<group>"; };
+		2DBA1B62550B1CCB8B76BF97 /* CCResendConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCResendConnection.h; sourceTree = "<group>"; };
 		2DBA1B77D0950507FD1807A3 /* CCResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCResults.m; sourceTree = "<group>"; };
 		2DBA1B86C33AECE39AF41BD4 /* CCRestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRestClient.h; sourceTree = "<group>"; };
 		2DBA1BA28B947E4C31A07BB5 /* CCAdditionalAsserts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAdditionalAsserts.m; sourceTree = "<group>"; };
@@ -216,6 +223,7 @@
 		2DBA1BC5EBB5E3345A3D7090 /* CCDatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDatabaseManager.m; sourceTree = "<group>"; };
 		2DBA1C2A008AB29C60FE97FF /* CCRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRequest.h; sourceTree = "<group>"; };
 		2DBA1CAAAFA689B2C4121909 /* CCRoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRoundButton.m; sourceTree = "<group>"; };
+		2DBA1CE7EF66981411B4DE0A /* CCValueTransformerDateRFC3339.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerDateRFC3339.h; sourceTree = "<group>"; };
 		2DBA1D2D60D97ECE508014FE /* CCTableViewCellFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCTableViewCellFactory.m; sourceTree = "<group>"; };
 		2DBA1D805B9B1600C55FC061 /* CCGeneralPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCGeneralPresenter.m; sourceTree = "<group>"; };
 		2DBA1D929113A280E8F7F040 /* CCGeneralPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCGeneralPresenter.h; sourceTree = "<group>"; };
@@ -228,6 +236,7 @@
 		2DBA1F32514A6E43782D4461 /* CCFileAndLineNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFileAndLineNumberFormatter.h; sourceTree = "<group>"; };
 		2DBA1F8C007E342704E24574 /* CCRestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRestClient.m; sourceTree = "<group>"; };
 		2DBA1F9A06CA7C69A3A989B5 /* CCActionBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCActionBar.m; sourceTree = "<group>"; };
+		2DBA1FD3C39D406A1DEB1A52 /* CCResendConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCResendConnection.m; sourceTree = "<group>"; };
 		3182100067BD3B5EF13B5052 /* CCImageDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageDiskCache.h; sourceTree = "<group>"; };
 		318210298F999EB5FEBC00BC /* CCValueTransformerToString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerToString.m; sourceTree = "<group>"; };
 		3182102ACDFFB44E79A3B388 /* CCFormValidationOr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationOr.m; sourceTree = "<group>"; };
@@ -469,8 +478,18 @@
 				2CD6342C1E1666A100A2BB15 /* CCEnvironment.h */,
 				2CD6342D1E1666A100A2BB15 /* CCEnvironment.m */,
 				2DBA1FD1E55E66F5BD13287F /* Storage */,
+				2DBA1D643F85B7FB437BE260 /* UI */,
 			);
 			path = Environment;
+			sourceTree = "<group>";
+		};
+		2DBA1086751D530EF9286452 /* ValidationErrorBugfender */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA123004C8009938E91664 /* CCValidationErrorToBugfenderPostProcessor.h */,
+				2DBA17E9154FF02E9A735322 /* CCValidationErrorToBugfenderPostProcessor.m */,
+			);
+			path = ValidationErrorBugfender;
 			sourceTree = "<group>";
 		};
 		2DBA11780849141764623693 /* Logging */ = {
@@ -533,6 +552,15 @@
 			path = RoundButton;
 			sourceTree = "<group>";
 		};
+		2DBA13D9330F6BE8A9FBFB06 /* DateRFC3339 */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1CE7EF66981411B4DE0A /* CCValueTransformerDateRFC3339.h */,
+				2DBA10C0578B9E75DDF9ED4B /* CCValueTransformerDateRFC3339.m */,
+			);
+			path = DateRFC3339;
+			sourceTree = "<group>";
+		};
 		2DBA14003267E44EC67824D2 /* Mapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -579,6 +607,14 @@
 			path = TyphoonAddons;
 			sourceTree = "<group>";
 		};
+		2DBA181D3F6D07FCB5A9DD13 /* PostProcessors */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1086751D530EF9286452 /* ValidationErrorBugfender */,
+			);
+			path = PostProcessors;
+			sourceTree = "<group>";
+		};
 		2DBA183A7E5A12409BCAFF5F /* Form */ = {
 			isa = PBXGroup;
 			children = (
@@ -618,6 +654,15 @@
 				2DBA1155E8073B5D351A6EA1 /* CCTableViewManager+Internal.h */,
 			);
 			path = Table;
+			sourceTree = "<group>";
+		};
+		2DBA19BDB4AF0D989A4710D9 /* Resend */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA1B62550B1CCB8B76BF97 /* CCResendConnection.h */,
+				2DBA1FD3C39D406A1DEB1A52 /* CCResendConnection.m */,
+			);
+			path = Resend;
 			sourceTree = "<group>";
 		};
 		2DBA1A8D148689C93749F6C3 /* Observing */ = {
@@ -701,6 +746,13 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		2DBA1D643F85B7FB437BE260 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		2DBA1D9884414D57B85D4616 /* Client */ = {
 			isa = PBXGroup;
 			children = (
@@ -720,11 +772,21 @@
 			path = Logger;
 			sourceTree = "<group>";
 		};
+		2DBA1F26C367983C7553192D /* Connections */ = {
+			isa = PBXGroup;
+			children = (
+				2DBA19BDB4AF0D989A4710D9 /* Resend */,
+			);
+			path = Connections;
+			sourceTree = "<group>";
+		};
 		2DBA1F8C6ADE36243C4EDE4F /* NetworkAddons */ = {
 			isa = PBXGroup;
 			children = (
 				2DBA1D9884414D57B85D4616 /* Client */,
 				2DBA137EDB4ED538C42BDA12 /* BaseClasses */,
+				2DBA1F26C367983C7553192D /* Connections */,
+				2DBA181D3F6D07FCB5A9DD13 /* PostProcessors */,
 			);
 			path = NetworkAddons;
 			sourceTree = "<group>";
@@ -796,6 +858,7 @@
 				3182153CA7F335D98D2F05D6 /* ToString */,
 				31821D7027958EFF19D0C241 /* UnixTime */,
 				31821C2868A30FDCE450929A /* DateIso8601 */,
+				2DBA13D9330F6BE8A9FBFB06 /* DateRFC3339 */,
 			);
 			path = ValueTransformers;
 			sourceTree = "<group>";
@@ -1808,6 +1871,9 @@
 				2DBA1640D44031F280BD9C0B /* CCEnvironmentStorage.m in Sources */,
 				318215770FB79DE0B018A90D /* CCRemoteNotification.m in Sources */,
 				318217476F8DEED9BFCE692A /* CCRemoteNotificationsService.m in Sources */,
+				2DBA1554A2D01962B61EEC46 /* CCResendConnection.m in Sources */,
+				2DBA16C1FD3CA92F05A9B482 /* CCValidationErrorToBugfenderPostProcessor.m in Sources */,
+				2DBA19F176AF84C12662EE34 /* CCValueTransformerDateRFC3339.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

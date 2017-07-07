@@ -20,4 +20,8 @@
  * */
 + (instancetype)newUsingTyphoon;
 
+- (void)injectUsingTyphoon;
+
++ (instancetype)fromTyphoon;
+
 @end
