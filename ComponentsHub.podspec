@@ -58,6 +58,7 @@ Pod::Spec.new do |s|
         subspec.source_files   = 'Components/EnvironmentUI/**/*.{h,m}'
         subspec.dependency 'ComponentsHub/Environment'
         subspec.dependency 'ComponentsHub/Forms'
+        subspec.dependency 'ComponentsHub/ManualLayout'
         subspec.dependency 'ComponentsHub/NotificationUtils'
         subspec.dependency 'PureLayout'
         subspec.dependency 'TPKeyboardAvoiding'
