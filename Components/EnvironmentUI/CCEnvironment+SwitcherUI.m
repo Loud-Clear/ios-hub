@@ -11,6 +11,7 @@
 
 #import "CCEnvironment+SwitcherUI.h"
 #import "CCEnvironmentListViewController.h"
+#import "CCEnvironmentHUD.h"
 
 
 @implementation CCEnvironment (SwitcherUI)
@@ -21,5 +22,11 @@
     listViewController.environment = [self currentEnvironment];
     [viewController presentViewController:listViewController animated:YES completion:^{}];
 }
+
++ (void)installStatusBarHUD
+{
+    [[CCEnvironmentHUD sharedHUD] setupWithEnvironment:[self currentEnvironment]];
+}
+
 
 @end

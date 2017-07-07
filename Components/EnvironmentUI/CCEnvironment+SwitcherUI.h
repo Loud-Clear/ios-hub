@@ -17,4 +17,7 @@
 
 + (void)showSwitcherOn:(UIViewController *)viewController;
 
+// Call this method inside your didFinishLaunching method to get indication of current environment in statusBar
++ (void)installStatusBarHUD;
+
 @end
