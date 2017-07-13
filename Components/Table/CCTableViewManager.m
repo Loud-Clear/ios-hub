@@ -805,7 +805,14 @@
 
 - (BOOL)tableView:(UITableView *)tableView canPerformAction:(SEL)action forRowAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender
 {
+    if ([self.mutableSections count] <= indexPath.section) {
+        return NO;
+    }
     CCTableViewSection *section = self.mutableSections[indexPath.section];
+    if ([section.items count] <= indexPath.row) {
+        return NO;
+    }
+    
     id anItem = section.items[indexPath.row];
     if ([anItem respondsToSelector:@selector(setCopyHandler:)]) {
         CCTableViewItem *item = anItem;
