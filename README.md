@@ -1,5 +1,9 @@
 # iOS-hub
 
+[![Build Status](https://travis-ci.org/Loud-Clear/ios-hub.svg?branch=master)](https://travis-ci.org/Loud-Clear/ios-hub)
+[![codecov](https://codecov.io/gh/Loud-Clear/ios-hub/branch/master/graph/badge.svg)](https://codecov.io/gh/Loud-Clear/ios-hub)
+
+
 See available pods in [ComponentsHub.podspec](https://github.com/Loud-Clear/ios-hub/blob/master/ComponentsHub.podspec).
 
 ## Useful shared iOS components:
