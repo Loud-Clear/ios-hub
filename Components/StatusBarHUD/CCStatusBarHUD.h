@@ -10,8 +10,11 @@
 
 extern NSString *CCViewControllerNeedsStatusBarAppearanceNotification;
 
-@interface CCHUDView : UIView
+@interface CCStatusBarHUD : UIView
 
-@property (nonatomic, strong) UILabel *statusLabel;
+@property (nonatomic, strong) UILabel *statusLabelLeft;
+@property (nonatomic, strong) UILabel *statusLabelRight;
+
++ (instancetype)sharedHUD;
 
 @end

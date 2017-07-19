@@ -68,4 +68,13 @@
 #define CCIOSVersionLessThan(version)              ([UIDevice.currentDevice.systemVersion compare:@ #version options:NSNumericSearch] == NSOrderedAscending)
 #define CCIOSVersionLessThanOrEqualTo(version)     ([UIDevice.currentDevice.systemVersion compare:@ #version options:NSNumericSearch] != NSOrderedDescending)
 
+/// @deprecated Use CCIOSVersionGreaterThanOrEqualTo instead of this.
 #define IOS_GREATER_THAN_OR_EQUAL_TO(v) ([UIDevice.currentDevice.systemVersion compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+#define CC_IMPLEMENT_SHARED_SINGLETON(className) \
+    static className *instance; \
+    static dispatch_once_t onceToken; \
+    dispatch_once(&onceToken, ^{ \
+        instance = [className new]; \
+    }); \
+    return instance;

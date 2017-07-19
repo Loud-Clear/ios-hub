@@ -60,6 +60,7 @@ Pod::Spec.new do |s|
         subspec.dependency 'ComponentsHub/Forms'
         subspec.dependency 'ComponentsHub/ManualLayout'
         subspec.dependency 'ComponentsHub/NotificationUtils'
+        subspec.dependency 'ComponentsHub/Observation'
         subspec.dependency 'PureLayout'
         subspec.dependency 'TPKeyboardAvoiding'
         subspec.dependency 'Typhoon/IntrospectionUtils'
@@ -165,6 +166,13 @@ Pod::Spec.new do |s|
       subspec.dependency 'FastCoding'
       subspec.dependency 'SAMKeychain'
       subspec.dependency 'ComponentsHub/Macroses'
+  end
+
+  s.subspec 'StatusBarHUD' do |subspec|
+      subspec.source_files   = 'Components/StatusBarHUD/**/*.{h,m}'
+      subspec.dependency 'ComponentsHub/Macroses'
+      subspec.dependency 'PureLayout'
+      subspec.dependency 'ComponentsHub/NotificationUtils'
   end
 
   s.subspec 'Table' do |subspec|
