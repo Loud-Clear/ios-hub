@@ -29,6 +29,8 @@ See available pods in [ComponentsHub.podspec](https://github.com/Loud-Clear/ios-
 2017-07-19
 
 - `Observation`: added methods which accept array of keys; added method to unobserve an object
+- `EnvironmentUI`: Refactored CCEnvironmentHUD to use `StatusBarHUD` component
+- `StatusBarHUD`: introduced `StatusBarHUD` component which consists of `StatusBarHUD` and `CCAppVersionHUD` classes
 
 2017-07-07
 

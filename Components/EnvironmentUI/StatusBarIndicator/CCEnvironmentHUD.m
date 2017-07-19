@@ -6,95 +6,76 @@
 //  Copyright © 2017 LoudClear. All rights reserved.
 //
 
+#import <BaseModel/BaseModel.h>
 #import "CCNotificationUtils.h"
 #import "CCObjectObserver.h"
 #import "CCEnvironmentHUD.h"
-#import "CCHUDView.h"
+#import "CCStatusBarHUD.h"
 #import "CCMacroses.h"
 #import "CCEnvironment.h"
 #import "CCEnvironment+PresentingName.h"
-#import "CCHUDView.h"
+#import "CCStatusBarHUD.h"
 #import <UIKit/UIKit.h>
+#import "NSObject+Observe.h"
 
-@interface CCEnvironmentHUD ()
-
-@property (nonatomic, strong) __kindof CCEnvironment *currentEnvironment;
-@property (nonatomic, strong) CCHUDView *hudView;
-@end
 
 @implementation CCEnvironmentHUD
 {
-    CCObjectObserver *_observer;
+    __kindof CCEnvironment *_currentEnvironment;
 }
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Initialization & Destruction
+//-------------------------------------------------------------------------------------------
 
 + (instancetype)sharedHUD
 {
-    static CCEnvironmentHUD *sharedHud;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sharedHud = [CCEnvironmentHUD new];
-    });
-    return sharedHud;
+    CC_IMPLEMENT_SHARED_SINGLETON(CCEnvironmentHUD);
+}
+
+- (instancetype)init
+{
+    if (!(self = [super init])) {
+        return nil;
+    }
+
+    self.position = NSTextAlignmentRight;
+
+    return self;
 }
 
 - (void)setupWithEnvironment:(__kindof CCEnvironment *)environment
 {
-    NSAssert(self.currentEnvironment == nil, @"CCEnvironmentHUD already configured");
-    self.currentEnvironment = environment;
+    NSAssert(_currentEnvironment == nil, @"CCEnvironmentHUD already configured");
+    _currentEnvironment = environment;
     [self setup];
 }
 
 - (void)setup
 {
-    if ([[UIApplication sharedApplication] keyWindow]) {
-        [self setupView];
-    } else {
-        [self registerForNotification:UIWindowDidBecomeKeyNotification selector:@selector(setupView)];
+    [self observe:_currentEnvironment keys:[_currentEnvironment cc_titleNames] action:@selector(update)];
+
+    [self update];
+}
+
+- (void)setPosition:(NSTextAlignment)position
+{
+    _position = position;
+
+    [self update];
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Private Methods
+//-------------------------------------------------------------------------------------------
+
+- (void)update
+{
+    if (_position == NSTextAlignmentLeft) {
+        [CCStatusBarHUD sharedHUD].statusLabelLeft.text = [_currentEnvironment cc_presentingName];;
+    } else if (_position == NSTextAlignmentRight) {
+        [CCStatusBarHUD sharedHUD].statusLabelRight.text = [_currentEnvironment cc_presentingName];;
     }
-}
-
-- (void)setupView
-{
-    [self unregisterForNotification:UIWindowDidBecomeKeyNotification];
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-    
-        self.hudView = [[CCHUDView alloc] initWithFrame:[self hudViewFrame]];
-        self.hudView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-        self.hudView.layer.zPosition = 100;
-        self.hudView.userInteractionEnabled = NO;
-        
-        UIWindow *mainWindow = [[[UIApplication sharedApplication] delegate] window];
-        [mainWindow addSubview:self.hudView];
-        
-        [self subscribeUpdateToNotifications];
-    });
-}
-
-- (CGRect)hudViewFrame
-{
-    CGSize statusBarSize = [UIApplication sharedApplication].statusBarFrame.size;
-    if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-        statusBarSize = CGSizeMake(statusBarSize.height, statusBarSize.width);
-    }
-    return CGRectMake(0, 0, statusBarSize.width, statusBarSize.height);
-}
-
-- (void)subscribeUpdateToNotifications
-{
-    _observer = [[CCObjectObserver alloc] initWithObject:self.currentEnvironment observer:self];
-    [_observer observeKeys:[self.currentEnvironment cc_titleNames] withAction:@selector(updateTitle)];
-    [self updateTitle];
-}
-
-- (void)updateTitle
-{
-    self.hudView.statusLabel.text = [self.currentEnvironment cc_presentingName];
-}
-
-- (void)setLabelHidden:(BOOL)hidden
-{
-    self.hudView.statusLabel.hidden = hidden;
 }
 
 @end

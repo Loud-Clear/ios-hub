@@ -10,12 +10,15 @@
 
 @class CCEnvironment;
 
+/// Will automatically add current environment title to CCStatusBarHUD.
 @interface CCEnvironmentHUD : NSObject
 
 + (instancetype)sharedHUD;
 
-- (void)setLabelHidden:(BOOL)hidden;
-
 - (void)setupWithEnvironment:(__kindof CCEnvironment *)environment;
+
+/// Use either NSTextAlignmentLeft or NSTextAlignmentRight.
+/// Default is NSTextAlignmentRight.
+@property (nonatomic) NSTextAlignment position;
 
 @end
