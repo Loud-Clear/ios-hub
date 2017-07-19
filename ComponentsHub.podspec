@@ -130,8 +130,6 @@ Pod::Spec.new do |s|
       subspec.source_files   = 'Components/Observing/**/*.{h,m}'
       subspec.dependency 'KVOController'
       subspec.dependency 'ComponentsHub/Macroses'
-      subspec.dependency 'Typhoon/IntrospectionUtils'
-      subspec.dependency 'TPDWeakProxy'
   end
 
   s.subspec 'RoundButton' do |subspec|
