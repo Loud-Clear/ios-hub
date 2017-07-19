@@ -1,13 +1,14 @@
 language: objective-c
 osx_image: xcode8.3
 cache:
+  - bundler
   - cocoapods
 
 before_script:
-  - pod install
+  - bundle exec pod install
 
 script:
-  - fastlane scan "iOS Hub.xcworkspace" --scheme "iOS Hub"
+  - bundle exec fastlane scan "iOS Hub.xcworkspace" --scheme "iOS Hub"
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
