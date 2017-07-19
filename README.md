@@ -23,6 +23,7 @@ See available pods in [ComponentsHub.podspec](https://github.com/Loud-Clear/ios-
 ## News
 
 2017-07-19
+
 - `Observation`: added methods which accept array of keys; added method to unobserve an object
 
 2017-07-07
