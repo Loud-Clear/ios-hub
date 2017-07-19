@@ -6,6 +6,7 @@ cache:
 
 
 before_install:
+  - bundle install
   - bundle exec pod update
 
 script:
