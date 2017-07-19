@@ -8,7 +8,6 @@ target 'iOS Hub' do
 
   # Pods for iOS Hub
   pod 'Typhoon'
-  pod 'Realm'
   pod 'libextobjc/EXTScope'
   pod 'KVOController'
 

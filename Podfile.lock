@@ -33,9 +33,6 @@ PODS:
   - OCMock (3.4)
   - PINCache (2.3)
   - PureLayout (3.0.2)
-  - Realm (2.8.3):
-    - Realm/Headers (= 2.8.3)
-  - Realm/Headers (2.8.3)
   - SAMKeychain (1.5.2)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
@@ -66,7 +63,6 @@ DEPENDENCIES:
   - OCMock
   - PINCache
   - PureLayout
-  - Realm
   - SAMKeychain
   - SDWebImage (~> 3.0)
   - TPDWeakProxy
@@ -98,7 +94,6 @@ SPEC CHECKSUMS:
   OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
-  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
   SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
   SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
   TPDWeakProxy: 39bf1d2675b75a1e87c38d4cd426110c21934842
@@ -106,6 +101,6 @@ SPEC CHECKSUMS:
   Typhoon: 05db9d33d798b90c202bf3f754275c03efe93297
   TyphoonRestClient: 317b1235e021ff824a4632083aaecad28520aad7
 
-PODFILE CHECKSUM: d9157879db565b8011e2d3921d517399e639ab86
+PODFILE CHECKSUM: f5b517fbb99d09a0317e48d91f05b505404edd06
 
 COCOAPODS: 1.2.1

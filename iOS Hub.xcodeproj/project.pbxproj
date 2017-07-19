@@ -33,7 +33,6 @@
 		2DBA14E98BEDB6ADB3D059FA /* CCEnvironmentDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D8425668357C04DCDBC /* CCEnvironmentDetailViewController.m */; };
 		2DBA150A27435C502199776A /* CCTableViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1A0BF4F3E60B3D6DBF90 /* CCTableViewItem.m */; };
 		2DBA1554A2D01962B61EEC46 /* CCResendConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1FD3C39D406A1DEB1A52 /* CCResendConnection.m */; };
-		2DBA155F41E35FF8F220F36C /* CCDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1BC5EBB5E3345A3D7090 /* CCDatabaseManager.m */; };
 		2DBA15D0EE32BD383DDB5DFF /* CCEnvironmentField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA12CB976E9EED75135737 /* CCEnvironmentField.m */; };
 		2DBA15EFE90B20AF3823885A /* CCTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA10CE13525A2D6ABA0D3E /* CCTableViewCell.m */; };
 		2DBA1640D44031F280BD9C0B /* CCEnvironmentStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA181691B57044917AC0DC /* CCEnvironmentStorage.m */; };
@@ -50,7 +49,6 @@
 		2DBA1A94FFA9489047EB821D /* CCTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19FDB389A342F9CEA0C7 /* CCTableViewSection.m */; };
 		2DBA1AB10DC786EA53627EBB /* CCEnvironmentHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA12B853490829AD56BC54 /* CCEnvironmentHUD.m */; };
 		2DBA1D5BDFE05702E067CF21 /* NSBundle+CCTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1D93E0513620DF602C84 /* NSBundle+CCTableViewManager.m */; };
-		2DBA1D856CF604FC011026DF /* CCResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1B77D0950507FD1807A3 /* CCResults.m */; };
 		2DBA1DBD010F4B78052592A4 /* CCHUDView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1BC0162B7383697D9C2D /* CCHUDView.m */; };
 		2DBA1E4F5C4C243A2B1922C8 /* CCRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA19DEC43E08772F519531 /* CCRequest.m */; };
 		2DBA1EDF3A27D4288D1F4A26 /* CCTableViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1221C2F7AA7F1BAA5FEB /* CCTableViewManager.m */; };
@@ -126,20 +124,9 @@
 		FA3486771DDF0B8600B02A01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA3486751DDF0B8600B02A01 /* LaunchScreen.storyboard */; };
 		FA3486901DDF0BF000B02A01 /* CCObjectObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34868F1DDF0BF000B02A01 /* CCObjectObserver.m */; };
 		FA3486941DDF149F00B02A01 /* ComponentsHub.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FA3486931DDF149F00B02A01 /* ComponentsHub.podspec */; };
-		FA3486A61DDF1E8A00B02A01 /* Realm+Arrays.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486981DDF1E8A00B02A01 /* Realm+Arrays.m */; };
-		FA3486A71DDF1E8A00B02A01 /* CCPersistentId.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34869A1DDF1E8A00B02A01 /* CCPersistentId.m */; };
-		FA3486A81DDF1E8A00B02A01 /* CCPersistentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34869C1DDF1E8A00B02A01 /* CCPersistentModel.m */; };
-		FA3486A91DDF1E8A00B02A01 /* CCSafeRLMObjectProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA34869E1DDF1E8A00B02A01 /* CCSafeRLMObjectProxy.m */; };
-		FA3486AA1DDF1E8A00B02A01 /* CCObjectObserver+DatabaseAddons.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486A11DDF1E8A00B02A01 /* CCObjectObserver+DatabaseAddons.m */; };
-		FA3486AB1DDF1E8A00B02A01 /* RLMObject+ThreadSafety.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486A31DDF1E8A00B02A01 /* RLMObject+ThreadSafety.m */; };
-		FA3486AC1DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486A51DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m */; };
-		FA3486B01DDF1F6E00B02A01 /* CCCollectionSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3486AF1DDF1F6E00B02A01 /* CCCollectionSerialization.m */; };
 		FA7247921E0BD70E009A9CF6 /* CCAssemblyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA13B72D6D5F55C68D69E4 /* CCAssemblyTests.m */; };
 		FA7247931E0BD70E009A9CF6 /* CCAdditionalAsserts.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1BA28B947E4C31A07BB5 /* CCAdditionalAsserts.m */; };
 		FA7247951E0BD712009A9CF6 /* TyphoonRestClientStub.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1BB9C2ABBC636856FD47 /* TyphoonRestClientStub.m */; };
-		FA80D2651E4E3DE500420049 /* CCRealmPostProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = FA80D2641E4E3DE500420049 /* CCRealmPostProcessor.m */; };
-		FA80D2691E4E41AC00420049 /* _CCRealmSavePostProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = FA80D2681E4E41AC00420049 /* _CCRealmSavePostProcessor.m */; };
-		FA80D26D1E4E456600420049 /* CCPersistentModelValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA80D26C1E4E456600420049 /* CCPersistentModelValueTransformer.m */; };
 		FA8C58651DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C58621DE2CCDF00AEBCB1 /* CCModuleFactoryImplementation.m */; };
 		FA8C58661DE2CCDF00AEBCB1 /* UIViewController+CCModule.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8C58641DE2CCDF00AEBCB1 /* UIViewController+CCModule.m */; };
 		FAB831F91ECC33820036A53A /* CCScreenSizes.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB831EE1ECC33820036A53A /* CCScreenSizes.m */; };
@@ -1864,17 +1851,13 @@
 				FA3486901DDF0BF000B02A01 /* CCObjectObserver.m in Sources */,
 				FAB831FE1ECC33820036A53A /* UIView+Positioning.m in Sources */,
 				FA019A481DE05CED00364871 /* CCNavigator.m in Sources */,
-				FA3486A71DDF1E8A00B02A01 /* CCPersistentId.m in Sources */,
 				FA019A4A1DE05CED00364871 /* CCNavigatorRoute.m in Sources */,
 				FA019A0D1DE05BEB00364871 /* UIApplication+TopmostViewController.m in Sources */,
 				FA34866F1DDF0B8600B02A01 /* ViewController.m in Sources */,
-				FA80D2651E4E3DE500420049 /* CCRealmPostProcessor.m in Sources */,
 				FA019A561DE05D8000364871 /* CCURLWorkflow.m in Sources */,
 				FA34866C1DDF0B8600B02A01 /* AppDelegate.m in Sources */,
 				FA019A551DE05D8000364871 /* CCGeneralWorkflow.m in Sources */,
-				FA3486AB1DDF1E8A00B02A01 /* RLMObject+ThreadSafety.m in Sources */,
 				FA019A471DE05CED00364871 /* CCNavigatorContext.m in Sources */,
-				FA3486A91DDF1E8A00B02A01 /* CCSafeRLMObjectProxy.m in Sources */,
 				032ECE8A1E54177300A64E99 /* UIViewController+CCTransition.m in Sources */,
 				FAB831FC1ECC33820036A53A /* UILabel+Positioning.m in Sources */,
 				FA019A5A1DE060D700364871 /* CCMapCollections.m in Sources */,
@@ -1895,18 +1878,13 @@
 				FA019A4E1DE05CED00364871 /* CCURLPlaceholderViewController.m in Sources */,
 				FA019A4D1DE05CED00364871 /* CCTransitionPromise.m in Sources */,
 				FAB831F91ECC33820036A53A /* CCScreenSizes.m in Sources */,
-				FA3486AA1DDF1E8A00B02A01 /* CCObjectObserver+DatabaseAddons.m in Sources */,
 				FA10FA351DFADD0A004E93C0 /* CCFormValidationBoolean.m in Sources */,
-				FA3486B01DDF1F6E00B02A01 /* CCCollectionSerialization.m in Sources */,
 				FA019A001DDF5BBA00364871 /* CCUserDefaultsStorage.m in Sources */,
 				FA019A4B1DE05CED00364871 /* CCNavigatorStack.m in Sources */,
-				FA3486A81DDF1E8A00B02A01 /* CCPersistentModel.m in Sources */,
 				FA019A031DE011DA00364871 /* CCLogger.m in Sources */,
-				FA3486AC1DDF1E8A00B02A01 /* RLMRealm+NestedTransactions.m in Sources */,
 				FA019A151DE05C7A00364871 /* CCMutableCollections.m in Sources */,
 				FA019A461DE05CED00364871 /* CCModuleURLParser.m in Sources */,
 				FAF38E541DF03FFB00F44BC0 /* CCTableFormItem.m in Sources */,
-				FA3486A61DDF1E8A00B02A01 /* Realm+Arrays.m in Sources */,
 				2DBA150A27435C502199776A /* CCTableViewItem.m in Sources */,
 				2DBA110602B26C1D6E0D315C /* CCTableViewCellStyle.m in Sources */,
 				2DBA1EDF3A27D4288D1F4A26 /* CCTableViewManager.m in Sources */,
@@ -1938,7 +1916,6 @@
 				31821DE00394C89DB373BDBB /* UIImageView+CCImageService.m in Sources */,
 				2DBA1661CA7311CCA9DF8446 /* CCAssemblyCollector.m in Sources */,
 				FAB831FA1ECC33820036A53A /* CCUIRound.m in Sources */,
-				2DBA1D856CF604FC011026DF /* CCResults.m in Sources */,
 				2DBA104DF5D2EA69E63A66D9 /* CCRoundButton.m in Sources */,
 				31821FEC66638DE3255FCF65 /* CCObservationInfo.m in Sources */,
 				3182142F7E177F793AE8C546 /* NSObject+Observe.m in Sources */,
@@ -1952,12 +1929,9 @@
 				3182149406362581145D7446 /* CCFormValidationOr.m in Sources */,
 				31821BE48C128AC08D118C7E /* CCFormValidationPhone.m in Sources */,
 				318219F5A32C302C8B70EB15 /* CCValueTransformerToNumber.m in Sources */,
-				FA80D26D1E4E456600420049 /* CCPersistentModelValueTransformer.m in Sources */,
 				3182134A94B7183D5BC763D7 /* CCValueTransformerToString.m in Sources */,
-				FA80D2691E4E41AC00420049 /* _CCRealmSavePostProcessor.m in Sources */,
 				318214A87C965A20875198C7 /* CCValueTransformerUnixTime.m in Sources */,
 				31821318859B945CDF64A6CB /* CCValueTransformerDateIso8601.m in Sources */,
-				2DBA155F41E35FF8F220F36C /* CCDatabaseManager.m in Sources */,
 				2DBA122113039CF9B42BF88D /* CCConnectionLogger.m in Sources */,
 				2DBA1A367F25D703565E17AA /* CCFileAndLineNumberFormatter.m in Sources */,
 				2DBA167A74F0280967A631E9 /* CCBugfenderLogger.m in Sources */,
