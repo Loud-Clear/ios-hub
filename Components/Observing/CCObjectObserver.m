@@ -208,6 +208,11 @@
     }
 }
 
+- (void)unobserveAllKeys
+{
+    [self unobserveKeys:[_observedKeys allObjects]];
+}
+
 - (NSUInteger)observationsCount
 {
     return [_observers count];

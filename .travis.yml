@@ -4,7 +4,9 @@ cache:
   - bundler
   - cocoapods
 
-before_script:
+
+before_install:
+  - bundle install
   - bundle exec pod update
 
 script:
