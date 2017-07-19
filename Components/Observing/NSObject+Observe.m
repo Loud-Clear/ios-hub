@@ -4,18 +4,12 @@
 //  Copyright 2016 Loud & Clear Pty Ltd
 //  All Rights Reserved.
 //
-//  NOTICE: Prepared by AppsQuick.ly on behalf of Loud & Clear. This software
-//  is proprietary information. Unauthorized use is prohibited.
-//
 ////////////////////////////////////////////////////////////////////////////////
 
 #import <objc/runtime.h>
-#import <Typhoon/NSObject+DeallocNotification.h>
 #import "NSObject+Observe.h"
 #import "CCObjectObserver.h"
 #import "CCMacroses.h"
-#import "TPDWeakProxy.h"
-#import "Typhoon/NSObject+DeallocNotification.h"
 
 
 @interface NSObject ()
@@ -29,16 +23,51 @@
 
 - (void)observe:(id)object key:(NSString *)key action:(SEL)action
 {
-    CCObjectObserver *observer = [self observerForObject:object];
-    [observer unobserveKeys:@[key]];
-    [observer observeKeys:@[key] withAction:action];
+    if (!key) {
+        NSParameterAssert(key);
+        return;
+    }
+
+    [self observe:object keys:@[key] action:action];
 }
 
 - (void)observe:(id)object key:(NSString *)key block:(dispatch_block_t)block
 {
+    if (!key) {
+        NSParameterAssert(key);
+        return;
+    }
+
+    [self observe:object keys:@[key] block:block];
+}
+
+- (void)observe:(id)object keys:(NSArray<NSString *> *)keys action:(SEL)action
+{
     CCObjectObserver *observer = [self observerForObject:object];
-    [observer unobserveKeys:@[key]];
-    [observer observeKeys:@[key] withBlock:block];
+    [observer unobserveKeys:keys];
+    [observer observeKeys:keys withAction:action];
+}
+
+- (void)observe:(id)object keys:(NSArray<NSString *> *)keys block:(dispatch_block_t)block
+{
+    CCObjectObserver *observer = [self observerForObject:object];
+    [observer unobserveKeys:keys];
+    [observer observeKeys:keys withBlock:block];
+}
+
+- (void)unobserve:(id)object
+{
+    CCObjectObserver *observer = [self.cc_observers objectForKey:object];
+
+    if (!observer) {
+        return;
+    }
+
+    [observer unobserveAllKeys];
+
+    if ([observer observationsCount] == 0) {
+        [self.cc_observers removeObjectForKey:object];
+    }
 }
 
 - (void)unobserve:(id)object key:(NSString *)key

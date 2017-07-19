@@ -34,6 +34,8 @@
 
 - (void)unobserveKeys:(NSArray *)keys;
 
+- (void)unobserveAllKeys;
+
 - (void)observeInvalidationWithAction:(SEL)action;
 
 - (void)observeInvalidationWithBlock:(void(^)())block;
