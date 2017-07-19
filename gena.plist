@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>company</key>
+	<string>Loud&amp;Clear</string>
+	<key>prefix</key>
+	<string>CC</string>
+	<key>project_name</key>
+	<string>ios-hub</string>
+	<key>sources_dir</key>
+	<string>Components</string>
+	<key>tests_dir</key>
+	<string>iOS HubTests/Components</string>
+	<key>project_target</key>
+	<string>iOS Hub</string>
+	<key>test_target</key>
+	<string>iOS Hub</string>
+</dict>
+</plist>

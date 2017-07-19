@@ -1,0 +1,21 @@
+//
+//  iOSHub.pch
+//  iOS Hub
+//
+//  Created by Aleksey Garbarev on 19/11/2016.
+//  Copyright © 2016 Loud & Clear. All rights reserved.
+//
+
+//#import "CCMacroses.h"
+//#import <CocoaLumberjack/CocoaLumberjack.h>
+//
+//static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+
+#ifndef iOSHub_pch
+#define iOSHub_pch
+
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* iOSHub_pch */

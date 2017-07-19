@@ -1,0 +1,111 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - Aspects (1.4.1)
+  - BaseModel (2.6.3)
+  - BugfenderSDK/ObjC (1.4.5)
+  - CocoaLumberjack (3.2.0):
+    - CocoaLumberjack/Default (= 3.2.0)
+    - CocoaLumberjack/Extensions (= 3.2.0)
+  - CocoaLumberjack/Default (3.2.0)
+  - CocoaLumberjack/Extensions (3.2.0):
+    - CocoaLumberjack/Default
+  - CTObjectiveCRuntimeAdditions (0.0.1)
+  - FastCoding (3.2.1)
+  - KVOController (1.2.0)
+  - libextobjc/EXTScope (0.4.1):
+    - libextobjc/RuntimeExtensions
+  - libextobjc/RuntimeExtensions (0.4.1)
+  - MTAnimation (1.2.2)
+  - OCMock (3.4)
+  - PINCache (2.3)
+  - PureLayout (3.0.2)
+  - Realm (2.8.3):
+    - Realm/Headers (= 2.8.3)
+  - Realm/Headers (2.8.3)
+  - SAMKeychain (1.5.2)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - TPDWeakProxy (1.1.1)
+  - TPKeyboardAvoiding (1.3.1)
+  - Typhoon (4.0.2):
+    - Typhoon/DeallocNotifier (= 4.0.2)
+    - Typhoon/IntrospectionUtils (= 4.0.2)
+    - Typhoon/no-arc (= 4.0.2)
+  - Typhoon/DeallocNotifier (4.0.2)
+  - Typhoon/IntrospectionUtils (4.0.2)
+  - Typhoon/no-arc (4.0.2):
+    - Typhoon/IntrospectionUtils
+  - TyphoonRestClient (1.6.5)
+
+DEPENDENCIES:
+  - AFNetworking
+  - Aspects (from `https://github.com/steipete/Aspects.git`, tag `1.4.2`)
+  - BaseModel
+  - BugfenderSDK/ObjC (~> 1.4)
+  - CocoaLumberjack
+  - CTObjectiveCRuntimeAdditions
+  - FastCoding
+  - KVOController
+  - libextobjc/EXTScope
+  - MTAnimation
+  - OCMock
+  - PINCache
+  - PureLayout
+  - Realm
+  - SAMKeychain
+  - SDWebImage (~> 3.0)
+  - TPDWeakProxy
+  - TPKeyboardAvoiding
+  - Typhoon
+  - TyphoonRestClient
+
+EXTERNAL SOURCES:
+  Aspects:
+    :git: https://github.com/steipete/Aspects.git
+    :tag: 1.4.2
+
+CHECKOUT OPTIONS:
+  Aspects:
+    :git: https://github.com/steipete/Aspects.git
+    :tag: 1.4.2
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Aspects: 7595ba96a6727a58ebcbfc954497fc5d2fdde546
+  BaseModel: 4c9965bea266250b90e78bc1a1948d74e81d9e89
+  BugfenderSDK: 48e40e63015e936c25c164b15656452152e1e74e
+  CocoaLumberjack: 9b4aed7073d242f29cc2f62068d995faf67f703a
+  CTObjectiveCRuntimeAdditions: e4164f82d489d542447a1ae35b27965b356c4738
+  FastCoding: ed46c83ba23d048aafa0251972a1e1fc1cfc58ed
+  KVOController: d72ace34afea42468329623b3379ab3cd1d286b6
+  libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
+  MTAnimation: 1079f4ff38c0282779ced010d7363a8f893fd3ee
+  OCMock: 35ae71d6a8fcc1b59434d561d1520b9dd4f15765
+  PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
+  SAMKeychain: 1865333198217411f35327e8da61b43de79b635b
+  SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
+  TPDWeakProxy: 39bf1d2675b75a1e87c38d4cd426110c21934842
+  TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
+  Typhoon: 05db9d33d798b90c202bf3f754275c03efe93297
+  TyphoonRestClient: 317b1235e021ff824a4632083aaecad28520aad7
+
+PODFILE CHECKSUM: d9157879db565b8011e2d3921d517399e639ab86
+
+COCOAPODS: 1.2.1
