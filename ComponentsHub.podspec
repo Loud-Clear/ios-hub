@@ -61,6 +61,7 @@ Pod::Spec.new do |s|
         subspec.dependency 'ComponentsHub/ManualLayout'
         subspec.dependency 'ComponentsHub/NotificationUtils'
         subspec.dependency 'ComponentsHub/Observation'
+        subspec.dependency 'ComponentsHub/StatusBarHUD'
         subspec.dependency 'PureLayout'
         subspec.dependency 'TPKeyboardAvoiding'
         subspec.dependency 'Typhoon/IntrospectionUtils'
