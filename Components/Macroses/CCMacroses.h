@@ -34,6 +34,9 @@
 #define SetAssociatedObjectToObject(object, key, value) objc_setAssociatedObject(object, key, value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 #define GetAssociatedObjectFromObject(object, key) objc_getAssociatedObject(object, key)
 
+#define let __auto_type const
+#define var __auto_type
+
 /// @deprecated Use SUPPRESS_WARNING_PERFORM_SELECTOR_LEAKS instead of this.
 #define SuppressPerformSelectorLeakWarning(Stuff) \
     do { \
