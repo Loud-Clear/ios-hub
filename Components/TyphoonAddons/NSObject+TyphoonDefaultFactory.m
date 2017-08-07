@@ -16,6 +16,7 @@
 #import "Typhoon+Infrastructure.h"
 #import "CCMacroses.h"
 
+
 @implementation NSObject (TyphoonDefaultFactory)
 
 + (BOOL)isAutoDefinition:(TyphoonDefinition *)definition
@@ -26,29 +27,34 @@
 
 + (instancetype)newUsingTyphoon
 {
+    TyphoonComponentFactory *defaultFactory = [TyphoonComponentFactory factoryForResolvingUI];
+
+    if (!defaultFactory) {
+        DDLogWarn(@"Default Factory doesn't exist yet, creating object using 'new' without dependencies.");
+        id result = [self new];
+        return result;
+    }
+
+    NSArray *definitions = [defaultFactory allDefinitionsForType:[self class]];
+
+    if (definitions.count == 1 && [self isAutoDefinition:definitions.firstObject]) {
+        definitions = @[];
+    }
+
     id result = nil;
 
-    TyphoonComponentFactory *defaultFactory = [TyphoonComponentFactory factoryForResolvingUI];
-    if (defaultFactory) {
-        NSArray *definitions = [defaultFactory allDefinitionsForType:[self class]];
-
-        if (definitions.count == 1 && [self isAutoDefinition:definitions.firstObject]) {
-            definitions = @[];
-        }
-
-        switch (definitions.count) {
-            case 0:
-                result = [self new];
-                [defaultFactory inject:result];
-                break;
-            case 1:
-                result = [defaultFactory componentForType:[self class]];
-                break;
-            default:
-                result = [self new];
-                DDLogWarn(@"Found more than one definition for class: %@", self);
-                break;
-        }
+    switch (definitions.count) {
+    case 0:
+        result = [self new];
+        [defaultFactory inject:result];
+        break;
+    case 1:
+        result = [defaultFactory componentForType:[self class]];
+        break;
+    default:
+        result = [self new];
+        DDLogWarn(@"Found more than one definition for class: %@", self);
+        break;
     }
 
     return result;
