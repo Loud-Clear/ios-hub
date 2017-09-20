@@ -542,6 +542,17 @@
     return height ? height : UITableViewAutomaticDimension;
 }
 
+// NOTE: Header and footer not currently supported
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
+{
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section
+{
+    return 0;
+}
+
 // Section header & footer information. Views are preferred over title should you decide to provide both
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)sectionIndex
@@ -812,7 +823,7 @@
     if ([section.items count] <= indexPath.row) {
         return NO;
     }
-    
+
     id anItem = section.items[indexPath.row];
     if ([anItem respondsToSelector:@selector(setCopyHandler:)]) {
         CCTableViewItem *item = anItem;
