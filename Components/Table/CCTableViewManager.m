@@ -449,7 +449,7 @@
     if (section.headerView) {
         return section.headerView.frame.size.height;
     } else if (section.headerTitle.length) {
-        if (!UITableViewStyleGrouped) {
+        if (tableView.style != UITableViewStyleGrouped) {
             return self.defaultTableViewSectionHeight;
         } else {
             CGFloat headerHeight = 0;
@@ -474,7 +474,7 @@
         return [self.delegate tableView:tableView heightForHeaderInSection:sectionIndex];
     }
 
-    return UITableViewAutomaticDimension;
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)sectionIndex
@@ -491,7 +491,7 @@
     if (section.footerView) {
         return section.footerView.frame.size.height;
     } else if (section.footerTitle.length) {
-        if (!UITableViewStyleGrouped) {
+        if (tableView.style != UITableViewStyleGrouped) {
             return self.defaultTableViewSectionHeight;
         } else {
             CGFloat footerHeight = 0;
@@ -516,7 +516,7 @@
         return [self.delegate tableView:tableView heightForFooterInSection:sectionIndex];
     }
 
-    return UITableViewAutomaticDimension;
+    return 0;
 }
 
 // Estimated height support
@@ -540,17 +540,6 @@
     CGFloat height = [[self classForCellAtIndexPath:indexPath] heightWithItem:item tableViewManager:self];
 
     return height ? height : UITableViewAutomaticDimension;
-}
-
-// NOTE: Header and footer not currently supported
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForHeaderInSection:(NSInteger)section
-{
-    return 0;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForFooterInSection:(NSInteger)section
-{
-    return 0;
 }
 
 // Section header & footer information. Views are preferred over title should you decide to provide both
