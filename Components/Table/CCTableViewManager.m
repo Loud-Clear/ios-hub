@@ -449,7 +449,7 @@
     if (section.headerView) {
         return section.headerView.frame.size.height;
     } else if (section.headerTitle.length) {
-        if (!UITableViewStyleGrouped) {
+        if (tableView.style != UITableViewStyleGrouped) {
             return self.defaultTableViewSectionHeight;
         } else {
             CGFloat headerHeight = 0;
@@ -474,7 +474,7 @@
         return [self.delegate tableView:tableView heightForHeaderInSection:sectionIndex];
     }
 
-    return UITableViewAutomaticDimension;
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)sectionIndex
@@ -491,7 +491,7 @@
     if (section.footerView) {
         return section.footerView.frame.size.height;
     } else if (section.footerTitle.length) {
-        if (!UITableViewStyleGrouped) {
+        if (tableView.style != UITableViewStyleGrouped) {
             return self.defaultTableViewSectionHeight;
         } else {
             CGFloat footerHeight = 0;
@@ -516,7 +516,7 @@
         return [self.delegate tableView:tableView heightForFooterInSection:sectionIndex];
     }
 
-    return UITableViewAutomaticDimension;
+    return 0;
 }
 
 // Estimated height support
@@ -812,7 +812,7 @@
     if ([section.items count] <= indexPath.row) {
         return NO;
     }
-    
+
     id anItem = section.items[indexPath.row];
     if ([anItem respondsToSelector:@selector(setCopyHandler:)]) {
         CCTableViewItem *item = anItem;
@@ -1197,9 +1197,9 @@
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([self.sections count] > indexPath.section && indexPath.section >= 0) {
-        CCTableViewSection *section = self.sections[(NSUInteger)indexPath.section];
+        CCTableViewSection *section = self.sections[(NSUInteger) indexPath.section];
         if ([section.items count] > indexPath.row && indexPath.row >= 0) {
-            return section.items[(NSUInteger)indexPath.row];
+            return section.items[(NSUInteger) indexPath.row];
         }
     }
     return nil;
@@ -1209,9 +1209,9 @@
 {
     if ([self.sections count] > indexPath.section) {
 
-        CCTableViewSection *section = self.sections[(NSUInteger)indexPath.section];
+        CCTableViewSection *section = self.sections[(NSUInteger) indexPath.section];
 
-        [section removeItemAtIndex:(NSUInteger)indexPath.row];
+        [section removeItemAtIndex:(NSUInteger) indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 
         [self updateVisibleCellRowIndexes];
@@ -1222,7 +1222,7 @@
 {
     for (UITableViewCell *cell in [self.tableView visibleCells]) {
         if ([cell isKindOfClass:[CCTableViewCell class]]) {
-            CCTableViewCell *customCell = (id)cell;
+            CCTableViewCell *customCell = (id) cell;
             CCTableViewItem *item = customCell.item;
             customCell.rowIndex = item.indexPath.row;
         }
