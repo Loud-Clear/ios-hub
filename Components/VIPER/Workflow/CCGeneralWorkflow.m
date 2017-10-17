@@ -77,35 +77,37 @@ NSString *const CCGeneralWorkflowDidFinishNotification = @"CCGeneralWorkflowDidF
 
 - (void)completeWithLastViewController:(UIViewController *)lastController
 {
-    SuppressPerformSelectorLeakWarning(
-            [_target performSelector:_action withObject:lastController];
-    );
+    SUPPRESS_WARNING_PERFORM_SELECTOR_LEAKS
+    [_target performSelector:_action withObject:lastController];
+    SUPPRESS_WARNING_END
+
     [self workflowDidFinish];
 }
 
 - (void)completeWithLastViewController:(UIViewController *)lastViewController context:(id)context
 {
-    SuppressPerformSelectorLeakWarning(
-            [_target performSelector:_action withObject:lastViewController withObject:context];
-    );
+    SUPPRESS_WARNING_PERFORM_SELECTOR_LEAKS
+    [_target performSelector:_action withObject:lastViewController withObject:context];
+    SUPPRESS_WARNING_END
+
     [self workflowDidFinish];
 }
 
 - (void)failWithLastViewController:(UIViewController *)lastController error:(NSError *)error
 {
-    SuppressPerformSelectorLeakWarning(
-            [_failureTarget performSelector:_failureAction withObject:lastController withObject:error];
-    );
+    SUPPRESS_WARNING_PERFORM_SELECTOR_LEAKS
+    [_failureTarget performSelector:_failureAction withObject:lastController withObject:error];
+    SUPPRESS_WARNING_END
+
     [self workflowDidFinish];
 }
 
 - (void)backoutFromInitialViewController:(UIViewController *)lastController
 {
-    if (lastController == _initialViewController)
-    {
-        SuppressPerformSelectorLeakWarning(
-                [_backoutTarget performSelector:_backoutAction withObject:lastController];
-        );
+    if (lastController == _initialViewController) {
+        SUPPRESS_WARNING_PERFORM_SELECTOR_LEAKS
+        [_backoutTarget performSelector:_backoutAction withObject:lastController];
+        SUPPRESS_WARNING_END
     }
     [self workflowDidFinish];
 }
