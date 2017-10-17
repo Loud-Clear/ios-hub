@@ -11,7 +11,7 @@
 
 #import <BugfenderSDK/BugfenderSDK.h>
 #import "CCLogging.h"
-#import "DDLog.h"
+#import "DDLogMacros.h"
 #import "DDTTYLogger.h"
 #import "CCFileAndLineNumberFormatter.h"
 #import "CCBugfenderLogger.h"

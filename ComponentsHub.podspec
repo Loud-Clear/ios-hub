@@ -135,7 +135,12 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'RoundButton' do |subspec|
-        subspec.source_files   = 'Components/RoundButton/**/*.{h,m}'
+      subspec.source_files   = 'Components/RoundButton/**/*.{h,m}'
+  end
+
+  s.subspec 'Shorthands' do |subspec|
+      subspec.source_files   = 'Components/Shorthands/**/*.{h,m}'
+      subspec.dependency 'NSAttributedString+CCLFormat'
   end
 
   s.subspec 'RealmAddons' do |subspec|
