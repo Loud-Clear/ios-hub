@@ -12,6 +12,7 @@
 #import "EXTScope.h"
 #import "CCLogger.h"
 
+#import "CCMacrosesSuppressWarning.h"
 
 #define SafetyCall(block, ...) if((block)) { (block)(__VA_ARGS__); }
 #define SafetyCallAfter(seconds, block, ...) if((block)) { dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)( seconds * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{(block)(__VA_ARGS__);});}
@@ -37,29 +38,6 @@
 #define let __auto_type const
 #define var __auto_type
 
-/// @deprecated Use SUPPRESS_WARNING_PERFORM_SELECTOR_LEAKS instead of this.
-#define SuppressPerformSelectorLeakWarning(Stuff) \
-    do { \
-        _Pragma("clang diagnostic push") \
-        _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
-        Stuff; \
-        _Pragma("clang diagnostic pop") \
-    } while (0)
-
-#define SUPPRESS_WARNING_PERFORM_SELECTOR_LEAKS \
-    _Pragma("clang diagnostic push") \
-    _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"")
-
-#define SUPPRESS_WARNING_INCOMPATIBLE_PROPERTY_TYPE \
-    _Pragma("clang diagnostic push") \
-    _Pragma("clang diagnostic ignored \"-Wincompatible-property-type\"")
-
-#define SUPPRESS_WARNING_DEPRECATED_DECLARATIONS \
-    _Pragma("clang diagnostic push") \
-    _Pragma("clang diagnostic ignored \"-Wdeprecated-declarations\"")
-
-#define SUPPRESS_WARNING_END \
-    _Pragma("clang diagnostic pop")
 
 #define CMTime(seconds) CMTimeMakeWithSeconds(seconds, NSEC_PER_SEC)
 #define RadiansToDegrees(radians) (CGFloat) ((radians) * (180.0 / M_PI))
@@ -71,8 +49,6 @@
 #define CCIOSVersionLessThan(version)              ([UIDevice.currentDevice.systemVersion compare:@ #version options:NSNumericSearch] == NSOrderedAscending)
 #define CCIOSVersionLessThanOrEqualTo(version)     ([UIDevice.currentDevice.systemVersion compare:@ #version options:NSNumericSearch] != NSOrderedDescending)
 
-/// @deprecated Use CCIOSVersionGreaterThanOrEqualTo instead of this.
-#define IOS_GREATER_THAN_OR_EQUAL_TO(v) ([UIDevice.currentDevice.systemVersion compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 #define CC_IMPLEMENT_SHARED_SINGLETON(className) \
     static className *instance; \
