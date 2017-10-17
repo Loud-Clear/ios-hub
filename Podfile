@@ -33,6 +33,8 @@ target 'iOS Hub' do
 
   pod 'BaseModel'
 
+  pod 'NSAttributedString+CCLFormat'
+
   target 'iOS HubTests' do
     inherit! :search_paths
     # Pods for testing
