@@ -1,10 +1,10 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  FANHUB
-//  Copyright 2016 FanHub Pty Ltd
+//  LOUD&CLEAR
+//  Copyright 2017 Loud&Clear Pty Ltd
 //  All Rights Reserved.
 //
-//  NOTICE: Prepared by AppsQuick.ly on behalf of FanHub. This software
+//  NOTICE: Prepared by AppsQuick.ly on behalf of Loud&Clear. This software
 //  is proprietary information. Unauthorized use is prohibited.
 //
 ////////////////////////////////////////////////////////////////////////////////
@@ -12,9 +12,8 @@
 @import UIKit;
 
 
-@interface UIColor (Hex)
+@interface UILabel (Dimensions)
 
-+ (UIColor *)withHex:(NSUInteger)rgbValue;
-+ (UIColor *)withHex:(NSUInteger)rgbValue alpha:(CGFloat)alpha;
+- (void)ensureHasCorrectHeight;
 
 @end
