@@ -26,6 +26,12 @@ Pod::Spec.new do |s|
 
   # Categories dir
 
+  s.subspec 'Categories' do |subspec|
+      subspec.source_files = 'Components/Categories/**/*.{h,m}'
+      subspec.dependency 'ComponentsHub/Macroses'
+      subspec.dependency 'ComponentsHub/ManualLayout'
+  end
+
   s.subspec 'UIColor+Hex' do |subspec|
       subspec.source_files = 'Components/Categories/UIColor+Hex.{h,m}'
   end
