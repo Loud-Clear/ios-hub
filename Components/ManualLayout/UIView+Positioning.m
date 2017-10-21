@@ -15,7 +15,16 @@
 
 const OSInsets OSInsetsZero = {{0}, {0}};
 
+@interface UIView (SizeToFitWidth)
+- (void)sizeToFitWidth:(CGFloat)width;
+@end
+
+
 @implementation UIView (Positioning)
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Properties
+//-------------------------------------------------------------------------------------------
 
 - (void)setX:(CGFloat)x
 {
@@ -23,10 +32,20 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     self.center = CGPointMake(x + self.boundsWidth/2, self.center.y);
 }
 
+- (void)setLeft:(CGFloat)left
+{
+    self.x = left;
+}
+
 - (void)setY:(CGFloat)y
 {
     y = CCUIRound(y);
     self.center = CGPointMake(self.center.x, y + self.boundsHeight/2);
+}
+
+- (void)setTop:(CGFloat)top
+{
+    self.y = top;
 }
 
 - (void)setWidth:(CGFloat)width
@@ -59,16 +78,6 @@ const OSInsets OSInsetsZero = {{0}, {0}};
 - (void)setBottom:(CGFloat)bottom
 {
     self.y = bottom - self.height;
-}
-
-- (void)setLeft:(CGFloat)left
-{
-    self.x = left;
-}
-
-- (void)setTop:(CGFloat)top
-{
-    self.y = top;
 }
 
 - (void)setCenterX:(CGFloat)centerX
@@ -108,9 +117,19 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     return self.frame.origin.x;
 }
 
+- (CGFloat)left
+{
+    return self.x;
+}
+
 - (CGFloat)y
 {
     return self.frame.origin.y;
+}
+
+- (CGFloat)top
+{
+    return self.y;
 }
 
 - (CGFloat)width
@@ -185,6 +204,16 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     self.bounds = bounds;
 }
 
+- (CGPoint)boundsCenter
+{
+    return CGPointMake((self.bounds.origin.x + self.bounds.size.width)/2, (self.bounds.origin.y + self.bounds.size.height)/2);
+}
+
+- (CGPoint)frameCenter
+{
+    return CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+}
+
 - (void)centerToParent
 {
     [self centerInSuperview];
@@ -233,6 +262,49 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     self.right = bottomRight.x;
     self.bottom = bottomRight.y;
 }
+
+- (void)setAttr:(OSAttr)attr value:(CGFloat)value
+{
+    if (attr == OSAttrLeft) {
+        self.x = value;
+    } else if (attr == OSAttrRight) {
+        self.right = value;
+    } else if (attr == OSAttrTop) {
+        self.y = value;
+    } else if (attr == OSAttrBottom) {
+        self.bottom = value;
+    } else if (attr == OSAttrCenterX) {
+        self.centerX = value;
+    } else if (attr == OSAxisCenterY) {
+        self.centerY = value;
+    } else {
+        NSAssert(NO, nil);
+    }
+}
+
+- (CGFloat)getAttrValue:(OSAttr)attr
+{
+    if (attr == OSAttrLeft) {
+        return self.x;
+    } else if (attr == OSAttrRight) {
+        return self.right;
+    } else if (attr == OSAttrTop) {
+        return self.y;
+    } else if (attr == OSAttrBottom) {
+        return self.bottom;
+    } else if (attr == OSAttrCenterX) {
+        return self.centerX;
+    } else if (attr == OSAxisCenterY) {
+        return self.centerY;
+    } else {
+        NSAssert(NO, nil);
+        return 0;
+    }
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Moving
+//-------------------------------------------------------------------------------------------
 
 - (void)moveX:(CGFloat)x
 {
@@ -286,6 +358,25 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     [self moveBottomToSuperviewWithOffset:0];
 }
 
+- (void)moveAttr:(OSAttr)attr value:(CGFloat)value
+{
+    if (attr == OSAttrLeft) {
+        [self moveX:value];
+    } else if (attr == OSAttrRight) {
+        [self moveRight:value];
+    } else if (attr == OSAttrTop) {
+        [self moveY:value];
+    } else if (attr == OSAttrBottom) {
+        [self moveBottom:value];
+    } else {
+        NSAssert(NO, nil);
+    }
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Fitting
+//-------------------------------------------------------------------------------------------
+
 - (void)fitToSuperview
 {
     self.frame = self.superview.bounds;
@@ -321,6 +412,10 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     self.height = self.superview.height - insets.top - insets.bottom;
 }
 
+//-------------------------------------------------------------------------------------------
+#pragma mark - Ensuring fitting
+//-------------------------------------------------------------------------------------------
+
 - (void)ensureFitsVerticallyToSuperview
 {
     if (self.superview && self.height > self.superview.height) {
@@ -337,7 +432,7 @@ const OSInsets OSInsetsZero = {{0}, {0}};
 
 - (void)ensureFitsSubviewsMaxWidth
 {
-    CGFloat maxSubviewWidth = [self maxWidthForSubviews];
+    CGFloat maxSubviewWidth = [self subviewsMaxWidth];
 
     if (self.width < maxSubviewWidth) {
         self.width = maxSubviewWidth;
@@ -346,7 +441,7 @@ const OSInsets OSInsetsZero = {{0}, {0}};
 
 - (void)ensureFitsSubviewsMaxHeight
 {
-    CGFloat maxSubviewHeight = [self maxHeightForSubviews];
+    CGFloat maxSubviewHeight = [self subviewsMaxHeight];
 
     if (self.height < maxSubviewHeight) {
         self.height = maxSubviewHeight;
@@ -358,6 +453,10 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     [self ensureFitsHorizontallyToSuperview];
     [self ensureFitsVerticallyToSuperview];
 }
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Centering
+//-------------------------------------------------------------------------------------------
 
 - (void)centerHorizontallyInSuperview
 {
@@ -394,6 +493,10 @@ const OSInsets OSInsetsZero = {{0}, {0}};
 {
     self.centerX = view.right + (self.width - view.right)/2 + offset;
 }
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Pinning
+//-------------------------------------------------------------------------------------------
 
 - (void)pinTopToSuperview
 {
@@ -513,60 +616,6 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     self.y = controller.topLayoutGuide.length + offset;
 }
 
-- (void)setAttr:(OSAttr)attr value:(CGFloat)value
-{
-    if (attr == OSAttrLeft) {
-        self.x = value;
-    } else if (attr == OSAttrRight) {
-        self.right = value;
-    } else if (attr == OSAttrTop) {
-        self.y = value;
-    } else if (attr == OSAttrBottom) {
-        self.bottom = value;
-    } else if (attr == OSAttrCenterX) {
-        self.centerX = value;
-    } else if (attr == OSAxisCenterY) {
-        self.centerY = value;
-    } else {
-        NSAssert(NO, nil);
-    }
-}
-
-- (CGFloat)getAttrValue:(OSAttr)attr
-{
-    if (attr == OSAttrLeft) {
-        return self.x;
-    } else if (attr == OSAttrRight) {
-        return self.right;
-    } else if (attr == OSAttrTop) {
-        return self.y;
-    } else if (attr == OSAttrBottom) {
-        return self.bottom;
-    } else if (attr == OSAttrCenterX) {
-        return self.centerX;
-    } else if (attr == OSAxisCenterY) {
-        return self.centerY;
-    } else {
-        NSAssert(NO, nil);
-        return 0;
-    }
-}
-
-- (void)moveAttr:(OSAttr)attr value:(CGFloat)value
-{
-    if (attr == OSAttrLeft) {
-        [self moveX:value];
-    } else if (attr == OSAttrRight) {
-        [self moveRight:value];
-    } else if (attr == OSAttrTop) {
-        [self moveY:value];
-    } else if (attr == OSAttrBottom) {
-        [self moveBottom:value];
-    } else {
-        NSAssert(NO, nil);
-    }
-}
-
 - (void)pinEdge:(OSEdge)edge toView:(UIView *)view edge:(OSEdge)viewEdge
 {
     [self pinEdge:edge toView:view edge:edge withOffset:0];
@@ -599,7 +648,7 @@ const OSInsets OSInsetsZero = {{0}, {0}};
 
 - (void)pinBottomToViewTop:(UIView *)view withOffset:(CGFloat)offset
 {
-    [self pinEdge:OSEdgeBottom toView:view edge:OSEdgeTop withOffset:offset];
+    [self pinEdge:OSEdgeBottom toView:view edge:OSEdgeTop withOffset:-offset];
 }
 
 - (void)pinBottomToViewTop:(UIView *)view
@@ -738,8 +787,11 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     self.center = newCenter;
 }
 
+//-------------------------------------------------------------------------------------------
+#pragma mark - Subviews
+//-------------------------------------------------------------------------------------------
 
-+ (CGRect)boundingBoxForViews:(NSArray<UIView *> *)views
+- (CGRect)subviewsBoundingBox:(NSArray<UIView *> *)views
 {
     CGFloat x = 0;
     CGFloat y = 0;
@@ -757,13 +809,17 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     return rect;
 }
 
-
-- (void)centerViewsHorizontally:(NSArray<UIView *> *)views
+- (CGRect)subviewsBoundingBox
 {
-    [self centerViewsHorizontally:views withMargin:0];
+    return [self subviewsBoundingBox:self.subviews];
 }
 
-- (void)centerViewsHorizontally:(NSArray<UIView *> *)views withMargin:(CGFloat)margin
+- (void)subviewsStackAndCenterHorizontally:(NSArray<UIView *> *)views
+{
+    [self subviewsStackAndCenterHorizontally:views withMargin:0];
+}
+
+- (void)subviewsStackAndCenterHorizontally:(NSArray<UIView *> *)views withMargin:(CGFloat)margin
 {
     CGFloat totalWidth = 0;
     for (UIView *view in views) {
@@ -784,12 +840,22 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     }
 }
 
-- (void)centerViewsVertically:(NSArray<UIView *> *)views
+- (void)subviewsStackAndCenterHorizontally
 {
-    [self centerViewsVertically:views withMargin:0];
+    [self subviewsStackAndCenterHorizontally:self.subviews];
 }
 
-- (void)centerViewsVertically:(NSArray<UIView *> *)views withMargin:(CGFloat)margin
+- (void)subviewsStackAndCenterHorizontallyWithMargin:(CGFloat)margin
+{
+    [self subviewsStackAndCenterHorizontally:self.subviews withMargin:margin];
+}
+
+- (void)subviewsStackAndCenterVertically:(NSArray<UIView *> *)views
+{
+    [self subviewsStackAndCenterVertically:views withMargin:0];
+}
+
+- (void)subviewsStackAndCenterVertically:(NSArray<UIView *> *)views withMargin:(CGFloat)margin
 {
     CGFloat totalHeight = 0;
     for (UIView *view in views) {
@@ -810,31 +876,31 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     }
 }
 
-- (void)centerSubviewsVertically
+- (void)subviewsStackAndCenterVertically
 {
-    [self centerSubviewsVerticallyWithMargin:0];
+    [self subviewsStackAndCenterVerticallyWithMargin:0];
 }
 
-- (void)centerSubviewsVerticallyWithMargin:(CGFloat)margin
+- (void)subviewsStackAndCenterVerticallyWithMargin:(CGFloat)margin
 {
-    [self centerViewsVertically:self.subviews withMargin:margin];
+    [self subviewsStackAndCenterVertically:self.subviews withMargin:margin];
 }
 
-- (void)centerSubviewsHorizontallyToSuperview
+- (void)subviewsCenterHorizontallyToSuperview
 {
     for (UIView *view in self.subviews) {
         [view centerHorizontallyInSuperview];
     }
 }
 
-- (void)centerSubviewsVerticallyToSuperview
+- (void)subviewsCenterVerticallyToSuperview
 {
     for (UIView *view in self.subviews) {
         [view centerVerticallyInSuperview];
     }
 }
 
-+ (CGFloat)maxWidthForViews:(NSArray<UIView *> *)views
+- (CGFloat)subviewsMaxWidth:(NSArray<UIView *> *)views
 {
     CGFloat maxWidth = 0;
 
@@ -847,12 +913,12 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     return maxWidth;
 }
 
-- (CGFloat)maxHeightForSubviews
+- (CGFloat)subviewsMaxHeight
 {
-    return [[self class] maxHeightForViews:self.subviews];
+    return [[self class] subviewsMaxHeight:self.subviews];
 }
 
-+ (CGFloat)maxHeightForViews:(NSArray<UIView *> *)views
+- (CGFloat)subviewsMaxHeight:(NSArray<UIView *> *)views
 {
     CGFloat maxHeight = 0;
 
@@ -865,12 +931,12 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     return maxHeight;
 }
 
-- (CGFloat)maxWidthForSubviews
+- (CGFloat)subviewsMaxWidth
 {
-    return [[self class] maxWidthForViews:self.subviews];
+    return [[self class] subviewsMaxWidth:self.subviews];
 }
 
-- (void)sizeToFitAllSubviews
+- (void)subviewsSizeToFitAll
 {
     for (UIView *view in self.subviews) {
         if ([view isKindOfClass:[UIView class]]) {
@@ -879,25 +945,43 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     }
 }
 
-- (CGFloat)minSubviewAttrValue:(OSAttr)attr
+- (void)subviewsSizeToFitWidthAll:(CGFloat)width
+{
+    for (UIView *view in self.subviews) {
+        if ([view respondsToSelector:@selector(sizeToFitWidth:)]) {
+            [view sizeToFitWidth:width];
+        }
+    }
+}
+
+- (CGFloat)subviewsMinAttrValue:(OSAttr)attr
+{
+    return [self subviews:self.subviews minAttrValue:attr];
+}
+
+- (CGFloat)subviewsMaxAttrValue:(OSAttr)attr
+{
+    return [self subviews:self.subviews maxAttrValue:attr];
+}
+
+- (CGFloat)subviews:(NSArray<UIView *> *)views minAttrValue:(OSAttr)attr
 {
     NSNumber *minValue = nil;
 
-    for (UIView *view in self.subviews) {
+    for (UIView *view in views) {
         CGFloat value = [view getAttrValue:attr];
         if (!minValue || value < [minValue floatValue]) {
             minValue = @(value);
         }
     }
 
-    return [minValue floatValue];
-}
+    return [minValue floatValue];}
 
-- (CGFloat)maxSubviewAttrValue:(OSAttr)attr
+- (CGFloat)subviews:(NSArray<UIView *> *)views maxAttrValue:(OSAttr)attr
 {
     NSNumber *maxValue = nil;
 
-    for (UIView *view in self.subviews) {
+    for (UIView *view in views) {
         CGFloat value = [view getAttrValue:attr];
         if (!maxValue || value > [maxValue floatValue]) {
             maxValue = @(value);
@@ -906,6 +990,5 @@ const OSInsets OSInsetsZero = {{0}, {0}};
 
     return [maxValue floatValue];
 }
-
 
 @end

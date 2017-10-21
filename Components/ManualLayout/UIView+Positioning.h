@@ -59,7 +59,9 @@ typedef NS_ENUM(NSInteger, OSAxis)
 @interface UIView (Positioning)
 
 @property (nonatomic) CGFloat x;
+@property (nonatomic) CGFloat left;
 @property (nonatomic) CGFloat y;
+@property (nonatomic) CGFloat top;
 @property (nonatomic) CGFloat width;
 @property (nonatomic) CGFloat height;
 @property (nonatomic) CGPoint origin;
@@ -74,10 +76,21 @@ typedef NS_ENUM(NSInteger, OSAxis)
 @property (nonatomic) CGPoint bottomLeft;
 @property (nonatomic) CGPoint bottomRight;
 
-/**
- * 'moveXXX' series of functions will change corresponding parameter by adjusting view dimensions instead of moving view (relative to opposite corner).
- * For example, moveX will change change value of both .x and .width so that .right will remain the same as before.
- */
+@property (nonatomic) CGFloat boundsX;
+@property (nonatomic) CGFloat boundsY;
+@property (nonatomic) CGFloat boundsWidth;
+@property (nonatomic) CGFloat boundsHeight;
+@property (nonatomic) CGSize boundsSize;
+@property (nonatomic, readonly) CGPoint boundsCenter;
+@property (nonatomic, readonly) CGPoint frameCenter;
+
+- (void)setAttr:(OSAttr)attr value:(CGFloat)value;
+- (CGFloat)getAttrValue:(OSAttr)attr;
+
+
+/// 'moveXXX' series of functions will change corresponding parameter by adjusting view dimensions instead of moving view (relative to opposite corner).
+/// For example, moveX will change change value of both .x and .width so that .right will remain the same as before.
+
 - (void)moveX:(CGFloat)x;
 - (void)moveY:(CGFloat)y;
 - (void)moveRight:(CGFloat)right;
@@ -92,11 +105,9 @@ typedef NS_ENUM(NSInteger, OSAxis)
 - (void)moveBottomToSuperviewWithOffset:(CGFloat)offset;
 - (void)moveBottomToSuperview;
 
-@property (nonatomic) CGFloat boundsX;
-@property (nonatomic) CGFloat boundsY;
-@property (nonatomic) CGFloat boundsWidth;
-@property (nonatomic) CGFloat boundsHeight;
-@property (nonatomic) CGSize boundsSize;
+/// Only valid for OSAttrLeft, OSAttrRight, OSAttrTop, OSAttrBottom.
+- (void)moveAttr:(OSAttr)attr value:(CGFloat)value;
+
 
 - (void)centerVerticallyInSuperview;
 - (void)centerHorizontallyInSuperview;
@@ -108,23 +119,6 @@ typedef NS_ENUM(NSInteger, OSAxis)
 - (void)centerHorizontallyBetweenViewAndSuperview:(UIView *)view;
 - (void)centerHorizontallyBetweenViewAndSuperview:(UIView *)view withOffset:(CGFloat)offset;
 
-- (void)centerViewsHorizontally:(NSArray<UIView *> *)views;
-- (void)centerViewsHorizontally:(NSArray<UIView *> *)views withMargin:(CGFloat)margin;
-
-- (void)centerViewsVertically:(NSArray<UIView *> *)views;
-- (void)centerViewsVertically:(NSArray<UIView *> *)views withMargin:(CGFloat)margin;
-
-- (void)centerSubviewsVertically;
-- (void)centerSubviewsVerticallyWithMargin:(CGFloat)margin;
-
-- (void)centerSubviewsHorizontallyToSuperview;
-- (void)centerSubviewsVerticallyToSuperview;
-
-- (void)setAttr:(OSAttr)attr value:(CGFloat)value;
-- (CGFloat)getAttrValue:(OSAttr)attr;
-
-/// Only valid for OSAttrLeft, OSAttrRight, OSAttrTop, OSAttrBottom.
-- (void)moveAttr:(OSAttr)attr value:(CGFloat)value;
 
 /// Note: view at this moment, `view` should at the same level of hierarchy as self.
 - (void)pinEdge:(OSEdge)edge toView:(UIView *)view edge:(OSEdge)viewEdge;
@@ -165,6 +159,7 @@ typedef NS_ENUM(NSInteger, OSAxis)
 - (void)pinBottomRightToSuperview;
 - (void)pinBottomRightToSuperviewWithOffset:(UIOffset)offset;
 
+
 - (void)fitToSuperview;
 - (void)fitToSuperviewWithInsets:(UIEdgeInsets)insets;
 - (void)fitHorizontallyToSuperview;
@@ -185,6 +180,7 @@ typedef NS_ENUM(NSInteger, OSAxis)
 - (void)fitVerticallyBetweenViewAndSuperview:(UIView *)view;
 - (void)fitVerticallyBetweenViewAndSuperview:(UIView *)view withInsets:(OSInsets)offset;
 
+
 - (void)ensureFitsVerticallyToSuperview;
 - (void)ensureFitsHorizontallyToSuperview;
 - (void)ensureFitsToSuperview;
@@ -198,21 +194,41 @@ typedef NS_ENUM(NSInteger, OSAxis)
 - (void)ensureRightIsNotCloserThan:(CGFloat)offset toView:(UIView *)view;
 - (void)ensureLeftIsNotCloserThan:(CGFloat)offset toView:(UIView *)view;
 
-/// Will adjust view's origin (if needed) to make it aligned with physical device pixels so
-/// contents are not blurry because of possible inalignemnt.
+
+- (void)subviewsSizeToFitAll;
+- (void)subviewsSizeToFitWidthAll:(CGFloat)width;
+
+- (void)subviewsStackAndCenterHorizontally:(NSArray<UIView *> *)views;
+- (void)subviewsStackAndCenterHorizontally:(NSArray<UIView *> *)views withMargin:(CGFloat)margin;
+
+- (void)subviewsStackAndCenterHorizontally;
+- (void)subviewsStackAndCenterHorizontallyWithMargin:(CGFloat)margin;
+
+- (void)subviewsStackAndCenterVertically:(NSArray<UIView *> *)views;
+- (void)subviewsStackAndCenterVertically:(NSArray<UIView *> *)views withMargin:(CGFloat)margin;
+
+- (void)subviewsStackAndCenterVertically;
+- (void)subviewsStackAndCenterVerticallyWithMargin:(CGFloat)margin;
+
+- (void)subviewsCenterHorizontallyToSuperview;
+- (void)subviewsCenterVerticallyToSuperview;
+
+- (CGRect)subviewsBoundingBox:(NSArray<UIView *> *)views;
+- (CGRect)subviewsBoundingBox;
+
+- (CGFloat)subviewsMaxWidth:(NSArray<UIView *> *)views;
+- (CGFloat)subviewsMaxWidth;
+
+- (CGFloat)subviewsMaxHeight:(NSArray<UIView *> *)views;
+- (CGFloat)subviewsMaxHeight;
+
+- (CGFloat)subviewsMinAttrValue:(OSAttr)attr;
+- (CGFloat)subviewsMaxAttrValue:(OSAttr)attr;
+
+- (CGFloat)subviews:(NSArray<UIView *> *)views minAttrValue:(OSAttr)attr;
+- (CGFloat)subviews:(NSArray<UIView *> *)views maxAttrValue:(OSAttr)attr;
+
+
 - (void)fixOrigin;
-
-+ (CGRect)boundingBoxForViews:(NSArray<UIView *> *)views;
-
-+ (CGFloat)maxWidthForViews:(NSArray<UIView *> *)views;
-- (CGFloat)maxWidthForSubviews;
-
-+ (CGFloat)maxHeightForViews:(NSArray<UIView *> *)views;
-- (CGFloat)maxHeightForSubviews;
-
-- (void)sizeToFitAllSubviews;
-
-- (CGFloat)minSubviewAttrValue:(OSAttr)attr;
-- (CGFloat)maxSubviewAttrValue:(OSAttr)attr;
 
 @end
