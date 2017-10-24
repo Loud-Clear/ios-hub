@@ -465,7 +465,7 @@ const OSInsets OSInsetsZero = {{0}, {0}};
 
 - (void)centerVerticallyInSuperview
 {
-    self.centerY = self.superview.boundsWidth/2;
+    self.centerY = self.superview.boundsHeight/2;
 }
 
 - (void)centerInSuperview
