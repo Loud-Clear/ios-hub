@@ -915,7 +915,7 @@ const OSInsets OSInsetsZero = {{0}, {0}};
 
 - (CGFloat)subviewsMaxHeight
 {
-    return [[self class] subviewsMaxHeight:self.subviews];
+    return [self subviewsMaxHeight:self.subviews];
 }
 
 - (CGFloat)subviewsMaxHeight:(NSArray<UIView *> *)views
@@ -933,7 +933,7 @@ const OSInsets OSInsetsZero = {{0}, {0}};
 
 - (CGFloat)subviewsMaxWidth
 {
-    return [[self class] subviewsMaxWidth:self.subviews];
+    return [self subviewsMaxWidth:self.subviews];
 }
 
 - (void)subviewsSizeToFitAll
