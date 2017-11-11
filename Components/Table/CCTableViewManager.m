@@ -26,7 +26,7 @@
 #import "CCTableViewManager.h"
 #import "CCTableViewItem.h"
 #import "CCTableViewCellFactory.h"
-
+#import "CCMacroses.h"
 
 @interface CCTableViewManager ()
 
@@ -538,7 +538,11 @@
     }
 
     CGFloat height = [[self classForCellAtIndexPath:indexPath] heightWithItem:item tableViewManager:self];
-
+    
+    if (CCIOSVersionLessThan(11.0) && (ceil(height) == 1)) {
+        height = 1.01;
+    }
+    
     return height ? height : UITableViewAutomaticDimension;
 }
 
