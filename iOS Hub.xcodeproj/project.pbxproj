@@ -81,6 +81,7 @@
 		3182157BF56C83C5B2E2718A /* CCImageGetContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 318213B5F30917FF9E1B38FC /* CCImageGetContext.m */; };
 		318215F0DDDD4D271500E86A /* CCStatusBarHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 318211498D8D50ED9F2D11FB /* CCStatusBarHUD.m */; };
 		3182165CE66C92F65316C96E /* UIImage+WithColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 318213DBCD963AADD590B770 /* UIImage+WithColor.m */; };
+		3182167017A0CC41EACCC532 /* CCStackView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821B4A55DB374C52C584BC /* CCStackView.m */; };
 		318217476F8DEED9BFCE692A /* CCRemoteNotificationsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 318210FF45F362C561AA0A10 /* CCRemoteNotificationsService.m */; };
 		31821777B18A4A6A68DFF62E /* CCFormValidationAnd.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821D6608238549600585FD /* CCFormValidationAnd.m */; };
 		318217A32FB1966F17BA9ECC /* CCImageServiceCustomImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 318217DB332BA8CE7F3F2D36 /* CCImageServiceCustomImpl.m */; };
@@ -335,6 +336,7 @@
 		318216ADC11DE2CD65F4C444 /* CCValueTransformerToString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerToString.h; sourceTree = "<group>"; };
 		318216AF963411977C7849F9 /* CCValueTransformerUnixTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerUnixTime.m; sourceTree = "<group>"; };
 		318216C8C06526412D3817B2 /* NSAttributedString+Shorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Shorthand.h"; sourceTree = "<group>"; };
+		318216E16C31029905AE169E /* CCStackView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCStackView.h; sourceTree = "<group>"; };
 		318217617BD471F71A9F058B /* CCImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageDownloader.h; sourceTree = "<group>"; };
 		3182179E05C54A03383C88A7 /* NSObject+ChangeValueForKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChangeValueForKey.m"; sourceTree = "<group>"; };
 		318217B2896E64AA18E36425 /* CCFormValidationPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationPhone.h; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 		31821AD048458F6B4C112EC6 /* CCDispatchQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDispatchQueue.h; sourceTree = "<group>"; };
 		31821B2F840857DC85C7B958 /* CCFormValidationAndTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationAndTests.m; sourceTree = "<group>"; };
 		31821B3855A95DFE6BD92120 /* CCImageMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageMemoryCache.m; sourceTree = "<group>"; };
+		31821B4A55DB374C52C584BC /* CCStackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCStackView.m; sourceTree = "<group>"; };
 		31821B68418F6DD42460A9EA /* CCDispatchGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDispatchGroup.m; sourceTree = "<group>"; };
 		31821B74FADBB1DE04CBA5E0 /* UIAlertController+Shorthands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Shorthands.m"; sourceTree = "<group>"; };
 		31821BC2C3C1A1BA9CE2084A /* CCDispatchQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCDispatchQueue.m; sourceTree = "<group>"; };
@@ -1770,6 +1773,8 @@
 				FAB831F61ECC33820036A53A /* UILabel+SizeToFitMultiline.m */,
 				FAB831F71ECC33820036A53A /* UIView+Positioning.h */,
 				FAB831F81ECC33820036A53A /* UIView+Positioning.m */,
+				318216E16C31029905AE169E /* CCStackView.h */,
+				31821B4A55DB374C52C584BC /* CCStackView.m */,
 			);
 			path = ManualLayout;
 			sourceTree = "<group>";
@@ -2141,6 +2146,7 @@
 				31821D80E728E5175737B49F /* UITableView+PerformBatchUpdates.m in Sources */,
 				31821A027CE905CB232D4C9A /* UITextField+Dimensions.m in Sources */,
 				318213FE1A71E4BB9F87E9DE /* UIView+WithSubviews.m in Sources */,
+				3182167017A0CC41EACCC532 /* CCStackView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
