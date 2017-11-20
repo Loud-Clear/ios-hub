@@ -413,7 +413,7 @@ const OSInsets OSInsetsZero = {{0}, {0}};
 }
 
 //-------------------------------------------------------------------------------------------
-#pragma mark - Ensuring fitting
+#pragma mark - Ensuring
 //-------------------------------------------------------------------------------------------
 
 - (void)ensureFitsVerticallyToSuperview
@@ -454,6 +454,43 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     [self ensureFitsVerticallyToSuperview];
 }
 
+
+- (void)ensureWidthIsNoMoreThan:(CGFloat)maxWidth
+{
+    if (maxWidth < 0) {
+        maxWidth = 0;
+    }
+
+    if (self.width > maxWidth) {
+        self.width = maxWidth;
+    }
+}
+
+- (void)ensureHeightIsNoMoreThan:(CGFloat)maxHeight
+{
+    if (maxHeight < 0) {
+        maxHeight = 0;
+    }
+
+    if (self.height > maxHeight) {
+        self.height = maxHeight;
+    }
+}
+
+- (void)ensureRightIsNotCloserThan:(CGFloat)offset toView:(UIView *)view
+{
+    if (view.x - self.right < offset) {
+        self.right = view.x - offset;
+    }
+}
+
+- (void)ensureLeftIsNotCloserThan:(CGFloat)offset toView:(UIView *)view
+{
+    if (self.x - view.right < offset) {
+        self.x = view.right + offset;
+    }
+}
+
 //-------------------------------------------------------------------------------------------
 #pragma mark - Centering
 //-------------------------------------------------------------------------------------------
@@ -492,6 +529,46 @@ const OSInsets OSInsetsZero = {{0}, {0}};
 - (void)centerHorizontallyBetweenViewAndSuperview:(UIView *)view withOffset:(CGFloat)offset
 {
     self.centerX = view.right + (self.width - view.right)/2 + offset;
+}
+
+- (void)centerVerticallyBetweenView:(UIView *)view1 andView:(UIView *)view2 withOffset:(CGFloat)offset;
+{
+    self.centerY = view1.bottom + (view2.y - view1.bottom)/2 + offset;
+}
+
+- (void)centerVerticallyBetweenView:(UIView *)view1 andView:(UIView *)view2
+{
+    [self centerVerticallyBetweenView:view1 andView:view2 withOffset:0];
+}
+
+- (void)centerHorizontallyBetweenView:(UIView *)view1 andView:(UIView *)view2 withOffset:(CGFloat)offset
+{
+    self.centerX = view1.right + (view2.x - view1.right)/2 + offset;
+}
+
+- (void)centerHorizontallyBetweenView:(UIView *)view1 andView:(UIView *)view2
+{
+    [self centerHorizontallyBetweenView:view1 andView:view2 withOffset:0];
+}
+
+- (void)centerVerticallyBetweenSuperviewAndView:(UIView *)view
+{
+    [self centerVerticallyBetweenSuperviewAndView:view withOffset:0];
+}
+
+- (void)centerVerticallyBetweenSuperviewAndView:(UIView *)view withOffset:(CGFloat)offset
+{
+    self.centerY = view.y/2 + offset;
+}
+
+- (void)centerVerticallyBetweenViewAndSuperview:(UIView *)view
+{
+    [self centerVerticallyBetweenViewAndSuperview:view withOffset:0];
+}
+
+- (void)centerVerticallyBetweenViewAndSuperview:(UIView *)view withOffset:(CGFloat)offset
+{
+    self.centerY = view.y + (self.superview.height - view.y)/2 - offset;
 }
 
 //-------------------------------------------------------------------------------------------
@@ -732,61 +809,6 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     self.height = self.superview.boundsHeight - view.bottom - insets.top - insets.bottom;
 }
 
-- (void)ensureWidthIsNoMoreThan:(CGFloat)maxWidth
-{
-    if (maxWidth < 0) {
-        maxWidth = 0;
-    }
-
-    if (self.width > maxWidth) {
-        self.width = maxWidth;
-    }
-}
-
-- (void)ensureHeightIsNoMoreThan:(CGFloat)maxHeight
-{
-    if (maxHeight < 0) {
-        maxHeight = 0;
-    }
-
-    if (self.height > maxHeight) {
-        self.height = maxHeight;
-    }
-}
-
-- (void)ensureRightIsNotCloserThan:(CGFloat)offset toView:(UIView *)view
-{
-    if (view.x - self.right < offset) {
-        self.right = view.x - offset;
-    }
-}
-
-- (void)ensureLeftIsNotCloserThan:(CGFloat)offset toView:(UIView *)view
-{
-    if (self.x - view.right < offset) {
-        self.x = view.right + offset;
-    }
-}
-
-- (void)fixOrigin
-{
-    // Calculate origin. Not using self.frame.origin because it may be invalid if view is transformed (center & bounds are always valid).
-    CGPoint origin = CGPointMake(self.center.x - self.bounds.size.width/2, self.center.y - self.bounds.size.height/2);
-
-    // Convert to window coordinates
-    origin = [self.superview convertPoint:origin toView:[UIApplication sharedApplication].keyWindow];
-
-    // Align to physical pixels
-    origin = CGPointMake(CCUIRound(origin.x), CCUIRound(origin.y));
-
-    // Convert back to superview coordinates
-    origin = [self.superview convertPoint:origin fromView:[UIApplication sharedApplication].keyWindow];
-
-    // Adjust origin by changing center.
-    CGPoint newCenter = CGPointMake(origin.x + self.bounds.size.width/2, origin.y + self.bounds.size.height/2);
-    self.center = newCenter;
-}
-
 //-------------------------------------------------------------------------------------------
 #pragma mark - Subviews
 //-------------------------------------------------------------------------------------------
@@ -989,6 +1011,29 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     }
 
     return [maxValue floatValue];
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Utils
+//-------------------------------------------------------------------------------------------
+
+- (void)fixOrigin
+{
+    // Calculate origin. Not using self.frame.origin because it may be invalid if view is transformed (center & bounds are always valid).
+    CGPoint origin = CGPointMake(self.center.x - self.bounds.size.width/2, self.center.y - self.bounds.size.height/2);
+
+    // Convert to window coordinates
+    origin = [self.superview convertPoint:origin toView:[UIApplication sharedApplication].keyWindow];
+
+    // Align to physical pixels
+    origin = CGPointMake(CCUIRound(origin.x), CCUIRound(origin.y));
+
+    // Convert back to superview coordinates
+    origin = [self.superview convertPoint:origin fromView:[UIApplication sharedApplication].keyWindow];
+
+    // Adjust origin by changing center.
+    CGPoint newCenter = CGPointMake(origin.x + self.bounds.size.width/2, origin.y + self.bounds.size.height/2);
+    self.center = newCenter;
 }
 
 @end

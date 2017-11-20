@@ -58,6 +58,10 @@ typedef NS_ENUM(NSInteger, OSAxis)
 
 @interface UIView (Positioning)
 
+//-------------------------------------------------------------------------------------------
+#pragma mark - Properties
+//-------------------------------------------------------------------------------------------
+
 @property (nonatomic) CGFloat x;
 @property (nonatomic) CGFloat left;
 @property (nonatomic) CGFloat y;
@@ -87,9 +91,14 @@ typedef NS_ENUM(NSInteger, OSAxis)
 - (void)setAttr:(OSAttr)attr value:(CGFloat)value;
 - (CGFloat)getAttrValue:(OSAttr)attr;
 
+//-------------------------------------------------------------------------------------------
+#pragma mark - Moving
+//-------------------------------------------------------------------------------------------
 
-/// 'moveXXX' series of functions will change corresponding parameter by adjusting view dimensions instead of moving view (relative to opposite corner).
-/// For example, moveX will change change value of both .x and .width so that .right will remain the same as before.
+/**
+ * 'moveXXX' series of functions will change corresponding parameter by adjusting view dimensions instead of moving view (relative to opposite corner).
+ * For example, moveX will change change value of both .x and .width so that .right will remain the same as before.
+ */
 
 - (void)moveX:(CGFloat)x;
 - (void)moveY:(CGFloat)y;
@@ -109,9 +118,56 @@ typedef NS_ENUM(NSInteger, OSAxis)
 - (void)moveAttr:(OSAttr)attr value:(CGFloat)value;
 
 
+//-------------------------------------------------------------------------------------------
+#pragma mark - Fitting
+//-------------------------------------------------------------------------------------------
+
+- (void)fitToSuperview;
+- (void)fitToSuperviewWithInsets:(UIEdgeInsets)insets;
+- (void)fitHorizontallyToSuperview;
+- (void)fitHorizontallyToSuperviewWithInsets:(OSInsets)insets;
+- (void)fitVerticallyToSuperview;
+- (void)fitVerticallyToSuperviewWithInsets:(OSInsets)insets;
+
+- (void)fitHorizontallyBetweenView:(UIView *)view1 andView:(UIView *)view2;
+- (void)fitHorizontallyBetweenView:(UIView *)view1 andView:(UIView *)view2 withInsets:(OSInsets)offset;
+- (void)fitVerticallyBetweenView:(UIView *)view1 andView:(UIView *)view2;
+- (void)fitVerticallyBetweenView:(UIView *)view1 andView:(UIView *)view2 withInsets:(OSInsets)offset;
+- (void)fitHorizontallyBetweenViewAndSuperview:(UIView *)view;
+- (void)fitHorizontallyBetweenViewAndSuperview:(UIView *)view withInsets:(OSInsets)offset;
+- (void)fitHorizontallyBetweenSuperviewAndView:(UIView *)view;
+- (void)fitHorizontallyBetweenSuperviewAndView:(UIView *)view withInsets:(OSInsets)offset;
+- (void)fitVerticallyBetweenSuperviewAndView:(UIView *)view;
+- (void)fitVerticallyBetweenSuperviewAndView:(UIView *)view withInsets:(OSInsets)offset;
+- (void)fitVerticallyBetweenViewAndSuperview:(UIView *)view;
+- (void)fitVerticallyBetweenViewAndSuperview:(UIView *)view withInsets:(OSInsets)offset;
+
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Ensuring
+//-------------------------------------------------------------------------------------------
+
+- (void)ensureFitsVerticallyToSuperview;
+- (void)ensureFitsHorizontallyToSuperview;
+- (void)ensureFitsToSuperview;
+
+- (void)ensureFitsSubviewsMaxWidth;
+- (void)ensureFitsSubviewsMaxHeight;
+
+- (void)ensureWidthIsNoMoreThan:(CGFloat)maxWidth;
+- (void)ensureHeightIsNoMoreThan:(CGFloat)maxHeight;
+
+- (void)ensureRightIsNotCloserThan:(CGFloat)offset toView:(UIView *)view;
+- (void)ensureLeftIsNotCloserThan:(CGFloat)offset toView:(UIView *)view;
+
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Centering
+//-------------------------------------------------------------------------------------------
+
+- (void)centerInSuperview;
 - (void)centerVerticallyInSuperview;
 - (void)centerHorizontallyInSuperview;
-- (void)centerInSuperview;
 
 - (void)centerHorizontallyBetweenSuperviewAndView:(UIView *)view;
 - (void)centerHorizontallyBetweenSuperviewAndView:(UIView *)view withOffset:(CGFloat)offset;
@@ -119,6 +175,21 @@ typedef NS_ENUM(NSInteger, OSAxis)
 - (void)centerHorizontallyBetweenViewAndSuperview:(UIView *)view;
 - (void)centerHorizontallyBetweenViewAndSuperview:(UIView *)view withOffset:(CGFloat)offset;
 
+- (void)centerHorizontallyBetweenView:(UIView *)view1 andView:(UIView *)view2 withOffset:(CGFloat)offset;
+- (void)centerHorizontallyBetweenView:(UIView *)view1 andView:(UIView *)view2;
+
+- (void)centerVerticallyBetweenView:(UIView *)view1 andView:(UIView *)view2 withOffset:(CGFloat)offset;
+- (void)centerVerticallyBetweenView:(UIView *)view1 andView:(UIView *)view2;
+
+- (void)centerVerticallyBetweenSuperviewAndView:(UIView *)view;
+- (void)centerVerticallyBetweenSuperviewAndView:(UIView *)view withOffset:(CGFloat)offset;
+
+- (void)centerVerticallyBetweenViewAndSuperview:(UIView *)view;
+- (void)centerVerticallyBetweenViewAndSuperview:(UIView *)view withOffset:(CGFloat)offset;
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Pinning
+//-------------------------------------------------------------------------------------------
 
 /// Note: view at this moment, `view` should at the same level of hierarchy as self.
 - (void)pinEdge:(OSEdge)edge toView:(UIView *)view edge:(OSEdge)viewEdge;
@@ -159,41 +230,9 @@ typedef NS_ENUM(NSInteger, OSAxis)
 - (void)pinBottomRightToSuperview;
 - (void)pinBottomRightToSuperviewWithOffset:(UIOffset)offset;
 
-
-- (void)fitToSuperview;
-- (void)fitToSuperviewWithInsets:(UIEdgeInsets)insets;
-- (void)fitHorizontallyToSuperview;
-- (void)fitHorizontallyToSuperviewWithInsets:(OSInsets)insets;
-- (void)fitVerticallyToSuperview;
-- (void)fitVerticallyToSuperviewWithInsets:(OSInsets)insets;
-
-- (void)fitHorizontallyBetweenView:(UIView *)view1 andView:(UIView *)view2;
-- (void)fitHorizontallyBetweenView:(UIView *)view1 andView:(UIView *)view2 withInsets:(OSInsets)offset;
-- (void)fitVerticallyBetweenView:(UIView *)view1 andView:(UIView *)view2;
-- (void)fitVerticallyBetweenView:(UIView *)view1 andView:(UIView *)view2 withInsets:(OSInsets)offset;
-- (void)fitHorizontallyBetweenViewAndSuperview:(UIView *)view;
-- (void)fitHorizontallyBetweenViewAndSuperview:(UIView *)view withInsets:(OSInsets)offset;
-- (void)fitHorizontallyBetweenSuperviewAndView:(UIView *)view;
-- (void)fitHorizontallyBetweenSuperviewAndView:(UIView *)view withInsets:(OSInsets)offset;
-- (void)fitVerticallyBetweenSuperviewAndView:(UIView *)view;
-- (void)fitVerticallyBetweenSuperviewAndView:(UIView *)view withInsets:(OSInsets)offset;
-- (void)fitVerticallyBetweenViewAndSuperview:(UIView *)view;
-- (void)fitVerticallyBetweenViewAndSuperview:(UIView *)view withInsets:(OSInsets)offset;
-
-
-- (void)ensureFitsVerticallyToSuperview;
-- (void)ensureFitsHorizontallyToSuperview;
-- (void)ensureFitsToSuperview;
-
-- (void)ensureFitsSubviewsMaxWidth;
-- (void)ensureFitsSubviewsMaxHeight;
-
-- (void)ensureWidthIsNoMoreThan:(CGFloat)maxWidth;
-- (void)ensureHeightIsNoMoreThan:(CGFloat)maxHeight;
-
-- (void)ensureRightIsNotCloserThan:(CGFloat)offset toView:(UIView *)view;
-- (void)ensureLeftIsNotCloserThan:(CGFloat)offset toView:(UIView *)view;
-
+//-------------------------------------------------------------------------------------------
+#pragma mark - Subviews
+//-------------------------------------------------------------------------------------------
 
 - (void)subviewsSizeToFitAll;
 - (void)subviewsSizeToFitWidthAll:(CGFloat)width;
@@ -228,6 +267,9 @@ typedef NS_ENUM(NSInteger, OSAxis)
 - (CGFloat)subviews:(NSArray<UIView *> *)views minAttrValue:(OSAttr)attr;
 - (CGFloat)subviews:(NSArray<UIView *> *)views maxAttrValue:(OSAttr)attr;
 
+//-------------------------------------------------------------------------------------------
+#pragma mark - Utils
+//-------------------------------------------------------------------------------------------
 
 - (void)fixOrigin;
 
