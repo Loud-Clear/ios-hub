@@ -88,6 +88,7 @@
 		318217C548ECFE95A4ECC04F /* UILabel+SizeToFitMultiline.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821FD56ED2351BD4853B4A /* UILabel+SizeToFitMultiline.m */; };
 		318217E21EBCEB304575DEE4 /* CCFormValidationOr.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182102ACDFFB44E79A3B388 /* CCFormValidationOr.m */; };
 		318217F543684CEC52DD501D /* CCImageDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821965F51A3CFF74B63A86 /* CCImageDiskCache.m */; };
+		318217FF7788151BE920B357 /* CCMath.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821257F80A7C222EC52DCD /* CCMath.m */; };
 		318218C6E8C84C4B7DF6FC52 /* CCAppVersionHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182138F9E266377B6EA5F61 /* CCAppVersionHUD.m */; };
 		318218DEBD29B5031FC07AB6 /* NSObject+ChangeValueForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182179E05C54A03383C88A7 /* NSObject+ChangeValueForKey.m */; };
 		3182194B537C8DA4B154A603 /* NSDictionary+SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821C053DC400CF5EAB3585 /* NSDictionary+SafeAccess.m */; };
@@ -311,6 +312,7 @@
 		318211A750D20BF72B5D6E58 /* CCFormValidationOr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationOr.h; sourceTree = "<group>"; };
 		31821206F05D856EC22C122B /* UIButton+Shorthands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Shorthands.m"; sourceTree = "<group>"; };
 		3182120F6B8FDF9D483C514F /* NSAttributedString+Shorthand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Shorthand.m"; sourceTree = "<group>"; };
+		31821257F80A7C222EC52DCD /* CCMath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMath.m; sourceTree = "<group>"; };
 		31821270DE8D04B21A683A80 /* UILabel+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Layout.h"; sourceTree = "<group>"; };
 		318212A34488C1103F771973 /* UIView+WithSubviews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WithSubviews.m"; sourceTree = "<group>"; };
 		318212E141359DA7313B6876 /* UIAlertAction+Shorthands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertAction+Shorthands.m"; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 		31821A6F657201DACCAE87D9 /* CCImageServiceAFNetworkingImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceAFNetworkingImpl.m; sourceTree = "<group>"; };
 		31821A7A6F22C589DEFA29A3 /* CCWarningMute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWarningMute.h; sourceTree = "<group>"; };
 		31821AD048458F6B4C112EC6 /* CCDispatchQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDispatchQueue.h; sourceTree = "<group>"; };
+		31821AE29634CE9701EEDE4B /* CCMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMath.h; sourceTree = "<group>"; };
 		31821B2F840857DC85C7B958 /* CCFormValidationAndTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationAndTests.m; sourceTree = "<group>"; };
 		31821B3855A95DFE6BD92120 /* CCImageMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageMemoryCache.m; sourceTree = "<group>"; };
 		31821B4A55DB374C52C584BC /* CCStackView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCStackView.m; sourceTree = "<group>"; };
@@ -1096,6 +1099,15 @@
 			path = Private;
 			sourceTree = "<group>";
 		};
+		3182173FB06303A801359EA6 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				31821AE29634CE9701EEDE4B /* CCMath.h */,
+				31821257F80A7C222EC52DCD /* CCMath.m */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
 		3182179232F3332CD743A213 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -1635,6 +1647,7 @@
 				FA80D2621E4E3DE500420049 /* TRCRealm */,
 				2DBA1738419FD8D3C066B15E /* TyphoonAddons */,
 				FA019A091DE05B5300364871 /* VIPER */,
+				3182173FB06303A801359EA6 /* Math */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -2147,6 +2160,7 @@
 				31821A027CE905CB232D4C9A /* UITextField+Dimensions.m in Sources */,
 				318213FE1A71E4BB9F87E9DE /* UIView+WithSubviews.m in Sources */,
 				3182167017A0CC41EACCC532 /* CCStackView.m in Sources */,
+				318217FF7788151BE920B357 /* CCMath.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
