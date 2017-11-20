@@ -13,10 +13,13 @@
 
 @interface UIButton (Shorthands)
 
-- (void)setTitle:(nullable NSString *)title;
-- (void)setTitleColor:(nullable UIColor *)color;
-- (void)setImage:(nullable UIImage *)image;
-- (void)setBackgroundImage:(nullable UIImage *)image;
-- (void)setTitleFont:(nullable UIFont *)font;
++ (instancetype)withTarget:(id)target action:(SEL)action;
+
+@property (nonatomic) NSString *title;
+@property (nonatomic) UIColor *titleColor;
+@property (nonatomic) UIImage *image;
+@property (nonatomic) UIImage *backgroundImage;
+@property (nonatomic) UIFont *titleFont;
+
 
 @end

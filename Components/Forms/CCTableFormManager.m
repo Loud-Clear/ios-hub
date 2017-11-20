@@ -289,7 +289,7 @@
     }];
 }
 
-- (void)registerTriggersForRule:(id<CCFormRule>)rule withBlock:(void(^)())block
+- (void)registerTriggersForRule:(id<CCFormRule>)rule withBlock:(dispatch_block_t)block
 {
     _currentRule = rule;
     CCSafeCall(block);

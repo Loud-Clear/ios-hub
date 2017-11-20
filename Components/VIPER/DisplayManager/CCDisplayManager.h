@@ -36,7 +36,7 @@
 
 - (id<CCModulePromise>)openModuleWithURL:(NSURL *)url transition:(CCTransitionStyle)style;
 
-+ (void)animateChange:(void (^)())change onWindow:(UIWindow *)window
++ (void)animateChange:(dispatch_block_t)change onWindow:(UIWindow *)window
          withAnimtion:(CCDisplayManagerTransitionAnimation)animation;
 
 - (CGSize)screenSize;

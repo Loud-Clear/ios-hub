@@ -16,13 +16,13 @@
 
 @interface RLMObject (Transactions)
 
-- (void)transactionIfNeeded:(void(^)())block;
+- (void)transactionIfNeeded:(dispatch_block_t)block;
 
 @end
 
 @interface RLMRealm (NestedTransactions)
 
-- (void)transactionIfNeeded:(void(^)())block;
+- (void)transactionIfNeeded:(dispatch_block_t)block;
 
 - (id<CCRealmTransaction>)beginWriteTransactionIfNeeded;
 

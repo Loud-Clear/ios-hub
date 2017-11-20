@@ -126,6 +126,6 @@ typedef NS_ENUM(NSInteger, CCTransitionStyle)
 
 @interface CCTransitionHandler : NSObject
 
-+ (void)performWithoutAnimation:(void(^)())transitions;
++ (void)performWithoutAnimation:(dispatch_block_t)transitions;
 
 @end

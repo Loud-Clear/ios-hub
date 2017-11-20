@@ -139,7 +139,7 @@
     [self observeKeys:@[@"invalidated"] withAction:action];
 }
 
-- (void)observeInvalidationWithBlock:(void (^)())block
+- (void)observeInvalidationWithBlock:(dispatch_block_t)block
 {
     NSAssert([_objectToObserve isKindOfClass:[self realmObjectClass]], @"object must be realm object");
     [self observeKeys:@[@"invalidated"] withBlock:block];
@@ -153,7 +153,7 @@
     [self addObserverWithInfo:info];
 }
 
-- (void)observeKeys:(NSArray *)keys withBlock:(void(^)())block
+- (void)observeKeys:(NSArray *)keys withBlock:(dispatch_block_t)block
 {
     CCObservationInfo *info = [CCObservationInfo new];
     info.block = block;

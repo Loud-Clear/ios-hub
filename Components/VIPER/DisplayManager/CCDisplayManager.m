@@ -58,7 +58,7 @@
     return [_window.rootViewController openModuleUsingURL:url transition:style];
 }
 
-+ (void)animateChange:(void (^)())change onWindow:(UIWindow *)window withAnimtion:(CCDisplayManagerTransitionAnimation)animation
++ (void)animateChange:(dispatch_block_t)change onWindow:(UIWindow *)window withAnimtion:(CCDisplayManagerTransitionAnimation)animation
 {
     if (animation == CCDisplayManagerTransitionAnimationNone) {
         CCSafeCall(change);
