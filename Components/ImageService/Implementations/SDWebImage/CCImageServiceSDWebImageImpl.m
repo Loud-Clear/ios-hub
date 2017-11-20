@@ -50,7 +50,7 @@
     }
     
     [_manager downloadImageWithURL:url options:sdOptions progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-        SafetyCall(completion, image, error);
+        CCSafeCall(completion, image, error);
     }];
 }
 
@@ -61,7 +61,7 @@
         if (image) {
             path = [_manager.imageCache defaultCachePathForKey:[remoteUrl absoluteString]];
         }
-        SafetyCall(completion, path, error);
+        CCSafeCall(completion, path, error);
     }];
 }
 

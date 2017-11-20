@@ -61,7 +61,7 @@
 + (void)animateChange:(void (^)())change onWindow:(UIWindow *)window withAnimtion:(CCDisplayManagerTransitionAnimation)animation
 {
     if (animation == CCDisplayManagerTransitionAnimationNone) {
-        SafetyCall(change);
+        CCSafeCall(change);
     } else if (animation == CCDisplayManagerTransitionAnimationPush) {
         CGFloat duration = 0.55;
         UIView *snapShot = [window snapshotViewAfterScreenUpdates:YES];
@@ -70,7 +70,7 @@
         darkenView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
         [snapShot addSubview:darkenView];
 
-        SafetyCall(change);
+        CCSafeCall(change);
 
         [[window.rootViewController.view superview] insertSubview:snapShot atIndex:0];
 
@@ -104,7 +104,7 @@
     } else {
         [CATransaction begin];
 
-        SafetyCall(change);
+        CCSafeCall(change);
 
         CATransition *transition = [CATransition animation];
 

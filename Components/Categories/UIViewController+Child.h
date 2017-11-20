@@ -4,6 +4,8 @@
 //  Created by Ivan Zezyulya on 26.03.14.
 //
 
+@import UIKit;
+
 @interface UIViewController (Child)
 
 /// Just sets childController as child of self.

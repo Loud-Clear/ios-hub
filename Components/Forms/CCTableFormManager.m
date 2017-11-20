@@ -292,7 +292,7 @@
 - (void)registerTriggersForRule:(id<CCFormRule>)rule withBlock:(void(^)())block
 {
     _currentRule = rule;
-    SafetyCall(block);
+    CCSafeCall(block);
     _currentRule = nil;
 }
 
@@ -378,7 +378,7 @@
     for (CCTableViewSection *section in self.sections) {
         for (CCTableViewItem *item in section.items) {
             if ([item isKindOfClass:[CCTableFormItem class]]) {
-                SafetyCall(block, (id) item, &stop);
+                CCSafeCall(block, (id) item, &stop);
                 if (stop) {
                     break;
                 }

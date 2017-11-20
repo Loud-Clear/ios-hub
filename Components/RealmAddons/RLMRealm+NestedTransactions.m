@@ -38,7 +38,7 @@
     if (self.realm) {
         [self.realm transactionIfNeeded:block];
     } else {
-        SafetyCall(block);
+        CCSafeCall(block);
     }
 }
 
@@ -50,10 +50,10 @@
 - (void)transactionIfNeeded:(void(^)())block
 {
     if (self.inWriteTransaction) {
-        SafetyCall(block);
+        CCSafeCall(block);
     } else {
         [self transactionWithBlock:^{
-            SafetyCall(block);
+            CCSafeCall(block);
         }];
     }
 }

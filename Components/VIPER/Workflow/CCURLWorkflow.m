@@ -43,7 +43,7 @@
 - (UIViewController *)newInitialViewController
 {
     id<CCModule> module = [self.moduleFactory moduleForURL:_url thenChainUsingBlock:^id(id moduleInput) {
-        SafetyCall(_configureBlock, moduleInput);
+        CCSafeCall(_configureBlock, moduleInput);
         return nil;
     }];
     UIViewController *viewController = [module asViewController];

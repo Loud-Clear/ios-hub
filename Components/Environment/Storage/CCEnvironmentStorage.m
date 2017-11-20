@@ -70,7 +70,7 @@ NSString *CCEnvironmentStorageDidDeleteNotification = @"CCEnvironmentStorageDidD
     for (id key in self.orderedKeys) {
         id object = self.dictionary[key];
         BOOL stop = NO;
-        SafetyCall(block, key, object, &stop);
+        CCSafeCall(block, key, object, &stop);
         if (stop) {
             break;
         }

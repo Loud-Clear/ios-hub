@@ -8,6 +8,9 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+@import UIKit;
+
+
 @interface UIImage (CCImageGen)
 
 + (UIImage *)cc_roundedRectangleResizableImageWithLineColor:(UIColor *)lineColor fillColor:(UIColor *)fillColor lineWidth:(CGFloat)lineWidth cornerRadius:(CGFloat)cornerRadius;

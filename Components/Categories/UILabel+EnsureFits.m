@@ -8,8 +8,10 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <ComponentsHub/UILabel+SizeToFitMultiline.h>
+#import "UILabel+SizeToFitMultiline.h"
 #import "UILabel+EnsureFits.h"
+#import "CCMacroses.h"
+#import "UIView+Positioning.h"
 
 
 @implementation UILabel (EnsureFits)

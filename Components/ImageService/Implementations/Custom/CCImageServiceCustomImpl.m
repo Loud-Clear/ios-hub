@@ -179,7 +179,7 @@
         if (image) {
             localPath = [[_diskCache localUrlForRemoteUrl:remoteUrl] path];
         }
-        SafetyCall(completion, localPath, error);
+        CCSafeCall(completion, localPath, error);
     }];
 }
 

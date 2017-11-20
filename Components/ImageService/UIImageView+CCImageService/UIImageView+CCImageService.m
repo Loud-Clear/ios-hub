@@ -81,12 +81,12 @@ NSErrorDomain const CCImageServiceErrorDomain = @"CCImageServiceErrorDomain";
         self.cc_imageUrl = nil;
         
         NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorFileDoesNotExist userInfo:nil];
-        SafetyCall(completion, nil, error);
+        CCSafeCall(completion, nil, error);
         return;
     }
 
     if (!forceReload && [url isEqual:self.cc_imageUrl]) {
-        SafetyCall(completion, self.image, nil);
+        CCSafeCall(completion, self.image, nil);
         return;
     }
 
@@ -105,7 +105,7 @@ NSErrorDomain const CCImageServiceErrorDomain = @"CCImageServiceErrorDomain";
     [imageService getImageForUrl:url options:options completion:^(UIImage *image, NSError *error)
     {
         if (!image) {
-            SafetyCall(completion, image, error);
+            CCSafeCall(completion, image, error);
             return;
         }
 
@@ -113,7 +113,7 @@ NSErrorDomain const CCImageServiceErrorDomain = @"CCImageServiceErrorDomain";
             if (!error) {
                 error = [NSError errorWithDomain:CCImageServiceErrorDomain code:CCImageServiceImageOutdated userInfo:nil];
             }
-            SafetyCall(completion, image, error);
+            CCSafeCall(completion, image, error);
             return;
         }
 
@@ -123,12 +123,12 @@ NSErrorDomain const CCImageServiceErrorDomain = @"CCImageServiceErrorDomain";
                 [UIView transitionWithView:self duration:0.2 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
                     self.image = image;
                 } completion:^(BOOL finished) {
-                    SafetyCall(completion, image, error);
+                    CCSafeCall(completion, image, error);
                 }];
             }
             else {
                 self.image = image;
-                SafetyCall(completion, image, error);
+                CCSafeCall(completion, image, error);
             }
         });
     }];

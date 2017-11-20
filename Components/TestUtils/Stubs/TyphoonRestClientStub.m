@@ -30,14 +30,14 @@
     self.response = object;
     self.error = error;
     self.responseWasSet = YES;
-    SafetyCall(self.responseBlock, object, error);
+    CCSafeCall(self.responseBlock, object, error);
 }
 
 - (void)setResponseBlock:(void (^)(id, NSError *))responseBlock
 {
     _responseBlock = responseBlock;
     if (self.responseWasSet) {
-        SafetyCall(_responseBlock, self.response, self.error);
+        CCSafeCall(_responseBlock, self.response, self.error);
     }
 }
 
@@ -100,15 +100,15 @@
 
 - (id<TRCProgressHandler>)sendRequest:(id<TRCRequest>)request completion:(void (^)(id result, NSError *error))completion
 {
-    SafetyCall(_requestValidationBlock, request);
+    CCSafeCall(_requestValidationBlock, request);
 
     TRCResponseStub *stub = _perRequestStubs[NSStringFromClass([request class])];
     if (stub) {
         [stub setResponseBlock:^(id response, NSError *error) {
-            SafetyCall(completion, response, error);
+            CCSafeCall(completion, response, error);
         }];
     } else {
-        SafetyCall(completion, _responseObject, _error);
+        CCSafeCall(completion, _responseObject, _error);
     }
 
     return nil;

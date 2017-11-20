@@ -23,7 +23,7 @@ static BOOL kAnimationsEnabled = YES;
 {
     BOOL wasEnabled = kAnimationsEnabled;
     kAnimationsEnabled = NO;
-    SafetyCall(transitions)
+    CCSafeCall(transitions)
     kAnimationsEnabled = wasEnabled;
 }
 
@@ -48,7 +48,7 @@ static BOOL kAnimationsEnabled = YES;
     openModulePromise.moduleInput = [destination moduleInput];
 
     [openModulePromise addPostLinkBlock:^(id input, UIViewController *next){
-        SafetyCall(block, self, destination);
+        CCSafeCall(block, self, destination);
     }];
 
     return openModulePromise;
