@@ -40,7 +40,7 @@ static void CCViperPrepareForSegueSender(id self, SEL selector, UIStoryboardSegu
 - (id<CCModulePromise>)openModuleUsingSegue:(NSString *)segueIdentifier
 {
     CCTransitionPromise *openModulePromise = [CCTransitionPromise new];
-    SafetyCallOn(MainQueue, ^{
+    CCSafeCallOnMain(^{
         [self performSegueWithIdentifier:segueIdentifier sender:openModulePromise];
     });
 

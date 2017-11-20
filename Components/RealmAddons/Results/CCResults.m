@@ -160,7 +160,7 @@
         NSComparator comparator = self.sortingComparator;
         RLMNotificationToken *token = [self.results addNotificationBlock:^(RLMResults *results, RLMCollectionChange *change, NSError *error) {
             CCResults *updatedResults = [[CCResults alloc] initWithRLMResults:results sortComparator:comparator];
-            SafetyCall(block, updatedResults);
+            CCSafeCall(block, updatedResults);
         }];
         return [[CCNotificationToken alloc] initWithRLMToken:token];
     } else {

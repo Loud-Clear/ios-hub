@@ -23,13 +23,13 @@
 {
     if (@available(iOS 11, *)) {
         [self performBatchUpdates:updates completion:^(BOOL finished) {
-            SafetyCall(completion);
+            CCSafeCall(completion);
         }];
     } else {
         [self beginUpdates];
-        SafetyCall(updates);
+        CCSafeCall(updates);
         [self endUpdates];
-        SafetyCall(completion);
+        CCSafeCall(completion);
     }
 }
 

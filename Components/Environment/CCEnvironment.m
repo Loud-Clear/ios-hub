@@ -133,7 +133,7 @@ static const char *kCCEnvironmentStorageKey = "_storage";
 - (void)withoutSave:(void(^)())block
 {
     _batchSaveInProgress = YES;
-    SafetyCall(block);
+    CCSafeCall(block);
     _batchSaveInProgress = NO;
 }
 

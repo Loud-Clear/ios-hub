@@ -44,7 +44,7 @@
     if (_isViewReady && _isPresenterReady) {
         [self callSetupModuleIfNeeded];
     } else {
-        SafetyCallAfter(timeout, ^{
+        CCSafeCallOnMainAfter(timeout, ^{
             if (!_isModuleSetupCalled) {
                 [self callSetupModuleIfNeeded];
             }

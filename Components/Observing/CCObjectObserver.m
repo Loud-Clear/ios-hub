@@ -273,7 +273,7 @@
 {
     for (CCObservationInfo *info in _observers) {
         if ([info.observedKeys containsObject:key]) {
-            SafetyCall(block, info);
+            CCSafeCall(block, info);
         }
     }
 }

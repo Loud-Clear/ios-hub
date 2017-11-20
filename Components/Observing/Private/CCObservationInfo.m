@@ -27,8 +27,8 @@
     if (!_notificationScheduled) {
         _notificationScheduled = YES;
         void(^notificationBlock)() = ^{
-            SafetyCall(self.block);
-            SafetyCall(self.blockChange, [self.observedKeys allObjects], self.changes);
+            CCSafeCall(self.block);
+            CCSafeCall(self.blockChange, [self.observedKeys allObjects], self.changes);
             _notificationScheduled = NO;
             self.changes = nil;
             if (self.action) {
@@ -39,9 +39,9 @@
         };
 
         if (self.batchUpdateDelay > 0) {
-            SafetyCallAfter(self.batchUpdateDelay, notificationBlock);
+            CCSafeCallOnMainAfter(self.batchUpdateDelay, notificationBlock);
         } else {
-            SafetyCall(notificationBlock);
+            CCSafeCall(notificationBlock);
         }
     }
 }

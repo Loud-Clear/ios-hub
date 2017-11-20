@@ -145,7 +145,7 @@ NSInteger const CCRemoteNotificationServiceErrorCodeDeniedInSettings = 123;
 
     [self handleReceiveNotification:notification];
 
-    SafetyCall(self.onReceiveNotification, notification);
+    CCSafeCall(self.onReceiveNotification, notification);
 
     [NSNotificationCenter postNotification:CCRemoteNotificationServiceNotificationDidReceiveNotification withObject:notification];
 }
@@ -162,7 +162,7 @@ NSInteger const CCRemoteNotificationServiceErrorCodeDeniedInSettings = 123;
 
     [self handleWillPresentNotification:ccnotification];
 
-    SafetyCall(self.onWillPresentNotification, ccnotification);
+    CCSafeCall(self.onWillPresentNotification, ccnotification);
 
     completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
 }
@@ -172,8 +172,8 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
          withCompletionHandler:(void (^)())completionHandler
 {
     CCRemoteNotification *notification = [[CCRemoteNotification alloc] initWithUNNotification:response.notification];
-    SafetyCall(self.onReceiveNotification, notification);
-    SafetyCall(completionHandler);
+    CCSafeCall(self.onReceiveNotification, notification);
+    CCSafeCall(completionHandler);
 }
 
 //-------------------------------------------------------------------------------------------
@@ -285,17 +285,17 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
         if ([[self app] isRegisteredForRemoteNotifications]) {
             UIUserNotificationSettings *settings = [[self app] currentUserNotificationSettings];
             if (settings.types & UIUserNotificationTypeAlert) {
-                SafetyCall(completion, UNAuthorizationStatusAuthorized);
+                CCSafeCall(completion, UNAuthorizationStatusAuthorized);
             } else {
-                SafetyCall(completion, UNAuthorizationStatusDenied);
+                CCSafeCall(completion, UNAuthorizationStatusDenied);
             }
         } else {
-            SafetyCall(completion, UNAuthorizationStatusNotDetermined);
+            CCSafeCall(completion, UNAuthorizationStatusNotDetermined);
         }
     } else {
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings *settings) {
-            SafetyCall(completion, [settings authorizationStatus]);
+            CCSafeCall(completion, [settings authorizationStatus]);
         }];
     }
 }
@@ -335,7 +335,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 {
     @synchronized (self) {
         for (CCRemoteNotificationServiceRegisterBlock completion in _requestPermissionCompletions) {
-            SafetyCallOnMain(completion, success, error);
+            CCSafeCallOnMain(completion, success, error);
         }
         _requestPermissionCompletions = nil;
     }

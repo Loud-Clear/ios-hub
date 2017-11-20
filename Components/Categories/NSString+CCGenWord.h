@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 //  LOUD&CLEAR
-//  Copyright 2017 Loud&Clear Pty Ltd
+//  Copyright 2016 Loud&Clear Pty Ltd
 //  All Rights Reserved.
 //
 //  NOTICE: Prepared by AppsQuick.ly on behalf of Loud&Clear. This software
@@ -9,17 +9,12 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import "NSObject+ChangeValueForKey.h"
-#import "CCMacroses.h"
+@import Foundation;
 
+@interface NSString (CCGenWord)
 
-@implementation NSObject (ChangeValueForKey)
-
-- (void)cc_changeValueForKey:(NSString *)key block:(dispatch_block_t)block
-{
-    [self willChangeValueForKey:key];
-    CCSafeCall(block);
-    [self didChangeValueForKey:key];
-}
++ (NSString *)generateWord:(NSInteger)approxLength;
++ (NSString *)generateSentence:(NSInteger)approxWords;
++ (NSString *)generateSentences:(NSInteger)approxSentences;
 
 @end

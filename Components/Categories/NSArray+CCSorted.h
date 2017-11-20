@@ -1,0 +1,18 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+//  Momatu
+//  Created by ivan at 26.10.2017.
+//
+//  Copyright 2017 LoudClear Pty Ltd
+//  All Rights Reserved.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+@import Foundation;
+
+@interface NSArray (CCSorted)
+
+/// Assumes that array elements responds to compare:.
+- (instancetype)cc_sortedArray;
+
+@end

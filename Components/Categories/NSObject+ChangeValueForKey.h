@@ -14,6 +14,6 @@
 
 @interface NSObject (ChangeValueForKey)
 
-- (void)changeValueForKey:(NSString *)key block:(dispatch_block_t)block;
+- (void)cc_changeValueForKey:(NSString *)key block:(dispatch_block_t)block;
 
 @end
