@@ -340,7 +340,7 @@
 		31821A450651FC208B0F7355 /* CCRemoteNotificationsServiceInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRemoteNotificationsServiceInput.h; sourceTree = "<group>"; };
 		31821A6591EFEBB7DA471424 /* CCRemoteNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRemoteNotification.h; sourceTree = "<group>"; };
 		31821A6F657201DACCAE87D9 /* CCImageServiceAFNetworkingImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceAFNetworkingImpl.m; sourceTree = "<group>"; };
-		31821A7A6F22C589DEFA29A3 /* CCMacrosesSuppressWarning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCMacrosesSuppressWarning.h; sourceTree = "<group>"; };
+		31821A7A6F22C589DEFA29A3 /* CCWarningMute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCWarningMute.h; sourceTree = "<group>"; };
 		31821AD048458F6B4C112EC6 /* CCDispatchQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDispatchQueue.h; sourceTree = "<group>"; };
 		31821B2F840857DC85C7B958 /* CCFormValidationAndTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCFormValidationAndTests.m; sourceTree = "<group>"; };
 		31821B3855A95DFE6BD92120 /* CCImageMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageMemoryCache.m; sourceTree = "<group>"; };
@@ -366,6 +366,7 @@
 		31821E9A5C9CE5A8D340E988 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
 		31821EB0E874B093F5E77738 /* CCAppVersionHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAppVersionHUD.h; sourceTree = "<group>"; };
 		31821EC745800B7C043CFDF1 /* UITextField+Dimensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Dimensions.m"; sourceTree = "<group>"; };
+		31821ECAF52550836D6FD6F7 /* CCSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCSingleton.h; sourceTree = "<group>"; };
 		31821F4D9E4A9EC1D1DC29D7 /* CCImageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageService.h; sourceTree = "<group>"; };
 		31821F899D3349B166B29762 /* UIAlertAction+Shorthands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertAction+Shorthands.h"; sourceTree = "<group>"; };
 		31821FB2BFD05095CEDA284E /* CCImageServiceCustomImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageServiceCustomImpl.h; sourceTree = "<group>"; };
@@ -1623,7 +1624,8 @@
 				FA019A011DE011DA00364871 /* CCLogger.h */,
 				FA019A021DE011DA00364871 /* CCLogger.m */,
 				31821A231FAFE37B2CDE194F /* CCTypedefs.h */,
-				31821A7A6F22C589DEFA29A3 /* CCMacrosesSuppressWarning.h */,
+				31821A7A6F22C589DEFA29A3 /* CCWarningMute.h */,
+				31821ECAF52550836D6FD6F7 /* CCSingleton.h */,
 			);
 			path = Macroses;
 			sourceTree = "<group>";
