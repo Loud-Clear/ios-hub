@@ -33,7 +33,7 @@
 
 @implementation RLMObject (Transactions)
 
-- (void)transactionIfNeeded:(void(^)())block
+- (void)transactionIfNeeded:(dispatch_block_t)block
 {
     if (self.realm) {
         [self.realm transactionIfNeeded:block];
@@ -47,7 +47,7 @@
 
 @implementation RLMRealm (NestedTransactions)
 
-- (void)transactionIfNeeded:(void(^)())block
+- (void)transactionIfNeeded:(dispatch_block_t)block
 {
     if (self.inWriteTransaction) {
         CCSafeCall(block);

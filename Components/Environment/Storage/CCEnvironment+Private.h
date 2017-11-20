@@ -25,6 +25,6 @@
 
 - (void)copyPropertiesFrom:(CCEnvironment *)anotherEnvironment;
 
-- (void)withoutSave:(void(^)())block;
+- (void)withoutSave:(dispatch_block_t)block;
 
 @end

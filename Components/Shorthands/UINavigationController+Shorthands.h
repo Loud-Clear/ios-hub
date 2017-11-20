@@ -8,14 +8,10 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import "UINavigationController+Shorthand.h"
+@import UIKit;
 
+@interface UINavigationController (Shorthands)
 
-@implementation UINavigationController (Shorthand)
-
-+ (instancetype)withRootController:(UIViewController *)rootController
-{
-    return [[self alloc] initWithRootViewController:rootController];
-}
++ (instancetype)withRootController:(UIViewController *)rootController;
 
 @end

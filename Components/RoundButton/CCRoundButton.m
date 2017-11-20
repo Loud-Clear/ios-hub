@@ -236,7 +236,7 @@ static UIControlState UIControlStateInvertHighlighted(UIControlState state)
     }
 }
 
-- (void)renderBlock:(void (^)())renderBlock maskingBlock:(void(^)())maskBlock
+- (void)renderBlock:(dispatch_block_t)renderBlock maskingBlock:(dispatch_block_t)maskBlock
 {
     UIImage *imageForMask = [self maskFromBlock:maskBlock];
     [self drawInCurrentContext:^(CGContextRef context) {
@@ -422,7 +422,7 @@ static UIControlState UIControlStateInvertHighlighted(UIControlState state)
     CGContextRestoreGState(context);
 }
 
-- (UIImage *)maskFromBlock:(void (^)())drawBlock
+- (UIImage *)maskFromBlock:(dispatch_block_t)drawBlock
 {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();

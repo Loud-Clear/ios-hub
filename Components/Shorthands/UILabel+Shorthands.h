@@ -1,0 +1,18 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+//  Momatu
+//  Created by ivan at 18.10.2017.
+//
+//  Copyright 2017 LoudClear Pty Ltd
+//  All Rights Reserved.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+@import UIKit;
+
+
+@interface UILabel (Shorthands)
+
++ (instancetype)withFont:(UIFont *)font color:(UIColor *)color;
+
+@end

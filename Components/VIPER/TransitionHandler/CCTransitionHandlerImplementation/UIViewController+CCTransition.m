@@ -19,7 +19,7 @@ static BOOL kAnimationsEnabled = YES;
 
 @implementation CCTransitionHandler
 
-+ (void)performWithoutAnimation:(void(^)())transitions
++ (void)performWithoutAnimation:(dispatch_block_t)transitions
 {
     BOOL wasEnabled = kAnimationsEnabled;
     kAnimationsEnabled = NO;

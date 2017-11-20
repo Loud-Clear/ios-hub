@@ -19,7 +19,7 @@
 
 - (instancetype)initWithObject:(id)objectToObserve observer:(id)observer;
 
-- (void)observeKeys:(NSArray *)keys withBlock:(void(^)())block;
+- (void)observeKeys:(NSArray *)keys withBlock:(dispatch_block_t)block;
 
 /// 'changes' dictionary contains standard KVO's change dictionaries by all 'keys' (each 'change' contain NSKeyValueChangeNewKey and NSKeyValueChangeOldKey keys)
 - (void)observeKeys:(NSArray *)keys withBlockChange:(void(^)(NSArray *keys, NSDictionary *changes))block;
@@ -38,7 +38,7 @@
 
 - (void)observeInvalidationWithAction:(SEL)action;
 
-- (void)observeInvalidationWithBlock:(void(^)())block;
+- (void)observeInvalidationWithBlock:(dispatch_block_t)block;
 
 - (void)stopAndInvalidate;
 

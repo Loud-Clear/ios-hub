@@ -169,7 +169,7 @@ NSInteger const CCRemoteNotificationServiceErrorCodeDeniedInSettings = 123;
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center
 didReceiveNotificationResponse:(UNNotificationResponse *)response
-         withCompletionHandler:(void (^)())completionHandler
+         withCompletionHandler:(dispatch_block_t)completionHandler
 {
     CCRemoteNotification *notification = [[CCRemoteNotification alloc] initWithUNNotification:response.notification];
     CCSafeCall(self.onReceiveNotification, notification);

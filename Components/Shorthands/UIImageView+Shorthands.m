@@ -9,10 +9,14 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-@import UIKit;
+#import "UIImageView+Shorthands.h"
 
-@interface UIImageView (Shorthand)
 
-+ (instancetype)withImage:(UIImage *)image;
+@implementation UIImageView (Shorthands)
+
++ (instancetype)withImage:(nullable UIImage *)image
+{
+    return [[UIImageView alloc] initWithImage:image];
+}
 
 @end

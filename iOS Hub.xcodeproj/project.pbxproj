@@ -17,6 +17,13 @@
 		2C6CE8271FC3008100702E5A /* UILabel+EnsureFits.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6CE81E1FC3008000702E5A /* UILabel+EnsureFits.m */; };
 		2C6CE8281FC3008100702E5A /* UIImage+CCImageGen.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6CE81F1FC3008000702E5A /* UIImage+CCImageGen.m */; };
 		2C6CE8291FC3008100702E5A /* UIViewController+Child.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6CE8231FC3008100702E5A /* UIViewController+Child.m */; };
+		2C6CE8381FC307FA00702E5A /* UIBarButtonItem+Shorthands.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6CE82A1FC307F900702E5A /* UIBarButtonItem+Shorthands.m */; };
+		2C6CE8391FC307FA00702E5A /* UISegmentedControl+Shorthands.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6CE82C1FC307F900702E5A /* UISegmentedControl+Shorthands.m */; };
+		2C6CE83A1FC307FA00702E5A /* UIView+Shorthands.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6CE82F1FC307FA00702E5A /* UIView+Shorthands.m */; };
+		2C6CE83B1FC307FA00702E5A /* UIViewController+Shorthands.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6CE8321FC307FA00702E5A /* UIViewController+Shorthands.m */; };
+		2C6CE83C1FC307FA00702E5A /* NSIndexPath+Shorthands.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6CE8331FC307FA00702E5A /* NSIndexPath+Shorthands.m */; };
+		2C6CE83D1FC307FA00702E5A /* UICollectionView+Shorthands.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6CE8351FC307FA00702E5A /* UICollectionView+Shorthands.m */; };
+		2C6CE83E1FC307FA00702E5A /* UILabel+Shorthands.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6CE8371FC307FA00702E5A /* UILabel+Shorthands.m */; };
 		2CD634281E16668F00A2BB15 /* CCEnvironmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CD634241E16668F00A2BB15 /* CCEnvironmentTests.m */; };
 		2CD634291E16668F00A2BB15 /* Config.production.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD634261E16668F00A2BB15 /* Config.production.plist */; };
 		2CD6342A1E16668F00A2BB15 /* Config.staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CD634271E16668F00A2BB15 /* Config.staging.plist */; };
@@ -63,7 +70,7 @@
 		2DBA1FFC6F490C963B43F58D /* CCCurrentEnvironmentStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBA1E6631C36BE28EDF8FE2 /* CCCurrentEnvironmentStorage.m */; };
 		318210F68583056F2F88D95B /* UIButton+Shorthands.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821206F05D856EC22C122B /* UIButton+Shorthands.m */; };
 		3182111424B2DBAE87702601 /* NSAttributedString+Shorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182120F6B8FDF9D483C514F /* NSAttributedString+Shorthand.m */; };
-		3182114C0BF0CD9FA9E8F2F7 /* UINavigationController+Shorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = 318213BA54376F67DD00D0DF /* UINavigationController+Shorthand.m */; };
+		3182114C0BF0CD9FA9E8F2F7 /* UINavigationController+Shorthands.m in Sources */ = {isa = PBXBuildFile; fileRef = 318213BA54376F67DD00D0DF /* UINavigationController+Shorthands.m */; };
 		3182115962E5FF8E95036757 /* CCImageServiceSDWebImageImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821E84B9AA69201F38A8CF /* CCImageServiceSDWebImageImpl.m */; };
 		318211BFDE5C4CE20D18E7B9 /* NSMutableAttributedString+Shorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = 318213A4C3A7D6D6AAF512C7 /* NSMutableAttributedString+Shorthand.m */; };
 		31821294AB68382C5638CA5D /* UIAlertController+Shorthands.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821B74FADBB1DE04CBA5E0 /* UIAlertController+Shorthands.m */; };
@@ -91,7 +98,7 @@
 		318218DEBD29B5031FC07AB6 /* NSObject+ChangeValueForKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182179E05C54A03383C88A7 /* NSObject+ChangeValueForKey.m */; };
 		3182194B537C8DA4B154A603 /* NSDictionary+SafeAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821C053DC400CF5EAB3585 /* NSDictionary+SafeAccess.m */; };
 		3182195B61076EE1445A7B2A /* CCDispatchQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821BC2C3C1A1BA9CE2084A /* CCDispatchQueue.m */; };
-		318219686BBC9BAE58483169 /* UIImageView+Shorthand.m in Sources */ = {isa = PBXBuildFile; fileRef = 318215FECB48057A9318EBAC /* UIImageView+Shorthand.m */; };
+		318219686BBC9BAE58483169 /* UIImageView+Shorthands.m in Sources */ = {isa = PBXBuildFile; fileRef = 318215FECB48057A9318EBAC /* UIImageView+Shorthands.m */; };
 		318219A994EC9A03A4C8DEEA /* CCFormValidationPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 3182136D5EE80A0EE741678B /* CCFormValidationPhone.m */; };
 		318219F5A32C302C8B70EB15 /* CCValueTransformerToNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821E82412E289DB954A0BA /* CCValueTransformerToNumber.m */; };
 		31821A027CE905CB232D4C9A /* UITextField+Dimensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 31821EC745800B7C043CFDF1 /* UITextField+Dimensions.m */; };
@@ -200,6 +207,20 @@
 		2C6CE8211FC3008000702E5A /* NSArray+CCSorted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+CCSorted.h"; sourceTree = "<group>"; };
 		2C6CE8221FC3008100702E5A /* UILabel+EnsureFits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+EnsureFits.h"; sourceTree = "<group>"; };
 		2C6CE8231FC3008100702E5A /* UIViewController+Child.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Child.m"; sourceTree = "<group>"; };
+		2C6CE82A1FC307F900702E5A /* UIBarButtonItem+Shorthands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Shorthands.m"; sourceTree = "<group>"; };
+		2C6CE82B1FC307F900702E5A /* UISegmentedControl+Shorthands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+Shorthands.h"; sourceTree = "<group>"; };
+		2C6CE82C1FC307F900702E5A /* UISegmentedControl+Shorthands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISegmentedControl+Shorthands.m"; sourceTree = "<group>"; };
+		2C6CE82D1FC307F900702E5A /* UILabel+Shorthands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Shorthands.h"; sourceTree = "<group>"; };
+		2C6CE82E1FC307FA00702E5A /* UIBarButtonItem+Shorthands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Shorthands.h"; sourceTree = "<group>"; };
+		2C6CE82F1FC307FA00702E5A /* UIView+Shorthands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shorthands.m"; sourceTree = "<group>"; };
+		2C6CE8301FC307FA00702E5A /* NSIndexPath+Shorthands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSIndexPath+Shorthands.h"; sourceTree = "<group>"; };
+		2C6CE8311FC307FA00702E5A /* UICollectionView+Shorthands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Shorthands.h"; sourceTree = "<group>"; };
+		2C6CE8321FC307FA00702E5A /* UIViewController+Shorthands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Shorthands.m"; sourceTree = "<group>"; };
+		2C6CE8331FC307FA00702E5A /* NSIndexPath+Shorthands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSIndexPath+Shorthands.m"; sourceTree = "<group>"; };
+		2C6CE8341FC307FA00702E5A /* UIViewController+Shorthands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Shorthands.h"; sourceTree = "<group>"; };
+		2C6CE8351FC307FA00702E5A /* UICollectionView+Shorthands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Shorthands.m"; sourceTree = "<group>"; };
+		2C6CE8361FC307FA00702E5A /* UIView+Shorthands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Shorthands.h"; sourceTree = "<group>"; };
+		2C6CE8371FC307FA00702E5A /* UILabel+Shorthands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Shorthands.m"; sourceTree = "<group>"; };
 		2CD634241E16668F00A2BB15 /* CCEnvironmentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCEnvironmentTests.m; sourceTree = "<group>"; };
 		2CD634261E16668F00A2BB15 /* Config.production.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.production.plist; sourceTree = "<group>"; };
 		2CD634271E16668F00A2BB15 /* Config.staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.staging.plist; sourceTree = "<group>"; };
@@ -320,7 +341,7 @@
 		318213A4C3A7D6D6AAF512C7 /* NSMutableAttributedString+Shorthand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+Shorthand.m"; sourceTree = "<group>"; };
 		318213B1C8A5CBAC27094BCD /* UILabel+Positioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Positioning.m"; sourceTree = "<group>"; };
 		318213B5F30917FF9E1B38FC /* CCImageGetContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageGetContext.m; sourceTree = "<group>"; };
-		318213BA54376F67DD00D0DF /* UINavigationController+Shorthand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Shorthand.m"; sourceTree = "<group>"; };
+		318213BA54376F67DD00D0DF /* UINavigationController+Shorthands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Shorthands.m"; sourceTree = "<group>"; };
 		318213DBCD963AADD590B770 /* UIImage+WithColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WithColor.m"; sourceTree = "<group>"; };
 		318214325B4A63AF590764D7 /* CCValueTransformerUnixTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerUnixTime.h; sourceTree = "<group>"; };
 		318214DA43524C0700DE8313 /* CCImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageDownloader.m; sourceTree = "<group>"; };
@@ -328,7 +349,7 @@
 		318215315365A0FEE020A5D6 /* UIButton+Shorthands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Shorthands.h"; sourceTree = "<group>"; };
 		3182155A77379925139E618E /* CCImageMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageMemoryCache.h; sourceTree = "<group>"; };
 		318215E2A77447CD4F24359B /* UIImage+WithColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WithColor.h"; sourceTree = "<group>"; };
-		318215FECB48057A9318EBAC /* UIImageView+Shorthand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Shorthand.m"; sourceTree = "<group>"; };
+		318215FECB48057A9318EBAC /* UIImageView+Shorthands.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Shorthands.m"; sourceTree = "<group>"; };
 		31821607E4B5A4A653B743DC /* UILabel+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Layout.m"; sourceTree = "<group>"; };
 		31821668D9C7D47E85C0F202 /* NSString+SHA1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SHA1.h"; sourceTree = "<group>"; };
 		31821684BA6B0564A134BC6E /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
@@ -336,13 +357,14 @@
 		318216AF963411977C7849F9 /* CCValueTransformerUnixTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerUnixTime.m; sourceTree = "<group>"; };
 		318216C8C06526412D3817B2 /* NSAttributedString+Shorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Shorthand.h"; sourceTree = "<group>"; };
 		318217617BD471F71A9F058B /* CCImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageDownloader.h; sourceTree = "<group>"; };
+		31821794AAA9E8B999D296DC /* CCShorthands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCShorthands.h; sourceTree = "<group>"; };
 		3182179E05C54A03383C88A7 /* NSObject+ChangeValueForKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ChangeValueForKey.m"; sourceTree = "<group>"; };
 		318217B2896E64AA18E36425 /* CCFormValidationPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCFormValidationPhone.h; sourceTree = "<group>"; };
 		318217D31E7C91BEEC68DE81 /* CCRemoteNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRemoteNotification.m; sourceTree = "<group>"; };
 		318217DAD8ECE0719A1E9775 /* CCDispatchGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCDispatchGroup.h; sourceTree = "<group>"; };
 		318217DB332BA8CE7F3F2D36 /* CCImageServiceCustomImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceCustomImpl.m; sourceTree = "<group>"; };
 		318217F950715FDFA5D44D71 /* CCImageLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCImageLog.h; sourceTree = "<group>"; };
-		3182182E2D825E8E50D141CC /* UINavigationController+Shorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Shorthand.h"; sourceTree = "<group>"; };
+		3182182E2D825E8E50D141CC /* UINavigationController+Shorthands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Shorthands.h"; sourceTree = "<group>"; };
 		3182185416E43C8F980A4E9D /* CCObservationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCObservationInfo.h; sourceTree = "<group>"; };
 		3182187E0F389F6F48C6A502 /* UILabel+Positioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Positioning.h"; sourceTree = "<group>"; };
 		3182188072E762B2E5F27DAC /* UILabel+SizeToFitMultiline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+SizeToFitMultiline.h"; sourceTree = "<group>"; };
@@ -378,7 +400,7 @@
 		31821DBA0750C0EA644191F3 /* UIControl+Shorthands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Shorthands.h"; sourceTree = "<group>"; };
 		31821DC2F1816B603798B1C9 /* UILabel+Dimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Dimensions.h"; sourceTree = "<group>"; };
 		31821E1B2A6DDAF345A226D1 /* NSMutableAttributedString+Shorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+Shorthand.h"; sourceTree = "<group>"; };
-		31821E20F0C95F6A6FF460C1 /* UIImageView+Shorthand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Shorthand.h"; sourceTree = "<group>"; };
+		31821E20F0C95F6A6FF460C1 /* UIImageView+Shorthands.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Shorthands.h"; sourceTree = "<group>"; };
 		31821E24D666A7CA45311B77 /* NSDictionary+SafeAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+SafeAccess.h"; sourceTree = "<group>"; };
 		31821E82412E289DB954A0BA /* CCValueTransformerToNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerToNumber.m; sourceTree = "<group>"; };
 		31821E84B9AA69201F38A8CF /* CCImageServiceSDWebImageImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCImageServiceSDWebImageImpl.m; sourceTree = "<group>"; };
@@ -1192,6 +1214,20 @@
 		31821FA02106674B43BC2BEC /* Shorthands */ = {
 			isa = PBXGroup;
 			children = (
+				2C6CE8301FC307FA00702E5A /* NSIndexPath+Shorthands.h */,
+				2C6CE8331FC307FA00702E5A /* NSIndexPath+Shorthands.m */,
+				2C6CE82E1FC307FA00702E5A /* UIBarButtonItem+Shorthands.h */,
+				2C6CE82A1FC307F900702E5A /* UIBarButtonItem+Shorthands.m */,
+				2C6CE8311FC307FA00702E5A /* UICollectionView+Shorthands.h */,
+				2C6CE8351FC307FA00702E5A /* UICollectionView+Shorthands.m */,
+				2C6CE82D1FC307F900702E5A /* UILabel+Shorthands.h */,
+				2C6CE8371FC307FA00702E5A /* UILabel+Shorthands.m */,
+				2C6CE82B1FC307F900702E5A /* UISegmentedControl+Shorthands.h */,
+				2C6CE82C1FC307F900702E5A /* UISegmentedControl+Shorthands.m */,
+				2C6CE8361FC307FA00702E5A /* UIView+Shorthands.h */,
+				2C6CE82F1FC307FA00702E5A /* UIView+Shorthands.m */,
+				2C6CE8341FC307FA00702E5A /* UIViewController+Shorthands.h */,
+				2C6CE8321FC307FA00702E5A /* UIViewController+Shorthands.m */,
 				318216C8C06526412D3817B2 /* NSAttributedString+Shorthand.h */,
 				3182120F6B8FDF9D483C514F /* NSAttributedString+Shorthand.m */,
 				31821E1B2A6DDAF345A226D1 /* NSMutableAttributedString+Shorthand.h */,
@@ -1204,10 +1240,11 @@
 				31821206F05D856EC22C122B /* UIButton+Shorthands.m */,
 				31821DBA0750C0EA644191F3 /* UIControl+Shorthands.h */,
 				3182119DC89483833027EF09 /* UIControl+Shorthands.m */,
-				31821E20F0C95F6A6FF460C1 /* UIImageView+Shorthand.h */,
-				318215FECB48057A9318EBAC /* UIImageView+Shorthand.m */,
-				318213BA54376F67DD00D0DF /* UINavigationController+Shorthand.m */,
-				3182182E2D825E8E50D141CC /* UINavigationController+Shorthand.h */,
+				31821E20F0C95F6A6FF460C1 /* UIImageView+Shorthands.h */,
+				318215FECB48057A9318EBAC /* UIImageView+Shorthands.m */,
+				318213BA54376F67DD00D0DF /* UINavigationController+Shorthands.m */,
+				3182182E2D825E8E50D141CC /* UINavigationController+Shorthands.h */,
+				31821794AAA9E8B999D296DC /* CCShorthands.h */,
 			);
 			path = Shorthands;
 			sourceTree = "<group>";
@@ -2023,6 +2060,7 @@
 				FAB831FC1ECC33820036A53A /* UILabel+Positioning.m in Sources */,
 				FA019A5A1DE060D700364871 /* CCMapCollections.m in Sources */,
 				FA019A111DE05C3C00364871 /* CCNotificationUtils.m in Sources */,
+				2C6CE83C1FC307FA00702E5A /* NSIndexPath+Shorthands.m in Sources */,
 				032ECE8B1E54177300A64E99 /* UIViewController+CCTransitionHandler.m in Sources */,
 				032ECE8C1E54177300A64E99 /* UIViewController+CCWorkflow.m in Sources */,
 				FA8C58661DE2CCDF00AEBCB1 /* UIViewController+CCModule.m in Sources */,
@@ -2051,9 +2089,11 @@
 				2DBA110602B26C1D6E0D315C /* CCTableViewCellStyle.m in Sources */,
 				2DBA1EDF3A27D4288D1F4A26 /* CCTableViewManager.m in Sources */,
 				FAB831FD1ECC33820036A53A /* UILabel+SizeToFitMultiline.m in Sources */,
+				2C6CE83B1FC307FA00702E5A /* UIViewController+Shorthands.m in Sources */,
 				2DBA15EFE90B20AF3823885A /* CCTableViewCell.m in Sources */,
 				2DBA14A5AF44ACAFAB0DC56A /* CCPlaceholderTextView.m in Sources */,
 				FA10FA381DFADD0A004E93C0 /* CCFormPostProcessorExcludeValues.m in Sources */,
+				2C6CE83E1FC307FA00702E5A /* UILabel+Shorthands.m in Sources */,
 				FAF38E571DF0400C00F44BC0 /* CCTableFormCell.m in Sources */,
 				2DBA1A94FFA9489047EB821D /* CCTableViewSection.m in Sources */,
 				2C6CE8251FC3008100702E5A /* NSString+CCGenWord.m in Sources */,
@@ -2063,6 +2103,7 @@
 				2DBA1496B0331E84A3BC0825 /* CCTableViewCellFactory.m in Sources */,
 				2DBA1F393CB43D39F39B63EE /* CCActionBar.m in Sources */,
 				318217F543684CEC52DD501D /* CCImageDiskCache.m in Sources */,
+				2C6CE83D1FC307FA00702E5A /* UICollectionView+Shorthands.m in Sources */,
 				FA10FA3A1DFADD0A004E93C0 /* CCFormValidationLength.m in Sources */,
 				FA10FA261DFADD05004E93C0 /* NSError+CCTableFormManager.m in Sources */,
 				FA10FA3F1DFADD7D004E93C0 /* CCTableFormManager.m in Sources */,
@@ -2089,8 +2130,10 @@
 				2DBA12519CA7A0DE2C008423 /* CCMapping.m in Sources */,
 				2DBA1E4F5C4C243A2B1922C8 /* CCRequest.m in Sources */,
 				2DBA111D60273B678C48AC89 /* NSObject+TyphoonDefaultFactory.m in Sources */,
+				2C6CE83A1FC307FA00702E5A /* UIView+Shorthands.m in Sources */,
 				2DBA19F6DDAD77FB23DE4945 /* CCValueTransformer.m in Sources */,
 				31821777B18A4A6A68DFF62E /* CCFormValidationAnd.m in Sources */,
+				2C6CE8381FC307FA00702E5A /* UIBarButtonItem+Shorthands.m in Sources */,
 				3182149406362581145D7446 /* CCFormValidationOr.m in Sources */,
 				31821BE48C128AC08D118C7E /* CCFormValidationPhone.m in Sources */,
 				318219F5A32C302C8B70EB15 /* CCValueTransformerToNumber.m in Sources */,
@@ -2100,6 +2143,7 @@
 				2DBA122113039CF9B42BF88D /* CCConnectionLogger.m in Sources */,
 				2DBA1A367F25D703565E17AA /* CCFileAndLineNumberFormatter.m in Sources */,
 				2DBA167A74F0280967A631E9 /* CCBugfenderLogger.m in Sources */,
+				2C6CE8391FC307FA00702E5A /* UISegmentedControl+Shorthands.m in Sources */,
 				2DBA147D50393277A871EE38 /* CCLogging.m in Sources */,
 				2DBA1FFC6F490C963B43F58D /* CCCurrentEnvironmentStorage.m in Sources */,
 				2DBA1640D44031F280BD9C0B /* CCEnvironmentStorage.m in Sources */,
@@ -2127,8 +2171,8 @@
 				31821294AB68382C5638CA5D /* UIAlertController+Shorthands.m in Sources */,
 				318210F68583056F2F88D95B /* UIButton+Shorthands.m in Sources */,
 				31821B9B5FF7300786C9805B /* UIControl+Shorthands.m in Sources */,
-				318219686BBC9BAE58483169 /* UIImageView+Shorthand.m in Sources */,
-				3182114C0BF0CD9FA9E8F2F7 /* UINavigationController+Shorthand.m in Sources */,
+				318219686BBC9BAE58483169 /* UIImageView+Shorthands.m in Sources */,
+				3182114C0BF0CD9FA9E8F2F7 /* UINavigationController+Shorthands.m in Sources */,
 				3182194B537C8DA4B154A603 /* NSDictionary+SafeAccess.m in Sources */,
 				318218DEBD29B5031FC07AB6 /* NSObject+ChangeValueForKey.m in Sources */,
 				318212AF24077CA89729F59F /* NSString+CommaSeparatedString.m in Sources */,
