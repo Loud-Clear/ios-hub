@@ -11,11 +11,14 @@
 
 #import <Typhoon/TyphoonComponentFactory.h>
 #import <objc/runtime.h>
+#import "NSObject+TyphoonDefaultFactory.h"
 #import "CCImageService.h"
 #import "UIImageView+CCImageService.h"
 #import "CCMacroses.h"
+#import "CCImageServiceIfModifiedSince.h"
+#import "CCImageLog.h"
+#import "CCImageServiceTag.h"
 
-NSErrorDomain const CCImageServiceErrorDomain = @"CCImageServiceErrorDomain";
 
 @implementation UIImageView (CCImageService)
 
@@ -23,127 +26,241 @@ NSErrorDomain const CCImageServiceErrorDomain = @"CCImageServiceErrorDomain";
 #pragma mark - Interface Methods
 //-------------------------------------------------------------------------------------------
 
+- (CCImageViewState)cc_state
+{
+    return (CCImageViewState)[GetAssociatedObject(@selector(cc_state)) integerValue];
+}
+
+- (void)setCc_state:(CCImageViewState)state
+{
+    SetAssociatedObject(@selector(cc_state), @(state));
+}
+
+- (UIImage *)cc_notLoadedImage
+{
+    return GetAssociatedObject(@selector(cc_notLoadedImage));
+}
+
+- (void)setCc_notLoadedImage:(UIImage *)image
+{
+    SetAssociatedObject(@selector(cc_notLoadedImage), image);
+}
+
+- (UIImage *)cc_placeholderImage
+{
+    return GetAssociatedObject(@selector(cc_placeholderImage));
+}
+
+- (void)setCc_placeholderImage:(UIImage *)image
+{
+    SetAssociatedObject(@selector(cc_placeholderImage), image);
+}
+
+- (BOOL)cc_disableSetImageAnimation
+{
+    return (BOOL)[GetAssociatedObject(@selector(cc_disableSetImageAnimation)) boolValue];
+}
+
+- (void)setCc_disableSetImageAnimation:(BOOL)disableAnimation
+{
+    SetAssociatedObject(@selector(cc_disableSetImageAnimation), @(disableAnimation));
+}
+
+- (id<CCImageServiceTag>)cc_imageTag
+{
+    return GetAssociatedObject(@selector(cc_imageTag));
+}
+
+- (void)setCc_imageTag:(id<CCImageServiceTag>)tag
+{
+    SetAssociatedObject(@selector(cc_imageTag), tag);
+}
+
 - (void)cc_setImageFromURL:(NSURL *)url
 {
-    [self cc_setPlaceholderImage:nil andThenSetImageFromURL:url];
+    [self cc_setImageFromURL:url forceReload:NO completion:nil];
 }
 
 - (void)cc_setImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload
 {
-    [self cc_setPlaceholderImage:nil andThenSetImageFromURL:url forceReload:forceReload];
+    [self cc_setImageFromURL:url forceReload:forceReload completion:nil];
 }
 
-- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url
+- (void)cc_setImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload completion:(CCImageServiceGetImageBlock)completion
 {
-    [self cc_setPlaceholderImage:placeholderImage andThenSetImageFromURL:url forceReload:NO];
+    id<CCImageService> imageService = [CCImageServiceIfModifiedSince newUsingTyphoon];
+
+    [self cc_setImageFromURL:url imageService:imageService tag:nil forceReload:forceReload completion:completion];
 }
 
-- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload
-{
-    [self cc_setPlaceholderImage:placeholderImage andThenSetImageFromURL:url forceReload:forceReload completion:nil];
-}
-
-- (void)cc_setImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload completion:(CCImageCompletition)completion
-{
-    [self cc_setPlaceholderImage:nil andThenSetImageFromURL:url forceReload:forceReload completion:completion];
-}
-
-- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload completion:(CCImageCompletition)completion
-{
-    [self cc_setPlaceholderImage:placeholderImage andThenSetImageFromURL:url
-                     forceReload:forceReload disableAnimation:NO
-                      completion:completion];
-}
-
-- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload disableAnimation:(BOOL)disableAnimation completion:(CCImageCompletition)completion
-{
-    id<CCImageService> imageService = [[TyphoonComponentFactory factoryForResolvingUI] componentForType:@protocol(CCImageService)];
-
-    [self cc_setImageFromURL:url imageService:imageService placeholderImage:placeholderImage forceReload:forceReload
-            disableAnimation:disableAnimation
-                  completion:completion];
-}
-
-//-------------------------------------------------------------------------------------------
-#pragma mark - Private Methods
-//-------------------------------------------------------------------------------------------
-
-- (void)cc_setImageFromURL:(NSURL *)url imageService:(id<CCImageService>)imageService
-          placeholderImage:(UIImage *)placeholderImage forceReload:(BOOL)forceReload
-          disableAnimation:(BOOL)disableAnimation completion:(CCImageCompletition)completion
+- (void)cc_setImageFromURL:(NSURL *)url
+              imageService:(id<CCImageService>)imageService
+                       tag:(id<CCImageServiceTag>)tag
+               forceReload:(BOOL)forceReload
+                completion:(CCImageServiceGetImageBlock)completion
 {
     NSParameterAssert(imageService);
 
     if (url == nil) {
-        if (placeholderImage) {
-            self.image = placeholderImage;
+        if (self.cc_notLoadedImage) {
+            CCImageDbgLog(@"[%p] Image url is nil, setting notLoadedImage", self);
+            self.image = self.cc_notLoadedImage;
+        } else {
+            CCImageDbgLog(@"[%p] Image url is nil, setting nil image", self);
+            self.image = nil;
         }
         self.cc_imageUrl = nil;
-        
+        self.cc_state = CCImageViewStateNotLoaded;
+
         NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorFileDoesNotExist userInfo:nil];
-        CCSafeCall(completion, nil, error);
+        SafetyCall(completion, nil, error);
         return;
     }
 
-    if (!forceReload && [url isEqual:self.cc_imageUrl]) {
-        CCSafeCall(completion, self.image, nil);
+    if (!forceReload && [url isEqual:self.cc_imageUrl] && ![self isTagChanged:self.cc_imageTag newTag:tag]) {
+        CCImageDbgLog(@"[%p] Image url is the same, doing nothing", self);
+        SafetyCall(completion, self.image, nil);
         return;
     }
 
     CFAbsoluteTime loadStartTime = CFAbsoluteTimeGetCurrent();
 
     self.cc_imageUrl = url;
-    if (placeholderImage) {
-        self.image = placeholderImage;
+    self.cc_state = CCImageViewStateNotLoaded;
+    if (self.cc_notLoadedImage) {
+        CCImageDbgLog(@"[%p] Setting image to notLoadedImage while loading image", self);
+        self.image = self.cc_notLoadedImage;
+    } else {
+        if (self.image != nil) {
+            CCImageDbgLog(@"[%p] Setting image to nil while loading image", self);
+        }
+        self.image = nil;
     }
 
     CCGetImageOptions options = 0;
     if (forceReload) {
         options |= CCGetImageForceLoad;
     }
-    
-    [imageService getImageForUrl:url options:options completion:^(UIImage *image, NSError *error)
+
+    self.cc_state = CCImageViewStateLoading;
+
+    CCImageDbgLog(@"[%p] Getting image for '%@' ", self, url);
+
+    [imageService getImageForUrl:url tag:tag options:options completion:^(UIImage *image, NSError *error)
     {
-        if (!image) {
-            CCSafeCall(completion, image, error);
-            return;
-        }
+        if (self.cc_imageUrl && ![self.cc_imageUrl isEqual:url])
+        {
+            CCImageDbgLog(@"[%p] Image url has changed from '%@' to '%@', doing nothing", self, url, self.cc_imageUrl);
 
-        if (self.cc_imageUrl && ![self.cc_imageUrl isEqual:url]) {
             if (!error) {
-                error = [NSError errorWithDomain:CCImageServiceErrorDomain code:CCImageServiceImageOutdated userInfo:nil];
+                error = [NSError errorWithDomain:CCImageServiceErrorDomain code:CCImageServiceErrorCodeImageOutdated userInfo:nil];
             }
-            CCSafeCall(completion, image, error);
+            SafetyCall(completion, image, error);
             return;
         }
 
-        CCSafeCallOnMain(^{
-            if (CFAbsoluteTimeGetCurrent() - loadStartTime > 0.2 && !disableAnimation)
+        if (!image)
+        {
+            CCImageDbgLog(@"[%p] Image is nil, error is '%@'", self, error);
+
+            self.cc_state = CCImageViewStateError;
+            if (self.cc_placeholderImage) {
+                CCImageDbgLog(@"[%p] Setting image to placeholderImage", self);
+                self.image = self.cc_placeholderImage;
+            } else {
+                if (self.cc_notLoadedImage) {
+                    CCImageDbgLog(@"[%p] Setting image to notLoadedImage", self);
+                    self.image = self.cc_notLoadedImage;
+                } else {
+                    CCImageDbgLog(@"[%p] Setting image to nil", self);
+                    self.image = nil;
+                }
+            }
+            SafetyCall(completion, image, error);
+            return;
+        }
+
+        SafetyCallOnMain(^{
+            if (CFAbsoluteTimeGetCurrent() - loadStartTime > 0.2 && !self.cc_disableSetImageAnimation)
             {
+                CCImageDbgLog(@"[%p] Setting final image with transition", self);
+
                 [UIView transitionWithView:self duration:0.2 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
                     self.image = image;
+                    self.cc_state = CCImageViewStateLoaded;
                 } completion:^(BOOL finished) {
-                    CCSafeCall(completion, image, error);
+                    SafetyCall(completion, image, error);
                 }];
             }
             else {
+                CCImageDbgLog(@"[%p] Setting final image without animation", self);
                 self.image = image;
-                CCSafeCall(completion, image, error);
+                self.cc_state = CCImageViewStateLoaded;
+                SafetyCall(completion, image, error);
             }
         });
     }];
 }
 
-static const void *kImageKey = &kImageKey;
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Deprecated methods
+//-------------------------------------------------------------------------------------------
+
+- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url
+{
+    [self cc_setPlaceholderImage:placeholderImage andThenSetImageFromURL:url completion:nil];
+}
+
+- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url completion:(CCImageServiceGetImageBlock)completion
+{
+    [self cc_setPlaceholderImage:placeholderImage andThenSetImageFromURL:url forceReload:NO completion:completion];
+}
+
+- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage
+        andThenSetImageFromURL:(NSURL *)url
+                   forceReload:(BOOL)forceReload
+                    completion:(CCImageServiceGetImageBlock)completion
+{
+    self.cc_placeholderImage = placeholderImage;
+    [self cc_setImageFromURL:url forceReload:forceReload completion:completion];
+}
+
+- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage
+        andThenSetImageFromURL:(NSURL *)url
+                   forceReload:(BOOL)forceReload
+              disableAnimation:(BOOL)disableAnimation
+                    completion:(CCImageServiceGetImageBlock)completion;
+{
+    self.cc_placeholderImage = placeholderImage;
+    self.cc_disableSetImageAnimation = disableAnimation;
+    [self cc_setImageFromURL:url forceReload:forceReload completion:completion];
+}
+
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Private Methods
+//-------------------------------------------------------------------------------------------
 
 - (void)setCc_imageUrl:(NSURL *)url
 {
-    SetAssociatedObject(kImageKey, url);
+    SetAssociatedObject(@selector(cc_imageUrl), url);
 }
 
 - (NSURL *)cc_imageUrl
 {
-    return GetAssociatedObject(kImageKey);
+    return GetAssociatedObject(@selector(cc_imageUrl));
+}
+
+- (BOOL)isTagChanged:(id<CCImageServiceTag>)oldTag newTag:(id<CCImageServiceTag>)newTag
+{
+    if (!oldTag && !newTag) {
+        return NO;
+    }
+    if ((!oldTag && newTag) || (oldTag && !newTag)) {
+        return YES;
+    }
+    return [oldTag compare:newTag] != NSOrderedSame;
 }
 
 @end

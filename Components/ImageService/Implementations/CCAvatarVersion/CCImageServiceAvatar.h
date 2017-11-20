@@ -11,5 +11,9 @@
 
 #import "CCImageService.h"
 
-@interface CCImageServiceCustomImpl : NSObject <CCImageService>
+
+@protocol CCImageServiceTag;
+
+@interface CCImageServiceAvatar : NSObject <CCImageService>
+
 @end

@@ -10,33 +10,58 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import <UIKit/UIKit.h>
+#import "CCImageService.h"
 
-extern NSErrorDomain const CCImageServiceErrorDomain;
 
-NS_ENUM(NSInteger)
+@protocol CCImageServiceTag;
+
+typedef NS_ENUM(NSInteger, CCImageViewState)
 {
-    CCImageServiceImageOutdated = -1,
+    CCImageViewStateNotLoaded,
+    CCImageViewStateLoading,
+    CCImageViewStateError,
+    CCImageViewStateLoaded
 };
-
-
-@protocol CCImageService;
-
-typedef void(^CCImageCompletition)(UIImage *image, NSError *error);
 
 @interface UIImageView (CCImageService)
 
 @property (nonatomic, readonly) NSURL *cc_imageUrl;
+@property (nonatomic, readonly) CCImageViewState cc_state;
+@property (nonatomic, readonly) id<CCImageServiceTag> cc_imageTag;
+
+@property (nonatomic) UIImage *cc_notLoadedImage;
+@property (nonatomic) UIImage *cc_placeholderImage;
+@property (nonatomic) BOOL cc_disableSetImageAnimation;
+//@property (nonatomic) UIView<CCImageViewReloadView> *cc_reloadView;
 
 - (void)cc_setImageFromURL:(NSURL *)url;
 - (void)cc_setImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload;
+- (void)cc_setImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload completion:(CCImageServiceGetImageBlock)completion;
 
-- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url;
-- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload;
+- (void)cc_setImageFromURL:(NSURL *)url
+              imageService:(id<CCImageService>)imageService
+                       tag:(id<CCImageServiceTag>)tag
+               forceReload:(BOOL)forceReload
+                completion:(CCImageServiceGetImageBlock)completion;
 
-- (void)cc_setImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload completion:(CCImageCompletition)completion;
-- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload completion:(CCImageCompletition)completion;
+// Deprecated methods:
+- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage
+        andThenSetImageFromURL:(NSURL *)url
+__deprecated_msg("use combination of other methods and 'cc_placeholderImage' property instead.");
+- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage
+        andThenSetImageFromURL:(NSURL *)url
+                    completion:(CCImageServiceGetImageBlock)completion
+__deprecated_msg("use combination of other methods and 'cc_placeholderImage' property instead.");
+- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage
+        andThenSetImageFromURL:(NSURL *)url
+                   forceReload:(BOOL)forceReload
+                    completion:(CCImageServiceGetImageBlock)completion
+__deprecated_msg("use combination of other methods and 'cc_placeholderImage' property instead.");
+- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage
+        andThenSetImageFromURL:(NSURL *)url
+                   forceReload:(BOOL)forceReload
+              disableAnimation:(BOOL)disableAnimation
+                    completion:(CCImageServiceGetImageBlock)completion
+__deprecated_msg("use combination of other methods and 'cc_placeholderImage'/'cc_disableSetImageAnimation' properties instead.");
 
-- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url
-                   forceReload:(BOOL)forceReload disableAnimation:(BOOL)disableAnimation
-                    completion:(CCImageCompletition)completion;
 @end

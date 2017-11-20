@@ -35,33 +35,16 @@
 #pragma mark - Interface Methods
 //-------------------------------------------------------------------------------------------
 
-- (void)getImageForUrl:(NSURL *)url completion:(CCImageServiceGetImageBlock)completion
-{
-    [self getImageForUrl:url options:0 completion:completion];
-}
-
-- (void)getImageForUrl:(NSURL *)url
-               options:(CCGetImageOptions)options completion:(CCImageServiceGetImageBlock)completion
+- (void)getImageForUrl:(NSURL *)url tag:(id<CCImageServiceTag>)tag options:(CCGetImageOptions)options completion:(CCImageServiceGetImageBlock)completion
 {
     SDWebImageOptions sdOptions = 0;
-    
+
     if (options & CCGetImageForceLoad) {
         sdOptions |= SDWebImageRefreshCached;
     }
-    
-    [_manager downloadImageWithURL:url options:sdOptions progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-        CCSafeCall(completion, image, error);
-    }];
-}
 
-- (void)getImagePathForUrl:(NSURL *)remoteUrl options:(CCGetImageOptions)options  completion:(void(^)(NSString *imageLocalPath, NSError *error))completion
-{
-    [self getImageForUrl:remoteUrl options:options completion:^(UIImage *image, NSError *error) {
-        NSString *path = nil;
-        if (image) {
-            path = [_manager.imageCache defaultCachePathForKey:[remoteUrl absoluteString]];
-        }
-        CCSafeCall(completion, path, error);
+    [_manager downloadImageWithURL:url options:sdOptions progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+        SafetyCall(completion, image, error);
     }];
 }
 

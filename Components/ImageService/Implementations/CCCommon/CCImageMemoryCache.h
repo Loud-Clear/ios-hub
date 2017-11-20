@@ -12,12 +12,16 @@
 #import <UIKit/UIKit.h>
 
 @class CCDispatchQueue;
+@class PINMemoryCache;
+@protocol CCImageServiceTag;
 
 
-typedef void (^ImageMemoryCacheGetImageBlock)(UIImage *image, NSDate *lastModificationDate);
+typedef void (^ImageMemoryCacheGetImageBlock)(UIImage *image, id<CCImageServiceTag> tag);
 typedef void (^ImageMemoryCacheSaveImageBlock)(BOOL saved);
 
 @interface CCImageMemoryCache : NSObject
+
+@property (nonatomic, readonly) PINMemoryCache *memoryCache;
 
 /// Default is [CCDispatchQueue mainQueue].
 @property (nonatomic) CCDispatchQueue *completionQueue;
@@ -25,7 +29,7 @@ typedef void (^ImageMemoryCacheSaveImageBlock)(BOOL saved);
 // NOTE: all completion blocks are called on 'completionQueue'.
 
 /// If 'image' is non-nil, image is not in cache.
-- (void) getImageAtUrl:(NSURL *)url completion:(ImageMemoryCacheGetImageBlock)completion;
-- (void) saveImage:(UIImage *)image forUrl:(NSURL *)url withLastModificationDate:(NSDate *)lastModificationDate completion:(ImageMemoryCacheSaveImageBlock)completion;
+- (void)getImageAtUrl:(NSURL *)url completion:(ImageMemoryCacheGetImageBlock)completion;
+- (void)saveImage:(UIImage *)image forUrl:(NSURL *)url withTag:(id<CCImageServiceTag>)tag completion:(ImageMemoryCacheSaveImageBlock)completion;
 
 @end

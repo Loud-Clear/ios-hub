@@ -9,9 +9,17 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <UIKit/UIKit.h>
-
 #import "CCImageService.h"
 
-@interface CCImageServiceAFNetworkingImpl : NSObject <CCImageService>
+
+@interface CCImageGetContext : NSObject
+
+@property (nonatomic) NSString *urlString;
+
+- (void)addCompletionBlock:(CCImageServiceGetImageBlock)completion;
+
+// Will call all added completion blocks with provided parameters.
+// Completion blocks will be called on main thread.
+- (void)callCompletionsWithImage:(UIImage *)image error:(NSError *)error;
+
 @end

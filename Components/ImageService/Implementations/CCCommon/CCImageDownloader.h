@@ -16,12 +16,13 @@
 
 typedef void (^CCImageDownloaderBlock)(BOOL changed, NSData *imageData, NSDate *newModificationDate, NSError *error);
 
-
+/// Supports If-Modified-Since flag
 @interface CCImageDownloader : NSObject
 
 /// Default is [CCDispatchQueue mainQueue].
 @property (nonatomic) CCDispatchQueue *completionQueue;
 
+/// For force reload, pass nil as modificationDate.
 - (void) getImageIfNeededAtUrl:(NSURL *)url withCurrentModificationDate:(NSDate *)modificationDate completion:(CCImageDownloaderBlock)completion;
 
 @end

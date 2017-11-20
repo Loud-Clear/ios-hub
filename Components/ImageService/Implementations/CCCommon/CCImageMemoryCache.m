@@ -15,28 +15,32 @@
 #import "CCDispatchUtils.h"
 #import "NSString+SHA1.h"
 #import "CCMacroses.h"
+#import "CCImageServiceTag.h"
+
 
 @interface MemoryCacheItem : NSObject
 @property (nonatomic) UIImage *image;
-@property (nonatomic) NSDate *lastModificationDate;
+@property (nonatomic) id<CCImageServiceTag> tag;
 @end
 
 @implementation MemoryCacheItem
 @end
 
-@implementation CCImageMemoryCache {
-    PINMemoryCache *memoryCache;
-}
+@implementation CCImageMemoryCache
 
 //-------------------------------------------------------------------------------------------
 #pragma mark - Initialization & Destruction
 //-------------------------------------------------------------------------------------------
 
-- (id) init
+- (id)init
 {
+    if (!(self = [super init])) {
+        return nil;
+    }
+
     if ((self = [super init])) {
-        memoryCache = [PINMemoryCache new];
-        memoryCache.ageLimit = 60*60; // 1 hour
+        _memoryCache = [PINMemoryCache new];
+        _memoryCache.ageLimit = 60*60; // 1 hour
         self.completionQueue = [CCDispatchQueue mainQueue];
     }
     return self;
@@ -50,48 +54,44 @@
 {
     NSParameterAssert(url);
 
-    [memoryCache objectForKey:[[url absoluteString] sha1] block:^(PINMemoryCache *cache, NSString *key, MemoryCacheItem *item)
+    [_memoryCache objectForKey:[[url absoluteString] sha1] block:^(PINMemoryCache *cache, NSString *key, MemoryCacheItem *item)
     {
         if (item) {
-            CCImageDbgLog(@"%@ loaded image for url \"%@\".", NSStringFromClass([self class]), url);
+            CCImageDbgLog(@"%@ loaded image for url '%@' with tag '%@'.", NSStringFromClass([self class]), url, item.tag);
         } else {
-            CCImageDbgLog(@"%@ has NO image for url \"%@\".", NSStringFromClass([self class]), url);
+            CCImageDbgLog(@"%@ has NO image for url '%@' with tag '%@'.", NSStringFromClass([self class]), url, item.tag);
         }
         if (completion) {
             [self.completionQueue async:^{
-                completion(item.image, item.lastModificationDate);
+                completion(item.image, item.tag);
             }];
         }
     }];
 }
 
-- (void) saveImage:(UIImage *)image forUrl:(NSURL *)url withLastModificationDate:(NSDate *)lastModificationDate completion:(ImageMemoryCacheSaveImageBlock)completion
+- (void)saveImage:(UIImage *)image forUrl:(NSURL *)url withTag:(id<CCImageServiceTag>)tag completion:(ImageMemoryCacheSaveImageBlock)completion
 {
     NSParameterAssert(image);
     NSParameterAssert(url);
 
     MemoryCacheItem *item = [MemoryCacheItem new];
-    item.lastModificationDate = lastModificationDate;
+    item.tag = tag;
     item.image = image;
 
     @weakify(self);
-    [memoryCache setObject:(id)item forKey:[[url absoluteString] sha1] block:^(PINMemoryCache *cache, NSString *key, id object)
+    [_memoryCache setObject:(id)item forKey:[[url absoluteString] sha1] block:^(PINMemoryCache *cache, NSString *key, id object)
     {
         @strongify(self);
 
-        #if IMAGE_DBG_LOG_ENABLED
-        NSString *withModificationDateText = lastModificationDate ? [NSString stringWithFormat:@" with modification date %@", lastModificationDate] : @"";
-        #endif
-
         if (object) {
-            CCImageDbgLog(@"%@ saved to cache image for url \"%@\"%@.", NSStringFromClass([self class]), url, withModificationDateText);
+            CCImageDbgLog(@"%@ saved to cache image for url '%@' with tag '%@'.", NSStringFromClass([self class]), url, tag);
         } else {
-            CCImageDbgLog(@"%@ did NOT save to cache image for url \"%@\"%@", NSStringFromClass([self class]), url, withModificationDateText);
+            CCImageDbgLog(@"%@ did NOT save to cache image for url '%@' with tag '%@'.", NSStringFromClass([self class]), url, tag);
         }
 
         if (completion) {
             [self.completionQueue async:^{
-                completion(object ? YES : NO);
+                completion(object != nil);
             }];
         }
     }];
