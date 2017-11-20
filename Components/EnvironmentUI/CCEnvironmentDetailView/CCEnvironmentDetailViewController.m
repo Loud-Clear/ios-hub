@@ -150,7 +150,7 @@
 
 - (void)formManager:(CCTableFormManager *)formManager didChangeEditingFieldWithName:(NSString *)fieldName
 {
-    SafetyCallOnMain(^{
+    CCSafeCallOnMain(^{
         CCTableFormItem *item = [formManager fieldForName:fieldName];
         [self.environment batchSave:^{
             DDLogDebug(@"Set value %@ for field %@", item.value, fieldName);

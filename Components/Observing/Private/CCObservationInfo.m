@@ -39,7 +39,7 @@
         };
 
         if (self.batchUpdateDelay > 0) {
-            SafetyCallAfter(self.batchUpdateDelay, notificationBlock);
+            CCSafeCallOnMainAfter(self.batchUpdateDelay, notificationBlock);
         } else {
             CCSafeCall(notificationBlock);
         }

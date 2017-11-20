@@ -335,7 +335,7 @@ didReceiveNotificationResponse:(UNNotificationResponse *)response
 {
     @synchronized (self) {
         for (CCRemoteNotificationServiceRegisterBlock completion in _requestPermissionCompletions) {
-            SafetyCallOnMain(completion, success, error);
+            CCSafeCallOnMain(completion, success, error);
         }
         _requestPermissionCompletions = nil;
     }

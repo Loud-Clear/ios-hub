@@ -59,12 +59,12 @@
                 DDLogDebug(@"Loaded image for url %@ from cache.", url);
             }
         }
-        SafetyCallOnMain(completion, image, nil);
+        CCSafeCallOnMain(completion, image, nil);
     }
     failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error)
     {
         DDLogWarn(@"Failed to load image for url %@: %@", url, error);
-        SafetyCallOnMain(completion, nil, error);
+        CCSafeCallOnMain(completion, nil, error);
     }];
 }
 

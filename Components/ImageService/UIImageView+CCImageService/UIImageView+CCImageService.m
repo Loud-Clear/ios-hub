@@ -117,7 +117,7 @@ NSErrorDomain const CCImageServiceErrorDomain = @"CCImageServiceErrorDomain";
             return;
         }
 
-        SafetyCallOnMain(^{
+        CCSafeCallOnMain(^{
             if (CFAbsoluteTimeGetCurrent() - loadStartTime > 0.2 && !disableAnimation)
             {
                 [UIView transitionWithView:self duration:0.2 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
