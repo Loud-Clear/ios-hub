@@ -13,6 +13,7 @@
 #import "CCLogger.h"
 #import "CCSingleton.h"
 #import "CCWarningMute.h"
+#import "CCProperty.h"
 
 #define let __auto_type const
 #define var __auto_type

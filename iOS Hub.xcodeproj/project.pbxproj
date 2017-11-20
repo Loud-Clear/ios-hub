@@ -351,6 +351,7 @@
 		31821C053DC400CF5EAB3585 /* NSDictionary+SafeAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+SafeAccess.m"; sourceTree = "<group>"; };
 		31821C74E489CA353FDD23D4 /* NSObject+Observe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Observe.h"; sourceTree = "<group>"; };
 		31821CB9BC97EFBDDA081066 /* CCValueTransformerDateIso8601.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCValueTransformerDateIso8601.m; sourceTree = "<group>"; };
+		31821CEDCD27D50FCB60EE98 /* CCProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCProperty.h; sourceTree = "<group>"; };
 		31821CFA1CF8D33D17D5009F /* CCValueTransformerToNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCValueTransformerToNumber.h; sourceTree = "<group>"; };
 		31821D286980132DB10E0BD4 /* CCMacrosesTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCMacrosesTest.m; sourceTree = "<group>"; };
 		31821D47BADDAAC0203D0260 /* UITextField+Dimensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Dimensions.h"; sourceTree = "<group>"; };
@@ -1626,6 +1627,7 @@
 				31821A231FAFE37B2CDE194F /* CCTypedefs.h */,
 				31821A7A6F22C589DEFA29A3 /* CCWarningMute.h */,
 				31821ECAF52550836D6FD6F7 /* CCSingleton.h */,
+				31821CEDCD27D50FCB60EE98 /* CCProperty.h */,
 			);
 			path = Macroses;
 			sourceTree = "<group>";
