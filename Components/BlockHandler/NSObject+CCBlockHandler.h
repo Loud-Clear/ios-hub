@@ -1,0 +1,19 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+//  Momatu
+//  Created by ivan at 9.11.2017.
+//
+//  Copyright 2017 LoudClear Pty Ltd
+//  All Rights Reserved.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+@import Foundation;
+@class CCBlockHandler;
+
+
+@interface NSObject (CCBlockHandler)
+
+- (dispatch_block_t)blockHandlerWithAction:(SEL)action;
+
+@end

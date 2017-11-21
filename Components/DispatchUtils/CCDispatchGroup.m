@@ -6,54 +6,51 @@
 
 #import "CCDispatchGroup.h"
 
-@implementation CCDispatchGroup {
-    dispatch_group_t group;
-    NSInteger counter;
+
+@implementation CCDispatchGroup
+{
+    dispatch_group_t _group;
 }
 
-- (id) init {
+- (id)init
+{
     self = [super init];
     if (self) {
-        counter = 0;
-        group = dispatch_group_create();
+        _group = dispatch_group_create();
     }
     return self;
 }
 
-- (void) enter
+- (void)enter
 {
-    counter++;
-    dispatch_group_enter(group);
+    dispatch_group_enter(_group);
 }
 
-- (void) leave
+- (void)enter:(NSUInteger)count
 {
-    if (counter > 0) {
-        counter--;
-        dispatch_group_leave(group);
+    for (NSUInteger i = 0; i < count; i++) {
+        [self enter];
     }
 }
 
-- (void) leaveAll
+- (void)leave
 {
-    while (counter != 0) {
-        [self leave];
-    }
+    dispatch_group_leave(_group);
 }
 
-- (void) notifyOnQueue:(dispatch_queue_t)queue block:(dispatch_block_t)block
+- (void)notifyOnQueue:(dispatch_queue_t)queue block:(dispatch_block_t)block
 {
-    dispatch_group_notify(group, queue, block);
+    dispatch_group_notify(_group, queue, block);
 }
 
-- (void) notifyOnBackgrounQueueWithBlock:(dispatch_block_t)block
+- (void)notifyOnMainQueue:(dispatch_block_t)block
 {
-    dispatch_group_notify(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
+    dispatch_group_notify(_group, dispatch_get_main_queue(), block);
 }
 
-- (void) notifyOnMainQueueWithBlock:(dispatch_block_t)block
+- (void)notifyOnMainQueueWithBlock:(dispatch_block_t)block
 {
-    dispatch_group_notify(group, dispatch_get_main_queue(), block);
+    [self notifyOnMainQueue:block];
 }
 
 @end

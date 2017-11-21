@@ -26,6 +26,16 @@ Pod::Spec.new do |s|
 
   # Categories dir
 
+  s.subspec 'BaseObjects' do |subspec|
+      subspec.source_files = 'Components/BaseObjects/**/*.{h,m}'
+  end
+
+  s.subspec 'BlockHandler' do |subspec|
+      subspec.source_files = 'Components/BlockHandler/**/*.{h,m}'
+      subspec.dependency 'ComponentsHub/Macroses'
+      subspec.dependency 'Typhoon'
+  end
+
   s.subspec 'Categories' do |subspec|
       subspec.source_files = 'Components/Categories/**/*.{h,m}'
       subspec.dependency 'ComponentsHub/Macroses'
@@ -42,6 +52,11 @@ Pod::Spec.new do |s|
 
   s.subspec 'DispatchUtils' do |subspec|
       subspec.source_files = 'Components/DispatchUtils/**/*.{h,m}'
+  end
+
+  s.subspec 'FeatheredScrollView' do |subspec|
+      subspec.source_files = 'Components/FeatheredScrollView/**/*.{h,m}'
+      subspec.dependency 'EGOGradientView'
   end
 
   s.subspec 'Forms' do |subspec|
@@ -163,16 +178,8 @@ Pod::Spec.new do |s|
       subspec.dependency 'ComponentsHub/Macroses'
   end
 
-# TODO: remove (use SingletonStorage instead)
-  s.subspec 'SingletoneStorage' do |subspec|
-      subspec.source_files   = 'Components/SingletoneStorage/**/*.{h,m}'
-      subspec.dependency 'FastCoding'
-      subspec.dependency 'SAMKeychain'
-      subspec.dependency 'ComponentsHub/Macroses'
-  end
-
   s.subspec 'SingletonStorage' do |subspec|
-      subspec.source_files   = 'Components/SingletoneStorage/**/*.{h,m}'
+      subspec.source_files   = 'Components/SingletonStorage/**/*.{h,m}'
       subspec.dependency 'FastCoding'
       subspec.dependency 'SAMKeychain'
       subspec.dependency 'ComponentsHub/Macroses'
