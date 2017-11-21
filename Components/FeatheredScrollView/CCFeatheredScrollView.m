@@ -10,10 +10,9 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import "CCFeatheredScrollView.h"
-
 #import "EGOGradientView.h"
-
 #import "UIColor+Components.h"
+#import "UIView+Positioning.h"
 
 
 @interface CCFeatheredScrollView ()<UIScrollViewDelegate>

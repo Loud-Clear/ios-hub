@@ -9,7 +9,8 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import "CCAutoSizingView.h"
-
+#import "UIView+Positioning.h"
+#import "CCMacroses.h"
 
 @implementation CCAutoSizingView
 

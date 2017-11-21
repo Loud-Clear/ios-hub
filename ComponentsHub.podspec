@@ -28,6 +28,8 @@ Pod::Spec.new do |s|
 
   s.subspec 'BaseObjects' do |subspec|
       subspec.source_files = 'Components/BaseObjects/**/*.{h,m}'
+      subspec.dependency 'ComponentsHub/Macroses'
+      subspec.dependency 'ComponentsHub/ManualLayout'
   end
 
   s.subspec 'BlockHandler' do |subspec|
@@ -166,7 +168,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'RealmAddons' do |subspec|
       subspec.source_files   = 'Components/RealmAddons/**/*.{h,m}'
-      subspec.dependency 'Realm'
+      subspec.dependency 'Realm', '~> 2.0'
       subspec.dependency 'ComponentsHub/Observation'
       subspec.dependency 'ComponentsHub/NotificationUtils'
   end
