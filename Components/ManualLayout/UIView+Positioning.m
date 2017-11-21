@@ -412,6 +412,72 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     self.height = self.superview.boundsHeight - insets.top - insets.bottom;
 }
 
+- (void)fitHorizontallyBetweenView:(UIView *)view1 andView:(UIView *)view2
+{
+    [self fitHorizontallyBetweenView:view1 andView:view2 withInsets:OSInsetsZero];
+}
+
+- (void)fitVerticallyBetweenView:(UIView *)view1 andView:(UIView *)view2
+{
+    [self fitVerticallyBetweenView:view1 andView:view2 withInsets:OSInsetsZero];
+}
+
+- (void)fitHorizontallyBetweenViewAndSuperview:(UIView *)view
+{
+    [self fitHorizontallyBetweenViewAndSuperview:view withInsets:OSInsetsZero];
+}
+
+- (void)fitHorizontallyBetweenSuperviewAndView:(UIView *)view
+{
+    [self fitHorizontallyBetweenSuperviewAndView:view withInsets:OSInsetsZero];
+}
+
+- (void)fitVerticallyBetweenSuperviewAndView:(UIView *)view
+{
+    [self fitVerticallyBetweenSuperviewAndView:view withInsets:OSInsetsZero];
+}
+
+- (void)fitVerticallyBetweenViewAndSuperview:(UIView *)view
+{
+    [self fitVerticallyBetweenViewAndSuperview:view withInsets:OSInsetsZero];
+}
+
+- (void)fitHorizontallyBetweenView:(UIView *)view1 andView:(UIView *)view2 withInsets:(OSInsets)insets
+{
+    self.width = view2.x - view1.right - insets.left - insets.right;
+    self.x = view1.right + insets.left;
+}
+
+- (void)fitVerticallyBetweenView:(UIView *)view1 andView:(UIView *)view2 withInsets:(OSInsets)insets
+{
+    self.height = view2.y - view1.bottom - insets.top - insets.bottom;
+    self.y = view1.bottom + insets.top;
+}
+
+- (void)fitHorizontallyBetweenViewAndSuperview:(UIView *)view withInsets:(OSInsets)insets
+{
+    self.x = view.right + insets.left;
+    self.width = self.superview.boundsWidth - view.right - insets.left - insets.right;
+}
+
+- (void)fitHorizontallyBetweenSuperviewAndView:(UIView *)view withInsets:(OSInsets)insets
+{
+    self.x = 0 + insets.left;
+    self.width = view.x - insets.left - insets.right;
+}
+
+- (void)fitVerticallyBetweenSuperviewAndView:(UIView *)view withInsets:(OSInsets)insets
+{
+    self.y = 0 + insets.top;
+    self.height = view.y - insets.top - insets.bottom;
+}
+
+- (void)fitVerticallyBetweenViewAndSuperview:(UIView *)view withInsets:(OSInsets)insets
+{
+    self.y = view.bottom + insets.top;
+    self.height = self.superview.boundsHeight - view.bottom - insets.top - insets.bottom;
+}
+
 //-------------------------------------------------------------------------------------------
 #pragma mark - Ensuring
 //-------------------------------------------------------------------------------------------
@@ -575,124 +641,6 @@ const OSInsets OSInsetsZero = {{0}, {0}};
 #pragma mark - Pinning
 //-------------------------------------------------------------------------------------------
 
-- (void)pinTopToSuperview
-{
-    self.y = 0;
-}
-
-- (void)pinBottomToSuperview
-{
-    self.bottom = self.superview.boundsHeight;
-}
-
-- (void)pinLeftToSuperview
-{
-    self.x = 0;
-}
-
-- (void)pinLeftToView:(UIView *)view
-{
-    [self pinLeftToView:view withOffset:0];
-}
-
-- (void)pinLeftToView:(UIView *)view withOffset:(CGFloat)offset
-{
-    self.x = view.right + offset;
-}
-
-- (void)pinRightToSuperview
-{
-    self.right = self.superview.boundsWidth;
-}
-
-- (void)pinTopLeftToSuperview
-{
-    self.x = 0;
-    self.y = 0;
-}
-
-- (void)pinTopRightToSuperview
-{
-    self.right = self.superview.boundsWidth;
-    self.y = 0;
-}
-
-- (void)pinBottomLeftToSuperview
-{
-    self.x = 0;
-    self.bottom = self.superview.boundsHeight;
-}
-
-- (void)pinBottomRightToSuperview
-{
-    self.right = self.superview.boundsWidth;
-    self.bottom = self.superview.boundsHeight;
-}
-
-- (void)pinTopLeftToSuperviewWithOffset:(UIOffset)offset
-{
-    self.x = offset.horizontal;
-    self.y = offset.vertical;
-}
-
-- (void)pinTopRightToSuperviewWithOffset:(UIOffset)offset
-{
-    self.right = self.superview.boundsWidth - offset.horizontal;
-    self.y = offset.vertical;
-}
-
-- (void)pinBottomLeftToSuperviewWithOffset:(UIOffset)offset
-{
-    self.x = offset.horizontal;
-    self.bottom = self.superview.boundsHeight - offset.vertical;
-}
-
-- (void)pinBottomRightToSuperviewWithOffset:(UIOffset)offset
-{
-    self.right = self.superview.boundsWidth - offset.horizontal;
-    self.bottom = self.superview.boundsHeight - offset.vertical;
-}
-
-- (void)pinTopToSuperviewWithOffset:(CGFloat)offset
-{
-    self.y = offset;
-}
-
-- (void)pinBottomToSuperviewWithOffset:(CGFloat)offset
-{
-    self.bottom = self.superview.boundsHeight - offset;
-}
-
-- (void)pinLeftToSuperviewWithOffset:(CGFloat)offset
-{
-    self.x = offset;
-}
-
-- (void)pinRightToSuperviewWithOffset:(CGFloat)offset
-{
-    self.right = self.superview.boundsWidth - offset;
-}
-
-- (void)pinRightToView:(UIView *)view
-{
-    [self pinRightToView:view withOffset:0];
-}
-
-- (void)pinRightToView:(UIView *)view withOffset:(CGFloat)offset
-{
-    self.right = view.x - offset;
-}
-
-- (void)pinTopToControllerTopLayoutGuide:(UIViewController *)controller
-{
-    [self pinTopToControllerLayoutGuide:controller withOffset:0];
-}
-
-- (void)pinTopToControllerLayoutGuide:(UIViewController *)controller withOffset:(CGFloat)offset
-{
-    self.y = controller.topLayoutGuide.length + offset;
-}
-
 - (void)pinEdge:(OSEdge)edge toView:(UIView *)view edge:(OSEdge)viewEdge
 {
     [self pinEdge:edge toView:view edge:edge withOffset:0];
@@ -702,6 +650,18 @@ const OSInsets OSInsetsZero = {{0}, {0}};
 {
     [self pinAttr:(OSAttr)edge toView:view attr:(OSAttr)viewEdge withOffset:offset];
 }
+
+- (void)pinEdge:(OSEdge)edge toView:(UIView *)view
+{
+    [self pinEdge:edge toView:view edge:edge];
+}
+
+- (void)pinEdge:(OSEdge)edge toView:(UIView *)view withOffset:(CGFloat)offset
+{
+    [self pinEdge:edge toView:view edge:edge withOffset:offset];
+}
+
+
 
 - (void)pinAttr:(OSAttr)attr toView:(UIView *)view attr:(OSAttr)viewAttr
 {
@@ -723,14 +683,26 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     [self pinAttr:attr toView:view attr:attr withOffset:offset];
 }
 
-- (void)pinBottomToViewTop:(UIView *)view withOffset:(CGFloat)offset
+
+
+- (void)pinTopToSuperview
 {
-    [self pinEdge:OSEdgeBottom toView:view edge:OSEdgeTop withOffset:-offset];
+    self.y = 0;
 }
 
-- (void)pinBottomToViewTop:(UIView *)view
+- (void)pinTopToSuperviewWithOffset:(CGFloat)offset
 {
-    [self pinBottomToViewTop:view withOffset:0];
+    self.y = offset;
+}
+
+- (void)pinTopToControllerTopLayoutGuide:(UIViewController *)controller
+{
+    [self pinTopToControllerLayoutGuide:controller withOffset:0];
+}
+
+- (void)pinTopToControllerLayoutGuide:(UIViewController *)controller withOffset:(CGFloat)offset
+{
+    self.y = controller.topLayoutGuide.length + offset;
 }
 
 - (void)pinTopToViewBottom:(UIView *)view
@@ -743,70 +715,122 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     [self pinEdge:OSEdgeTop toView:view edge:OSEdgeBottom withOffset:offset];
 }
 
-- (void)fitHorizontallyBetweenView:(UIView *)view1 andView:(UIView *)view2
+
+
+- (void)pinBottomToSuperview
 {
-    [self fitHorizontallyBetweenView:view1 andView:view2 withInsets:OSInsetsZero];
+    self.bottom = self.superview.boundsHeight;
 }
 
-- (void)fitVerticallyBetweenView:(UIView *)view1 andView:(UIView *)view2
+- (void)pinBottomToSuperviewWithOffset:(CGFloat)offset
 {
-    [self fitVerticallyBetweenView:view1 andView:view2 withInsets:OSInsetsZero];
+    self.bottom = self.superview.boundsHeight - offset;
 }
 
-- (void)fitHorizontallyBetweenViewAndSuperview:(UIView *)view
+- (void)pinBottomToViewTop:(UIView *)view withOffset:(CGFloat)offset
 {
-    [self fitHorizontallyBetweenViewAndSuperview:view withInsets:OSInsetsZero];
+    [self pinEdge:OSEdgeBottom toView:view edge:OSEdgeTop withOffset:-offset];
 }
 
-- (void)fitHorizontallyBetweenSuperviewAndView:(UIView *)view
+- (void)pinBottomToViewTop:(UIView *)view
 {
-    [self fitHorizontallyBetweenSuperviewAndView:view withInsets:OSInsetsZero];
+    [self pinBottomToViewTop:view withOffset:0];
 }
 
-- (void)fitVerticallyBetweenSuperviewAndView:(UIView *)view
+
+
+- (void)pinLeftToSuperview
 {
-    [self fitVerticallyBetweenSuperviewAndView:view withInsets:OSInsetsZero];
+    self.x = 0;
 }
 
-- (void)fitVerticallyBetweenViewAndSuperview:(UIView *)view
+- (void)pinLeftToView:(UIView *)view
 {
-    [self fitVerticallyBetweenViewAndSuperview:view withInsets:OSInsetsZero];
+    [self pinLeftToView:view withOffset:0];
 }
 
-- (void)fitHorizontallyBetweenView:(UIView *)view1 andView:(UIView *)view2 withInsets:(OSInsets)insets
+- (void)pinLeftToView:(UIView *)view withOffset:(CGFloat)offset
 {
-    self.width = view2.x - view1.right - insets.left - insets.right;
-    self.x = view1.right + insets.left;
+    self.x = view.right + offset;
 }
 
-- (void)fitVerticallyBetweenView:(UIView *)view1 andView:(UIView *)view2 withInsets:(OSInsets)insets
+- (void)pinLeftToSuperviewWithOffset:(CGFloat)offset
 {
-    self.height = view2.y - view1.bottom - insets.top - insets.bottom;
-    self.y = view1.bottom + insets.top;
+    self.x = offset;
 }
 
-- (void)fitHorizontallyBetweenViewAndSuperview:(UIView *)view withInsets:(OSInsets)insets
+
+
+- (void)pinRightToSuperview
 {
-    self.x = view.right + insets.left;
-    self.width = self.superview.boundsWidth - view.right - insets.left - insets.right;
+    self.right = self.superview.boundsWidth;
 }
 
-- (void)fitHorizontallyBetweenSuperviewAndView:(UIView *)view withInsets:(OSInsets)insets
+- (void)pinRightToSuperviewWithOffset:(CGFloat)offset
 {
-    self.x = 0 + insets.left;
-    self.width = view.x - insets.left - insets.right;
+    self.right = self.superview.boundsWidth - offset;
 }
 
-- (void)fitVerticallyBetweenSuperviewAndView:(UIView *)view withInsets:(OSInsets)insets
+- (void)pinRightToView:(UIView *)view
 {
-    self.y = 0 + insets.top;
-    self.height = view.y - insets.top - insets.bottom;
+    [self pinRightToView:view withOffset:0];
 }
 
-- (void)fitVerticallyBetweenViewAndSuperview:(UIView *)view withInsets:(OSInsets)insets
+- (void)pinRightToView:(UIView *)view withOffset:(CGFloat)offset
 {
-    self.y = view.bottom + insets.top;
-    self.height = self.superview.boundsHeight - view.bottom - insets.top - insets.bottom;
+    self.right = view.x - offset;
+}
+
+
+
+- (void)pinTopLeftToSuperview
+{
+    self.x = 0;
+    self.y = 0;
+}
+
+- (void)pinTopRightToSuperview
+{
+    self.right = self.superview.boundsWidth;
+    self.y = 0;
+}
+
+- (void)pinTopLeftToSuperviewWithOffset:(UIOffset)offset
+{
+    self.x = offset.horizontal;
+    self.y = offset.vertical;
+}
+
+- (void)pinTopRightToSuperviewWithOffset:(UIOffset)offset
+{
+    self.right = self.superview.boundsWidth - offset.horizontal;
+    self.y = offset.vertical;
+}
+
+
+
+- (void)pinBottomLeftToSuperview
+{
+    self.x = 0;
+    self.bottom = self.superview.boundsHeight;
+}
+
+- (void)pinBottomRightToSuperview
+{
+    self.right = self.superview.boundsWidth;
+    self.bottom = self.superview.boundsHeight;
+}
+
+- (void)pinBottomLeftToSuperviewWithOffset:(UIOffset)offset
+{
+    self.x = offset.horizontal;
+    self.bottom = self.superview.boundsHeight - offset.vertical;
+}
+
+- (void)pinBottomRightToSuperviewWithOffset:(UIOffset)offset
+{
+    self.right = self.superview.boundsWidth - offset.horizontal;
+    self.bottom = self.superview.boundsHeight - offset.vertical;
 }
 
 //-------------------------------------------------------------------------------------------

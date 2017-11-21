@@ -194,6 +194,8 @@ typedef NS_ENUM(NSInteger, OSAxis)
 /// Note: view at this moment, `view` should at the same level of hierarchy as self.
 - (void)pinEdge:(OSEdge)edge toView:(UIView *)view edge:(OSEdge)viewEdge;
 - (void)pinEdge:(OSEdge)edge toView:(UIView *)view edge:(OSEdge)viewEdge withOffset:(CGFloat)offset;
+- (void)pinEdge:(OSEdge)edge toView:(UIView *)view;
+- (void)pinEdge:(OSEdge)edge toView:(UIView *)view withOffset:(CGFloat)offset;
 
 - (void)pinAttr:(OSAttr)attr toView:(UIView *)view attr:(OSAttr)viewAttr;
 - (void)pinAttr:(OSAttr)attr toView:(UIView *)view;
@@ -216,6 +218,7 @@ typedef NS_ENUM(NSInteger, OSAxis)
 - (void)pinLeftToSuperviewWithOffset:(CGFloat)offset;
 - (void)pinLeftToView:(UIView *)view;
 - (void)pinLeftToView:(UIView *)view withOffset:(CGFloat)offset;
+
 - (void)pinRightToSuperview;
 - (void)pinRightToSuperviewWithOffset:(CGFloat)offset;
 - (void)pinRightToView:(UIView *)view;
@@ -225,6 +228,7 @@ typedef NS_ENUM(NSInteger, OSAxis)
 - (void)pinTopLeftToSuperviewWithOffset:(UIOffset)offset;
 - (void)pinTopRightToSuperview;
 - (void)pinTopRightToSuperviewWithOffset:(UIOffset)offset;
+
 - (void)pinBottomLeftToSuperview;
 - (void)pinBottomLeftToSuperviewWithOffset:(UIOffset)offset;
 - (void)pinBottomRightToSuperview;
