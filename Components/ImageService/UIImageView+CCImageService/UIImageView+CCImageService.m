@@ -124,7 +124,7 @@ NSErrorDomain const CCImageServiceErrorDomain = @"CCImageServiceErrorDomain";
         return;
     }
 
-    if (!forceReload && [url isEqual:self.cc_imageUrl]) {
+    if (!forceReload && [url isEqual:self.cc_imageUrl] && !retryFailed) {
         CCSafeCall(completion, self.image, nil);
         return;
     }
@@ -140,7 +140,10 @@ NSErrorDomain const CCImageServiceErrorDomain = @"CCImageServiceErrorDomain";
     if (forceReload) {
         options |= CCGetImageForceLoad;
     }
-    
+    if (retryFailed) {
+        options |= CCGetImageRetryFailed;
+    }
+
     [imageService getImageForUrl:url options:options completion:^(UIImage *image, NSError *error)
     {
         if (!image) {
