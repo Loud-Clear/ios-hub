@@ -33,6 +33,11 @@ NSErrorDomain const CCImageServiceErrorDomain = @"CCImageServiceErrorDomain";
     [self cc_setPlaceholderImage:nil andThenSetImageFromURL:url forceReload:forceReload];
 }
 
+- (void)cc_setImageFromURL:(NSURL *)url retryFailed:(BOOL)retryFailed
+{
+    [self cc_setImageFromURL:url retryFailed:retryFailed completion:nil];
+}
+
 - (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url
 {
     [self cc_setPlaceholderImage:placeholderImage andThenSetImageFromURL:url forceReload:NO];
@@ -48,6 +53,15 @@ NSErrorDomain const CCImageServiceErrorDomain = @"CCImageServiceErrorDomain";
     [self cc_setPlaceholderImage:nil andThenSetImageFromURL:url forceReload:forceReload completion:completion];
 }
 
+- (void)cc_setImageFromURL:(NSURL *)url retryFailed:(BOOL)retryFailed completion:(CCImageCompletition)completion
+{
+    [self cc_setPlaceholderImage:nil
+          andThenSetImageFromURL:url
+                     retryFailed:retryFailed
+                disableAnimation:NO
+                      completion:completion];
+}
+
 - (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload completion:(CCImageCompletition)completion
 {
     [self cc_setPlaceholderImage:placeholderImage andThenSetImageFromURL:url
@@ -57,19 +71,44 @@ NSErrorDomain const CCImageServiceErrorDomain = @"CCImageServiceErrorDomain";
 
 - (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload disableAnimation:(BOOL)disableAnimation completion:(CCImageCompletition)completion
 {
-    id<CCImageService> imageService = [[TyphoonComponentFactory factoryForResolvingUI] componentForType:@protocol(CCImageService)];
+    [self cc_setPlaceholderImage:placeholderImage
+          andThenSetImageFromURL:url
+                     forceReload:forceReload
+                     retryFailed:NO
+                disableAnimation:disableAnimation
+                      completion:completion];
+}
 
-    [self cc_setImageFromURL:url imageService:imageService placeholderImage:placeholderImage forceReload:forceReload
-            disableAnimation:disableAnimation
-                  completion:completion];
+- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url retryFailed:(BOOL)retryFailed disableAnimation:(BOOL)disableAnimation completion:(CCImageCompletition)completion
+{
+    [self cc_setPlaceholderImage:placeholderImage
+          andThenSetImageFromURL:url
+                     forceReload:NO
+                     retryFailed:retryFailed
+                disableAnimation:disableAnimation
+                      completion:completion];
 }
 
 //-------------------------------------------------------------------------------------------
 #pragma mark - Private Methods
 //-------------------------------------------------------------------------------------------
 
+- (void)cc_setPlaceholderImage:(UIImage *)placeholderImage andThenSetImageFromURL:(NSURL *)url forceReload:(BOOL)forceReload retryFailed:(BOOL)retryFailed disableAnimation:(BOOL)disableAnimation completion:(CCImageCompletition)completion
+{
+    id<CCImageService> imageService = [[TyphoonComponentFactory factoryForResolvingUI] componentForType:@protocol(CCImageService)];
+
+    [self cc_setImageFromURL:url
+                imageService:imageService
+            placeholderImage:placeholderImage
+                 forceReload:forceReload
+                 retryFailed:retryFailed
+            disableAnimation:disableAnimation
+                  completion:completion];
+}
+
 - (void)cc_setImageFromURL:(NSURL *)url imageService:(id<CCImageService>)imageService
           placeholderImage:(UIImage *)placeholderImage forceReload:(BOOL)forceReload
+               retryFailed:(BOOL)retryFailed
           disableAnimation:(BOOL)disableAnimation completion:(CCImageCompletition)completion
 {
     NSParameterAssert(imageService);
@@ -85,7 +124,7 @@ NSErrorDomain const CCImageServiceErrorDomain = @"CCImageServiceErrorDomain";
         return;
     }
 
-    if (!forceReload && [url isEqual:self.cc_imageUrl]) {
+    if (!forceReload && [url isEqual:self.cc_imageUrl] && !retryFailed) {
         CCSafeCall(completion, self.image, nil);
         return;
     }
@@ -101,7 +140,10 @@ NSErrorDomain const CCImageServiceErrorDomain = @"CCImageServiceErrorDomain";
     if (forceReload) {
         options |= CCGetImageForceLoad;
     }
-    
+    if (retryFailed) {
+        options |= CCGetImageRetryFailed;
+    }
+
     [imageService getImageForUrl:url options:options completion:^(UIImage *image, NSError *error)
     {
         if (!image) {

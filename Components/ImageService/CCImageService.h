@@ -16,6 +16,7 @@ typedef void (^CCImageServiceGetImageBlock)(UIImage *image, NSError *error);
 
 typedef NS_OPTIONS(NSUInteger, CCGetImageOptions) {
     CCGetImageForceLoad = 1 << 0,
+    CCGetImageRetryFailed = 1 << 1,
 };
 
 @protocol CCImageService <NSObject>

@@ -49,6 +49,10 @@
         sdOptions |= SDWebImageRefreshCached;
     }
     
+    if (options & CCGetImageRetryFailed) {
+        sdOptions |= SDWebImageRetryFailed;
+    }
+
     [_manager downloadImageWithURL:url options:sdOptions progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
         CCSafeCall(completion, image, error);
     }];
