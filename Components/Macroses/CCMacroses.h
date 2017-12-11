@@ -46,7 +46,7 @@
 #define CCIOSVersionLessThan(version)              ([UIDevice.currentDevice.systemVersion compare:@ #version options:NSNumericSearch] == NSOrderedAscending)
 #define CCIOSVersionLessThanOrEqualTo(version)     ([UIDevice.currentDevice.systemVersion compare:@ #version options:NSNumericSearch] != NSOrderedDescending)
 
-
+#define CCSetPointer(pointer, ...) if ((pointer)) {*pointer = __VA_ARGS__;}
 
 // Deprecated:
 #define CMTime(seconds) CMTimeMakeWithSeconds(seconds, NSEC_PER_SEC) __deprecated_msg("Use `CCCMTime` instead.");
