@@ -4,7 +4,7 @@
 //  Created by Ivan Zezyulya on 20.04.12.
 //
 
-@import Foundation;
+#import <Foundation/Foundation.h>
 #import <objc/runtime.h>
 
 
