@@ -99,6 +99,10 @@
  */
 - (instancetype)init;
 
++ (instancetype)withTableView:(UITableView *)tableView delegate:(id<CCTableViewManagerDelegate>)delegate;
++ (instancetype)withTableView:(UITableView *)tableView;
+
+
 //-------------------------------------------
 #pragma mark - Managing the Delegate
 //-------------------------------------------
