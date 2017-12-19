@@ -27,6 +27,17 @@
 #import "CCTableViewItem.h"
 #import "CCTableViewCellFactory.h"
 #import "CCMacroses.h"
+#import "UIView+Positioning.h"
+
+
+static CGFloat const kDefaultCellHeight = 60;
+
+
+@interface CCTableViewCell()
+- (void)sizeToFitWidth:(CGFloat)width;
++ (CGFloat)height;
+@end
+
 
 @interface CCTableViewManager ()
 
@@ -86,6 +97,16 @@
     self.style = [CCTableViewCellStyle new];
 
     return self;
+}
+
++ (instancetype)withTableView:(UITableView *)tableView delegate:(id<CCTableViewManagerDelegate>)delegate
+{
+    return [[self alloc] initWithTableView:tableView delegate:delegate];
+}
+
++ (instancetype)withTableView:(UITableView *)tableView
+{
+    return [[self alloc] initWithTableView:tableView];
 }
 
 - (void)registerClass:(NSString *)objectClass forCellWithReuseIdentifier:(NSString *)identifier
@@ -425,6 +446,45 @@
 {
     CCTableViewSection *section = self.mutableSections[indexPath.section];
     id item = section.items[indexPath.row];
+    Class cellClass = [[item cellFactoryForCurrentItem] cellClass];
+
+    if ([cellClass respondsToSelector:@selector(height)]) {
+        let height = [cellClass height];
+        if (height != 0) {
+            return height;
+        }
+    }
+
+    if ([cellClass methodForSelector:@selector(heightWithItem:tableViewManager:)] != [CCTableViewCell methodForSelector:@selector(heightWithItem:tableViewManager:)]) {
+        return [cellClass heightWithItem:item tableViewManager:self];
+    }
+
+    NSString *cellIdentifier = [[self class] reuseIdentifierForCellHeightClass:cellClass];
+
+    CCTableViewCell *cell = self.heightCellCache[cellIdentifier];
+    if (!cell) {
+        [self.tableView registerClass:cellClass forCellReuseIdentifier:cellIdentifier];
+        cell = [(CCTableViewCell *)[cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        self.heightCellCache[cellIdentifier] = cell;
+    }
+
+    if (![cell isKindOfClass:[CCTableViewCell class]]) {
+        return kDefaultCellHeight;
+    }
+
+    if (!cell.loaded) {
+        [cell cellDidLoad];
+    }
+
+    cell.item = item;
+
+    if ([cell respondsToSelector:@selector(sizeToFitWidth:)]) {
+        [cell sizeToFitWidth:self.tableView.width];
+        let height = cell.height;
+        if (height != 0) {
+            return height;
+        }
+    }
 
     // Forward to UITableView delegate
     //
@@ -538,11 +598,11 @@
     }
 
     CGFloat height = [[self classForCellAtIndexPath:indexPath] heightWithItem:item tableViewManager:self];
-    
+
     if (CCIOSVersionLessThan(11.0) && (ceil(height) == 1)) {
         height = 1.01;
     }
-    
+
     return height ? height : UITableViewAutomaticDimension;
 }
 
@@ -1243,6 +1303,26 @@
         _defaultSection = nil;
         [self.mutableSections removeAllObjects];
     }
+}
+
+- (void)cleanUpHeightCache
+{
+    [[self heightCellCache] removeAllObjects];
+}
+
++ (NSString *)reuseIdentifierForCellHeightClass:(Class)cls
+{
+    return [NSString stringWithFormat:@"%@_Height", NSStringFromClass(cls)];
+}
+
+- (NSMutableDictionary *)heightCellCache
+{
+    id cellCache = GetAssociatedObject(@selector(heightCellCache));
+    if (!cellCache) {
+        cellCache = [NSMutableDictionary new];
+        SetAssociatedObject(@selector(heightCellCache), cellCache);
+    }
+    return cellCache;
 }
 
 @end

@@ -33,11 +33,22 @@
 @protocol CCTableViewManagerDelegate;
 
 /**
- `CCTableViewManager` allows to manage the content of any `UITableView` with ease, both forms and lists. `CCTableViewManager` is built on top of reusable cells technique and provides 
+ `CCTableViewManager` allows to manage the content of any `UITableView` with ease, both forms and lists.
+ `CCTableViewManager` is built on top of reusable cells technique and provides
  APIs for mapping any object class to any custom cell subclass.
  
- The general idea is to allow developers to use their own `UITableView` and `UITableViewController` instances (and even subclasses), providing a layer that synchronizes data with the cell appereance.
+ The general idea is to allow developers to use their own `UITableView` and `UITableViewController` instances
+ (and even subclasses), providing a layer that synchronizes data with the cell appearance.
  It fully implements `UITableViewDelegate` and `UITableViewDataSource` protocols so you don't have to.
+
+ Supports automatic management of cell height.
+ You may implement one of this methods in your cell subclass:
+   + (CGFloat)height;
+   - (void)sizeToFitWidth:(CGFloat)width;
+
+ If you implement +height, returned value will used be used for all such cells.
+ If you implement sizeToFitWidth:, this methods should perform layout and adjust cell height to appropriate value.
+ No other changes for cell height management are needed.
  */
 @interface CCTableViewManager : NSObject <UITableViewDelegate, UITableViewDataSource>
 
