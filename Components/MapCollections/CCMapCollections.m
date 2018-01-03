@@ -13,7 +13,7 @@
 
 @implementation NSArray (Map)
 
-- (instancetype)arrayUsingMap:(id(^)(id object))mapBlock
+- (NSArray *)arrayUsingMap:(id(^)(id object))mapBlock
 {
     NSMutableArray *newArray = [NSMutableArray arrayWithCapacity:self.count];
     for (id object in self) {
@@ -39,7 +39,7 @@
 
 @implementation NSSet(Map)
 
-- (instancetype)setUsingMap:(id(^)(id object))mapBlock
+- (NSSet *)setUsingMap:(id(^)(id object))mapBlock
 {
     NSMutableSet *newSet = [NSMutableSet setWithCapacity:self.count];
     for (id object in self) {

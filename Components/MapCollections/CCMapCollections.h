@@ -13,7 +13,7 @@
 
 @interface NSArray<ObjectType> (Map)
 
-- (instancetype)arrayUsingMap:(id(^)(ObjectType object))mapBlock;
+- (NSArray *)arrayUsingMap:(id(^)(ObjectType object))mapBlock;
 
 @end
 
@@ -25,7 +25,7 @@
 
 @interface NSSet<ObjectType> (Map)
 
-- (instancetype)setUsingMap:(id(^)(ObjectType object))mapBlock;
+- (NSSet *)setUsingMap:(id(^)(ObjectType object))mapBlock;
 
 @end
 
@@ -46,8 +46,8 @@
 
 @interface NSDictionary<__covariant KeyType, __covariant ObjectType> (Map)
 
-- (instancetype)dictionaryUsingObjectMap:(id(^)(KeyType key, ObjectType object))mapBlock;
+- (NSDictionary *)dictionaryUsingObjectMap:(id(^)(KeyType key, ObjectType object))mapBlock;
 
-- (instancetype)dictionaryUsingKeyMap:(id(^)(KeyType key, ObjectType object))mapBlock;
+- (NSDictionary *)dictionaryUsingKeyMap:(id(^)(KeyType key, ObjectType object))mapBlock;
 
 @end
