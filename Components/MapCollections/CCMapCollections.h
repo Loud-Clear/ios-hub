@@ -13,41 +13,41 @@
 
 @interface NSArray<ObjectType> (Map)
 
-- (instancetype)arrayUsingMap:(ObjectType(^)(ObjectType object))mapBlock;
+- (instancetype)arrayUsingMap:(id(^)(ObjectType object))mapBlock;
 
 @end
 
 @interface NSMutableArray<ObjectType> (Map)
 
-- (void)map:(ObjectType(^)(ObjectType object))mapBlock;
+- (void)map:(id(^)(ObjectType object))mapBlock;
 
 @end
 
 @interface NSSet<ObjectType> (Map)
 
-- (instancetype)setUsingMap:(ObjectType(^)(ObjectType object))mapBlock;
+- (instancetype)setUsingMap:(id(^)(ObjectType object))mapBlock;
 
 @end
 
 @interface NSMutableSet<ObjectType> (Map)
 
-- (void)map:(ObjectType(^)(ObjectType object))mapBlock;
+- (void)map:(id(^)(ObjectType object))mapBlock;
 
 @end
 
-@interface NSMutableDictionary< KeyType,  ObjectType> (Map)
+@interface NSMutableDictionary<KeyType,  ObjectType> (Map)
 
-- (void)mapObjects:(ObjectType(^)(KeyType key, ObjectType object))mapBlock;
+- (void)mapObjects:(id(^)(KeyType key, ObjectType object))mapBlock;
 
-- (void)mapKeys:(KeyType(^)(KeyType key, ObjectType object))mapBlock;
+- (void)mapKeys:(id(^)(KeyType key, ObjectType object))mapBlock;
 
 @end
 
 
 @interface NSDictionary<__covariant KeyType, __covariant ObjectType> (Map)
 
-- (instancetype)dictionaryUsingObjectMap:(ObjectType(^)(KeyType key, ObjectType object))mapBlock;
+- (instancetype)dictionaryUsingObjectMap:(id(^)(KeyType key, ObjectType object))mapBlock;
 
-- (instancetype)dictionaryUsingKeyMap:(KeyType(^)(KeyType key, ObjectType object))mapBlock;
+- (instancetype)dictionaryUsingKeyMap:(id(^)(KeyType key, ObjectType object))mapBlock;
 
 @end
