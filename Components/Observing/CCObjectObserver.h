@@ -44,4 +44,6 @@
 
 - (NSUInteger)observationsCount;
 
+- (void)pauseObservationForKeys:(NSArray<NSString *> *)keys forBlock:(void(^)(void))block;
+
 @end

@@ -38,6 +38,7 @@
     NSMutableArray<CCObservationInfo *> *_observers;
 
     FBKVOController *_kvoController;
+    NSArray<NSString *> *_pausedKeys;
 }
 
 - (id)objectToObserve
@@ -218,6 +219,13 @@
     return [_observers count];
 }
 
+- (void)pauseObservationForKeys:(NSArray *)keys forBlock:(void(^)(void))block
+{
+    _pausedKeys = keys;
+    CCSafeCall(block);
+    _pausedKeys = nil;
+}
+
 //-------------------------------------------------------------------------------------------
 #pragma mark - Private Methods
 //-------------------------------------------------------------------------------------------
@@ -262,6 +270,11 @@
 
 - (void)didChangeObservedValueForKey:(NSString *)key change:(NSDictionary *)change
 {
+    if (_pausedKeys && [_pausedKeys containsObject:key]) {
+        //Skip observation actions
+        return;
+    }
+
     @weakify(self)
     [self enumerateObserversForKey:key usingBlock:^(CCObservationInfo *info) {
         @strongify(self)
