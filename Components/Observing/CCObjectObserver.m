@@ -39,6 +39,7 @@
 
     FBKVOController *_kvoController;
     NSArray<NSString *> *_pausedKeys;
+    BOOL _pauseAll;
 }
 
 - (id)objectToObserve
@@ -226,6 +227,13 @@
     _pausedKeys = nil;
 }
 
+- (void)pauseObservationForBlock:(void(^)(void))block
+{
+    _pauseAll = YES;
+    CCSafeCall(block);
+    _pauseAll = NO;
+}
+
 //-------------------------------------------------------------------------------------------
 #pragma mark - Private Methods
 //-------------------------------------------------------------------------------------------
@@ -270,7 +278,7 @@
 
 - (void)didChangeObservedValueForKey:(NSString *)key change:(NSDictionary *)change
 {
-    if (_pausedKeys && [_pausedKeys containsObject:key]) {
+    if (_pauseAll || _pausedKeys && [_pausedKeys containsObject:key]) {
         //Skip observation actions
         return;
     }
