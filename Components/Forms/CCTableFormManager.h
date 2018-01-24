@@ -15,6 +15,8 @@
 @protocol CCFormPostProcessor;
 @protocol CCFormRule;
 @protocol CCTableFormManagerDelegate;
+@class CCTableFormItem;
+
 
 @interface CCTableFormManager : CCTableViewManager
 
@@ -62,6 +64,10 @@
 // Fields manipulations
 
 - (id)fieldForName:(NSString *)name;
+
+// Utils
+
+- (void)makeItemFirstResponder:(CCTableFormItem *)item;
 
 @end
 

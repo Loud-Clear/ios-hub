@@ -24,6 +24,7 @@ typedef void (^CCBlockHandler3ParamBlock)(id param1, id param2, id param3);
 
 + (dispatch_block_t)withTarget:(id)target action:(SEL)selector;
 + (dispatch_block_t)withTarget:(id)target action:(SEL)selector context:(id)context;
++ (dispatch_block_t)withTarget:(id)target action:(SEL)selector context:(id)context1 context:(id)context2;
 
 + (CCBlockHandlerParamBlock)withParamWithTarget:(id)target action:(SEL)selector;
 + (CCBlockHandler2ParamBlock)with2ParamsWithTarget:(id)target action:(SEL)selector;

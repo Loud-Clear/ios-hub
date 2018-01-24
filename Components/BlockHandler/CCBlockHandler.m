@@ -86,6 +86,35 @@
     return block;
 }
 
++ (dispatch_block_t)withTarget:(id)target action:(SEL)selector context:(id)context1 context:(id)context2
+{
+    NSParameterAssert(target);
+    NSAssert([target respondsToSelector:selector], nil);
+    if (context1) {
+        [self checkThatTargets:target selectorParameter:selector atIndex:0 isOfType:[context1 class]];
+    }
+    if (context2) {
+        [self checkThatTargets:target selectorParameter:selector atIndex:1 isOfType:[context2 class]];
+    }
+
+    @weakify(target);
+    @weakify(context1);
+    @weakify(context2);
+    dispatch_block_t block = ^{
+        @strongify(target);
+        @strongify(context1);
+        @strongify(context2);
+        if ([target respondsToSelector:selector]) {
+            CC_WARNING_MUTE_PERFORM_SELECTOR_LEAKS
+            [target performSelector:selector withObject:context1 withObject:context2];
+            CC_WARNING_MUTE_END
+        }
+    };
+
+    return block;
+}
+
+
 + (CCBlockHandlerParamBlock)withParamWithTarget:(id)target action:(SEL)selector
 {
     NSParameterAssert(target);
@@ -100,7 +129,7 @@
                 [self checkThatTargets:target selectorParameter:selector atIndex:0 isOfType:[param class]];
             }
 
-            CC_WARNING_MUTE_PERFORM_SELECTOR_LEAKS
+                    CC_WARNING_MUTE_PERFORM_SELECTOR_LEAKS
             [target performSelector:selector withObject:param];
             CC_WARNING_MUTE_END
         }
@@ -126,7 +155,7 @@
                 [self checkThatTargets:target selectorParameter:selector atIndex:1 isOfType:[param2 class]];
             }
 
-            CC_WARNING_MUTE_PERFORM_SELECTOR_LEAKS
+                    CC_WARNING_MUTE_PERFORM_SELECTOR_LEAKS
             [target performSelector:selector withObject:param1 withObject:param2];
             CC_WARNING_MUTE_END
         }
@@ -155,7 +184,7 @@
                 [self checkThatTargets:target selectorParameter:selector atIndex:2 isOfType:[param3 class]];
             }
 
-            CC_WARNING_MUTE_PERFORM_SELECTOR_LEAKS
+                    CC_WARNING_MUTE_PERFORM_SELECTOR_LEAKS
             [target cc_performSelector:selector withObject:param1 withObject:param2 withObject:param3];
             CC_WARNING_MUTE_END
         }
