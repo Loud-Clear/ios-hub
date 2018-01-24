@@ -47,6 +47,10 @@
     id<CCFormRule> _currentRule;
 }
 
+//-------------------------------------------------------------------------------------------
+#pragma mark - Initialization & Destruction
+//-------------------------------------------------------------------------------------------
+
 - (id)initWithTableView:(UITableView *)tableView
 {
     self = [super initWithTableView:tableView];
@@ -447,6 +451,25 @@
     if ([self.formDelegate respondsToSelector:@selector(formManager:didSumbitWithData:)]) {
         [self.formDelegate formManager:self didSumbitWithData:[self formData]];
     }
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Utils
+//-------------------------------------------------------------------------------------------
+
+- (void)makeItemFirstResponder:(CCTableFormItem *)item
+{
+    if (!item.indexPath) {
+        NSAssert(NO, nil);
+        return;
+    }
+    var cell = (CCTableFormCell *)[self.tableView cellForRowAtIndexPath:item.indexPath];
+    if (!cell) {
+        [self.tableView scrollToRowAtIndexPath:item.indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
+        cell = (CCTableFormCell *)[self.tableView cellForRowAtIndexPath:item.indexPath];
+    }
+
+    [cell.responder becomeFirstResponder];
 }
 
 @end
