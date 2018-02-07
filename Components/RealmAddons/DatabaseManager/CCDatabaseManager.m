@@ -80,14 +80,14 @@ NSString * const CCDatabaseManagerDidDeleteSensibleDataNotification = @"CCDataba
         NSPredicate *deletePredicate = [NSPredicate predicateWithFormat:@"%K IN %@", [objectsClass primaryKey], idsToDelete];
         RLMResults *objectsToDelete = [objectsClass objectsInRealm:database withPredicate:deletePredicate];
         [database deleteObjects:objectsToDelete];
-        [database addOrUpdateObjectsFromArray:newObjects];
+        [database addOrUpdateObjects:newObjects];
     }];
 }
 
 - (void)addOrUpdateObjects:(id)array andKeepStandalone:(BOOL)keepStandalone
 {
     if (!keepStandalone) {
-        [self.currentDatabase addOrUpdateObjectsFromArray:array];
+        [self.currentDatabase addOrUpdateObjects:array];
     } else {
         for (RLMObject *object in array) {
             RLMObject *copyOfStandalone = [object standaloneDeepCopy];

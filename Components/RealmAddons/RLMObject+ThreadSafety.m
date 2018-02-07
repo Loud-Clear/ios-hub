@@ -62,7 +62,7 @@
         RLMObjectSchema *schema = self.objectSchema;
         [schema.properties enumerateObjectsUsingBlock:^(RLMProperty *prop, NSUInteger idx, BOOL *stop) {
             if ([self respondsToSelector:NSSelectorFromString(prop.name)]) {
-                if (prop.type == RLMPropertyTypeArray) {
+                if (prop.array) {
                     RLMArray<RLMObject *> *currentArray = [copy valueForKey:prop.name];
                     for (NSUInteger i = 0; i < [currentArray count]; i++) {
                         RLMObject *managed = [currentArray objectAtIndex:i];

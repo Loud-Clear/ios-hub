@@ -32,7 +32,7 @@
 
 - (void)stop
 {
-    [_token stop];
+    [_token invalidate];
 }
 
 @end
@@ -127,7 +127,7 @@
 
 - (void)dealloc
 {
-    [_sortedObjectsUpdateToken stop];
+    [_sortedObjectsUpdateToken invalidate];
 }
 
 //-------------------------------------------------------------------------------------------
