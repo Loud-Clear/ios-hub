@@ -6,7 +6,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ComponentsHub"
-  s.version      = "0.0.6"
+  s.version      = "0.0.7"
   s.summary      = "A short description of ComponentsHub."
   s.description  = "Shared components for iOS projects"
 
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.license      = "Proprietary"
 
   s.author       = { "Aleksey Garbarev" => "aleksey.garbarev@loudclear.com.au" }
-  s.platform     = :ios, "7.0"
+  s.platform     = :ios, "8.0"
   s.source       = { :git => "git@github.com:Loud-Clear/ios-hub.git", :tag => "#{s.version}" }
   s.source_files  = "Components", "Components/**/*.{h,m}"
   s.exclude_files = "Classes/Exclude"
@@ -172,7 +172,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'RealmAddons' do |subspec|
       subspec.source_files   = 'Components/RealmAddons/**/*.{h,m}'
-      subspec.dependency 'Realm', '~> 2.0'
+      subspec.dependency 'Realm', '~> 3.0'
       subspec.dependency 'ComponentsHub/Observation'
       subspec.dependency 'ComponentsHub/NotificationUtils'
   end
