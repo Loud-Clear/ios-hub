@@ -12,12 +12,17 @@
 #import "CCRestClient.h"
 #import "CCRestClientRegistry.h"
 #import "CCConnectionLogger.h"
+#import "CCMacroses.h"
 
 
-@implementation CCRestClient {
-    TRCConnectionNSURLSession *_rawConnection;
+@implementation CCRestClient
+{
     __weak CCConnectionLogger *_logger;
 }
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Initialization & Destruction
+//-------------------------------------------------------------------------------------------
 
 - (void)setupClient
 {
@@ -25,20 +30,22 @@
 
     [self setupConnection];
     [self registerComponents];
-    }
+}
 
 - (void)setupConnection
 {
-    _rawConnection = [[TRCConnectionNSURLSession alloc] initWithBaseUrl:self.baseUrl configuration:[[self class] urlSessionConfiguration]];
-    [_rawConnection startReachabilityMonitoring];
+    if (!_rawConnection) {
+        _rawConnection = [self makeDefaultRawConnection];
+    }
 
     id<TRCConnection> connection = _rawConnection;
 
-    NSParameterAssert(self.sessionInjectingConnection);
-    self.sessionInjectingConnection.connection = connection;
-    connection = self.sessionInjectingConnection;
+    if (_connectionProxy) {
+        _connectionProxy.connection = connection;
+        connection = self.connectionProxy;
+    }
 
-    if (self.logging) {
+    if (_logging) {
         CCConnectionLogger *logger = [self connectionLoggerForConnection:connection];
         logger.shouldLogUploadProgress = self.shouldLogUploadProgress;
         logger.shouldLogDownloadProgress = self.shouldLogDownloadProgress;
@@ -49,15 +56,27 @@
     self.connection = connection;
 }
 
+- (id<TRCConnection> )makeDefaultRawConnection
+{
+    let rawConnection = [[TRCConnectionNSURLSession alloc] initWithBaseUrl:self.baseUrl configuration:[[self class] urlSessionConfiguration]];
+    if ([rawConnection respondsToSelector:@selector(startReachabilityMonitoring)]) {
+        [rawConnection performSelector:@selector(startReachabilityMonitoring)];
+    }
+    return rawConnection;
+}
+
+- (void)registerComponents
+{
+    [[CCRestClientRegistry defaultRegistry] registerAllWithRestClient:self];
+}
+
+//-------------------------------------------------------------------------------------------
+#pragma mark - Methods to override
+//-------------------------------------------------------------------------------------------
+
 - (CCConnectionLogger *)connectionLoggerForConnection:(id<TRCConnection>)connection
 {
     return [[CCConnectionLogger alloc] initWithConnection:connection];
-}
-
-- (void)setBaseUrl:(NSURL *)baseUrl
-{
-    _baseUrl = baseUrl;
-    _rawConnection.baseUrl = baseUrl;
 }
 
 + (NSURLSessionConfiguration *)urlSessionConfiguration
@@ -69,9 +88,17 @@
     return urlSessionConfiguration;
 }
 
-- (void)registerComponents
+//-------------------------------------------------------------------------------------------
+#pragma mark - Interface Methods
+//-------------------------------------------------------------------------------------------
+
+- (void)setBaseUrl:(NSURL *)baseUrl
 {
-    [[CCRestClientRegistry defaultRegistry] registerAllWithRestClient:self];
+    _baseUrl = baseUrl;
+
+    if ([_rawConnection respondsToSelector:@selector(setBaseUrl:)]) {
+        [_rawConnection performSelector:@selector(setBaseUrl:) withObject:baseUrl];
+    }
 }
 
 - (void)setShouldLogDownloadProgress:(BOOL)shouldLogDownloadProgress
@@ -84,6 +111,16 @@
 {
     _logger.shouldLogUploadProgress = shouldLogUploadProgress;
     _shouldLogUploadProgress = shouldLogUploadProgress;
+}
+
+- (TRCConnectionProxy *)sessionInjectingConnection
+{
+    return self.connectionProxy;
+}
+
+- (void)setSessionInjectingConnection:(TRCConnectionProxy *)sessionInjectingConnection
+{
+    self.connectionProxy = sessionInjectingConnection;
 }
 
 @end

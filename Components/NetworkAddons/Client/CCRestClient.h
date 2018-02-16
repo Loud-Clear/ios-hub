@@ -17,19 +17,22 @@
 
 @interface CCRestClient : TyphoonRestClient
 
+- (void)setupClient;
+
 @property (nonatomic) NSURL *baseUrl;
 @property (nonatomic) BOOL logging;
-@property (nonatomic) TRCConnectionProxy *sessionInjectingConnection;
+
+@property (nonatomic) id<TRCConnection> rawConnection;
+@property (nonatomic) TRCConnectionProxy *connectionProxy;
+@property (nonatomic) TRCConnectionProxy *sessionInjectingConnection __deprecated_msg("Deprecated - Use `connectionProxy`");
 
 @property (nonatomic) BOOL shouldLogUploadProgress;
 @property (nonatomic) BOOL shouldLogDownloadProgress;
 
-+ (NSURLSessionConfiguration *)urlSessionConfiguration;
-
-- (void)setupClient;
 
 /** Methods to override */
 
 - (CCConnectionLogger *)connectionLoggerForConnection:(id<TRCConnection>)connection;
++ (NSURLSessionConfiguration *)urlSessionConfiguration;
 
 @end

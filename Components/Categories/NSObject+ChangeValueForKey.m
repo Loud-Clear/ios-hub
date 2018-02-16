@@ -22,4 +22,17 @@
     [self didChangeValueForKey:key];
 }
 
+- (void)cc_changeValueForKeys:(NSArray<NSString *> *)keys block:(dispatch_block_t)block
+{
+    for (NSString *key in keys) {
+        [self willChangeValueForKey:key];
+    }
+
+    CCSafeCall(block);
+
+    for (NSString *key in keys) {
+        [self didChangeValueForKey:key];
+    }
+}
+
 @end
