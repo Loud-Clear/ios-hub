@@ -16,5 +16,6 @@
 
 + (UIColor *)withHex:(NSUInteger)rgbValue;
 + (UIColor *)withHex:(NSUInteger)rgbValue alpha:(CGFloat)alpha;
+- (NSUInteger)hex;
 
 @end

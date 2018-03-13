@@ -10,6 +10,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import "UIColor+Hex.h"
+#import "UIColor+Components.h"
 
 @implementation UIColor (Hex)
 
@@ -27,6 +28,11 @@
                            green:(CGFloat) (((rgbValue & 0xFF00) >> 8) / 255.0)
                             blue:(CGFloat) ((rgbValue & 0xFF) / 255.0)
                            alpha:alpha];
+}
+
+- (NSUInteger)hex
+{
+    return (NSUInteger)(self.red*255*0x10000 + self.green*255*0x100 + self.blue*255);
 }
 
 @end
