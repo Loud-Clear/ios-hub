@@ -120,9 +120,19 @@
     [self.section.tableViewManager.tableView deselectRowAtIndexPath:self.indexPath animated:animated];
 }
 
+- (void)reloadRow
+{
+    [self reloadRowWithAnimation:UITableViewRowAnimationAutomatic];
+}
+
 - (void)reloadRowWithAnimation:(UITableViewRowAnimation)animation
 {
     [self.section.tableViewManager.tableView reloadRowsAtIndexPaths:@[self.indexPath] withRowAnimation:animation];
+}
+
+- (void)deleteRow
+{
+    [self deleteRowWithAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)deleteRowWithAnimation:(UITableViewRowAnimation)animation

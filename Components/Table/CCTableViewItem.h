@@ -85,7 +85,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)selectRowAnimated:(BOOL)animated;
 - (void)selectRowAnimated:(BOOL)animated scrollPosition:(UITableViewScrollPosition)scrollPosition;
 - (void)deselectRowAnimated:(BOOL)animated;
+- (void)reloadRow;
 - (void)reloadRowWithAnimation:(UITableViewRowAnimation)animation;
+- (void)deleteRow;
 - (void)deleteRowWithAnimation:(UITableViewRowAnimation)animation;
 
 @end
