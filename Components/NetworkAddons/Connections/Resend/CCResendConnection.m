@@ -21,7 +21,7 @@
 }
 
 static NSString * CCResendConnectionAttempts = @"resend-attempts";
-NSString * CCResendConnectionShouldResend = @"should-resend";
+NSString * const CCResendConnectionShouldResend = @"should-resend";
 
 - (instancetype)initWithConnection:(id<TRCConnection>)connection
 {

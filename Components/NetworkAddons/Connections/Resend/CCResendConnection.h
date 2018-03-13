@@ -18,7 +18,7 @@ typedef struct {
     NSInteger maxResendAttempts;
 } CCResendDecision;
 
-extern NSString *CCResendConnectionShouldResend;
+extern NSString * const CCResendConnectionShouldResend;
 
 @interface CCResendConnection : TRCConnectionProxy
 
