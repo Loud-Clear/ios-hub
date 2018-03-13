@@ -32,7 +32,9 @@
     [inv invokeWithTarget:self];
 
     id retValue = nil;
-    [inv getReturnValue:&retValue];
+    if (inv.methodSignature.methodReturnLength != 0) {
+        [inv getReturnValue:&retValue];
+    }
     return retValue;
 }
 
