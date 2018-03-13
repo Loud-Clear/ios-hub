@@ -99,34 +99,37 @@ NSString * CCResendConnectionShouldResend = @"should-resend";
     return [self.connection sendRequest:request
                             withOptions:options
                              completion:^(id responseObject, NSError *error, id<TRCResponseInfo> responseInfo) {
-                                 if ([self shouldResendRequest:request options:options withError:error]) {
-                                     [self sendRequest:request withOptions:options completion:completion];
+
+                                 CCResendDecision resendDecision = [self shouldResendRequest:request options:options withError:error responseInfo:responseInfo];
+                                 
+                                 BOOL hasUnusedAttempts = [self attemptsFromOptions:options] < (resendDecision.maxResendAttempts + 1);
+                                 
+                                 if (resendDecision.shouldResend && hasUnusedAttempts) {
+                                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(resendDecision.delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                         [self sendRequest:request withOptions:options completion:completion];
+                                     });
                                  } else {
                                      completion(responseObject, error, responseInfo);
                                  }
                              }];
-
 }
 
-- (BOOL)shouldResendRequest:(NSURLRequest *)request options:(id<TRCConnectionRequestSendingOptions>)options withError:(NSError *)error
+- (CCResendDecision)shouldResendRequest:(NSURLRequest *)request options:(id<TRCConnectionRequestSendingOptions>)options withError:(NSError *)error responseInfo:(id<TRCResponseInfo>)responseInfo
 {
+    BOOL shouldResend = NO;
+    
     if ([error.domain isEqualToString:NSURLErrorDomain]) {
+        
         BOOL correctHTTPMethod = [request.HTTPMethod isEqualToString:TRCRequestMethodGet];
         BOOL correctErrorCode = [_errorCodesToResend containsObject:@(error.code)];
-        
         BOOL shouldResendOption = [self shouldResendOptionFromOptions:options];
         
-        BOOL hasUnusedAttempts = [self attemptsFromOptions:options] < (self.maxResendAttempts + 1); // "+ 1" because attempt is not zero based
-
-        BOOL shouldResend = (correctHTTPMethod && correctErrorCode) || shouldResendOption;
-        
-        shouldResend = shouldResend && hasUnusedAttempts;
+        shouldResend = (correctHTTPMethod && correctErrorCode) || shouldResendOption;
         
         DDLogWarn(@"Will %@resend, because Method=%@, ErrorCode=%@, Used attempts=%d (of %d)", shouldResend?@"":@"NOT ", request.HTTPMethod, _errorCodeToString[@(error.code)], (int)[self attemptsFromOptions:options]-1, (int)self.maxResendAttempts);
-
-        return shouldResend;
     }
-    return NO;
+
+    return (CCResendDecision){.shouldResend = shouldResend, .delay = 0, .maxResendAttempts = self.maxResendAttempts};
 }
 
 - (void)incrementAttemptInOptions:(id<TRCConnectionRequestSendingOptions>)options
