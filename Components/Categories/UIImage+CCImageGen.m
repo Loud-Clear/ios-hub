@@ -85,6 +85,7 @@
     UIGraphicsBeginImageContextWithOptions(CGSizeMake(side, side), NO, 0.0);
 
     UIBezierPath *path = [UIBezierPath bezierPath];
+    path.lineWidth = lineWidth;
 
     CGPoint center = CGPointMake(side / 2, side / 2);
     CGFloat radius = side / 2 - lineWidth / 2 - 0.5f;
