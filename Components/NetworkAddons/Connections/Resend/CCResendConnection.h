@@ -12,11 +12,21 @@
 #import <Foundation/Foundation.h>
 #import "TRCConnectionProxy.h"
 
-extern NSString *CCResendConnectionShouldResend;
+typedef struct {
+    BOOL shouldResend;
+    NSTimeInterval delay;
+    NSInteger maxResendAttempts;
+} CCResendDecision;
+
+extern NSString * const CCResendConnectionShouldResend;
 
 @interface CCResendConnection : TRCConnectionProxy
 
 @property (nonatomic) NSInteger maxResendAttempts; //Default 3
 
+- (CCResendDecision)shouldResendRequest:(NSURLRequest *)request
+                                options:(id<TRCConnectionRequestSendingOptions>)options
+                              withError:(NSError *)error
+                           responseInfo:(id<TRCResponseInfo>)responseInfo;
 
 @end
