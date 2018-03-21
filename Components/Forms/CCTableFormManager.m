@@ -226,6 +226,8 @@
 
     if ([errors count] != 0) {
         [self didFailWithValidationErrors:errors];
+    } else {
+        [self resetValidationErrors];
     }
 
     return [errors count] == 0;
@@ -241,6 +243,25 @@
         NSDictionary *errorMessages = [NSError errorNamesAndMessagesFromArray:errors];
         [self setValidationErrors:errorMessages];
 
+    }
+}
+
+- (void)resetValidationErrors
+{
+    if (self.shouldUseDelegateToPresentValidationErrors) {
+        return;
+    }
+    
+    __block BOOL shouldUpdate = NO;
+    [self enumerateFormItemsWithBlock:^(CCTableFormItem *item, BOOL *stop) {
+        if (item.name && item.validationError) {
+            item.validationError = nil;
+            shouldUpdate = YES;
+        }
+    }];
+    if (shouldUpdate) {
+        [self.tableView beginUpdates];
+        [self.tableView endUpdates];
     }
 }
 
