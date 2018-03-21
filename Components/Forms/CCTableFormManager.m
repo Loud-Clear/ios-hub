@@ -189,12 +189,15 @@
 
 - (void)setValidationErrors:(NSDictionary<NSString *, NSString *> *)errors
 {
+    NSMutableArray *indexesToReload = [NSMutableArray arrayWithCapacity:errors.count];
     [self enumerateFormItemsWithBlock:^(CCTableFormItem *item, BOOL *stop) {
         if (item.name && item.validationError != errors[item.name]) {
             item.validationError = errors[item.name];
+            [indexesToReload addObject:item.indexPath];
         }
     }];
     [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:indexesToReload withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView endUpdates];
 }
 
@@ -226,6 +229,8 @@
 
     if ([errors count] != 0) {
         [self didFailWithValidationErrors:errors];
+    } else {
+        [self resetValidationErrors];
     }
 
     return [errors count] == 0;
@@ -241,6 +246,26 @@
         NSDictionary *errorMessages = [NSError errorNamesAndMessagesFromArray:errors];
         [self setValidationErrors:errorMessages];
 
+    }
+}
+
+- (void)resetValidationErrors
+{
+    if (self.shouldUseDelegateToPresentValidationErrors) {
+        return;
+    }
+    
+    let indexesToReload = [NSMutableArray new];
+    [self enumerateFormItemsWithBlock:^(CCTableFormItem *item, BOOL *stop) {
+        if (item.name && item.validationError) {
+            item.validationError = nil;
+            [indexesToReload addObject:item.indexPath];
+        }
+    }];
+    if (indexesToReload.count) {
+        [self.tableView beginUpdates];
+        [self.tableView reloadRowsAtIndexPaths:indexesToReload withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView endUpdates];
     }
 }
 
