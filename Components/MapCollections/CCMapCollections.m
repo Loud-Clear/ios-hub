@@ -25,6 +25,20 @@
     return newArray;
 }
 
+- (NSMutableDictionary *)dictionaryUsingMap:(id(^)(id value))mapBlock
+{
+    NSMutableDictionary *result = [NSMutableDictionary new];
+
+    for (id object in self) {
+        id key = mapBlock(object);
+        if (key) {
+            result[key] = object;
+        }
+    }
+
+    return result;
+}
+
 @end
 
 @implementation NSMutableArray (Map)
