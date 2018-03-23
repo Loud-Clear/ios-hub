@@ -11,9 +11,11 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface NSArray<ObjectType> (Map)
 
 - (NSArray *)arrayUsingMap:(id(^)(ObjectType object))mapBlock;
+- (NSMutableDictionary *)dictionaryUsingMap:(id(^)(ObjectType value))mapBlock;
 
 @end
 
