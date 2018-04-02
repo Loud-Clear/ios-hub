@@ -45,6 +45,15 @@ CGFloat CCScreenDependentValue6(CGFloat valueForPre6, CGFloat valueFor6AndPost)
     }
 }
 
+CGFloat CCScreenDependentValueX(CGFloat valueForPreX, CGFloat valueForXAndPost)
+{
+    if (CCScreenHeight() < kCCScreenHeightIphoneX) {
+        return valueForPreX;
+    } else {
+        return valueForXAndPost;
+    }
+}
+
 CGFloat CCScreenWidthDependentValue(CGFloat valueFor5AndPre, CGFloat valueFor6AndPost, CGFloat valueForPlus)
 {
     if (CCScreenWidth() <= kCCScreenWidthIphone5) {
@@ -54,4 +63,9 @@ CGFloat CCScreenWidthDependentValue(CGFloat valueFor5AndPre, CGFloat valueFor6An
     } else {
         return valueForPlus;
     }
+}
+
+CGFloat CCScreenStatusBarHeight()
+{
+    return fminf(UIApplication.sharedApplication.statusBarFrame.size.height, UIApplication.sharedApplication.statusBarFrame.size.width);
 }

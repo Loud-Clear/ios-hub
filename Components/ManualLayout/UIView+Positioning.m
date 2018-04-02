@@ -282,6 +282,11 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     }
 }
 
+- (void)setAttr:(OSAttr)attr fromView:(UIView *)view
+{
+    [self setAttr:attr value:[view getAttrValue:attr]];
+}
+
 - (CGFloat)getAttrValue:(OSAttr)attr
 {
     if (attr == OSAttrLeft) {

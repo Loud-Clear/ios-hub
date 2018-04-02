@@ -89,7 +89,9 @@ typedef NS_ENUM(NSInteger, OSAxis)
 @property (nonatomic, readonly) CGPoint frameCenter;
 
 - (void)setAttr:(OSAttr)attr value:(CGFloat)value;
+- (void)setAttr:(OSAttr)attr fromView:(UIView *)view;
 - (CGFloat)getAttrValue:(OSAttr)attr;
+
 
 //-------------------------------------------------------------------------------------------
 #pragma mark - Moving
