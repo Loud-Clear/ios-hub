@@ -40,6 +40,10 @@ typedef NS_ENUM(NSInteger, OSAttr)
     OSAttrBottom,
     OSAttrCenterX,
     OSAttrCenterY,
+    OSAttrMovedLeft,
+    OSAttrMovedRight,
+    OSAttrMovedTop,
+    OSAttrMovedBottom,
 };
 
 typedef NS_ENUM(NSInteger, OSEdge)
@@ -74,6 +78,17 @@ typedef NS_ENUM(NSInteger, OSAxis)
 @property (nonatomic) CGFloat bottom;
 @property (nonatomic) CGFloat centerX;
 @property (nonatomic) CGFloat centerY;
+@property (nonatomic) CGFloat side;
+
+/// 'movedN' properties will change corresponding value by adjusting view dimensions instead of moving view origin.
+@property (nonatomic) CGFloat movedX;
+@property (nonatomic) CGFloat movedY;
+@property (nonatomic) CGFloat movedRight;
+@property (nonatomic) CGFloat movedBottom;
+@property (nonatomic) CGPoint movedTopLeft;
+@property (nonatomic) CGPoint movedTopRight;
+@property (nonatomic) CGPoint movedBottomLeft;
+@property (nonatomic) CGPoint movedBottomRight;
 
 @property (nonatomic) CGPoint topLeft;
 @property (nonatomic) CGPoint topRight;
@@ -159,17 +174,23 @@ typedef NS_ENUM(NSInteger, OSAxis)
 - (void)ensureWidthIsNoMoreThan:(CGFloat)maxWidth;
 - (void)ensureHeightIsNoMoreThan:(CGFloat)maxHeight;
 
-- (void)ensureRightIsNotCloserThan:(CGFloat)offset toView:(UIView *)view;
 - (void)ensureLeftIsNotCloserThan:(CGFloat)offset toView:(UIView *)view;
+- (void)ensureRightIsNotCloserThan:(CGFloat)offset toView:(UIView *)view;
 
+- (void)ensureLeftIsNotCloserThanOffsetToSuperview:(CGFloat)offset;
+- (void)ensureRightIsNotCloserThanOffsetToSuperview:(CGFloat)offset;
+
+- (void)ensureMovedBottomIsNotCloserThan:(CGFloat)offset toView:(UIView *)view;
+- (void)ensureMovedBottomIsNotCloserThanToSuperview:(CGFloat)offset;
 
 //-------------------------------------------------------------------------------------------
 #pragma mark - Centering
 //-------------------------------------------------------------------------------------------
 
 - (void)centerInSuperview;
-- (void)centerVerticallyInSuperview;
+
 - (void)centerHorizontallyInSuperview;
+- (void)centerHorizontallyInSuperviewWithOffset:(CGFloat)offset;
 
 - (void)centerHorizontallyBetweenSuperviewAndView:(UIView *)view;
 - (void)centerHorizontallyBetweenSuperviewAndView:(UIView *)view withOffset:(CGFloat)offset;
@@ -179,6 +200,9 @@ typedef NS_ENUM(NSInteger, OSAxis)
 
 - (void)centerHorizontallyBetweenView:(UIView *)view1 andView:(UIView *)view2 withOffset:(CGFloat)offset;
 - (void)centerHorizontallyBetweenView:(UIView *)view1 andView:(UIView *)view2;
+
+- (void)centerVerticallyInSuperview;
+- (void)centerVerticallyInSuperviewWithOffset:(CGFloat)offset;
 
 - (void)centerVerticallyBetweenView:(UIView *)view1 andView:(UIView *)view2 withOffset:(CGFloat)offset;
 - (void)centerVerticallyBetweenView:(UIView *)view1 andView:(UIView *)view2;
@@ -257,6 +281,14 @@ typedef NS_ENUM(NSInteger, OSAxis)
 
 - (void)subviewsCenterHorizontallyToSuperview;
 - (void)subviewsCenterVerticallyToSuperview;
+
+- (void)subviewsDistributeHorizontally:(NSArray<UIView *> *)views spacing:(CGFloat)spacing insets:(OSInsets)insets;
+- (void)subviewsDistributeHorizontally:(NSArray<UIView *> *)views spacing:(CGFloat)spacing;
+- (void)subviewsDistributeHorizontally:(NSArray<UIView *> *)views insets:(OSInsets)insets;
+
+- (void)subviewsDistributeHorizontallyWithSpacing:(CGFloat)margin insets:(OSInsets)insets;
+- (void)subviewsDistributeHorizontallyWithSpacing:(CGFloat)margin;
+- (void)subviewsDistributeHorizontallyWithInsets:(OSInsets)insets;
 
 - (CGRect)subviewsBoundingBox:(NSArray<UIView *> *)views;
 - (CGRect)subviewsBoundingBox;

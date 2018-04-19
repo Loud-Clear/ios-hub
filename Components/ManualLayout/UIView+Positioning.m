@@ -9,7 +9,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#import <UIkit/UIkit.h>
+#import <UIKit/UIKit.h>
 #import "UIView+Positioning.h"
 #import "CCUIRound.h"
 
@@ -172,6 +172,147 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     return self.center.y;
 }
 
+- (CGFloat)side
+{
+    return (self.width + self.height)/2;
+}
+
+- (void)setSide:(CGFloat)side
+{
+    self.width = side;
+    self.height = side;
+}
+
+- (CGFloat)movedX
+{
+    return self.x;
+}
+
+- (void)setMovedX:(CGFloat)movedX
+{
+    self.width = self.width + (self.x - movedX);
+    self.x = movedX;
+}
+
+- (CGFloat)movedY
+{
+    return 0;
+}
+
+- (void)setMovedY:(CGFloat)movedY
+{
+    self.height = self.height + (self.y - movedY);
+    self.y = movedY;
+}
+
+- (CGFloat)movedRight
+{
+    return self.right;
+}
+
+- (void)setMovedRight:(CGFloat)movedRight
+{
+    self.width = self.width + (movedRight - self.right);
+}
+
+- (CGFloat)movedBottom
+{
+    return self.bottom;
+}
+
+- (void)setMovedBottom:(CGFloat)movedBottom
+{
+    self.height = self.height + (movedBottom - self.bottom);
+}
+
+- (CGPoint)movedTopLeft
+{
+    return self.topLeft;
+}
+
+- (void)setMovedTopLeft:(CGPoint)movedTopLeft
+{
+    self.movedX = movedTopLeft.x;
+    self.movedY = movedTopLeft.y;
+}
+
+- (CGPoint)movedTopRight
+{
+    return self.topRight;
+}
+
+- (void)setMovedTopRight:(CGPoint)movedTopRight
+{
+    self.movedRight = movedTopRight.x;
+    self.movedY = movedTopRight.y;
+}
+
+- (CGPoint)movedBottomLeft
+{
+    return self.bottomLeft;
+}
+
+- (void)setMovedBottomLeft:(CGPoint)movedBottomLeft
+{
+    self.movedX = movedBottomLeft.x;
+    self.movedBottom = movedBottomLeft.y;
+}
+
+- (CGPoint)movedBottomRight
+{
+    return self.bottomRight;
+}
+
+- (void)setMovedBottomRight:(CGPoint)movedBottomRight
+{
+    self.movedRight = movedBottomRight.x;
+    self.movedBottom = movedBottomRight.y;
+}
+
+- (CGPoint)topLeft
+{
+    return CGPointMake(self.x, self.y);
+}
+
+- (void)setTopLeft:(CGPoint)topLeft
+{
+    self.x = topLeft.x;
+    self.y = topLeft.y;
+}
+
+- (CGPoint)topRight
+{
+    return CGPointMake(self.right, self.y);
+}
+
+- (void)setTopRight:(CGPoint)topRight
+{
+    self.right = topRight.x;
+    self.y = topRight.y;
+}
+
+- (CGPoint)bottomLeft
+{
+    return CGPointMake(self.x, self.bottom);
+}
+
+- (void)setBottomLeft:(CGPoint)bottomLeft
+{
+    self.x = bottomLeft.x;
+    self.bottom = bottomLeft.y;
+}
+
+- (CGPoint)bottomRight
+{
+    return CGPointMake(self.right, self.bottom);
+}
+
+- (void)setBottomRight:(CGPoint)bottomRight
+{
+    self.right = bottomRight.x;
+    self.bottom = bottomRight.y;
+}
+
 - (CGFloat)boundsX
 {
     return self.bounds.origin.x;
@@ -219,50 +360,6 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     [self centerInSuperview];
 }
 
-- (CGPoint)topLeft
-{
-    return CGPointMake(self.x, self.y);
-}
-
-- (void)setTopLeft:(CGPoint)topLeft
-{
-    self.x = topLeft.x;
-    self.y = topLeft.y;
-}
-
-- (CGPoint)topRight
-{
-    return CGPointMake(self.right, self.y);
-}
-
-- (void)setTopRight:(CGPoint)topRight
-{
-    self.right = topRight.x;
-    self.y = topRight.y;
-}
-
-- (CGPoint)bottomLeft
-{
-    return CGPointMake(self.x, self.bottom);
-}
-
-- (void)setBottomLeft:(CGPoint)bottomLeft
-{
-    self.x = bottomLeft.x;
-    self.bottom = bottomLeft.y;
-}
-
-- (CGPoint)bottomRight
-{
-    return CGPointMake(self.right, self.bottom);
-}
-
-- (void)setBottomRight:(CGPoint)bottomRight
-{
-    self.right = bottomRight.x;
-    self.bottom = bottomRight.y;
-}
-
 - (void)setAttr:(OSAttr)attr value:(CGFloat)value
 {
     if (attr == OSAttrLeft) {
@@ -275,9 +372,18 @@ const OSInsets OSInsetsZero = {{0}, {0}};
         self.bottom = value;
     } else if (attr == OSAttrCenterX) {
         self.centerX = value;
-    } else if (attr == OSAxisCenterY) {
+    } else if (attr == OSAttrCenterY) {
         self.centerY = value;
-    } else {
+    } else if (attr == OSAttrMovedLeft) {
+        self.movedX = value;
+    } else if (attr == OSAttrMovedRight) {
+        self.movedRight = value;
+    } else if (attr == OSAttrMovedTop) {
+        self.movedY = value;
+    } else if (attr == OSAttrMovedBottom) {
+        self.movedBottom = value;
+    }
+    else {
         NSAssert(NO, nil);
     }
 }
@@ -299,8 +405,16 @@ const OSInsets OSInsetsZero = {{0}, {0}};
         return self.bottom;
     } else if (attr == OSAttrCenterX) {
         return self.centerX;
-    } else if (attr == OSAxisCenterY) {
+    } else if (attr == OSAttrCenterY) {
         return self.centerY;
+    } else if (attr == OSAttrMovedLeft) {
+        return self.movedX;
+    } else if (attr == OSAttrMovedRight) {
+        return self.movedRight;
+    } else if (attr == OSAttrMovedTop) {
+        return self.movedY;
+    } else if (attr == OSAttrMovedBottom) {
+        return self.movedBottom;
     } else {
         NSAssert(NO, nil);
         return 0;
@@ -548,13 +662,6 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     }
 }
 
-- (void)ensureRightIsNotCloserThan:(CGFloat)offset toView:(UIView *)view
-{
-    if (view.x - self.right < offset) {
-        self.right = view.x - offset;
-    }
-}
-
 - (void)ensureLeftIsNotCloserThan:(CGFloat)offset toView:(UIView *)view
 {
     if (self.x - view.right < offset) {
@@ -562,13 +669,60 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     }
 }
 
+- (void)ensureLeftIsNotCloserThanOffsetToSuperview:(CGFloat)offset
+{
+    if (self.x < offset) {
+        self.x = offset;
+    }
+}
+
+- (void)ensureRightIsNotCloserThan:(CGFloat)offset toView:(UIView *)view
+{
+    if (view.x - self.right < offset) {
+        self.right = view.x - offset;
+    }
+}
+
+- (void)ensureRightIsNotCloserThanOffsetToSuperview:(CGFloat)offset
+{
+    if (self.width - self.right < offset) {
+        self.right = self.width - offset;
+    }
+}
+
+- (void)ensureMovedBottomIsNotCloserThan:(CGFloat)offset toView:(UIView *)view
+{
+    if (self.movedBottom + offset > view.y) {
+        self.movedBottom = view.y - offset;
+    }
+}
+
+- (void)ensureMovedBottomIsNotCloserThanToSuperview:(CGFloat)offset
+{
+    if (self.movedBottom + offset > self.superview.height) {
+        self.movedBottom = self.superview.height - offset;
+    }
+}
+
+
 //-------------------------------------------------------------------------------------------
 #pragma mark - Centering
 //-------------------------------------------------------------------------------------------
 
+- (void)centerInSuperview
+{
+    [self centerHorizontallyInSuperview];
+    [self centerVerticallyInSuperview];
+}
+
 - (void)centerHorizontallyInSuperview
 {
     self.centerX = self.superview.boundsWidth/2;
+}
+
+- (void)centerHorizontallyInSuperviewWithOffset:(CGFloat)offset
+{
+    self.centerX = self.superview.boundsWidth/2 + offset;
 }
 
 - (void)centerVerticallyInSuperview
@@ -576,10 +730,9 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     self.centerY = self.superview.boundsHeight/2;
 }
 
-- (void)centerInSuperview
+- (void)centerVerticallyInSuperviewWithOffset:(CGFloat)offset
 {
-    [self centerHorizontallyInSuperview];
-    [self centerVerticallyInSuperview];
+    self.centerY = self.superview.boundsHeight/2 + offset;
 }
 
 - (void)centerHorizontallyBetweenSuperviewAndView:(UIView *)view
@@ -949,6 +1102,48 @@ const OSInsets OSInsetsZero = {{0}, {0}};
     for (UIView *view in self.subviews) {
         [view centerVerticallyInSuperview];
     }
+}
+
+- (void)subviewsDistributeHorizontally:(NSArray<UIView *> *)views spacing:(CGFloat)spacing insets:(OSInsets)insets
+{
+    if (views.count == 0) {
+        return;
+    }
+
+    CGFloat x = insets.left;
+    CGFloat width = self.width - insets.left - insets.right;
+    CGFloat elementWidth = CCUIRound((width - (views.count - 1)*spacing) / views.count);
+
+    for (UIView *view in views) {
+        view.x = x;
+        view.width = elementWidth;
+        x += view.width + spacing;
+    }
+}
+
+- (void)subviewsDistributeHorizontally:(NSArray<UIView *> *)views spacing:(CGFloat)spacing
+{
+    [self subviewsDistributeHorizontally:views spacing:spacing insets:OSInsetsZero];
+}
+
+- (void)subviewsDistributeHorizontally:(NSArray<UIView *> *)views insets:(OSInsets)insets
+{
+    [self subviewsDistributeHorizontally:views spacing:0 insets:insets];
+}
+
+- (void)subviewsDistributeHorizontallyWithSpacing:(CGFloat)spacing insets:(OSInsets)insets
+{
+    [self subviewsDistributeHorizontally:self.subviews spacing:spacing insets:insets];
+}
+
+- (void)subviewsDistributeHorizontallyWithSpacing:(CGFloat)spacing
+{
+    [self subviewsDistributeHorizontallyWithSpacing:spacing insets:OSInsetsZero];
+}
+
+- (void)subviewsDistributeHorizontallyWithInsets:(OSInsets)insets
+{
+    [self subviewsDistributeHorizontallyWithSpacing:0 insets:insets];
 }
 
 - (CGFloat)subviewsMaxWidth:(NSArray<UIView *> *)views
