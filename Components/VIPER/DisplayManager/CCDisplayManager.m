@@ -16,6 +16,7 @@
 #import "MTTimingFunctions.h"
 #import <UIView+MTAnimation.h>
 #import "CCMacroses.h"
+#import "NSMutableArray+CCSafeAddRemove.h"
 
 
 @implementation CCDisplayManager
@@ -78,8 +79,12 @@
         frame.origin.x = frame.size.width;
         window.rootViewController.view.frame = frame;
 
+        NSMutableArray<UIView *> *views = NSMutableArray.new;
+        [views cc_safeAddObject:window.rootViewController.view];
+        [views cc_safeAddObject:snapShot];
+        [views cc_safeAddObject:darkenView];
 
-        [UIView mt_animateWithViews:@[window.rootViewController.view, snapShot, darkenView]
+        [UIView mt_animateWithViews:views
                            duration:duration
                      timingFunction:MTTimingFunctionEaseOutExpo animations:^{
                     CGRect snapshotFrame = snapShot.frame;
