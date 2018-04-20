@@ -225,7 +225,7 @@
         item.current = [self.environment.filename isEqualToString:item.environment.filename];
         item.modified = [self isModifiedEnvironment:item.environment];
 
-        BOOL canDelete = !item.current && (item.modified || [item.environment canDelete]);
+        BOOL canDelete = item.modified || [item.environment canDelete];
 
         item.editingStyle = canDelete ? UITableViewCellEditingStyleDelete : UITableViewCellEditingStyleNone;
     }
@@ -320,6 +320,11 @@
                 [self onResetEnvironment:resetItem.environment];
                 [self.tableView setEditing:NO animated:YES];
             } else {
+                if (resetItem.current) {
+                    //Selecting first environemnt after deletion
+                    let environemnt = [[[self.environment class] availableEnvironments] firstObject];
+                    [self onSelectEnvironment:environemnt];
+                }
                 [resetItem.environment delete];
                 pFunction();
             }
