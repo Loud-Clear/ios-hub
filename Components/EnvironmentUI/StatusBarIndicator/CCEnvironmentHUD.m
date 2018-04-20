@@ -53,7 +53,7 @@
 
 - (void)setup
 {
-    [self observe:_currentEnvironment keys:[_currentEnvironment cc_titleNames] action:@selector(update)];
+    [self observe:_currentEnvironment keys:[_currentEnvironment cc_presentingNameKeys] action:@selector(update)];
 
     [self update];
 }
@@ -72,9 +72,9 @@
 - (void)update
 {
     if (_position == NSTextAlignmentLeft) {
-        [CCStatusBarHUD sharedHUD].statusLabelLeft.text = [_currentEnvironment cc_presentingName];;
+        [CCStatusBarHUD sharedHUD].statusLabelLeft.text = [_currentEnvironment cc_presentingNameHUD];
     } else if (_position == NSTextAlignmentRight) {
-        [CCStatusBarHUD sharedHUD].statusLabelRight.text = [_currentEnvironment cc_presentingName];;
+        [CCStatusBarHUD sharedHUD].statusLabelRight.text = [_currentEnvironment cc_presentingNameHUD];
     }
 }
 

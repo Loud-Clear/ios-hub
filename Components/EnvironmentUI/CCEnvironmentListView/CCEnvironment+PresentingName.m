@@ -14,7 +14,12 @@
 
 @implementation CCEnvironment (PresentingName)
 
-- (NSString *)cc_presentingName
+- (NSString *)cc_presentingNameHUD
+{
+    return [self cc_presentingNameEditor];
+}
+
+- (NSString *)cc_presentingNameEditor
 {
     if ([self respondsToSelector:@selector(name)]) {
         id name = [self valueForKey:@"name"];
@@ -25,7 +30,7 @@
     return self.filename;
 }
 
-- (NSArray *)cc_titleNames
+- (NSArray *)cc_presentingNameKeys
 {
     NSMutableArray *titles = [[NSMutableArray alloc] initWithObjects:@"filename", nil];
     if ([self respondsToSelector:@selector(name)]) {

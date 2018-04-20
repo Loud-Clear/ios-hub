@@ -52,7 +52,7 @@
     _envObserver = [[CCObjectObserver alloc] initWithObject:item.environment observer:self];
     _itemObserver = [[CCObjectObserver alloc] initWithObject:item observer:self];
 
-    [_envObserver observeKeys:[item.environment cc_titleNames] withAction:@selector(updateTitle)];
+    [_envObserver observeKeys:[item.environment cc_presentingNameKeys] withAction:@selector(updateTitle)];
     [_itemObserver observeKeys:@[@"current", @"modified"] withAction:@selector(updateTitle)];
 }
 
@@ -67,7 +67,7 @@
 
 - (void)updateTitle
 {
-    NSString *text = [self.item.environment cc_presentingName];
+    NSString *text = [self.item.environment cc_presentingNameEditor];
     if (self.item.modified) {
         text = [text stringByAppendingString:@" [modified]"];
     }
