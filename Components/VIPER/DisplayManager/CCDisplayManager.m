@@ -65,37 +65,43 @@
         CCSafeCall(change);
     } else if (animation == CCDisplayManagerTransitionAnimationPush) {
         CGFloat duration = 0.55;
-        UIView *snapShot = [window snapshotViewAfterScreenUpdates:YES];
+        UIView *snapShotView = [window snapshotViewAfterScreenUpdates:YES];
 
-        UIView *darkenView = [[UIView alloc] initWithFrame:snapShot.bounds];
+        UIView *darkenView = [[UIView alloc] initWithFrame:snapShotView.bounds];
         darkenView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
-        [snapShot addSubview:darkenView];
+        [snapShotView addSubview:darkenView];
 
         CCSafeCall(change);
 
-        [[window.rootViewController.view superview] insertSubview:snapShot atIndex:0];
+        [[window.rootViewController.view superview] insertSubview:snapShotView atIndex:0];
 
         CGRect frame = window.rootViewController.view.frame;
         frame.origin.x = frame.size.width;
         window.rootViewController.view.frame = frame;
 
         NSMutableArray<UIView *> *views = NSMutableArray.new;
+
+        NSAssert(window.rootViewController.view != nil, nil);
         [views cc_safeAddObject:window.rootViewController.view];
-        [views cc_safeAddObject:snapShot];
+
+        NSAssert(snapShotView != nil, nil);
+        [views cc_safeAddObject:snapShotView];
+
+        NSAssert(darkenView != nil, nil);
         [views cc_safeAddObject:darkenView];
 
         [UIView mt_animateWithViews:views
                            duration:duration
                      timingFunction:MTTimingFunctionEaseOutExpo animations:^{
-                    CGRect snapshotFrame = snapShot.frame;
-                    snapshotFrame.origin.x = -snapShot.frame.size.width / 3;
-                    snapShot.frame = snapshotFrame;
+                    CGRect snapshotFrame = snapShotView.frame;
+                    snapshotFrame.origin.x = -snapShotView.frame.size.width / 3;
+                    snapShotView.frame = snapshotFrame;
 
                     CGRect rootControllerFrame = window.rootViewController.view.frame;
                     rootControllerFrame.origin.x = 0;
                     window.rootViewController.view.frame = rootControllerFrame;
                 }        completion:^{
-                    [snapShot removeFromSuperview];
+                    [snapShotView removeFromSuperview];
                 }];
 
         [UIView animateWithDuration:duration animations:^{

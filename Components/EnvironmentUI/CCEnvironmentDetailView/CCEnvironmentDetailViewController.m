@@ -78,7 +78,7 @@
     _environment = environment;
 
     _envObserver = [[CCObjectObserver alloc] initWithObject:environment observer:self];
-    [_envObserver observeKeys:[environment cc_presentingNameKeys] withAction:@selector(updateTitle)];
+    [_envObserver observeKeys:[environment cc_titleNames] withAction:@selector(updateTitle)];
 
     [self setupItems];
 }
@@ -136,7 +136,7 @@
 
 - (void)updateTitle
 {
-    self.titleLabel.text = [NSString stringWithFormat:@"Edit '%@'", [self.environment cc_presentingNameEditor]];
+    self.titleLabel.text = [NSString stringWithFormat:@"Edit '%@'", [self.environment cc_presentingName]];
     [self.titleLabel sizeToFit];
     [self.toolbar setNeedsLayout];
 }
