@@ -14,10 +14,7 @@
 
 @interface CCEnvironment (PresentingName)
 
-- (NSString *)cc_presentingNameHUD;
+- (NSString *)cc_presentingName;
 
-- (NSString *)cc_presentingNameEditor;
-
-- (NSArray *)cc_presentingNameKeys;
-
+- (NSArray *)cc_titleNames;
 @end

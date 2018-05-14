@@ -10,6 +10,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #import <UIKit/UIKit.h>
+#import <ComponentsHub/UIView+Positioning.h>
 #import "UIView+Positioning.h"
 #import "CCUIRound.h"
 
@@ -374,6 +375,14 @@ const OSInsets OSInsetsZero = {{0}, {0}};
         self.centerX = value;
     } else if (attr == OSAttrCenterY) {
         self.centerY = value;
+    } else if (attr == OSAttrWidth) {
+        self.width = value;
+    } else if (attr == OSAttrHeight) {
+        self.height = value;
+    } else if (attr == OSAttrBoundsWidth) {
+        self.boundsWidth = value;
+    } else if (attr == OSAttrBoundsHeight) {
+        self.boundsHeight = value;
     } else if (attr == OSAttrMovedLeft) {
         self.movedX = value;
     } else if (attr == OSAttrMovedRight) {
@@ -407,6 +416,14 @@ const OSInsets OSInsetsZero = {{0}, {0}};
         return self.centerX;
     } else if (attr == OSAttrCenterY) {
         return self.centerY;
+    } else if (attr == OSAttrWidth) {
+        return self.width;
+    } else if (attr == OSAttrHeight) {
+        return self.height;
+    } else if (attr == OSAttrBoundsWidth) {
+        return self.boundsWidth;
+    } else if (attr == OSAttrBoundsHeight) {
+        return self.boundsHeight;
     } else if (attr == OSAttrMovedLeft) {
         return self.movedX;
     } else if (attr == OSAttrMovedRight) {
