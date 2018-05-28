@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TyphoonRestClient.h"
+#import "CCRestClient+Environment.h"
 
 @class CCConnectionLogger;
 
@@ -20,15 +21,15 @@
 - (void)setupClient;
 
 @property (nonatomic) NSURL *baseUrl;
+
+// Logging
 @property (nonatomic) BOOL logging;
-
-@property (nonatomic) id<TRCConnection> rawConnection;
-@property (nonatomic) TRCConnectionProxy *connectionProxy;
-@property (nonatomic) TRCConnectionProxy *sessionInjectingConnection __deprecated_msg("Deprecated - Use `connectionProxy`");
-
 @property (nonatomic) BOOL shouldLogUploadProgress;
 @property (nonatomic) BOOL shouldLogDownloadProgress;
 
+@property (nonatomic) NSString *debugName;
+
+- (instancetype)initWithConnection:(id<TRCConnection>)connection;
 
 /** Methods to override */
 
