@@ -119,6 +119,7 @@ NSString *CCEnvironmentStorageDidDeleteNotification = @"CCEnvironmentStorageDidD
         self.environmentClass = clazz;
 
         [self setupUserDefaultsStorage];
+        [self cleanUserDefaultsJunk];
 
         [self loadFromPlistToUserDefaultsWhereEmpty];
         [self loadUserDefaultsToMemory];
@@ -231,6 +232,27 @@ NSString *CCEnvironmentStorageDidDeleteNotification = @"CCEnvironmentStorageDidD
 //-------------------------------------------------------------------------------------------
 #pragma mark - User Defaults
 //-------------------------------------------------------------------------------------------
+
+- (void)cleanUserDefaultsJunk
+{
+    CCOrderedDictionary *environmentsInUserDefaults = [_userDefaultsStorage getObject];
+    NSMutableArray *keysToDelete = [NSMutableArray new];
+    
+    BOOL(^isCorrectString)(NSString *) = ^(NSString *string) {
+        return (BOOL)([string isKindOfClass:[NSString class]] && string.length > 0);
+    };
+    
+    [environmentsInUserDefaults enumerateKeysAndObjectsUsingBlock:^(NSString *name, __kindof CCEnvironment *environment, BOOL *stop) {
+        if (!isCorrectString(name) || !isCorrectString(environment.name)) {
+            [keysToDelete addObject:name];
+        }
+    }];
+    
+    for (NSString *key in keysToDelete) {
+        [environmentsInUserDefaults removeObjectForKey:key];
+    }
+    [_userDefaultsStorage saveObject:environmentsInUserDefaults];
+}
 
 - (void)loadUserDefaultsToMemory
 {

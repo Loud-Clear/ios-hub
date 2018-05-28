@@ -184,18 +184,25 @@
     [output appendString:@"<======================================================================================================<\n"];
     [output appendFormat:@"RESPONSE | id: %lu | %@ | request time: %@", (unsigned long) request, [[request.URL absoluteString] stringByRemovingPercentEncoding], [self stringFromDuration:duration]];
     [output appendString:@"\n<------------------------------------------------------------------------------------------------------<"];
+    
     [output appendFormat:@"\n%ld (%@)", (long) responseInfo.response.statusCode,
-                         [[NSHTTPURLResponse localizedStringForStatusCode:responseInfo.response.statusCode]
-                                 capitalizedString]];
+     [[NSHTTPURLResponse localizedStringForStatusCode:responseInfo.response.statusCode]
+      capitalizedString]];
     if (self.shouldLogHeaders) {
         [output appendString:[self httpHeadersString:responseInfo.response.allHeaderFields]];
     }
-
+    
     if ([responseInfo responseData]) {
         [output appendString:@"\n<------------------------------------------------------------------------------------------------------<"];
         NSString *description = [[NSString alloc] initWithData:[responseInfo responseData] encoding:NSUTF8StringEncoding];
         [output appendFormat:@"\n%@", description];
     }
+    
+    if (error && responseInfo.response.statusCode == 0) {
+        [output appendString:@"\n<------------------------------------------------------------------------------------------------------<"];
+        [output appendFormat:@"\nERROR: %@", error];
+    }
+    
     [output appendString:@"\n<======================================================================================================<\n"];
 
     [self printString:output];
