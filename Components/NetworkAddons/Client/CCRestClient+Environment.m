@@ -8,6 +8,7 @@
 
 #import "CCRestClient+Environment.h"
 #import "CCObjectObserver.h"
+#import "CCMacroses.h"
 
 @implementation CCRestClient (Environment)
 

@@ -11,7 +11,6 @@
 
 #import <Foundation/Foundation.h>
 #import "TyphoonRestClient.h"
-#import "CCRestClient+Environment.h"
 
 @class CCConnectionLogger;
 
