@@ -14,8 +14,23 @@
 
 - (void)setBaseUrlFromEnvironment:(CCEnvironment *)environment keyPath:(NSString *)keyPath
 {
-    CCObjectObserver *observer = [[CCObjectObserver alloc]initWithObject:environment observer:nil];
-    [observer connectKey:keyPath to:@"baseUrl" on:self];
+    CCObjectObserver *observer = [[CCObjectObserver alloc] initWithObject:environment observer:nil];
+    
+    @weakify(self)
+    void(^updateBlock)() = ^{
+        @strongify(self)
+        NSURL *baseUrl = nil;
+        id value = [environment valueForKeyPath:keyPath];
+        if ([value isKindOfClass:[NSString class]]) {
+            baseUrl = [NSURL URLWithString:value];
+        } else if ([value isKindOfClass:[NSURL class]]) {
+            baseUrl = value;
+        }
+        self.baseUrl = baseUrl;
+    };
+    
+    [observer observeKeys:@[keyPath] withBlock:updateBlock];
+    updateBlock();
     
     CCSetAssociatedObject("baseUrlObserver", observer);
 }
