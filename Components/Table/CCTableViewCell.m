@@ -88,6 +88,10 @@
     if ([self.tableViewManager.style hasCustomSelectedBackgroundImage]) {
         [self addSelectedBackgroundImage];
     }
+    
+    self.textLabel.backgroundColor = [UIColor clearColor];
+    self.backgroundColor = [UIColor clearColor];
+    self.contentView.backgroundColor = [UIColor clearColor];
 }
 
 - (void)cellWillAppear
