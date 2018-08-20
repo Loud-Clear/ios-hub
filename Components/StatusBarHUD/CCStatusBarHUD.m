@@ -76,9 +76,9 @@ NSString * CCViewControllerNeedsStatusBarAppearanceNotification = @"cc_setNeedsS
         [self setupLeftLabel];
         [self setupRightLabel];
 
-        [self registerForNotification:CCViewControllerNeedsStatusBarAppearanceNotification selector:@selector(updateColor)];
+        [self registerForNotification:CCViewControllerNeedsStatusBarAppearanceNotification selector:@selector(updateStatusBarAppearance)];
 
-        [self updateColor];
+        [self updateStatusBarAppearance];
     }
     return self;
 }
@@ -159,6 +159,18 @@ NSString * CCViewControllerNeedsStatusBarAppearanceNotification = @"cc_setNeedsS
         statusBarSize = CGSizeMake(statusBarSize.height, statusBarSize.width);
     }
     return CGRectMake(0, 0, statusBarSize.width, statusBarSize.height);
+}
+
+- (void)updateStatusBarAppearance
+{
+    [self updateColor];
+    [self updateFrameAndVisibility];
+}
+
+- (void)updateFrameAndVisibility
+{
+    self.hidden = [[UIApplication sharedApplication] isStatusBarHidden];
+    self.frame = [self hudViewFrame];
 }
 
 - (void)updateColor
